@@ -10,7 +10,30 @@
   const mount = document.getElementById("documents-mount");
   if (!mount || typeof DOCUMENTS === "undefined") return;
 
-  mount.innerHTML = DOCUMENTS.map(function (doc) {
+  /* --- 프로젝트 필터 (documents.html?project=… ) ------------------------
+     기록 페이지의 시기 필터와 같은 방식입니다.                            */
+  const key = param("project");
+  const info = (key && typeof DOC_PROJECTS !== "undefined") ? DOC_PROJECTS[key] : null;
+  const rows = key ? DOCUMENTS.filter(function (d) { return d.project === key; }) : DOCUMENTS;
+
+  const bar = document.getElementById("documents-filter");
+  if (bar) {
+    if (key && rows.length) {
+      const name = info || { ko: key, en: key };
+      const label = { ko: name.ko + " · " + rows.length + "종",
+                      en: name.en + " · " + rows.length };
+      bar.innerHTML =
+        '<span class="cat-filter-label" ' + bi(label) + ">" + esc(label.ko) + "</span>" +
+        '<a class="cat-filter-clear" href="documents.html" ' +
+          'data-ko="× 전체 보기" data-en="× See all">× 전체 보기</a>';
+      bar.hidden = false;
+    } else {
+      bar.innerHTML = "";
+      bar.hidden = true;
+    }
+  }
+
+  mount.innerHTML = rows.map(function (doc) {
     const title = { ko: doc.title_ko, en: doc.title_en || doc.title_ko };
 
     const cover = doc.cover
@@ -41,8 +64,12 @@
   /* 개수 */
   const count = document.getElementById("documents-count");
   if (count) {
-    count.setAttribute("data-ko", "전체 " + DOCUMENTS.length + "권");
-    count.setAttribute("data-en", DOCUMENTS.length + " publications");
-    count.textContent = "전체 " + DOCUMENTS.length + "권";
+    const label = (key && info)
+      ? { ko: info.ko + " · " + rows.length + "종 (전체 " + DOCUMENTS.length + ")",
+          en: info.en + " · " + rows.length + " of " + DOCUMENTS.length }
+      : { ko: "전체 " + DOCUMENTS.length + "권", en: DOCUMENTS.length + " publications" };
+    count.setAttribute("data-ko", label.ko);
+    count.setAttribute("data-en", label.en);
+    count.textContent = label.ko;
   }
 })();

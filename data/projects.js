@@ -194,7 +194,8 @@ const PROJECTS = {
         { src: "05.jpg", w: 1600, h: 1067, span: 1 },
         { src: "06.jpg", w: 1600, h: 1067, span: 2 },
         { src: "07.jpg", w: 1600, h: 1067 },
-        { src: "08.jpg", w: 1600, h: 1067 }
+        { src: "08.jpg", w: 1600, h: 1067 },
+        { src: "09.jpg", w: 1600, h: 1067 }
       ]
     },
 
@@ -225,7 +226,7 @@ const PROJECTS = {
     links: {
       label: { ko: "자료집", en: "Publications" },
       items: [
-        { ko: "자료집 모아 보기", en: "See the publications", url: "documents.html" }
+        { ko: "자료집 3종 보기", en: "3 publications", url: "documents.html?project=dance-techlab" }
       ]
     },
 
