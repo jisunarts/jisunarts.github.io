@@ -27,6 +27,11 @@
                      { ko: "사진", en: "Photographs" };
   const gallery = photoData.map(function (m) { return BASE + photoDir + m.src; });
 
+  /* width·height 를 미리 적어 두면 사진이 뜨기 전에도 자리가 잡힙니다 */
+  function size(m) {
+    return (m && m.w && m.h) ? ' width="' + m.w + '" height="' + m.h + '"' : "";
+  }
+
   /* 소제목 한 줄 */
   function head(label) {
     return '<h2 class="pj-label" ' + bi(label) + ">" + esc(label.ko) + "</h2>";
@@ -76,7 +81,8 @@
      media: [{ src, span, caption }, { type:"video", src, span }]
      span 1~4 = 4칸 격자에서 차지하는 칸 수                                */
   const spanned = photoData
-    .map(function (m, i) { return { src: photoDir + m.src, span: m.span, caption: m.caption, i: i }; })
+    .map(function (m, i) { return { src: photoDir + m.src, span: m.span, caption: m.caption,
+                                    w: m.w, h: m.h, i: i }; })
     .filter(function (m) { return m.span; });
 
   const mediaItems = (p.media || []).concat(spanned);
@@ -99,7 +105,8 @@
               'target="_blank" rel="noopener">' +
               '<span class="pj-play" data-ko="▶ 영상 보기" data-en="▶ Watch">▶ 영상 보기</span></a>';
       } else {
-        inner = '<img src="' + BASE + esc(m.src) + '" alt="' + esc(m.alt || "") + '" loading="lazy">';
+        inner = '<img src="' + BASE + esc(m.src) + '" alt="' + esc(m.alt || "") + '"' +
+          size(m) + ' loading="lazy">';
       }
 
       return '<li data-span="' + span + '">' + inner +
@@ -226,7 +233,8 @@
         '<ul class="pj-slides" id="pj-slides-track">' +
           gallery.map(function (src, i) {
             return '<li><button type="button" data-shot="' + i + '">' +
-              '<img src="' + esc(src) + '" alt="" loading="lazy"></button></li>';
+              '<img src="' + esc(src) + '" alt=""' + size(photoData[i]) + ' loading="lazy">' +
+            "</button></li>";
           }).join("") +
         "</ul>" +
         '<div class="pj-slide-bar">' +
