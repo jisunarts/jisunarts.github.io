@@ -57,6 +57,27 @@ const PROJECTS = {
       note: "초기 네 번의 캠프(2014 · 2015 · 2016 · 2017)는 한국 · 대만 · 일본 · 호주의 민관 협력으로 운영되었고, APP 기획팀이 각 지역의 재단 · 기관 · 극장과 함께 제작했다. 2018년 APP는 더 유연한 모델로 전환해, 캠프를 아시아의 더 넓은 지역에서 열기 시작했다."
     },
 
+
+    /* 사진 — span 이 붙은 6장은 오른쪽 격자에, 나머지 4장은 슬라이드에만.
+       caption 은 아직 비어 있습니다 (필요하면 각 줄에 caption: "…" 추가). */
+    photos: {
+      label: { ko: "사진", en: "Photographs" },
+      dir: "img/works/app/",
+      credit: "",
+      items: [
+        { src: "01.jpg", w: 1200, h: 890, span: 4 },
+        { src: "02.jpg", w: 1200, h: 800, span: 2 },
+        { src: "03.jpg", w: 1200, h: 800, span: 2 },
+        { src: "04.jpg", w: 1200, h: 800, span: 1 },
+        { src: "05.jpg", w: 1200, h: 800, span: 1 },
+        { src: "06.jpg", w: 1200, h: 800, span: 2 },
+        { src: "07.jpg", w: 1600, h: 1067 },
+        { src: "08.jpg", w: 1600, h: 1067 },
+        { src: "09.jpg", w: 593, h: 308 },
+        { src: "10.jpg", w: 1280, h: 960 }
+      ]
+    },
+
     credits: {
       label: { ko: "창립과 협력", en: "Founding & Partners" },
       rows: [
@@ -77,8 +98,6 @@ const PROJECTS = {
           url: "https://www.instagram.com/asianproducersplatform/" }
       ]
     },
-
-    /* TODO — 캠프 사진이 생기면 여기에 (dir + items), photos.credit 에 출처 */
 
     tags: ["국제협력", "아시아연대", "이동성", "독립수평", "제도와공공성"]
   },

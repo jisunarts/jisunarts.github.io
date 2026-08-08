@@ -154,6 +154,7 @@ const NOW = [
     year: "2014–",
     role: "공동 창립 · 기획팀",
     partner: "아시아 독립 프로듀서 네트워크",
+    cover: "img/works/app/01.jpg",
     page: "projects/app.html",
     summary: "아시아에서 일하는 독립 프로듀서들이 동료로서 서로를 잇기 위해 만든 수평적 네트워크.",
     tags: ["국제협력", "아시아연대", "이동성", "독립수평", "제도와공공성"],
