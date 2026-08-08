@@ -70,6 +70,7 @@ const NOW = [
     artist: "크리스 부시 작 · 전윤환 연출 · 앤드씨어터",
     role: "드라마투르그",
     cover: "img/works/not-the-end/not-the-end-poster.jpg",
+    page: "projects/not-the-end-of-the-world.html",
     detail: {
       photoCredit: "",
       runs: [
@@ -113,6 +114,7 @@ const NOW = [
     artist: "황수현 컨셉·안무·출연",
     role: "크리에이티브 프로듀서",
     cover: "img/works/hihihistory/hihihistory-poster.jpg",
+    page: "projects/hihihistory.html",
     detail: {
       photoCredit: "",
       runs: [

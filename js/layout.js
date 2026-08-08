@@ -51,7 +51,13 @@ const BASE = (document.body && document.body.dataset.base) || "";
           "</a>" +
         "</div>" +
 
-        '<nav class="nav" id="main-nav" aria-label="주요 메뉴">' + links + "</nav>" +
+        '<nav class="nav" id="main-nav" aria-label="주요 메뉴">' +
+          '<button type="button" class="nav-close" id="nav-close" aria-label="메뉴 닫기">' +
+            '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+              '<path d="M5 5 L19 19 M19 5 L5 19"/></svg>' +
+          "</button>" +
+          links +
+        "</nav>" +
 
         '<div class="lang">' +
           '<button type="button" data-lang-set="ko" aria-pressed="false">KO</button>' +
@@ -60,17 +66,37 @@ const BASE = (document.body && document.body.dataset.base) || "";
         "</div>" +
 
         '<button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" ' +
-          'aria-controls="main-nav" aria-label="메뉴 열기"><span></span></button>' +
+          'aria-controls="main-nav" aria-label="메뉴">' +
+          '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+            '<path d="M3 6h18 M3 12h18 M3 18h18"/></svg>' +
+        "</button>" +
       "</div>" +
     "</header>";
 
-  /* 모바일 메뉴 열고 닫기 */
+  /* 모바일 메뉴 — 전체 화면 오버레이 */
   const toggle = document.getElementById("nav-toggle");
-  const nav = document.getElementById("main-nav");
+  const nav    = document.getElementById("main-nav");
+
+  function setMenu(open) {
+    toggle.setAttribute("aria-expanded", String(open));
+    nav.dataset.open = String(open);
+    document.body.style.overflow = open ? "hidden" : "";
+    if (open) document.getElementById("nav-close").focus();
+    else toggle.focus();
+  }
+
   toggle.addEventListener("click", function () {
-    const open = toggle.getAttribute("aria-expanded") === "true";
-    toggle.setAttribute("aria-expanded", String(!open));
-    nav.dataset.open = String(!open);
+    setMenu(toggle.getAttribute("aria-expanded") !== "true");
+  });
+
+  /* 닫기 버튼 · 항목을 누르면 이동하며 닫힘 */
+  nav.addEventListener("click", function (e) {
+    if (e.target.closest("#nav-close") || e.target.closest("a")) setMenu(false);
+  });
+
+  /* Esc 로도 닫힘 */
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") setMenu(false);
   });
 })();
 

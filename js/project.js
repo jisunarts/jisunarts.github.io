@@ -26,7 +26,9 @@
   const photoLabel = (p.photos && p.photos.label) || (p.gallery && p.gallery.label) ||
                      { ko: "사진", en: "Photographs" };
   const photoCredit = (p.photos && p.photos.credit) || "";
-  const gallery = photoData.map(function (m) { return BASE + photoDir + m.src; });
+  const gallery = photoData
+    .filter(function (m) { return m.type !== "video" && m.src; })
+    .map(function (m) { return BASE + photoDir + m.src; });
 
   /* width·height 를 미리 적어 두면 사진이 뜨기 전에도 자리가 잡힙니다 */
   function size(m) {
@@ -82,7 +84,8 @@
      media: [{ src, span, caption }, { type:"video", src, span }]
      span 1~4 = 4칸 격자에서 차지하는 칸 수                                */
   const spanned = photoData
-    .map(function (m, i) { return { src: photoDir + m.src, span: m.span, caption: m.caption,
+    .map(function (m, i) { return { src: m.src ? photoDir + m.src : "", span: m.span,
+                                    caption: m.caption, type: m.type, id: m.id,
                                     w: m.w, h: m.h, i: i }; })
     .filter(function (m) { return m.span; });
 
@@ -95,16 +98,13 @@
       let inner;
 
       if (m.type === "video") {
-        const local = window.location.protocol === "file:";
-        inner = (m.src && !local)
-          ? '<span class="pj-media-video"><iframe src="' + esc(m.src) + '" ' +
-              'title="' + esc(m.caption || p.title) + '" ' +
-              'allow="encrypted-media; picture-in-picture; web-share" ' +
-              'referrerpolicy="strict-origin-when-cross-origin" ' +
-              'allowfullscreen loading="lazy"></iframe></span>'
-          : '<a class="pj-media-video is-link" href="' + esc(m.watch || m.src || "#") + '" ' +
-              'target="_blank" rel="noopener">' +
-              '<span class="pj-play" data-ko="▶ 영상 보기" data-en="▶ Watch">▶ 영상 보기</span></a>';
+        const id = m.id;
+        inner = '<button type="button" class="pj-video-facade" data-video="' + esc(id) + '" ' +
+            'aria-label="영상 재생">' +
+            '<img src="https://img.youtube.com/vi/' + esc(id) + '/maxresdefault.jpg" alt="" ' +
+              'width="1280" height="720" loading="lazy">' +
+            '<span class="pj-play" aria-hidden="true">▶</span>' +
+          "</button>";
       } else {
         inner = '<img src="' + BASE + esc(m.src) + '" alt="' + esc(m.alt || "") + '"' +
           size(m) + ' loading="lazy">';
@@ -140,14 +140,15 @@
       "</div></section>";
   });
 
-  /* 접어 두는 글 (안무가 노트 등) ---------------------------------------- */
-  if (p.note) {
+  /* 접어 두는 글 (안무가 소개 · 작가 소개 등) — 여러 개 가능 ------------- */
+  const notes = p.notes || (p.note ? [p.note] : []);
+  notes.forEach(function (n) {
     html += '<section class="pj-section"><details class="pj-note">' +
-      "<summary " + bi(p.note.label) + ">" + esc(p.note.label.ko) + "</summary>" +
+      "<summary " + bi(n.label) + ">" + esc(n.label.ko) + "</summary>" +
       '<div class="pj-body">' +
-        p.note.paras.map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("") +
+        n.paras.map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("") +
       "</div></details></section>";
-  }
+  });
 
   /* 크레딧 -------------------------------------------------------------- */
   if (p.credits && p.credits.rows && p.credits.rows.length) {
@@ -221,7 +222,8 @@
 
   /* 사진 ---------------------------------------------------------------- */
   let galleryHtml = "";
-  if (gallery.length) {
+  const spannedPhotos = spanned.filter(function (m) { return m.type !== "video"; }).length;
+  if (gallery.length > spannedPhotos) {
     galleryHtml = '<section class="pj-section pj-photos">' +
       '<button type="button" class="pj-photos-toggle" id="pj-photos-toggle" ' +
         'aria-expanded="false" aria-controls="pj-slides">' +
@@ -268,6 +270,21 @@
         '<div class="pj-col-right">' + mediaHtml + galleryHtml + "</div>" +
       "</div>"
     : html;
+
+  /* 영상 — 처음엔 썸네일만, 누르면 그때 유튜브를 불러옵니다 */
+  mount.addEventListener("click", function (e) {
+    const btn = e.target.closest("[data-video]");
+    if (!btn) return;
+    const id = btn.dataset.video;
+    const box = document.createElement("span");
+    box.className = "pj-media-video";
+    box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
+      '?autoplay=1" title="' + esc(p.title) + ' 영상" ' +
+      'allow="autoplay; encrypted-media; picture-in-picture; web-share" ' +
+      'referrerpolicy="strict-origin-when-cross-origin" ' +
+      'allowfullscreen loading="lazy"></iframe>';
+    btn.replaceWith(box);
+  });
 
   /* 사진 슬라이드 — 접기 / 펼치기, 좌우 이동, 키보드, 스와이프 */
   const toggle = document.getElementById("pj-photos-toggle");

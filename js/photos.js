@@ -54,6 +54,14 @@
     return '<li class="ph-item"><div class="ph-card is-plain">' + inner + "</div></li>";
   }).join("");
 
+  /* 개수 — 페이지 맨 아래 */
+  const count = document.getElementById("photos-count");
+  if (count) {
+    count.setAttribute("data-ko", "전체 " + PHOTOS.length + "묶음");
+    count.setAttribute("data-en", PHOTOS.length + " sets");
+    count.textContent = "전체 " + PHOTOS.length + "묶음";
+  }
+
   /* --- 갤러리 열기 (창은 js/lightbox.js 공용) ---------------------------- */
 
   mount.addEventListener("click", function (e) {
