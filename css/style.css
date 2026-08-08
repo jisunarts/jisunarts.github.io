@@ -529,6 +529,15 @@ a.qb-row:hover .qb-title { text-decoration: underline; text-underline-offset: 3p
 a.now-card:hover .now-cover { border-color: var(--blue); box-shadow: inset 0 0 0 1px var(--blue); }
 a.now-card:hover .now-title { text-decoration: underline; text-underline-offset: 3px; }
 
+.now-summary { display: block; margin-top: 8px; font-size: 12.5px; line-height: 1.6; }
+
+.now-links { margin-top: 9px; }
+.now-links a {
+  font-size: 12.5px;
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.now-links a:hover { background: var(--blue); color: var(--paper); text-decoration: none; }
+
 .now-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 11px; }
 .now-tag {
   font-size: 11.5px; line-height: 1;

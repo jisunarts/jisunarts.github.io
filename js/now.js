@@ -46,6 +46,7 @@
         (it.year ? '<span class="now-year tnum">' + esc(it.year) + "</span>" : "") +
         '<span class="now-title" ' + bi(title) + ">" + esc(it.title_ko) + "</span>" + mark +
         credits +
+        (it.summary ? '<span class="now-summary">' + esc(it.summary) + "</span>" : "") +
       "</span>";
 
     const body = href
@@ -53,13 +54,21 @@
           (inside ? "" : ' target="_blank" rel="noopener"') + ">" + inner + "</a>"
       : '<div class="now-card is-plain">' + inner + "</div>";
 
+    /* 카드에 링크가 걸려 있지 않은 항목의 바깥 링크 */
+    const extra = ((it.detail && it.detail.links) || []).map(function (l) {
+      return '<a class="now-link" href="' + esc(l.url) + '" target="_blank" rel="noopener">' +
+        esc(l.label) + "</a>";
+    }).join("");
+
     const tags = (it.tags || []).map(function (t) {
       return '<a class="now-tag" href="by-question.html?tag=' + encodeURIComponent(t) + '">' +
         esc(t) + "</a>";
     }).join("");
 
     return '<li class="now-item' + (it.cover ? "" : " no-cover") + '">' +
-      body + (tags ? '<div class="now-tags">' + tags + "</div>" : "") +
+      body +
+      (extra ? '<div class="now-links">' + extra + "</div>" : "") +
+      (tags ? '<div class="now-tags">' + tags + "</div>" : "") +
     "</li>";
   }
 

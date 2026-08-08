@@ -217,14 +217,19 @@ const NOW = [
 
   {
     category: "프로젝트",
-    title_ko: "아시아 입과 눈",
+    title_ko: "아시아의 입과 눈",
     title_en: "With Asian Eyes, Through Asian Mouths",
     year: "2024–2026",
     role: "에코 드라마투르그",
     partner: "앤드씨어터",
+    summary: "1차 리서치 자료를 지도로 정리한 결과입니다.",
     tags: ["아시아연대", "이동성"],
     detail: {
-      photoCredit: "", media: [] }
+      photoCredit: "",
+      links: [
+        { label: "미얀마 리서치 맵 →", url: "https://jisunarts.github.io/myanmar-map/" }
+      ],
+      media: [] }
   },
 
   {
