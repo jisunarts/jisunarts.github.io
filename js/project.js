@@ -25,6 +25,7 @@
                     ((p.gallery && p.gallery.files || []).map(function (f) { return { src: f }; }));
   const photoLabel = (p.photos && p.photos.label) || (p.gallery && p.gallery.label) ||
                      { ko: "사진", en: "Photographs" };
+  const photoCredit = (p.photos && p.photos.credit) || "";
   const gallery = photoData.map(function (m) { return BASE + photoDir + m.src; });
 
   /* width·height 를 미리 적어 두면 사진이 뜨기 전에도 자리가 잡힙니다 */
@@ -243,6 +244,8 @@
           '<button type="button" class="pj-slide-nav" data-slide="next" aria-label="다음 사진">→</button>' +
         "</div>" +
       "</div>" +
+      /* 사진 출처 — 사진 영역 맨 아래 */
+      (photoCredit ? '<p class="pj-photo-credit">' + esc(photoCredit) + "</p>" : "") +
     "</section>";
   }
 

@@ -657,6 +657,9 @@ a.now-card:hover .now-title { text-decoration: underline; text-underline-offset:
 .pj-slide-nav:hover { background: var(--blue); color: var(--paper); }
 .pj-slide-count { font-size: 12.5px; }
 
+/* 사진 출처 — 사진 영역 맨 아래 */
+.pj-photo-credit { margin-top: 14px; font-size: 11px; opacity: 0.55; line-height: 1.5; }
+
 /* 상세 페이지 2단 — 왼쪽 글 40% / 오른쪽 미디어 60% */
 .pj-split {
   display: grid; grid-template-columns: 40fr 60fr;

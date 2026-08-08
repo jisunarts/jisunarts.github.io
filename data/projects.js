@@ -41,6 +41,7 @@ const PROJECTS = {
     },
 
     photos: {
+      credit: "사진 제공 한국문화예술위원회",
       label: { ko: "사진", en: "Photographs" },
       dir: "img/works/TNN/",
       items: [
@@ -87,6 +88,7 @@ const PROJECTS = {
     },
 
     photos: {
+      credit: "2025 무용기술 오픈위크 · 사진 제공 국립현대무용단",
       label: { ko: "사진", en: "Photographs" },
       dir: "img/works/dance-techlab/",
       items: [
@@ -258,6 +260,7 @@ const PROJECTS = {
        span 이 붙은 5장(1 · 2 · 3 · 4 · 15)이 오른쪽 격자에 그 순서대로 들어가고,
        20장 전부는 아래 '사진' 슬라이드에서 볼 수 있습니다.                   */
     photos: {
+      credit: "사진 박지선",
       label: { ko: "사진", en: "Photographs" },
       dir: "img/photos/ganghwa/",
       items: [
