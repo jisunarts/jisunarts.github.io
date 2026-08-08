@@ -6,6 +6,8 @@
               page(사이트 안 페이지) / url(외부 링크), detail(보관용) }
 
    · category 는 "공연" 또는 "프로젝트". 페이지가 이 값으로 두 묶음을 나눕니다.
+   · order 는 묶음 안에서의 표시 순서입니다 (작은 수가 위).
+     항목을 더할 때 order 만 정해 주면 자리가 흔들리지 않습니다.
    · page 나 url 이 없으면 카드에 링크가 걸리지 않습니다.
    · detail 은 지금 화면에 쓰이지 않는 보관용입니다.
      (강화도·sync 상세 페이지에 실제로 나오는 내용은 data/projects.js 에 있습니다.)
@@ -18,6 +20,7 @@ const NOW = [
   {
     category: "공연",
     id: "sync-de-sync",
+    order: 1,
     title_ko: "sync de sync 싱크 디 싱크",
     title_en: "sync de sync",
     year: "2025–2026",
@@ -66,6 +69,7 @@ const NOW = [
   {
     category: "공연",
     id: "not-the-end-of-the-world",
+    order: 2,
     title_ko: "세상의 종말이 (아닌)",
     title_en: "(Not) the End of the World",
     year: "2026",
@@ -112,6 +116,7 @@ const NOW = [
   {
     category: "공연",
     id: "hihihistory",
+    order: 3,
     title_ko: "히히히스토리",
     title_en: "hihihistory",
     year: "2026",
@@ -153,6 +158,7 @@ const NOW = [
   {
     category: "프로젝트",
     id: "app",
+    order: 4,
     title_ko: "아시아 프로듀서 플랫폼 (APP)",
     title_en: "Asian Producers' Platform",
     year: "2014–",
@@ -169,6 +175,7 @@ const NOW = [
   {
     category: "프로젝트",
     id: "ganghwa",
+    order: 1,
     title_ko: "⬡⬡의 섬 : 강화도",
     title_en: "Island of ⬡⬡ : Ganghwa",
     year: "2025–2026",
@@ -184,6 +191,7 @@ const NOW = [
   {
     category: "프로젝트",
     id: "dance-techlab",
+    order: 2,
     title_ko: "무용 × 기술 창작 랩",
     title_en: "Dance × Technology Creative Lab",
     year: "2021–",
@@ -207,6 +215,7 @@ const NOW = [
   {
     category: "프로젝트",
     id: "climate-residency",
+    order: 7,
     title_ko: "예술텃밭 예술가 레지던시 — 기후변화",
     title_en: "Arts Farm Tutbat Artist Residency — Climate Change",
     year: "2020–2022",
@@ -223,6 +232,7 @@ const NOW = [
   {
     category: "프로젝트",
     id: "tnn",
+    order: 3,
     title_ko: "TNN — The Next Normal",
     title_en: "TNN — The Next Normal",
     year: "2024–",
@@ -245,9 +255,10 @@ const NOW = [
   {
     category: "프로젝트",
     id: "asian-eyes",
+    order: 5,
     title_ko: "아시아의 입과 눈",
     title_en: "With Asian Eyes, Through Asian Mouths",
-    year: "2024–2026",
+    year: "2025–2027",
     role: "에코 드라마투르그",
     partner: "앤드씨어터",
     cover: "img/works/asian-eyes/01.jpg",
@@ -267,6 +278,7 @@ const NOW = [
   {
     category: "프로젝트",
     id: "aesthethics",
+    order: 6,
     title_ko: "Aesth:ethics",
     title_en: "Aesth:ethics — Exploring Global Codes, Artificial Intelligence, and Performing Arts",
     year: "2026–",

@@ -74,7 +74,9 @@
   }
 
   mount.innerHTML = GROUPS.map(function (g, i) {
-    const rows = NOW.filter(function (it) { return it.category === g.key; });
+    const rows = NOW.filter(function (it) { return it.category === g.key; })
+      .slice()
+      .sort(function (a, b) { return (a.order || 999) - (b.order || 999); });
     if (!rows.length) return "";
 
     return '<section class="now-group">' +
