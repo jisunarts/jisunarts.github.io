@@ -28,14 +28,54 @@
   --blue-pale:   #EAF1FC;                    /* 태그 알약 바탕 */
   --blue-pale-2: #DCE7FA;                    /* 태그에 손을 올렸을 때 */
 
-  --font: "Inter", "Noto Sans KR", -apple-system, BlinkMacSystemFont,
-          "Apple SD Gothic Neo", "Segoe UI", Roboto, sans-serif;
+  /* 서체 세 층 — 제목 / 본문 / 메타(숫자·코드·태그) */
+  --font-title: "Wanted Sans Variable", "Wanted Sans",
+                "Pretendard Variable", Pretendard,
+                -apple-system, "Apple SD Gothic Neo", sans-serif;
+  --font-body:  "Pretendard Variable", Pretendard,
+                -apple-system, "Apple SD Gothic Neo", sans-serif;
+  --font-meta:  "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --w-title: 600;
+  --w-body:  300;
+  --w-meta:  400;
 
   /* 왼쪽 여백 열 — 연도·번호·분류가 여기 놓이고 본문은 그 오른쪽에 정렬됩니다 */
   --gutter: 108px;
   --col-gap: 28px;
 
   --pad: 40px;                   /* 화면 좌우 여백 (전폭 레이아웃) */
+}
+
+/* 1-1) 서체 층 ----------------------------------------------------------
+   제목 층 = 메뉴 · 이름 · 페이지 제목 · 카드 제목 · 크레딧의 사람 이름
+   메타 층 = 연도 · 색인 코드 · 태그 · 크레딧 역할명 · 캡션 · 사진 출처 ·
+             하단 항목 수 · 섹션 번호 · KO/EN
+   나머지는 모두 본문 층(기본값)                                          */
+
+.nav a, .brand a,
+h1, h2, h3,
+.home-name, .index-title, .cat-title, .wr-title,
+.doc-title, .ph-title, .now-title, .qb-title, .qtext,
+.pj-edition-title, .links-label, .cat-group-title, .home-sec-head h2,
+.pj-credit-name {
+  font-family: var(--font-title);
+  font-weight: var(--w-title);
+}
+
+.meta, .tnum,
+.index-lead, .cat-code, .cat-year, .wr-date, .wr-kind,
+.now-year, .now-tag, .qb-tag, .keys,
+.doc-year, .ph-meta, .ph-badge, .ph-count,
+.pj-eyebrow, .pj-run-date, .pj-run-time, .pj-credit-role,
+.pj-media-cap, .pj-poster-cap, .pj-photo-credit, .pj-role-label,
+.hero-photo figcaption, .detail-media figcaption,
+.page-count, .section-num, .lang, .lang button,
+.lb-count, .pj-slide-count, .qb-tag-n, .now-credit {
+  font-family: var(--font-meta);
+  font-weight: var(--w-meta);
+  font-feature-settings: "tnum" 1;
+  letter-spacing: 0.02em;
 }
 
 /* 2) 기본 ---------------------------------------------------------------- */
@@ -51,9 +91,9 @@ body {
   background-repeat: repeat;
   background-attachment: fixed;   /* 스크롤해도 질감이 따라 흐르지 않게 */
   color: var(--blue);
-  font-family: var(--font);
+  font-family: var(--font-body);
   font-size: 16px;
-  font-weight: 400;
+  font-weight: var(--w-body);
   line-height: 1.65;
   letter-spacing: -0.011em;
   -webkit-font-smoothing: antialiased;
