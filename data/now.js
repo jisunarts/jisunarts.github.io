@@ -149,6 +149,20 @@ const NOW = [
 
   {
     category: "프로젝트",
+    title_ko: "아시아 프로듀서 플랫폼 (APP)",
+    title_en: "Asian Producers' Platform",
+    year: "2014–",
+    role: "공동 창립 · 기획팀",
+    partner: "아시아 독립 프로듀서 네트워크",
+    page: "projects/app.html",
+    summary: "아시아에서 일하는 독립 프로듀서들이 동료로서 서로를 잇기 위해 만든 수평적 네트워크.",
+    tags: ["국제협력", "아시아연대", "이동성", "독립수평", "제도와공공성"],
+    /* 상세 내용은 data/projects.js 의 app 에 있습니다 */
+    detail: { photoCredit: "" }
+  },
+
+  {
+    category: "프로젝트",
     title_ko: "⬡⬡의 섬 : 강화도",
     title_en: "Island of ⬡⬡ : Ganghwa",
     year: "2025–2026",

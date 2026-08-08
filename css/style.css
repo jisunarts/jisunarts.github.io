@@ -632,6 +632,17 @@ a.now-card:hover .now-title { text-decoration: underline; text-underline-offset:
 .pj-work-link a:hover { background: var(--blue); color: var(--paper); text-decoration: none; }
 .pj-body .pj-work + p { margin-top: 1.2em; }
 
+/* 연혁 — 연도 · 개최지 */
+.pj-timeline { font-size: 15px; }
+.pj-timeline li {
+  display: grid; grid-template-columns: 110px minmax(0, 1fr);
+  gap: 3px 20px; align-items: baseline;
+  padding: 9px 0; border-bottom: 1px solid var(--rule);
+}
+.pj-timeline li:first-child { border-top: 1px solid var(--rule); }
+.pj-tl-year { font-size: 13px; }
+.pj-tl-place { font-size: 14px; }
+
 .pj-parts { font-size: 15px; line-height: 2; }
 .pj-aff { font-size: 13px; opacity: 0.6; }
 
@@ -1269,6 +1280,7 @@ body[data-page="home"] .brand-logo { display: none; }
   .pj-media li[data-span="3"],
   .pj-media li[data-span="4"] { grid-column: 1 / -1; }
   .pj-runs li { grid-template-columns: 1fr; gap: 2px; }
+  .pj-timeline li { grid-template-columns: 1fr; gap: 2px; }
   .pj-credits li { grid-template-columns: 1fr; gap: 1px; }
   .now-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 

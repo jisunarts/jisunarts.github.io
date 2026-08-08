@@ -151,6 +151,21 @@
       "</div></section>";
   });
 
+  /* 연혁 — 연도 · 개최지 두 열 --------------------------------------- */
+  if (p.timeline && p.timeline.rows && p.timeline.rows.length) {
+    html += '<section class="pj-section">' + head(p.timeline.label) +
+      '<ul class="pj-timeline">' +
+        p.timeline.rows.map(function (r) {
+          return "<li>" +
+            '<span class="pj-tl-year tnum">' + esc(r.year) + "</span>" +
+            '<span class="pj-tl-place">' + esc(r.place) + "</span>" +
+          "</li>";
+        }).join("") +
+      "</ul>" +
+      (p.timeline.note ? '<p class="pj-run-note">' + esc(p.timeline.note) + "</p>" : "") +
+    "</section>";
+  }
+
   /* 접어 두는 글 (안무가 소개 · 작가 소개 등) — 여러 개 가능 ------------- */
   const notes = p.notes || (p.note ? [p.note] : []);
   notes.forEach(function (n) {
