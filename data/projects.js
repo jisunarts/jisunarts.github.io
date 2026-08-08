@@ -38,9 +38,15 @@ const PROJECTS = {
       },
       {
         label: { ko: "이어진 작업", en: "Works That Followed" },
+        /* works 는 제목 바로 아래에 링크가 붙습니다 */
+        works: [
+          { title: "2022 · 무제의 길 〈움직이는 숲〉 — 서울국제공연예술제 초청작",
+            link: { label: "무제의 길 〈움직이는 숲〉",
+                    url: "https://www.untitledroad.com/projects/moving-a-forest_theatre-game" } },
+          { title: "2023 · 지연 X 전환 〈에너지_보이지 않는 언어〉 — 서울국제공연예술제 초청작",
+            link: { label: "공연 영상", url: "https://youtu.be/arl9qntbhXc" } }
+        ],
         paras: [
-          "2022 · 무제의 길 〈움직이는 숲〉 — 서울국제공연예술제 초청작",
-          "2023 · 지연 X 전환 〈에너지_보이지 않는 언어〉 — 서울국제공연예술제 초청작",
           "예술텃밭 기후변화 레지던시는 2022년 이후에도 매해 예술가들과 텃밭을 가꾸고 리서치를 하며 비정기적으로 모임을 지속하고 있다. 현재 다음 단계의 국제 레지던시로 확장하기 위한 논의를 진행하고 있다."
         ]
       }
@@ -51,8 +57,7 @@ const PROJECTS = {
       items: [
         { ko: "프로젝트 웹사이트", en: "Project website", url: "http://artstutbatclimatechange.com/?page_id=669" },
         { ko: "자료집 3종 보기", en: "3 publications", url: "documents.html#climate-residency" },
-        { ko: "인스타그램", en: "Instagram", url: "https://www.instagram.com/tutbatclimatechange/" },
-        { ko: "무제의 길 〈움직이는 숲〉", en: "Untitled Road — The Moving Forest", url: "https://www.untitledroad.com/projects/moving-a-forest_theatre-game" }
+        { ko: "인스타그램", en: "Instagram", url: "https://www.instagram.com/tutbatclimatechange/" }
       ]
     },
 
@@ -86,8 +91,6 @@ const PROJECTS = {
         ]
       }
     ],
-
-    closingVideo: { id: "arl9qntbhXc", span: 4, caption: "2023 지연 X 전환 〈에너지_보이지 않는 언어〉" },
 
     photos: { credit: "사진 제공 예술텃밭 기후변화 레지던시" },
 
@@ -233,7 +236,9 @@ const PROJECTS = {
       items: [
         { src: "not-the-end-poster.jpg", w: 1400, h: 1749, span: 4 }
       ]
-    }
+    },
+
+    tags: ["기후정의"]
   },
 
   /* ── TNN — The Next Normal ─────────────────────────────────────────── */

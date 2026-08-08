@@ -71,6 +71,7 @@ const NOW = [
     role: "드라마투르그",
     cover: "img/works/not-the-end/not-the-end-poster.jpg",
     page: "projects/not-the-end-of-the-world.html",
+    tags: ["기후정의"],
     detail: {
       photoCredit: "",
       runs: [

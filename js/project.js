@@ -134,9 +134,20 @@
 
   /* 본문 ---------------------------------------------------------------- */
   (p.sections || []).forEach(function (s) {
+    /* works — 제목 한 줄 아래에 작은 링크가 붙습니다 */
+    const works = (s.works || []).map(function (w) {
+      return '<div class="pj-work">' +
+        '<p class="pj-work-title">' + esc(w.title) + "</p>" +
+        (w.link
+          ? '<p class="pj-work-link"><a href="' + esc(w.link.url) + '" target="_blank" ' +
+              'rel="noopener">' + esc(w.link.label) + " ↗</a></p>"
+          : "") +
+      "</div>";
+    }).join("");
+
     html += '<section class="pj-section">' + head(s.label) +
-      '<div class="pj-body">' +
-        s.paras.map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("") +
+      '<div class="pj-body">' + works +
+        (s.paras || []).map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("") +
       "</div></section>";
   });
 
