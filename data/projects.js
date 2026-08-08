@@ -152,7 +152,7 @@ const PROJECTS = {
     ],
 
     note: {
-      label: { ko: "안무가 노트", en: "Choreographer's Note" },
+      label: { ko: "안무가 소개", en: "About the Choreographer" },
       paras: [
         "황수현은 춤을 통해 몸이 세계와 관계 맺는 감각의 조건을 탐구한다. 그는 춤을 보여지는 형식이 아니라, 몸과 몸, 몸과 공간, 보이지 않는 것 사이에서 발생하는 경험의 구조로 다룬다. 호흡, 구음, 진동, 어둠, 미세한 운동감각과 같은 비가시적 요소를 주요한 재료로 안무한다. 《검정감각》, 《음------》, 《카베에》, 《Zzz》 등을 거치며 보는 중심의 관람을 흔들고, 서로 다른 몸들이 함께 감각하는 '공동'의 상태를 탐구해왔다. 최근에는 이러한 감각 경험을 가능하게 해온 방식이 고정된 구조로 굳어지는 순간을 경계하며, 몸이 환경과 새롭게 관계 맺을 수 있도록 안무를 다시 실험하고 있다."
       ]
@@ -185,7 +185,7 @@ const PROJECTS = {
     links: {
       label: { ko: "링크", en: "Links" },
       items: [
-        { ko: "프로그램북", en: "Programme", url: "https://soohyunhwang.com/syncdesync/" },
+        { ko: "프로그램북", en: "Programme", url: "http://soohyunhwang.com/syncdesync/" },
         { ko: "웹 포토북", en: "Web Photobook", url: "https://jisunarts.github.io/syncdesync_photo" }
       ]
     }

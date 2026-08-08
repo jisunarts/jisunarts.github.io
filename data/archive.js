@@ -19,7 +19,7 @@ const TYPES = {
 
 const ARCHIVE = [
   // ── 소속 · 주요 재직 (AF) ──
-  { year: "2014–", type: "AF", title_ko: "프로듀서 그룹 도트 — 공동 대표·크리에이티브 프로듀서 (공동 창립)", title_en: "Producer Group DOT — Co-director (co-founder)", url: "https://producergroupdot.kr", tags: ["지역과공동체", "독립수평"] },
+  { year: "2014–", type: "AF", title_ko: "프로듀서 그룹 도트 — 공동 대표·크리에이티브 프로듀서 (공동 창립)", title_en: "Producer Group DOT — Co-director (co-founder)", url: "http://producergroupdot.kr", tags: ["지역과공동체", "독립수평"] },
   { year: "2013–", type: "AF", title_ko: "아시아프로듀서플랫폼(APP)/더프로듀서 추진단 — 대표·기획위원", title_en: "Asian Producers' Platform (APP) — Director", url: "https://www.asianproducersplatform.com", tags: ["아시아연대", "독립수평", "제도와공공성"] },
   { year: "2005–09", type: "AF", title_ko: "아시아나우 — 공동 창설·프로듀서 (국제프로젝트 기획 총괄)", title_en: "AsiaNow — Co-founder, Producer", tags: ["아시아연대", "국제협력", "지역과공동체", "독립수평"] },
   { year: "2020", type: "AF", title_ko: "서울국제도서전 — 총감독 (2020.2–2021.2)·기획위원(2018·2019)", title_en: "Seoul Int'l Book Fair — Director", tags: ["국제협력", "제도와공공성"] },

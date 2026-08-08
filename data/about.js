@@ -2,7 +2,7 @@
    data/about.js — 소개(About) 페이지의 글과 연결(Links)
 
    · 문단 안에 링크를 넣으려면 [보이는 글자](주소) 형식으로 쓰면 됩니다.
-     예) [프로듀서 그룹 도트](https://producergroupdot.kr)
+     예) [프로듀서 그룹 도트](http://producergroupdot.kr)
      링크는 모두 새 탭에서 열립니다.
    · en 이 비어 있으면 국문이 그대로 나옵니다. (영문 원고가 생기면 채우세요.)
    ========================================================================== */
@@ -20,8 +20,8 @@ const ABOUT = {
       en: "Since the early 2000s she has planned performing arts festivals — the Chuncheon International Mime Festival, the Seoul Performing Arts Festival (SPAF), the ASSITEJ World Congress, and Wonju Tattoo — and served as Planning Director of the Chuncheon Mime Festival from 2002 to 2009. In 2005 she co-founded the production company AsiaNow, leading Korean theatre's international presentation and co-productions. From 2009 to 2012, as Head of Strategy at the Korea Arts Management Service (KAMS), she directed the Performing Arts Market in Seoul (PAMS) and shaped strategies for the internationalization of Korean performing arts."
     },
     {
-      ko: "2014년에는 독립 프로듀서들이 수평적으로 지식과 경험을 나누는 새로운 조직, '창의성 · 독립성 · 수평성'을 핵심 가치로 한 [프로듀서 그룹 도트](https://producergroupdot.kr)를 공동 창립했습니다. 아울러 '프로듀서 · 아시아 · 협력'을 키워드로 하는 [아시아 프로듀서 플랫폼(APP)](https://www.asianproducersplatform.com)을 제안해 일본 · 대만 · 호주의 동료들과 공동 창설했으며, 2014–2023년 APP CAMP를 서울 · 대만 · 일본 · 호주 · 인도네시아 · 홍콩 · 광저우 · 마카오 · 태국 · 말레이시아에서 열었습니다. 서커스 아시아 네트워크(CAN)의 공동 설립자이기도 합니다.",
-      en: "In 2014 she co-founded [Producer Group DOT](https://producergroupdot.kr), an organization where independent producers share knowledge and experience horizontally, built on creativity, independence, and horizontality. She proposed the [Asian Producers' Platform (APP)](https://www.asianproducersplatform.com) — keyed to producer, Asia, and collaboration — co-founding it with peers in Japan, Taiwan, and Australia, and held APP CAMP from 2014 to 2023 in Seoul, Taipei, Tokyo, Sydney, Indonesia, Hong Kong, Guangzhou, Macau, Thailand, and Malaysia. She is also a co-founder of the Circus Asia Network (CAN)."
+      ko: "2014년에는 독립 프로듀서들이 수평적으로 지식과 경험을 나누는 새로운 조직, '창의성 · 독립성 · 수평성'을 핵심 가치로 한 [프로듀서 그룹 도트](http://producergroupdot.kr)를 공동 창립했습니다. 아울러 '프로듀서 · 아시아 · 협력'을 키워드로 하는 [아시아 프로듀서 플랫폼(APP)](https://www.asianproducersplatform.com)을 제안해 일본 · 대만 · 호주의 동료들과 공동 창설했으며, 2014–2023년 APP CAMP를 서울 · 대만 · 일본 · 호주 · 인도네시아 · 홍콩 · 광저우 · 마카오 · 태국 · 말레이시아에서 열었습니다. 서커스 아시아 네트워크(CAN)의 공동 설립자이기도 합니다.",
+      en: "In 2014 she co-founded [Producer Group DOT](http://producergroupdot.kr), an organization where independent producers share knowledge and experience horizontally, built on creativity, independence, and horizontality. She proposed the [Asian Producers' Platform (APP)](https://www.asianproducersplatform.com) — keyed to producer, Asia, and collaboration — co-founding it with peers in Japan, Taiwan, and Australia, and held APP CAMP from 2014 to 2023 in Seoul, Taipei, Tokyo, Sydney, Indonesia, Hong Kong, Guangzhou, Macau, Thailand, and Malaysia. She is also a co-founder of the Circus Asia Network (CAN)."
     },
     {
       ko: "최근에는 경계와 공존, 도시, 기후위기, 기술의 시대라는 서로 맞닿은 질문들 앞에서 예술의 근본을 다시 묻습니다. 코끼리들이 웃는다 · 창작그룹노니 · 무제의 길 · 로봇씨어터컴퍼니(권병준) · 황수현 같은 예술가들과 장르의 경계를 넘나드는 실험을 이어왔고, 남원 사운드 아티스트 레지던시(2016–2017)로 지역 기반의 사운드 실험을, 커넥티드 시티(2017)로 도시예술을, DMZ 리서치 프로젝트(2019)로 우리 시대를 사유하는 국제 리서치를 진행했습니다. 2020년에는 서울국제도서전 총감독을 맡아 예술의 자리를 도서 · 출판으로도 넓혔습니다.",
@@ -52,7 +52,7 @@ const ABOUT = {
       url: "https://www.instagram.com/jisun_park_092/" },
 
     { label: { ko: "프로듀서 그룹 도트", en: "Producer Group DOT" },
-      url: "https://producergroupdot.kr" },
+      url: "http://producergroupdot.kr" },
 
     { label: { ko: "아시아 프로듀서 플랫폼(APP)", en: "Asian Producers' Platform (APP)" },
       url: "https://www.asianproducersplatform.com" },
