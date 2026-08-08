@@ -10,30 +10,14 @@
   const mount = document.getElementById("documents-mount");
   if (!mount || typeof DOCUMENTS === "undefined") return;
 
-  /* --- 프로젝트 필터 (documents.html?project=… ) ------------------------
-     기록 페이지의 시기 필터와 같은 방식입니다.                            */
-  const key = param("project");
-  const info = (key && typeof DOC_PROJECTS !== "undefined") ? DOC_PROJECTS[key] : null;
-  const rows = key ? DOCUMENTS.filter(function (d) { return d.project === key; }) : DOCUMENTS;
+  /* --- 프로젝트별로 묶기 ------------------------------------------------
+     소제목마다 id 를 달아 documents.html#dance-techlab 로 바로 갈 수 있습니다.
+     어느 프로젝트에도 속하지 않는 자료집은 맨 아래 '그 외'로 모입니다.      */
 
-  const bar = document.getElementById("documents-filter");
-  if (bar) {
-    if (key && rows.length) {
-      const name = info || { ko: key, en: key };
-      const label = { ko: name.ko + " · " + rows.length + "종",
-                      en: name.en + " · " + rows.length };
-      bar.innerHTML =
-        '<span class="cat-filter-label" ' + bi(label) + ">" + esc(label.ko) + "</span>" +
-        '<a class="cat-filter-clear" href="documents.html" ' +
-          'data-ko="× 전체 보기" data-en="× See all">× 전체 보기</a>';
-      bar.hidden = false;
-    } else {
-      bar.innerHTML = "";
-      bar.hidden = true;
-    }
-  }
+  const DICT = (typeof DOC_PROJECTS !== "undefined") ? DOC_PROJECTS : {};
 
-  mount.innerHTML = rows.map(function (doc) {
+  function card(doc) {
+
     const title = { ko: doc.title_ko, en: doc.title_en || doc.title_ko };
 
     const cover = doc.cover
@@ -54,7 +38,31 @@
 
       "</a>" +
     "</li>";
-  }).join("");
+  }
+
+  const order = Object.keys(DICT).filter(function (k) {
+    return DOCUMENTS.some(function (d) { return d.project === k; });
+  });
+  const rest = DOCUMENTS.filter(function (d) { return !d.project || !DICT[d.project]; });
+
+  mount.innerHTML = order.map(function (k) {
+    const rows = DOCUMENTS.filter(function (d) { return d.project === k; });
+    return '<section class="doc-group">' +
+      '<h2 class="doc-group-title" id="' + esc(k) + '">' +
+        "<span " + bi(DICT[k]) + ">" + esc(DICT[k].ko) + "</span>" +
+        '<span class="meta tnum">' + rows.length + "</span>" +
+      "</h2>" +
+      '<ul class="doc-grid">' + rows.map(card).join("") + "</ul>" +
+    "</section>";
+  }).join("") +
+  (rest.length
+    ? '<section class="doc-group">' +
+        '<h2 class="doc-group-title" id="etc" data-ko="그 외" data-en="Other">그 외' +
+          '<span class="meta tnum">' + rest.length + "</span>" +
+        "</h2>" +
+        '<ul class="doc-grid">' + rest.map(card).join("") + "</ul>" +
+      "</section>"
+    : "");
 
   /* 표지 파일이 없으면 그 이미지는 치우고 대체 상자가 보이게 */
   mount.querySelectorAll(".doc-cover img").forEach(function (img) {
@@ -64,12 +72,8 @@
   /* 개수 */
   const count = document.getElementById("documents-count");
   if (count) {
-    const label = (key && info)
-      ? { ko: info.ko + " · " + rows.length + "종 (전체 " + DOCUMENTS.length + ")",
-          en: info.en + " · " + rows.length + " of " + DOCUMENTS.length }
-      : { ko: "전체 " + DOCUMENTS.length + "권", en: DOCUMENTS.length + " publications" };
-    count.setAttribute("data-ko", label.ko);
-    count.setAttribute("data-en", label.en);
-    count.textContent = label.ko;
+    count.setAttribute("data-ko", "전체 " + DOCUMENTS.length + "권");
+    count.setAttribute("data-en", DOCUMENTS.length + " publications");
+    count.textContent = "전체 " + DOCUMENTS.length + "권";
   }
 })();

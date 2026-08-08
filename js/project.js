@@ -214,7 +214,10 @@
     html += '<section class="pj-section">' + head(p.links.label) +
       '<div class="pj-links">' +
         p.links.items.map(function (l) {
-          return '<a href="' + esc(l.url) + '" target="_blank" rel="noopener" ' + bi(l) + ">" +
+          /* 사이트 안 주소는 최상단 기준이므로 BASE 를 붙이고, 같은 창에서 엽니다 */
+          const inside = !/^(https?:|mailto:)/.test(l.url);
+          return '<a href="' + (inside ? BASE : "") + esc(l.url) + '"' +
+            (inside ? "" : ' target="_blank" rel="noopener"') + " " + bi(l) + ">" +
             esc(l.ko) + "</a>";
         }).join("") +
       "</div></section>";

@@ -50,7 +50,7 @@ const PROJECTS = {
       label: { ko: "링크", en: "Links" },
       items: [
         { ko: "프로젝트 웹사이트", en: "Project website", url: "http://artstutbatclimatechange.com/?page_id=669" },
-        { ko: "자료집 3종 보기", en: "3 publications", url: "documents.html?project=climate-residency" },
+        { ko: "자료집 3종 보기", en: "3 publications", url: "documents.html#climate-residency" },
         { ko: "인스타그램", en: "Instagram", url: "https://www.instagram.com/tutbatclimatechange/" },
         { ko: "무제의 길 〈움직이는 숲〉", en: "Untitled Road — The Moving Forest", url: "https://www.untitledroad.com/projects/moving-a-forest_theatre-game" }
       ]
@@ -310,7 +310,7 @@ const PROJECTS = {
     links: {
       label: { ko: "자료집", en: "Publications" },
       items: [
-        { ko: "자료집 3종 보기", en: "3 publications", url: "documents.html?project=dance-techlab" }
+        { ko: "자료집 3종 보기", en: "3 publications", url: "documents.html#dance-techlab" }
       ]
     },
 
