@@ -81,7 +81,6 @@ const PROJECTS = {
     credits: {
       label: { ko: "창립과 협력", en: "Founding & Partners" },
       rows: [
-        ["창립 멤버", "Fenn Gordon (뉴질랜드 · 호주), 박지선 (한국), 최석규 (한국)"],
         ["호주", "Performing Lines, Live Performance Australia"],
         ["일본", "국제교류기금(The Japan Foundation), ONPAM"],
         ["한국", "더프로듀서추진단, 프로듀서그룹 도트, 한국문화예술위원회"],
