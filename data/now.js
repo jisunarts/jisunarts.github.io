@@ -222,6 +222,7 @@ const NOW = [
     year: "2024–2026",
     role: "에코 드라마투르그",
     partner: "앤드씨어터",
+    cover: "img/works/asian-eyes/01.jpg",
     summary: "1차 리서치 자료를 지도로 정리한 결과입니다.",
     tags: ["아시아연대", "이동성"],
     detail: {
@@ -229,6 +230,12 @@ const NOW = [
       links: [
         { label: "미얀마 리서치 맵 →", url: "https://jisunarts.github.io/myanmar-map/" }
       ],
+      photos: {
+        dir: "img/works/asian-eyes/",
+        items: [
+          { src: "01.jpg", w: 1026, h: 714, span: 4 }
+        ]
+      },
       media: [] }
   },
 
