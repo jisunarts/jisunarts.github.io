@@ -42,16 +42,17 @@
       "</span>";
 
     if (hasGallery) {
-      return '<li class="ph-item"' + (it.id ? ' id="' + esc(it.id) + '"' : "") + ">" +
+      return '<li class="ph-item"' + (p.id ? ' id="' + esc(p.id) + '"' : "") + ">" +
         '<button type="button" class="ph-card" data-gallery="' + i + '">' + inner + "</button>" +
       "</li>";
     }
     if (p.link) {
-      return '<li class="ph-item"' + (it.id ? ' id="' + esc(it.id) + '"' : "") + ">" +
+      return '<li class="ph-item"' + (p.id ? ' id="' + esc(p.id) + '"' : "") + ">" +
         '<a class="ph-card" href="' + esc(p.link) + '" target="_blank" rel="noopener">' + inner + "</a>" +
       "</li>";
     }
-    return '<li class="ph-item"><div class="ph-card is-plain">' + inner + "</div></li>";
+    return '<li class="ph-item"' + (p.id ? ' id="' + esc(p.id) + '"' : "") + '>' +
+      '<div class="ph-card is-plain">' + inner + "</div></li>";
   }).join("");
 
   /* 개수 — 페이지 맨 아래 */
