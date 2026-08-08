@@ -1,0 +1,85 @@
+/* ==========================================================================
+   js/now.js — 지금(Now)
+   data/now.js 의 NOW 를 '공연'과 '프로젝트' 두 묶음으로 나눠 그립니다.
+   소제목은 홈의 '01 궤적'과 같은 모양입니다.
+
+   · page 가 있으면 사이트 안 페이지 (같은 창, → 표시)
+   · url  이 있으면 외부 링크 (새 탭, ↗ 표시)
+   · cover 가 없으면 사진 없이 제목·연도만
+   · 공연은 제목 아래 artist 와 role, 프로젝트는 role 만
+   ========================================================================== */
+
+(function renderNow() {
+
+  const mount = document.getElementById("now-mount");
+  if (!mount || typeof NOW === "undefined") return;
+
+  /* 위에서부터 순서대로 — 공연, 그다음 프로젝트 */
+  const GROUPS = [
+    { key: "공연",     label: { ko: "공연",     en: "Performance" } },
+    { key: "프로젝트", label: { ko: "프로젝트", en: "Projects" } }
+  ];
+
+  function card(it) {
+    const title = { ko: it.title_ko, en: it.title_en || it.title_ko };
+    const inside = Boolean(it.page);
+    const href = it.page || it.url || null;
+
+    const cover = it.cover
+      ? '<span class="now-cover"><img src="' + esc(it.cover) + '" alt="" loading="lazy"></span>'
+      : "";
+
+    const mark = href
+      ? '<span class="now-arrow" aria-hidden="true">' + (inside ? "→" : "↗") + "</span>"
+      : "";
+
+    /* 공연은 작가·안무가를 먼저, 그다음 역할 */
+    const credits = [it.category === "공연" ? it.artist : "", it.role]
+      .filter(Boolean)
+      .map(function (line) { return '<span class="now-credit">' + esc(line) + "</span>"; })
+      .join("");
+
+    const inner =
+      cover +
+      '<span class="now-body">' +
+        (it.year ? '<span class="now-year tnum">' + esc(it.year) + "</span>" : "") +
+        '<span class="now-title" ' + bi(title) + ">" + esc(it.title_ko) + "</span>" + mark +
+        credits +
+      "</span>";
+
+    const body = href
+      ? '<a class="now-card" href="' + esc(href) + '"' +
+          (inside ? "" : ' target="_blank" rel="noopener"') + ">" + inner + "</a>"
+      : '<div class="now-card is-plain">' + inner + "</div>";
+
+    const tags = (it.tags || []).map(function (t) {
+      return '<a class="now-tag" href="by-question.html?tag=' + encodeURIComponent(t) + '">' +
+        esc(t) + "</a>";
+    }).join("");
+
+    return '<li class="now-item' + (it.cover ? "" : " no-cover") + '">' +
+      body + (tags ? '<div class="now-tags">' + tags + "</div>" : "") +
+    "</li>";
+  }
+
+  mount.innerHTML = GROUPS.map(function (g, i) {
+    const rows = NOW.filter(function (it) { return it.category === g.key; });
+    if (!rows.length) return "";
+
+    return '<section class="now-group">' +
+      '<div class="home-sec-head">' +
+        '<span class="section-num meta tnum">' + String(i + 1).padStart(2, "0") + "</span>" +
+        "<h2 " + bi(g.label) + ">" + esc(g.label.ko) + "</h2>" +
+      "</div>" +
+      '<ul class="now-grid">' + rows.map(card).join("") + "</ul>" +
+    "</section>";
+  }).join("");
+
+  /* 개수 — 페이지 맨 아래 */
+  const count = document.getElementById("now-count");
+  if (count) {
+    count.setAttribute("data-ko", "진행 중 " + NOW.length + "건");
+    count.setAttribute("data-en", NOW.length + " in progress");
+    count.textContent = "진행 중 " + NOW.length + "건";
+  }
+})();
