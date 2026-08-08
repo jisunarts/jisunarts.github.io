@@ -132,6 +132,34 @@ const PROJECTS = {
           watch: "https://youtu.be/영상아이디", caption: "트레일러" } */
     ],
 
+    photos: {
+      label: { ko: "사진", en: "Photographs" },
+      dir: "img/works/sync-de-sync/",
+      credit: "Jisun",
+      items: [
+        { src: "01.jpg", w: 1600, h: 905, span: 4 },
+        { src: "02.jpg", w: 1600, h: 906, span: 2 },
+        { src: "03.jpg", w: 1600, h: 906, span: 2 },
+        { src: "04.jpg", w: 1600, h: 906 },
+        { src: "05.jpg", w: 1600, h: 906 },
+        { src: "06.jpg", w: 1600, h: 906 },
+        { src: "07.jpg", w: 1600, h: 906 },
+        { src: "08.jpg", w: 1600, h: 906 },
+        { src: "09.jpg", w: 1600, h: 906 },
+        { src: "10.jpg", w: 1600, h: 906 },
+        { src: "11.jpg", w: 1600, h: 906 },
+        { src: "12.jpg", w: 1600, h: 906 },
+        { src: "13.jpg", w: 1600, h: 906 },
+        { src: "14.jpg", w: 1600, h: 906 },
+        { src: "15.jpg", w: 1600, h: 906 },
+        { src: "16.jpg", w: 1600, h: 906 },
+        { src: "17.jpg", w: 1600, h: 906 },
+        { src: "18.jpg", w: 1600, h: 900 },
+        { src: "19.jpg", w: 1600, h: 900 },
+        { src: "20.jpg", w: 1600, h: 900 }
+      ]
+    },
+
     runs: {
       label: { ko: "일정", en: "Schedule" },
       rows: [
@@ -260,30 +288,30 @@ const PROJECTS = {
        span 이 붙은 5장(1 · 2 · 3 · 4 · 15)이 오른쪽 격자에 그 순서대로 들어가고,
        20장 전부는 아래 '사진' 슬라이드에서 볼 수 있습니다.                   */
     photos: {
-      credit: "사진 박지선",
+      credit: "Jisun",
       label: { ko: "사진", en: "Photographs" },
       dir: "img/photos/ganghwa/",
       items: [
-        { src: "ganghwa-01.jpg", span: 4 },
-        { src: "ganghwa-02.jpg", span: 2 },
-        { src: "ganghwa-03.jpg", span: 2 },
-        { src: "ganghwa-04.jpg", span: 1 },
-        { src: "ganghwa-05.jpg" },
-        { src: "ganghwa-06.jpg" },
-        { src: "ganghwa-07.jpg" },
-        { src: "ganghwa-08.jpg" },
-        { src: "ganghwa-09.jpg" },
-        { src: "ganghwa-10.jpg" },
-        { src: "ganghwa-11.jpg" },
-        { src: "ganghwa-12.jpg" },
-        { src: "ganghwa-13.jpg" },
-        { src: "ganghwa-14.jpg" },
-        { src: "ganghwa-15.jpg", span: 1 },
-        { src: "ganghwa-16.jpg" },
-        { src: "ganghwa-17.jpg" },
-        { src: "ganghwa-18.jpg" },
-        { src: "ganghwa-19.jpg" },
-        { src: "ganghwa-20.jpg" }
+        { src: "ganghwa-01.jpg", w: 1800, h: 1012, span: 4 },
+        { src: "ganghwa-02.jpg", w: 1800, h: 1012, span: 2 },
+        { src: "ganghwa-03.jpg", w: 1800, h: 1012, span: 2 },
+        { src: "ganghwa-04.jpg", w: 1800, h: 1012, span: 1 },
+        { src: "ganghwa-05.jpg", w: 1800, h: 1012 },
+        { src: "ganghwa-06.jpg", w: 1800, h: 1012 },
+        { src: "ganghwa-07.jpg", w: 1800, h: 1012 },
+        { src: "ganghwa-08.jpg", w: 1800, h: 1012 },
+        { src: "ganghwa-09.jpg", w: 1800, h: 1012 },
+        { src: "ganghwa-10.jpg", w: 1800, h: 1012 },
+        { src: "ganghwa-11.jpg", w: 1800, h: 1012 },
+        { src: "ganghwa-12.jpg", w: 1800, h: 1012 },
+        { src: "ganghwa-13.jpg", w: 1800, h: 1012 },
+        { src: "ganghwa-14.jpg", w: 1800, h: 1012 },
+        { src: "ganghwa-15.jpg", w: 1800, h: 1012, span: 1 },
+        { src: "ganghwa-16.jpg", w: 1800, h: 1012 },
+        { src: "ganghwa-17.jpg", w: 1800, h: 1012 },
+        { src: "ganghwa-18.jpg", w: 1800, h: 1012 },
+        { src: "ganghwa-19.jpg", w: 1800, h: 1012 },
+        { src: "ganghwa-20.jpg", w: 1800, h: 1012 }
       ]
     },
 

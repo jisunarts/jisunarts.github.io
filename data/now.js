@@ -25,7 +25,7 @@ const NOW = [
     cover: "img/works/sync-poster-2026.png",
     page: "projects/sync-de-sync.html",
     detail: {
-      photoCredit: "",
+      photoCredit: "Jisun",
       runs: [
         "2025.8.14–16 · 7:00pm · TINC (This is Not A Church)",
         "2026.7.16–19 · 7:30pm · TINC (This is Not A Church)"
@@ -155,7 +155,7 @@ const NOW = [
     page: "projects/ganghwa.html",
     tags: ["경계와공존", "기후위기", "지역과공동체", "국제협력", "이동성", "과정중심"],
     /* 상세 내용은 강화도 상세 페이지(data/projects.js)에 있습니다 */
-    detail: { photoCredit: "사진 박지선" }
+    detail: { photoCredit: "Jisun" }
   },
 
   {
@@ -241,8 +241,14 @@ const NOW = [
       links: [
         { label: "theater.digital →", url: "https://theater.digital/en/" }
       ],
+      photos: {
+        dir: "img/works/",
+        items: [
+          { src: "aesthethics.jpg", w: 1400, h: 1744, span: 2 }
+        ]
+      },
       media: [
-        { src: "img/works/aesthethics.jpg", span: 2 }
+        { src: "img/works/aesthethics.jpg", span: 2, w: 1400, h: 1744 }
       ]
     }
   }
