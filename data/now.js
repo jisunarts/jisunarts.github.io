@@ -184,14 +184,17 @@ const NOW = [
 
   {
     category: "프로젝트",
-    title_ko: "기후변화 예술가 레지던시",
-    title_en: "Climate Change Artist Residency",
+    title_ko: "예술텃밭 예술가 레지던시 — 기후변화",
+    title_en: "Arts Farm Tutbat Artist Residency — Climate Change",
     year: "2020–2022",
-    role: "총괄 기획",
-    partner: "화천 예술텃밭",
-    tags: ["기후위기", "과정중심"],
-    detail: {
-      photoCredit: "", media: [] }
+    role: "공동 기획",
+    partner: "예술텃밭 Arts Farm Tutbat × 프로듀서그룹 도트",
+    cover: "img/works/climate-residency/2021/08.jpg",
+    page: "projects/climate-residency.html",
+    summary: "기후변화라는 거대 담론을 삶 속에 구체화하고 예술적 실천으로 옮기는 예술가 레지던시.",
+    tags: ["기후위기", "과정중심", "지역과공동체"],
+    /* 상세 내용은 data/projects.js 의 climate-residency 에 있습니다 */
+    detail: { photoCredit: "사진 제공 예술텃밭 기후변화 레지던시" }
   },
 
   {

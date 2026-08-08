@@ -747,6 +747,15 @@ a.now-card:hover .now-title { text-decoration: underline; text-underline-offset:
 
 .pj-support { font-size: 14px; line-height: 1.7; max-width: 60ch; }
 
+/* 연도별 블록 */
+.pj-edition + .pj-edition { margin-top: clamp(40px, 5vw, 64px); }
+.pj-edition-title {
+  font-size: 14px; font-weight: 500; letter-spacing: -0.01em;
+  padding-bottom: 8px; margin-bottom: 16px;
+  border-bottom: 1px solid var(--rule-strong);
+}
+.pj-edition .pj-photos { margin-top: 16px; }
+
 .pj-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .pj-tags .qb-tag:hover { background: var(--blue); color: var(--paper); }
 

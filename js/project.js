@@ -221,34 +221,88 @@
   }
 
   /* 사진 ---------------------------------------------------------------- */
-  let galleryHtml = "";
-  const spannedPhotos = spanned.filter(function (m) { return m.type !== "video"; }).length;
-  if (gallery.length > spannedPhotos) {
-    galleryHtml = '<section class="pj-section pj-photos">' +
-      '<button type="button" class="pj-photos-toggle" id="pj-photos-toggle" ' +
-        'aria-expanded="false" aria-controls="pj-slides">' +
-        '<span data-ko="사진 전체 보기" data-en="See all photographs">사진 전체 보기</span>' +
-        '<span class="tnum"> (' + gallery.length + ")</span>" +
+  /* 슬라이드 묶음 — 페이지 안에 여러 개 둘 수 있습니다 (연도별 등) */
+  const SLIDES = {};
+  function slideBlock(id, label, list, sizes) {
+    SLIDES[id] = list;
+    return '<section class="pj-section pj-photos" data-slides="' + id + '">' +
+      '<button type="button" class="pj-photos-toggle" data-photos-toggle ' +
+        'aria-expanded="false">' +
+        "<span>" + esc(label) + "</span>" +
+        '<span class="tnum"> (' + list.length + ")</span>" +
         '<span class="pj-toggle-mark" aria-hidden="true">+</span>' +
       "</button>" +
-
-      '<div class="pj-slides-wrap" id="pj-slides" hidden>' +
-        '<ul class="pj-slides" id="pj-slides-track">' +
-          gallery.map(function (src, i) {
+      '<div class="pj-slides-wrap" hidden>' +
+        '<ul class="pj-slides">' +
+          list.map(function (src, i) {
             return '<li><button type="button" data-shot="' + i + '">' +
-              '<img src="' + esc(src) + '" alt=""' + size(photoData[i]) + ' loading="lazy">' +
+              '<img src="' + esc(src) + '" alt=""' + size((sizes || [])[i]) + ' loading="lazy">' +
             "</button></li>";
           }).join("") +
         "</ul>" +
         '<div class="pj-slide-bar">' +
           '<button type="button" class="pj-slide-nav" data-slide="prev" aria-label="이전 사진">←</button>' +
-          '<span class="pj-slide-count tnum">1 / ' + gallery.length + "</span>" +
+          '<span class="pj-slide-count tnum">1 / ' + list.length + "</span>" +
           '<button type="button" class="pj-slide-nav" data-slide="next" aria-label="다음 사진">→</button>' +
         "</div>" +
       "</div>" +
-      /* 사진 출처 — 사진 영역 맨 아래 */
-      (photoCredit ? '<p class="pj-photo-credit">' + esc(photoCredit) + "</p>" : "") +
     "</section>";
+  }
+
+  /* 영상 한 칸 (썸네일 먼저) */
+  function videoCell(id, span, caption) {
+    return '<li data-span="' + (span || 4) + '">' +
+      '<button type="button" class="pj-video-facade" data-video="' + esc(id) + '" ' +
+        'aria-label="영상 재생">' +
+        '<img src="https://img.youtube.com/vi/' + esc(id) + '/maxresdefault.jpg" alt="" ' +
+          'width="1280" height="720" loading="lazy">' +
+        '<span class="pj-play" aria-hidden="true">▶</span>' +
+      "</button>" +
+      (caption ? '<span class="pj-media-cap">' + esc(caption) + "</span>" : "") +
+    "</li>";
+  }
+
+  let galleryHtml = "";
+  const spannedPhotos = spanned.filter(function (m) { return m.type !== "video"; }).length;
+  if (gallery.length > spannedPhotos) {
+    galleryHtml = slideBlock("all", "사진 전체 보기", gallery,
+                             photoData.filter(function (m) { return m.type !== "video" && m.src; })) +
+      (photoCredit ? '<p class="pj-photo-credit">' + esc(photoCredit) + "</p>" : "");
+  }
+
+  /* ── 연도별 블록 (기후변화 레지던시처럼 해마다 나뉘는 프로젝트) ────── */
+  let editionsHtml = "";
+  if (p.editions && p.editions.length) {
+    editionsHtml = p.editions.map(function (ed) {
+      const grid = (ed.grid || []).map(function (m) {
+        return '<li data-span="' + (m.span || 1) + '">' +
+          '<img src="' + BASE + esc(ed.dir + m.src) + '" alt=""' + size(m) + ' loading="lazy">' +
+        "</li>";
+      }).join("");
+
+      const all = [];
+      for (let i = 1; i <= (ed.total || 0); i++) {
+        all.push(BASE + ed.dir + ("0" + i).slice(-2) + ".jpg");
+      }
+
+      return '<section class="pj-edition">' +
+        '<h3 class="pj-edition-title">' +
+          '<span class="tnum">' + esc(ed.year) + "</span> · " + esc(ed.title) +
+        "</h3>" +
+        '<ul class="pj-media">' +
+          (ed.video ? videoCell(ed.video, 4, ed.year + " 기록 영상") : "") +
+          grid +
+        "</ul>" +
+        (all.length ? slideBlock("y" + ed.year, ed.year + " 사진 전체 보기", all) : "") +
+      "</section>";
+    }).join("");
+
+    if (p.closingVideo) {
+      editionsHtml += '<section class="pj-edition"><ul class="pj-media">' +
+        videoCell(p.closingVideo.id, p.closingVideo.span || 4, p.closingVideo.caption) +
+      "</ul></section>";
+    }
+    if (photoCredit) editionsHtml += '<p class="pj-photo-credit">' + esc(photoCredit) + "</p>";
   }
 
   /* 태그 — 맨 끝 -------------------------------------------------------- */
@@ -264,10 +318,11 @@
   }
 
   /* 미디어가 있으면 좌 40% / 우 60% 2단, 없으면 지금까지처럼 한 단 */
-  mount.innerHTML = (mediaHtml || galleryHtml)
+  const rightHtml = editionsHtml || (mediaHtml + galleryHtml);
+  mount.innerHTML = rightHtml
     ? '<div class="pj-split">' +
         '<div class="pj-col-left">' + html + "</div>" +
-        '<div class="pj-col-right">' + mediaHtml + galleryHtml + "</div>" +
+        '<div class="pj-col-right">' + rightHtml + "</div>" +
       "</div>"
     : html;
 
@@ -286,49 +341,57 @@
     btn.replaceWith(box);
   });
 
-  /* 사진 슬라이드 — 접기 / 펼치기, 좌우 이동, 키보드, 스와이프 */
-  const toggle = document.getElementById("pj-photos-toggle");
-  const wrap   = document.getElementById("pj-slides");
-  const track  = document.getElementById("pj-slides-track");
+  /* 사진 슬라이드 — 묶음마다 따로 열리고 따로 움직입니다 */
+  function trackOf(el) { return el.closest("[data-slides]").querySelector(".pj-slides"); }
+  function listOf(el)  { return SLIDES[el.closest("[data-slides]").dataset.slides] || []; }
 
-  if (toggle && wrap && track) {
-    const countEl = wrap.querySelector(".pj-slide-count");
+  function at(track, n) {
+    return Math.min(n - 1, Math.round(track.scrollLeft / (track.scrollWidth / n)));
+  }
+  function go(track, n, i) {
+    track.scrollTo({ left: Math.max(0, Math.min(n - 1, i)) * (track.scrollWidth / n),
+                     behavior: "smooth" });
+  }
 
-    function at() {
-      const step = track.scrollWidth / gallery.length;
-      return Math.min(gallery.length - 1, Math.round(track.scrollLeft / step));
-    }
-    function go(i) {
-      const step = track.scrollWidth / gallery.length;
-      track.scrollTo({ left: Math.max(0, Math.min(gallery.length - 1, i)) * step,
-                       behavior: "smooth" });
-    }
-
-    toggle.addEventListener("click", function () {
+  mount.addEventListener("click", function (e) {
+    const toggle = e.target.closest("[data-photos-toggle]");
+    if (toggle) {
+      const wrap = toggle.closest("[data-slides]").querySelector(".pj-slides-wrap");
       const open = toggle.getAttribute("aria-expanded") !== "true";
       toggle.setAttribute("aria-expanded", String(open));
       wrap.hidden = !open;
       toggle.querySelector(".pj-toggle-mark").textContent = open ? "−" : "+";
-    });
+      return;
+    }
 
-    wrap.addEventListener("click", function (e) {
-      const nav = e.target.closest("[data-slide]");
-      if (nav) return go(at() + (nav.dataset.slide === "next" ? 1 : -1));
+    const nav = e.target.closest("[data-slide]");
+    if (nav) {
+      const track = trackOf(nav), n = listOf(nav).length;
+      return go(track, n, at(track, n) + (nav.dataset.slide === "next" ? 1 : -1));
+    }
 
-      const shot = e.target.closest("[data-shot]");
-      if (shot && typeof Lightbox !== "undefined") {
-        Lightbox.open(gallery, p.title, shot, parseInt(shot.dataset.shot, 10));
-      }
-    });
+    const shot = e.target.closest("[data-shot]");
+    if (shot && typeof Lightbox !== "undefined") {
+      Lightbox.open(listOf(shot), p.title, shot, parseInt(shot.dataset.shot, 10));
+    }
+  });
 
+  mount.querySelectorAll("[data-slides]").forEach(function (box) {
+    const track = box.querySelector(".pj-slides");
+    const countEl = box.querySelector(".pj-slide-count");
+    const n = (SLIDES[box.dataset.slides] || []).length;
+    if (!track || !countEl) return;
     track.addEventListener("scroll", function () {
-      countEl.textContent = (at() + 1) + " / " + gallery.length;
+      countEl.textContent = (at(track, n) + 1) + " / " + n;
     }, { passive: true });
+  });
 
-    document.addEventListener("keydown", function (e) {
-      if (wrap.hidden) return;
-      if (e.key === "ArrowLeft")  go(at() - 1);
-      if (e.key === "ArrowRight") go(at() + 1);
-    });
-  }
+  /* 펼쳐져 있는 묶음에서 ← → 키로 이동 */
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+    const open = mount.querySelector('[data-photos-toggle][aria-expanded="true"]');
+    if (!open) return;
+    const track = trackOf(open), n = listOf(open).length;
+    go(track, n, at(track, n) + (e.key === "ArrowRight" ? 1 : -1));
+  });
 })();
