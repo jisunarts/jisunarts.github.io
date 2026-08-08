@@ -33,8 +33,9 @@
       ? '<span class="now-arrow" aria-hidden="true">' + (inside ? "→" : "↗") + "</span>"
       : "";
 
-    /* 공연은 작가·안무가를 먼저, 그다음 역할 */
-    const credits = [it.category === "공연" ? it.artist : "", it.role]
+    /* 공연은 작가·안무가 → 역할, 프로젝트는 역할 → 협력 */
+    const credits = [it.category === "공연" ? it.artist : "", it.role,
+                     it.category === "공연" ? "" : it.partner]
       .filter(Boolean)
       .map(function (line) { return '<span class="now-credit">' + esc(line) + "</span>"; })
       .join("");
