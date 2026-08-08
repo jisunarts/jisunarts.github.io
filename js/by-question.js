@@ -14,6 +14,7 @@
   /* --- 네 데이터를 하나의 목록으로 --------------------------------------- */
 
   const SOURCE = {
+    now:       { ko: "지금",   en: "Now" },
     archive:   { ko: "기록",   en: "Archive" },
     documents: { ko: "자료집", en: "Documents" },
     writing:   { ko: "글",     en: "Writing" },
@@ -23,6 +24,18 @@
   const items = [];
 
   function add(source, o) { items.push(Object.assign({ source: source }, o)); }
+
+  if (typeof NOW !== "undefined") {
+    NOW.forEach(function (it) {
+      add("now", {
+        tags: it.tags || [],
+        title: { ko: it.title_ko, en: it.title_en || it.title_ko },
+        meta: [it.year, it.role].filter(Boolean).join(" · "),
+        url: it.page || it.url || null,
+        external: !it.page && Boolean(it.url)
+      });
+    });
+  }
 
   if (typeof ARCHIVE !== "undefined") {
     ARCHIVE.forEach(function (it) {
