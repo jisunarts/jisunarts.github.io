@@ -65,7 +65,8 @@
         esc(t) + "</a>";
     }).join("");
 
-    return '<li class="now-item' + (it.cover ? "" : " no-cover") + '">' +
+    return '<li class="now-item' + (it.cover ? "" : " no-cover") + '"' +
+      (it.id ? ' id="' + esc(it.id) + '"' : "") + ">" +
       body +
       (extra ? '<div class="now-links">' + extra + "</div>" : "") +
       (tags ? '<div class="now-tags">' + tags + "</div>" : "") +

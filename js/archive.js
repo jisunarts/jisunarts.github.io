@@ -67,27 +67,39 @@
     const serial = String(idx + 1).padStart(3, "0");
     const code = it.type + yy + "·" + serial;
 
-    /* page = 사이트 안 프로젝트 페이지 (같은 창) / url = 외부 자료 (새 탭) */
-    const inside = Boolean(it.page);
+    /* links: [{ label, url }, …]  ·  사이트 안 주소면 같은 창(→), 밖이면 새 탭(↗)
+       링크가 하나면 행 전체가 열리고, 여럿이면 제목 아래에 라벨을 나열합니다.  */
+    const links = it.links || (it.page ? [{ url: it.page }] : []);
+    function isInside(u) { return !/^https?:/.test(u); }
+
+    const one = links.length === 1 ? links[0] : null;
+    const many = links.length > 1 ? links : null;
+
+    const marks = one
+      ? '<span class="cat-link" aria-hidden="true">' + (isInside(one.url) ? "→" : "↗") + "</span>"
+      : "";
+
+    const linkList = many
+      ? '<span class="cat-links">' + many.map(function (l) {
+          const ins = isInside(l.url);
+          return '<a href="' + esc(l.url) + '"' + (ins ? "" : ' target="_blank" rel="noopener"') + ">" +
+            esc(l.label || "보기") + (ins ? " →" : " ↗") + "</a>";
+        }).join("") + "</span>"
+      : "";
 
     const cells =
       '<span class="cat-code tnum">' + esc(code) + "</span>" +
       '<span class="cat-title-cell">' +
         '<span class="cat-title" ' + bi({ ko: it.title_ko, en: it.title_en || it.title_ko }) + ">" +
           esc(it.title_ko) +
-        "</span>" +
-        (inside ? '<span class="cat-link" aria-hidden="true">→</span>'
-                : (it.url ? '<span class="cat-link" aria-hidden="true">↗</span>' : "")) +
+        "</span>" + marks + linkList +
       "</span>" +
       '<span class="cat-year tnum">' + esc(it.year) + "</span>";
 
-    /* 자료가 있으면 행 전체가 그 링크로 열리고, 없으면 그냥 글자입니다.
-       ※ 변수 이름을 매개변수 row 와 겹치게 두면 안 됩니다 (선언 전 접근 오류). */
-    const rowHtml = inside
-      ? '<a class="cat-row" href="' + esc(it.page) + '">' + cells + "</a>"
-      : (it.url
-        ? '<a class="cat-row" href="' + esc(it.url) + '" target="_blank" rel="noopener">' + cells + "</a>"
-        : '<div class="cat-row is-plain">' + cells + "</div>");
+    const rowHtml = one
+      ? '<a class="cat-row" href="' + esc(one.url) + '"' +
+          (isInside(one.url) ? "" : ' target="_blank" rel="noopener"') + ">" + cells + "</a>"
+      : '<div class="cat-row is-plain">' + cells + "</div>";
 
     return '<li class="cat-item">' + rowHtml + "</li>";
   }

@@ -17,6 +17,7 @@ const NOW = [
 
   {
     category: "공연",
+    id: "sync-de-sync",
     title_ko: "sync de sync 싱크 디 싱크",
     title_en: "sync de sync",
     year: "2025–2026",
@@ -64,6 +65,7 @@ const NOW = [
 
   {
     category: "공연",
+    id: "not-the-end-of-the-world",
     title_ko: "세상의 종말이 (아닌)",
     title_en: "(Not) the End of the World",
     year: "2026",
@@ -109,6 +111,7 @@ const NOW = [
 
   {
     category: "공연",
+    id: "hihihistory",
     title_ko: "히히히스토리",
     title_en: "hihihistory",
     year: "2026",
@@ -149,6 +152,7 @@ const NOW = [
 
   {
     category: "프로젝트",
+    id: "app",
     title_ko: "아시아 프로듀서 플랫폼 (APP)",
     title_en: "Asian Producers' Platform",
     year: "2014–",
@@ -164,6 +168,7 @@ const NOW = [
 
   {
     category: "프로젝트",
+    id: "ganghwa",
     title_ko: "⬡⬡의 섬 : 강화도",
     title_en: "Island of ⬡⬡ : Ganghwa",
     year: "2025–2026",
@@ -178,6 +183,7 @@ const NOW = [
 
   {
     category: "프로젝트",
+    id: "dance-techlab",
     title_ko: "무용 × 기술 창작 랩",
     title_en: "Dance × Technology Creative Lab",
     year: "2021–",
@@ -200,6 +206,7 @@ const NOW = [
 
   {
     category: "프로젝트",
+    id: "climate-residency",
     title_ko: "예술텃밭 예술가 레지던시 — 기후변화",
     title_en: "Arts Farm Tutbat Artist Residency — Climate Change",
     year: "2020–2022",
@@ -215,6 +222,7 @@ const NOW = [
 
   {
     category: "프로젝트",
+    id: "tnn",
     title_ko: "TNN — The Next Normal",
     title_en: "TNN — The Next Normal",
     year: "2024–",
@@ -236,6 +244,7 @@ const NOW = [
 
   {
     category: "프로젝트",
+    id: "asian-eyes",
     title_ko: "아시아의 입과 눈",
     title_en: "With Asian Eyes, Through Asian Mouths",
     year: "2024–2026",
@@ -257,6 +266,7 @@ const NOW = [
 
   {
     category: "프로젝트",
+    id: "aesthethics",
     title_ko: "Aesth:ethics",
     title_en: "Aesth:ethics — Exploring Global Codes, Artificial Intelligence, and Performing Arts",
     year: "2026–",
