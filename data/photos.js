@@ -5,6 +5,7 @@
 // category: 공연 / 프로젝트 / 여행기  (지금은 필터 없이 한 그리드, 나중에 필터로 사용)
 const PHOTOS = [
   {
+    id: "sync-tinc",
     title_ko: "싱크 디 싱크 — TINC 리허설 기록",
     title_en: "Sync the Sync — TINC Rehearsal",
     category: "공연", year: "2026", tags: ["기술사회","포스트휴먼","과정중심"],
@@ -12,6 +13,7 @@ const PHOTOS = [
     link: "https://jisunarts.github.io/syncdesync_photo"
   },
   {
+    id: "patagonia",
     title_ko: "파타고니아",
     title_en: "Patagonia",
     category: "여행기", year: "2024", tags: ["이동성"],

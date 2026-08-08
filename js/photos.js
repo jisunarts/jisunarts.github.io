@@ -42,12 +42,12 @@
       "</span>";
 
     if (hasGallery) {
-      return '<li class="ph-item">' +
+      return '<li class="ph-item"' + (it.id ? ' id="' + esc(it.id) + '"' : "") + ">" +
         '<button type="button" class="ph-card" data-gallery="' + i + '">' + inner + "</button>" +
       "</li>";
     }
     if (p.link) {
-      return '<li class="ph-item">' +
+      return '<li class="ph-item"' + (it.id ? ' id="' + esc(it.id) + '"' : "") + ">" +
         '<a class="ph-card" href="' + esc(p.link) + '" target="_blank" rel="noopener">' + inner + "</a>" +
       "</li>";
     }

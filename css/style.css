@@ -268,7 +268,8 @@ img {
 }
 
 .cat { border-top: 0; }
-.cat-item { border-bottom: 1px solid var(--rule); }
+.cat-item { border-bottom: 1px solid var(--rule); scroll-margin-top: 90px; }
+.cat-item.is-target { background: var(--wash); box-shadow: inset 2px 0 0 var(--blue); }
 
 .cat-row { width: 100%; text-align: left; padding: 13px 10px 13px 0; }
 
@@ -412,6 +413,7 @@ a.wr-row:hover .wr-title { text-decoration: underline; text-underline-offset: 3p
   padding-top: clamp(28px, 3.5vw, 40px);
 }
 
+.ph-item { scroll-margin-top: 90px; }
 .ph-card { display: block; width: 100%; text-align: left; }
 
 .ph-cover {
@@ -528,7 +530,7 @@ a.wr-row:hover .wr-title { text-decoration: underline; text-underline-offset: 3p
 
 .qb-item { border-bottom: 1px solid var(--rule); }
 .qb-row {
-  display: grid; grid-template-columns: minmax(0, 1fr) auto auto;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto auto auto;
   gap: 6px 16px; align-items: baseline;
   padding: 12px 10px 12px 0;
 }
@@ -536,6 +538,10 @@ a.qb-row:hover { background: var(--wash); }
 a.qb-row:hover .qb-title { text-decoration: underline; text-underline-offset: 3px; }
 
 .qb-title { font-size: 15px; line-height: 1.5; letter-spacing: -0.015em; }
+.qb-kind {
+  font-size: 11px; padding: 2px 7px; white-space: nowrap;
+  box-shadow: inset 0 0 0 1px currentColor; opacity: 0.75;
+}
 .qb-arrow { font-size: 12px; }
 .qb-meta { font-size: 12.5px; text-align: right; white-space: nowrap; }
 

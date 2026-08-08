@@ -25,26 +25,55 @@
 
   function add(source, o) { items.push(Object.assign({ source: source }, o)); }
 
+  /* 기록 항목의 색인 코드 — archive.js 와 같은 규칙으로 계산해 앵커로 씁니다 */
+  const CODE = {};
+  if (typeof ARCHIVE !== "undefined") {
+    const ORDER = ["AF", "CA", "PF", "PJ", "IN", "NW", "RS", "CM"];
+    function readYear(raw) {
+      const t = String(raw || "").trim();
+      const f = t.match(/\d{4}/);
+      const start = f ? parseInt(f[0], 10) : 0;
+      let end = start;
+      const d = t.match(/[–—-]\s*(\d{2,4})?$/);
+      if (d) {
+        if (d[1] === undefined) end = 9999;
+        else if (d[1].length === 2) end = Math.floor(start / 100) * 100 + parseInt(d[1], 10);
+        else end = parseInt(d[1], 10);
+      }
+      return { start: start, end: end };
+    }
+    ORDER.forEach(function (t) {
+      ARCHIVE.map(function (it, i) { return { it: it, y: readYear(it.year), i: i }; })
+        .filter(function (r) { return r.it.type === t; })
+        .sort(function (a, b) { return (b.y.start - a.y.start) || (b.y.end - a.y.end) || (a.i - b.i); })
+        .forEach(function (r, idx) {
+          CODE[r.i] = t + String(r.y.start).slice(-2) + "-" + String(idx + 1).padStart(3, "0");
+        });
+    });
+  }
+
   if (typeof NOW !== "undefined") {
     NOW.forEach(function (it) {
+      /* 상세 페이지가 있으면 그리로, 없으면 지금 페이지의 그 카드로 */
       add("now", {
         tags: it.tags || [],
         title: { ko: it.title_ko, en: it.title_en || it.title_ko },
         meta: [it.year, it.role].filter(Boolean).join(" · "),
-        url: it.page || it.url || null,
-        external: !it.page && Boolean(it.url)
+        url: it.page || (it.id ? "now.html#" + it.id : null),
+        external: false
       });
     });
   }
 
   if (typeof ARCHIVE !== "undefined") {
-    ARCHIVE.forEach(function (it) {
+    ARCHIVE.forEach(function (it, i) {
       const type = (typeof TYPES !== "undefined" && TYPES[it.type]) || null;
       add("archive", {
         tags: it.tags || [],
         title: { ko: it.title_ko, en: it.title_en || it.title_ko },
         meta: [it.year, type ? type.en : it.type].filter(Boolean).join(" · "),
-        url: it.url || null, external: true
+        url: CODE[i] ? "archive.html#" + CODE[i] : null,
+        external: false
       });
     });
   }
@@ -55,7 +84,8 @@
         tags: it.tags || [],
         title: { ko: it.title_ko, en: it.title_en || it.title_ko },
         meta: it.year || "",
-        url: it.url || null, external: true
+        url: it.project ? "documents.html#" + it.project : null,
+        external: false
       });
     });
   }
@@ -79,8 +109,8 @@
         tags: it.tags || [],
         title: { ko: it.title_ko, en: it.title_en || it.title_ko },
         meta: [it.category, it.year].filter(Boolean).join(" · "),
-        url: it.link || "photos.html",
-        external: Boolean(it.link)
+        url: it.id ? "photos.html#" + it.id : "photos.html",
+        external: false
       });
     });
   }
@@ -142,6 +172,7 @@
           const cells =
             '<span class="qb-title" ' + bi(it.title) + ">" + esc(it.title.ko) + "</span>" +
             (it.url && it.external ? '<span class="qb-arrow" aria-hidden="true">↗</span>' : "") +
+            '<span class="qb-kind" ' + bi(SOURCE[it.source]) + ">" + esc(SOURCE[it.source].ko) + "</span>" +
             '<span class="qb-meta">' + esc(it.meta) + "</span>";
 
           if (!it.url) return '<li class="qb-item"><div class="qb-row is-plain">' + cells + "</div></li>";

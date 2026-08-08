@@ -66,6 +66,7 @@
     const yy = String(row.y.start).slice(-2);
     const serial = String(idx + 1).padStart(3, "0");
     const code = it.type + yy + "·" + serial;
+    const anchor = it.type + yy + "-" + serial;   /* 주소용 (archive.html#AF20-001) */
 
     /* links: [{ label, url }, …]  ·  사이트 안 주소면 같은 창(→), 밖이면 새 탭(↗)
        링크가 하나면 행 전체가 열리고, 여럿이면 제목 아래에 라벨을 나열합니다.  */
@@ -101,7 +102,7 @@
           (isInside(one.url) ? "" : ' target="_blank" rel="noopener"') + ">" + cells + "</a>"
       : '<div class="cat-row is-plain">' + cells + "</div>";
 
-    return '<li class="cat-item">' + rowHtml + "</li>";
+    return '<li class="cat-item" id="' + anchor + '">' + rowHtml + "</li>";
   }
 
   /* --- 카테고리로 묶고, 묶음 안에서 최신순 ------------------------------
@@ -148,6 +149,17 @@
       '<ul class="cat">' + g.rows.map(renderRow).join("") + "</ul>" +
     "</section>";
   }).join("");
+
+  /* --- 주소에 #코드 가 있으면 그 줄로 이동해 잠시 강조 ------------------ */
+  (function highlight() {
+    const id = decodeURIComponent((window.location.hash || "").slice(1));
+    if (!id) return;
+    const row = document.getElementById(id);
+    if (!row) return;
+    row.classList.add("is-target");
+    row.scrollIntoView({ block: "center" });
+    setTimeout(function () { row.classList.remove("is-target"); }, 2600);
+  })();
 
   /* --- 개수 (페이지 맨 아래) -------------------------------------------- */
   const count = document.getElementById("archive-count");
