@@ -14,7 +14,8 @@
 
   const BADGE = {
     link:    { ko: "외부 포토북 ↗", en: "Photobook ↗" },
-    gallery: { ko: "갤러리",        en: "Gallery" }
+    gallery: { ko: "갤러리",        en: "Gallery" },
+    book:    { ko: "포토북",        en: "Photobook" }
   };
 
   /* --- 그리드 ---------------------------------------------------------- */
@@ -23,9 +24,11 @@
     const title = { ko: p.title_ko, en: p.title_en || p.title_ko };
     const hasGallery = Boolean(p.images && p.images.length);
 
-    const badge = hasGallery
-      ? '<span class="ph-badge" ' + bi(BADGE.gallery) + ">" + esc(BADGE.gallery.ko) + "</span>"
-      : (p.link ? '<span class="ph-badge" ' + bi(BADGE.link) + ">" + esc(BADGE.link.ko) + "</span>" : "");
+    const badge = p.page
+      ? '<span class="ph-badge" ' + bi(BADGE.book) + ">" + esc(BADGE.book.ko) + "</span>"
+      : (hasGallery
+        ? '<span class="ph-badge" ' + bi(BADGE.gallery) + ">" + esc(BADGE.gallery.ko) + "</span>"
+        : (p.link ? '<span class="ph-badge" ' + bi(BADGE.link) + ">" + esc(BADGE.link.ko) + "</span>" : ""));
 
     const count = hasGallery
       ? '<span class="ph-count tnum">' + p.images.length + "</span>"
@@ -41,6 +44,11 @@
         (p.year ? '<span class="ph-year tnum"> · ' + esc(p.year) + "</span>" : "") +
       "</span>";
 
+    if (p.page) {
+      return '<li class="ph-item"' + (p.id ? ' id="' + esc(p.id) + '"' : "") + ">" +
+        '<a class="ph-card" href="' + esc(p.page) + '">' + inner + "</a>" +
+      "</li>";
+    }
     if (hasGallery) {
       return '<li class="ph-item"' + (p.id ? ' id="' + esc(p.id) + '"' : "") + ">" +
         '<button type="button" class="ph-card" data-gallery="' + i + '">' + inner + "</button>" +

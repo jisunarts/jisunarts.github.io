@@ -13,6 +13,14 @@ const PHOTOS = [
     link: "https://jisunarts.github.io/syncdesync_photo"
   },
   {
+    id: "patagonia-book",
+    title_ko: "파타고니아",
+    title_en: "Patagonia",
+    category: "여행기", year: "2024", tags: ["이동성"],
+    cover: "img/photos/patagonia/001.jpg",
+    page: "photos/patagonia.html"
+  },
+  {
     id: "patagonia",
     title_ko: "파타고니아",
     title_en: "Patagonia",

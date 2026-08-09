@@ -913,6 +913,32 @@ body[data-theme="invert"] .lang button[aria-pressed="true"] {
 }
 .traj-more a:hover { background: var(--blue); color: var(--paper); text-decoration: none; }
 
+/* 4-8) 스크롤형 포토북 --------------------------------------------------
+   사진만 위에서 아래로. 글자는 맨 아래 돌아가기 링크 하나뿐입니다.       */
+
+.photobook {
+  padding: clamp(40px, 6vw, 72px) var(--pad) 0;
+  display: flex; flex-direction: column; gap: 80px;
+  align-items: center;
+}
+.photobook img {
+  width: 100%; height: auto; max-width: 1400px;
+  border: 1px solid rgba(22, 104, 224, 0.08);
+}
+
+.photobook-back {
+  padding: clamp(56px, 8vw, 96px) var(--pad) clamp(56px, 8vw, 96px);
+}
+.pb-back { font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
+.pb-back:hover { background: var(--blue); color: var(--paper); text-decoration: none; }
+
+/* 포토북에서는 상단 메뉴를 최소한으로 — 로고와 KO/EN 만 */
+body[data-page="photos"].is-book .nav { display: none; }
+
+@media (max-width: 760px) {
+  .photobook { gap: 48px; }
+}
+
 /* 5) 필터 ---------------------------------------------------------------- */
 
 .filters {
