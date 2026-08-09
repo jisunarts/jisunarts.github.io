@@ -1274,7 +1274,7 @@ body[data-page="home"] .brand-logo { display: none; }
   .home-traj .index-title { font-size: 17px; }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 760px) {
   .doc-group + .doc-group { margin-top: clamp(40px, 5vw, 64px); }
 .doc-group-title {
   display: flex; align-items: baseline; gap: 10px;
@@ -1321,7 +1321,7 @@ body[data-page="home"] .brand-logo { display: none; }
   .footer-nav a:not([rel="noopener"]) { display: none; }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   :root { --gutter: 0px; --col-gap: 0px; }
 
 
@@ -1389,4 +1389,75 @@ body[data-page="home"] .brand-logo { display: none; }
   .qset li { grid-template-columns: 22px 1fr; gap: 8px; }
 
   .hero-lead { max-width: none; }
+}
+
+/* ==========================================================================
+   모바일 전용 (760px 이하) — 데스크톱은 건드리지 않습니다
+   ========================================================================== */
+
+@media (max-width: 760px) {
+
+  /* 1) 조판 조이기 --------------------------------------------------- */
+  body { line-height: 1.6; }
+  .prose, .prose p, .pj-body, .read-body, .detail-body,
+  .home-intro, .page-sub, .section-note, .index-sub, .qb-question h2 { line-height: 1.6; }
+
+  /* 문단 사이 */
+  .prose p, .pj-body p + p, .read-body p + p, .detail-body p + p,
+  .home-intro p + p { margin-top: 1em; }
+  .prose p { margin: 0 0 1em; }
+
+  /* 목록 각 행 */
+  .index-row, .cat-row, .wr-row, .qb-row, .links-row,
+  .pj-timeline li, .pj-runs li, .pj-credits li, .qlist a { padding: 8px 0; }
+  .index-item[data-open="true"] > .index-row { padding: 8px 12px; }
+
+  /* 섹션 제목 — 위 28px / 아래 14px */
+  .pj-label, .cat-group-title, .doc-group-title, .qb-group-title,
+  .links-head, .home-sec-head, .pj-edition-title {
+    margin-top: 28px; margin-bottom: 14px; padding-bottom: 8px;
+  }
+  .section-head { padding-top: 28px; margin-bottom: 14px; }
+  .cat-group { padding-top: 28px; }
+  .doc-group + .doc-group, .now-group + .now-group,
+  .qb-group + .qb-group, .pj-section { margin-top: 28px; }
+
+  /* 2) 궤적 — 펼친 내용: 대표 활동 · 질문이 위, 설명은 아래 ---------- */
+  .home-traj .index-detail .is-mobile { display: block; }
+  .home-traj .detail-inner {
+    display: block;                    /* 라벨과 내용의 왼쪽 시작선을 하나로 */
+  }
+  .home-traj .detail-label { display: block; padding-top: 0; margin-bottom: 4px; }
+  .home-traj .detail-body,
+  .home-traj .qset { margin: 0 0 10px; max-width: none; }
+
+  /* 3) 궤적 — 펼친 영역 세로 폭 절반 -------------------------------- */
+  .home-traj .detail-inner { padding: 7px 0 11px; }
+  .home-traj .qset { gap: 5px; }
+  .home-traj .traj-more { margin-top: 2px; }
+
+  /* 4) 지금 — 한 줄에 카드 하나, 태그는 상세 페이지에서만 ----------- */
+  .now-grid { grid-template-columns: 1fr; }
+  .now-tags { display: none; }
+
+  /* 5) 기록 — 연도 열을 없애고 코드에 연도를 합쳐서 (AF2020) -------- */
+  .cat-year { display: none; }
+  .cat-code { display: none; }
+  .cat-code-m { display: inline; }
+  .cat-row { grid-template-columns: 1fr; gap: 3px; }
+  .cat-code-m, .cat-title-cell { grid-column: 1; }
+
+  /* 6) 포토북 — 세로 스크롤 ------------------------------------------ */
+  body.book { overflow: auto; }
+  .photobook {
+    display: block; height: auto;
+    overflow: visible;
+    padding: 24px var(--pad) 0;
+  }
+  .photobook img {
+    height: auto; width: 100%; max-width: none;
+    display: block; margin: 0 0 40px;
+  }
+  .pb-end { display: block; padding: 8px 0 56px; }
+  .pb-progress { display: none; }
 }

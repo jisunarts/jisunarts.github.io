@@ -90,6 +90,8 @@
 
     const cells =
       '<span class="cat-code tnum">' + esc(code) + "</span>" +
+      /* 모바일에서는 연도 열 대신 이것만 보입니다 (예: AF2020) */
+      '<span class="cat-code-m tnum">' + esc(it.type + row.y.start) + "</span>" +
       '<span class="cat-title-cell">' +
         '<span class="cat-title" ' + bi({ ko: it.title_ko, en: it.title_en || it.title_ko }) + ">" +
           esc(it.title_ko) +

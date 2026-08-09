@@ -79,6 +79,10 @@
             works +
             '<span class="meta detail-label" data-ko="질문" data-en="Questions">질문</span>' +
             '<ul class="qset">' + questions + "</ul>" +
+            /* 설명 — 모바일에서만 펼침 안에 보입니다 (데스크톱은 행에 그대로) */
+            '<span class="meta detail-label is-mobile" data-ko="설명" data-en="Summary">설명</span>' +
+            '<p class="detail-body is-mobile" ' + bi({ ko: p.essence_ko, en: p.essence_en }) + ">" +
+              esc(p.essence_ko) + "</p>" +
             /* 이 시기의 기록으로 */
             '<span class="detail-label"></span>' +
             '<p class="traj-more"><a href="archive.html?period=' + (idx + 1) + '" ' +
