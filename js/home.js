@@ -58,7 +58,7 @@
         : "";
 
       return '<li class="index-item" data-open="false">' +
-        '<button type="button" class="index-row" id="traj-' + esc(p.id) + '-btn" ' +
+        '<button type="button" class="index-row" data-acc-toggle id="traj-' + esc(p.id) + '-btn" ' +
           'aria-expanded="false" aria-controls="traj-' + esc(p.id) + '-panel">' +
           '<span class="index-lead meta tnum" ' + bi(years) + ">" + esc(years.ko) + "</span>" +
           "<span>" +
