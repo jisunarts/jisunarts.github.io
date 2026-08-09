@@ -1,1 +1,9 @@
+# 맥이 자동으로 만드는 파일
 .DS_Store
+
+# 패키지 폴더 (지금은 쓰지 않지만 나중을 위해)
+node_modules/
+
+# 원본·보관용 이미지 — 공개 저장소에 올리지 않습니다
+img/_original/
+img/_archive/
