@@ -19,21 +19,5 @@ const PHOTOS = [
     category: "여행기", year: "2024", tags: ["이동성"],
     cover: "img/photos/patagonia/001.jpg",
     page: "photos/patagonia.html"
-  },
-  {
-    id: "patagonia",
-    title_ko: "파타고니아",
-    title_en: "Patagonia",
-    category: "여행기", year: "2024", tags: ["이동성"],
-    cover: "img/photos/patagonia-lake-1.jpg",
-    images: [
-      "img/photos/patagonia-lake-1.jpg",
-      "img/photos/patagonia-lake-2.jpg",
-      "img/photos/patagonia-road.jpg",
-      "img/photos/patagonia-shore.jpg",
-      "img/photos/patagonia-wide.jpg",
-      "img/photos/water-grass.jpg",
-      "img/photos/walking.jpg"
-    ]
   }
 ];
