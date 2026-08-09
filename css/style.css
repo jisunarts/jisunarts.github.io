@@ -46,6 +46,11 @@
 
   --pad: 40px;                   /* 화면 좌우 여백 (전폭 레이아웃) */
 
+  /* 포토북(모바일 페이지 넘김) 여백 — 실기기에서 보고 이 값만 고치면 됩니다 */
+  --pb-gap:   16px;    /* 한 페이지 안 두 사진 사이 */
+  --pb-pad-y: 16px;    /* 페이지 위아래 여백 */
+  --pb-pad-x: 8px;     /* 페이지 좌우 여백 */
+
   /* 기록 표의 열 — 헤더와 데이터 행이 이 값 하나를 함께 씁니다.
      데스크톱: 색인코드 · 제목 · 연도 (모바일에서는 아래 미디어쿼리에서 바꿈) */
   --cat-cols: 136px minmax(0, 1fr) 78px;
@@ -1484,22 +1489,22 @@ body[data-page="home"] .brand-logo { display: none; }
   }
 
   .pb-page {
-    display: flex; flex-direction: column; justify-content: center;
-    align-items: center; gap: 8px;
+    display: grid;
+    grid-template-rows: 1fr;              /* 세로 사진 단독 페이지 */
+    row-gap: var(--pb-gap);
     flex: 0 0 100%; width: 100%; height: 100%;
     scroll-snap-align: center; scroll-snap-stop: always;
-    padding: 8px;
+    padding: var(--pb-pad-y) var(--pb-pad-x);
   }
+  /* 가로 사진 두 장 — 남는 높이를 정확히 반씩 나눠 갖습니다 */
+  .pb-page[data-n="2"] { grid-template-rows: 1fr 1fr; }
+
   .pb-page img {
-    height: auto; width: 100%; max-width: 100%;
-    min-height: 0; flex: 0 1 auto;
-    object-fit: contain;
+    width: 100%; height: 100%;
+    min-height: 0; min-width: 0;
+    object-fit: contain;                  /* 비율이 달라도 잘리지 않습니다 */
     border: 0;
   }
-  /* 두 장이 든 페이지는 각자 절반 높이 안에서 */
-  .pb-page img:nth-child(2) ~ img,
-  .pb-page:has(img + img) img { max-height: calc(50% - 4px); }
-  .pb-page:not(:has(img + img)) img { max-height: 100%; }
 
   .pb-end { padding: 0 var(--pad); }
   .pb-progress { display: none; }

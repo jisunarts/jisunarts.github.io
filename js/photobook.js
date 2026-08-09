@@ -36,7 +36,7 @@
 
   strip.innerHTML =
     pages.map(function (page, i) {
-      return '<div class="pb-page" data-page="' + i + '">' +
+      return '<div class="pb-page" data-page="' + i + '" data-n="' + page.length + '">' +
         page.map(function (n) { return imgTag(n, i < 2); }).join("") +
       "</div>";
     }).join("") +
