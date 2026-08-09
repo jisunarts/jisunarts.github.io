@@ -255,7 +255,7 @@ const PROJECTS = {
   /* ── 세상의 종말이 (아닌) ──────────────────────────────────────────── */
 
   "not-the-end-of-the-world": {
-    eyebrow: "공연 · 2026 · 없는극장 · 연희예술극장",
+    eyebrow: "공연 · 2026",
     title: "세상의 종말이 (아닌)",
     credit: "크리스 부시 작 · 전윤환 연출 · 앤드씨어터",
     role: { label: { ko: "역할", en: "Role" }, text: "박지선 — 드라마투르그" },
@@ -440,7 +440,7 @@ const PROJECTS = {
   /* ── sync de sync 싱크 디 싱크 ─────────────────────────────────────── */
 
   "sync-de-sync": {
-    eyebrow: "공연 · 2025–2026 · TINC (This is Not A Church)",
+    eyebrow: "공연 · 2025–2026",
     title: "sync de sync 싱크 디 싱크",
     credit: "황수현 컨셉·안무 · 박지선 크리에이티브 프로듀서",
     back: { href: "now.html", ko: "← 지금", en: "← Now" },

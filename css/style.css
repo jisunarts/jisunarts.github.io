@@ -955,6 +955,24 @@ body[data-chrome="min"] .nav-toggle { display: none; }
   .photobook img { height: 70vh; }
 }
 
+/* 4-9) 공용 아코디언 — 궤적 · 접기 글 · 크레딧이 함께 씁니다 ----------- */
+
+.acc-head {
+  display: flex; align-items: baseline; gap: 10px;
+  width: 100%; text-align: left;
+  padding-bottom: 8px; margin-bottom: 0;
+  border-bottom: 1px solid var(--rule-strong);
+}
+.acc-head:hover { text-decoration: underline; text-underline-offset: 3px; }
+.acc-mark { margin-left: auto; }
+
+.acc-panel { display: none; padding-top: 18px; }
+.acc[data-open="true"] > .acc-panel { display: block; }
+
+.pj-label-inline {
+  font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase;
+}
+
 /* 5) 필터 ---------------------------------------------------------------- */
 
 .filters {
@@ -1403,8 +1421,7 @@ body[data-page="home"] .brand-logo { display: none; }
   .home-intro, .page-sub, .section-note, .index-sub, .qb-question h2 { line-height: 1.6; }
 
   /* 문단 사이 */
-  .prose p, .pj-body p + p, .read-body p + p, .detail-body p + p,
-  .home-intro p + p { margin-top: 1em; }
+  .prose p, .pj-body p + p, .read-body p + p, .detail-body p + p { margin-top: 1em; }
   .prose p { margin: 0 0 1em; }
 
   /* 목록 각 행 */
@@ -1460,4 +1477,50 @@ body[data-page="home"] .brand-logo { display: none; }
   }
   .pb-end { display: block; padding: 8px 0 56px; }
   .pb-progress { display: none; }
+}
+
+/* ==========================================================================
+   모바일 전용 추가 (760px 이하)
+   ========================================================================== */
+
+@media (max-width: 760px) {
+
+  /* B-1) 기록 — 카테고리 구분선을 1.5px 단선 하나로 --------------------
+     색을 바꿔 보려면 --cat-rule 값만 고치면 됩니다.
+     오렌지로 비교: --cat-rule: #F26E22;                                  */
+  :root { --cat-rule: #1668E0; }
+
+  .cat { border-top: 0; }
+  .cat-group { padding-top: 34px; }        /* 선 위 여백은 넉넉히 */
+  .cat-group-title {
+    border-top: 1.5px solid var(--cat-rule);
+    border-bottom: 0;
+    margin-top: 0;
+    padding-top: 8px;                      /* 선과 제목은 붙여서 한 덩어리로 */
+    padding-bottom: 0;
+    margin-bottom: 10px;
+  }
+
+  /* B-2) 홈 소개 4줄 — 줄 간격을 하나로 ------------------------------- */
+  .home-intro { line-height: 1.55; }
+  .home-intro p { margin: 0; }
+  .home-intro p + p { margin-top: 0; }
+
+  /* B-3) 메뉴 오버레이 — 파란 바탕에 흰 글씨 --------------------------- */
+  .nav[data-open="true"] {
+    background-color: #1668E0;
+    background-image: none;
+    color: #FFFFFF;
+  }
+  .nav[data-open="true"] a { color: #FFFFFF; border-bottom-color: rgba(255, 255, 255, 0.28); }
+  .nav[data-open="true"] a[aria-current="page"] { color: #F26E22; }
+  .nav[data-open="true"] .nav-close svg { stroke: #FFFFFF; }
+
+  /* 오버레이 안의 반전 로고 (흰 점 + 오렌지 한 점) */
+  .nav-logo { display: none; }
+  .nav[data-open="true"] .nav-logo {
+    display: block; position: absolute; left: var(--pad); top: 14px;
+    line-height: 0;
+  }
+  .nav[data-open="true"] .nav-logo img { height: 20px; width: auto; border: 0; }
 }

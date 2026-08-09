@@ -52,6 +52,10 @@ const BASE = (document.body && document.body.dataset.base) || "";
         "</div>" +
 
         '<nav class="nav" id="main-nav" aria-label="주요 메뉴">' +
+          /* 메뉴가 열렸을 때만 보이는 반전 로고 */
+          '<a class="nav-logo" href="' + BASE + 'index.html" aria-label="박지선 홈">' +
+            '<img src="' + BASE + 'img/logo-invert.svg" alt="" width="26" height="22">' +
+          "</a>" +
           '<button type="button" class="nav-close" id="nav-close" aria-label="메뉴 닫기">' +
             '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
               '<path d="M5 5 L19 19 M19 5 L5 19"/></svg>' +

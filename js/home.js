@@ -70,7 +70,7 @@
             "</span>" +
             (keys ? '<span class="keys">' + keys + "</span>" : "") +
           "</span>" +
-          '<span class="index-tail meta" aria-hidden="true">+</span>' +
+          '<span class="index-tail acc-mark meta" aria-hidden="true">+</span>' +
         "</button>" +
 
         '<div class="index-detail" id="traj-' + esc(p.id) + '-panel" role="region" ' +
@@ -93,14 +93,14 @@
       "</li>";
     }).join("");
 
-    /* 열고 닫기 */
+    /* 열고 닫기 — 공용 아코디언(js/accordion.js)과 같은 방식 */
     traj.addEventListener("click", function (e) {
       const btn = e.target.closest(".index-row");
       if (!btn) return;
       const item = btn.parentElement;
       const open = item.dataset.open !== "true";
-      item.dataset.open = String(open);
-      btn.setAttribute("aria-expanded", String(open));
+      if (typeof Accordion !== "undefined") Accordion.set(item, open);
+      else { item.dataset.open = String(open); btn.setAttribute("aria-expanded", String(open)); }
       btn.querySelector(".index-tail").textContent = open ? "−" : "+";
     });
   }

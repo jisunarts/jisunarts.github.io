@@ -169,22 +169,27 @@
   /* 접어 두는 글 (안무가 소개 · 작가 소개 등) — 여러 개 가능 ------------- */
   const notes = p.notes || (p.note ? [p.note] : []);
   notes.forEach(function (n) {
-    html += '<section class="pj-section"><details class="pj-note">' +
-      "<summary " + bi(n.label) + ">" + esc(n.label.ko) + "</summary>" +
-      '<div class="pj-body">' +
-        n.paras.map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("") +
-      "</div></details></section>";
+    html += '<section class="pj-section">' +
+      Accordion.block(
+        '<span class="pj-label-inline" ' + bi(n.label) + ">" + esc(n.label.ko) + "</span>",
+        '<div class="pj-body">' +
+          n.paras.map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("") +
+        "</div>") +
+    "</section>";
   });
 
-  /* 크레딧 -------------------------------------------------------------- */
+  /* 크레딧 — 접었다 펴는 아코디언 (공용 js/accordion.js) ----------------- */
   if (p.credits && p.credits.rows && p.credits.rows.length) {
-    html += '<section class="pj-section">' + head(p.credits.label) +
-      '<ul class="pj-credits">' +
-        p.credits.rows.map(function (r) {
-          return "<li><span class=\"pj-credit-role\">" + esc(r[0]) + "</span>" +
-            '<span class="pj-credit-name">' + esc(r[1]) + "</span></li>";
-        }).join("") +
-      "</ul></section>";
+    html += '<section class="pj-section">' +
+      Accordion.block(
+        '<span class="pj-label-inline" ' + bi(p.credits.label) + ">" + esc(p.credits.label.ko) + "</span>",
+        '<ul class="pj-credits">' +
+          p.credits.rows.map(function (r) {
+            return "<li><span class=\"pj-credit-role\">" + esc(r[0]) + "</span>" +
+              '<span class="pj-credit-name">' + esc(r[1]) + "</span></li>";
+          }).join("") +
+        "</ul>") +
+    "</section>";
   }
 
   /* 후원 ---------------------------------------------------------------- */
@@ -348,6 +353,8 @@
 
   /* 미디어가 있으면 좌 40% / 우 60% 2단, 없으면 지금까지처럼 한 단 */
   const rightHtml = editionsHtml || (mediaHtml + galleryHtml);
+  if (typeof Accordion !== "undefined") Accordion.bind(mount);
+
   mount.innerHTML = rightHtml
     ? '<div class="pj-split">' +
         '<div class="pj-col-left">' + html + "</div>" +
