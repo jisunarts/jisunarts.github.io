@@ -45,6 +45,10 @@
   --col-gap: 28px;
 
   --pad: 40px;                   /* 화면 좌우 여백 (전폭 레이아웃) */
+
+  /* 기록 표의 열 — 헤더와 데이터 행이 이 값 하나를 함께 씁니다.
+     데스크톱: 색인코드 · 제목 · 연도 (모바일에서는 아래 미디어쿼리에서 바꿈) */
+  --cat-cols: 136px minmax(0, 1fr) 78px;
 }
 
 /* 1-1) 서체 층 ----------------------------------------------------------
@@ -248,10 +252,13 @@ img {
 
 .cat-head, .cat-row {
   display: grid;
-  grid-template-columns: 136px minmax(0, 1fr) 78px;
+  grid-template-columns: var(--cat-cols);
   gap: 22px;
   align-items: baseline;
 }
+
+/* 모바일 전용 셀은 데스크톱에서 감춥니다 (반대는 미디어쿼리에서) */
+.is-mobile, .cat-code-m { display: none; }
 
 .cat-head {
   padding: 0 10px 10px 0;
@@ -279,7 +286,7 @@ a.cat-row:hover .cat-title { text-decoration: underline; }
 
 .cat-code { font-size: 12px; letter-spacing: 0.03em; white-space: nowrap; }
 
-.cat-title-cell { min-width: 0; }
+.cat-title-cell { min-width: 0; }   /* 1fr 트랙이 줄지 않도록 */
 .cat-title {
   font-size: clamp(15px, 1.7vw, 17px); line-height: 1.45; letter-spacing: -0.018em;
   text-underline-offset: 3px; text-decoration-thickness: 1px;
@@ -1380,17 +1387,9 @@ body[data-page="home"] .brand-logo { display: none; }
   }
   .section-num { margin-bottom: 8px; }
   .section-head h2, .section-note, .intro-text > *, .qlist a > * { grid-column: 1; }
-  /* 카탈로그 표 — 코드·연도가 위, 제목·분류가 아래로 */
+  /* 카탈로그 표 — 모바일에서는 컬럼 이름 줄을 감춥니다 */
   .cat-head { display: none; }
   .cat { border-top: 1px solid var(--rule-strong); }
-  .cat-row {
-    grid-template-columns: 1fr auto;
-    gap: 5px 16px;
-    padding: 14px 0;
-  }
-  .cat-code { grid-column: 1; }
-  .cat-year { grid-column: 2; }
-  .cat-title-cell { grid-column: 1 / -1; }
 
   /* 글 목록 — 날짜·매체가 위, 제목이 아래 */
   .wr-head { display: none; }
@@ -1457,12 +1456,14 @@ body[data-page="home"] .brand-logo { display: none; }
   .now-grid { grid-template-columns: 1fr; }
   .now-tags { display: none; }
 
-  /* 5) 기록 — 연도 열을 없애고 코드에 연도를 합쳐서 (AF2020) -------- */
-  .cat-year { display: none; }
-  .cat-code { display: none; }
-  .cat-code-m { display: inline; }
-  .cat-row { grid-template-columns: 1fr; gap: 3px; }
-  .cat-code-m, .cat-title-cell { grid-column: 1; }
+  /* 5) 기록 — 연도 열을 없애고 코드에 연도를 합쳐서 (AF2020) --------
+     열 정의는 위의 --cat-cols 변수만 바꿉니다 (헤더·행이 함께 따라옵니다). */
+  :root { --cat-cols: auto minmax(0, 1fr); }
+  .cat-head, .cat-row { gap: 14px; }
+
+  .cat-code, .cat-year { display: none; }   /* 데스크톱용 셀은 감춤 */
+  .cat-code-m { display: inline; }          /* 병합 코드만 표시 */
+  .is-mobile { display: block; }            /* 궤적 펼침의 설명 등 */
 
   /* 6) 포토북 — 세로 스크롤 ------------------------------------------ */
   body.book { overflow: auto; }
