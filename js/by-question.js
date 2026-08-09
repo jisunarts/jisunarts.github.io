@@ -45,7 +45,14 @@
     ORDER.forEach(function (t) {
       ARCHIVE.map(function (it, i) { return { it: it, y: readYear(it.year), i: i }; })
         .filter(function (r) { return r.it.type === t; })
-        .sort(function (a, b) { return (b.y.start - a.y.start) || (b.y.end - a.y.end) || (a.i - b.i); })
+        .sort(function (a, b) {
+          /* 기록 페이지와 같은 규칙이어야 앵커 코드가 맞습니다 */
+          const ao = a.it.order, bo = b.it.order;
+          if (ao != null && bo != null) return ao - bo;
+          if (ao != null) return -1;
+          if (bo != null) return 1;
+          return (b.y.start - a.y.start) || (b.y.end - a.y.end) || (a.i - b.i);
+        })
         .forEach(function (r, idx) {
           CODE[r.i] = t + String(r.y.start).slice(-2) + "-" + String(idx + 1).padStart(3, "0");
         });

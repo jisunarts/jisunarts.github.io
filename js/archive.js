@@ -115,6 +115,11 @@
       .map(function (item, i) { return { item: item, y: readYear(item.year), i: i }; })
       .filter(function (row) { return row.item.type === code && inPeriod(row.y); })
       .sort(function (a, b) {
+        /* order 가 있는 항목이 먼저(오름차순), 없는 항목은 그 뒤에 연도 최신순 */
+        const ao = a.item.order, bo = b.item.order;
+        if (ao != null && bo != null) return ao - bo;
+        if (ao != null) return -1;
+        if (bo != null) return 1;
         return (b.y.start - a.y.start) || (b.y.end - a.y.end) || (a.i - b.i);
       });
     return { code: code, type: TYPES[code] || { ko: code, en: code }, rows: rows };
