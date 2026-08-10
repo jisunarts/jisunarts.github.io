@@ -288,12 +288,14 @@ img {
 .is-mobile, .cat-code-m { display: none; }
 
 /* 카테고리 묶음 — 첫 묶음은 열 제목 줄이 없어진 만큼 위로 당깁니다 */
-.cat-group { padding-top: clamp(36px, 5vw, 56px); }
+.cat-group { padding-top: clamp(56px, 7vw, 88px); }
 .cat-group:first-child { padding-top: 0; }
+/* 카테고리 소제목 — 선 없이 여백만으로 묶음을 나눕니다.
+   위(이전 묶음과의 사이)는 넓게, 아래(첫 항목과의 사이)는 좁게. */
 .cat-group-title {
   display: flex; align-items: baseline; gap: 12px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--rule-strong);
+  padding-bottom: 0;
+  margin-bottom: 6px;
   font-size: clamp(16px, 1.9vw, 19px); font-weight: 500;
 }
 
@@ -1467,7 +1469,7 @@ body[data-chrome="min"] .nav-toggle { display: none; }
   .index-item[data-open="true"] > .index-row { padding: 8px 12px; }
 
   /* 섹션 제목 — 위 28px / 아래 14px */
-  .pj-label, .cat-group-title, .qb-group-title,
+  .pj-label, .qb-group-title,
   .links-head, .home-sec-head, .pj-edition-title {
     margin-top: 28px; margin-bottom: 14px; padding-bottom: 8px;
   }
@@ -1549,20 +1551,14 @@ body[data-chrome="min"] .nav-toggle { display: none; }
 
 @media (max-width: 760px) {
 
-  /* B-1) 기록 — 카테고리 구분선을 1.5px 단선 하나로 --------------------
-     색을 바꿔 보려면 --cat-rule 값만 고치면 됩니다.
-     오렌지로 비교: --cat-rule: #F26E22;                                  */
-  :root { --cat-rule: #1668E0; }
-
+  /* B-1) 기록 — 카테고리는 선 없이 여백만으로 구분 --------------------- */
   .cat { border-top: 0; }
-  .cat-group { padding-top: 34px; }        /* 선 위 여백은 넉넉히 */
+  .cat-group { padding-top: 44px; }        /* 이전 묶음과 넉넉히 */
+  .cat-group:first-child { padding-top: 0; }
   .cat-group-title {
-    border-top: 1.5px solid var(--cat-rule);
-    border-bottom: 0;
-    margin-top: 0;
-    padding-top: 8px;                      /* 선과 제목은 붙여서 한 덩어리로 */
-    padding-bottom: 0;
-    margin-bottom: 10px;
+    border-top: 0; border-bottom: 0;
+    margin-top: 0; padding-top: 0; padding-bottom: 0;
+    margin-bottom: 6px;                    /* 첫 항목과는 바짝 */
   }
 
   /* B-2) 홈 소개 4줄 — 줄 간격을 하나로 ------------------------------- */

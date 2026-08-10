@@ -14,7 +14,7 @@ const TYPES = {
   RS: { ko: "연구·강의·집필", en: "Research" },
   CM: { ko: "위원·평가",      en: "Committee" },
   AF: { ko: "소속·재직",      en: "Affiliation" },
-  CL: { ko: "협력 예술가",     en: "Collaborator" }
+  CA: { ko: "협력 예술가",     en: "Collaborative Artist" }
 };
 
 const ARCHIVE = [
