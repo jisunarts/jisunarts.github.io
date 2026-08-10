@@ -46,6 +46,11 @@
 
   --pad: 40px;                   /* 화면 좌우 여백 (전폭 레이아웃) */
 
+  /* 하위 페이지 상단 — 제목은 본문 크기, 헤더와의 간격은 모든 페이지 동일 */
+  --page-top:      40px;   /* 헤더와 제목 사이 */
+  --page-bottom:   28px;   /* 제목 묶음과 본문 사이 */
+  --page-title-gap: 2px;   /* 제목과 한 줄 설명 사이 (한 덩어리로 읽히게) */
+
   /* 포토북(모바일 페이지 넘김) 여백 — 실기기에서 보고 이 값만 고치면 됩니다 */
   --pb-gap:   16px;    /* 한 페이지 안 두 사진 사이 */
   --pb-pad-y: 16px;    /* 페이지 위아래 여백 */
@@ -391,7 +396,7 @@ a.wr-row:hover .wr-title { text-decoration: underline; text-underline-offset: 3p
 /* 읽기 페이지 — 한 컬럼, 넉넉하게 */
 .read { padding-bottom: clamp(72px, 10vw, 128px); }
 
-.read-head { padding: clamp(60px, 8vw, 96px) 0 clamp(28px, 4vw, 40px); }
+.read-head { padding: var(--page-top) 0 var(--page-bottom); }
 .read-back { text-decoration: underline; text-underline-offset: 3px; }
 .read-head h1 {
   margin-top: 22px;
@@ -626,7 +631,7 @@ a.now-card:hover .now-title { text-decoration: underline; text-underline-offset:
 
 .project { padding-bottom: clamp(72px, 10vw, 128px); }
 
-.pj-head { padding: clamp(52px, 7vw, 84px) 0 clamp(24px, 3.5vw, 36px); }
+.pj-head { padding: var(--page-top) 0 var(--page-bottom); }
 .pj-back { font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
 .pj-eyebrow {
   margin-top: 26px;
@@ -1262,9 +1267,23 @@ body[data-page="home"] .brand-logo { visibility: hidden; }
 
 /* 8) 페이지 머리 (하위 페이지 공용) -------------------------------------- */
 
-.page-head { padding: clamp(72px, 9vw, 132px) 0 clamp(24px, 4vw, 40px); }
-.page-head h1 { font-size: clamp(24px, 3.2vw, 36px); }
-.page-head .page-sub { margin-top: 14px; max-width: 52ch; font-size: 16px; }
+.page-head { padding: var(--page-top) 0 var(--page-bottom); }
+
+/* 제목 — 본문과 같은 크기·자간·행간, 굵기만 다르게 */
+.page-head h1 {
+  font-size: 1rem;                 /* body 와 동일 (16px) */
+  line-height: 1.65;
+  letter-spacing: -0.011em;
+  font-weight: var(--w-title);     /* Wanted Sans 600 */
+}
+
+/* 한 줄 설명 — 굵기 없이 본문 그대로, 제목과 바짝 붙여 한 덩어리로 */
+.page-head .page-sub {
+  margin-top: var(--page-title-gap);
+  max-width: 52ch;
+  font-size: 1rem; line-height: 1.65; font-weight: var(--w-body);
+}
+.page-head .page-count, .page-head .archive-count { margin-top: 12px; }
 
 .placeholder {
   padding: 40px 0 clamp(72px, 10vw, 128px);
