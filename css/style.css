@@ -178,7 +178,10 @@ img {
 
 .header-inner {
   display: flex; align-items: center; gap: 36px;
-  padding: 16px 0;
+  /* 좌우 여백은 .wrap 의 --pad 를 그대로 씁니다.
+     padding 축약형을 쓰면 그 값을 덮어써 로고가 화면 끝에 붙습니다. */
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .brand { display: flex; align-items: center; }
@@ -273,7 +276,8 @@ img {
 .archive-section { padding-bottom: clamp(72px, 10vw, 128px); }
 .archive-count { margin-top: 20px; }
 
-.cat-head, .cat-row {
+/* 열 폭은 데이터 행이 직접 갖습니다 (열 제목 줄에 묶어 두지 않습니다) */
+.cat-row {
   display: grid;
   grid-template-columns: var(--cat-cols);
   gap: 22px;
@@ -283,13 +287,9 @@ img {
 /* 모바일 전용 셀은 데스크톱에서 감춥니다 (반대는 미디어쿼리에서) */
 .is-mobile, .cat-code-m { display: none; }
 
-.cat-head {
-  padding: 0 10px 10px 0;
-  border-bottom: 1px solid var(--rule-strong);
-}
-
-/* 카테고리 묶음 */
+/* 카테고리 묶음 — 첫 묶음은 열 제목 줄이 없어진 만큼 위로 당깁니다 */
 .cat-group { padding-top: clamp(36px, 5vw, 56px); }
+.cat-group:first-child { padding-top: 0; }
 .cat-group-title {
   display: flex; align-items: baseline; gap: 12px;
   padding-bottom: 10px;
@@ -1427,7 +1427,6 @@ body[data-chrome="min"] .nav-toggle { display: none; }
   .section-num { margin-bottom: 8px; }
   .section-head h2, .section-note, .intro-text > *, .qlist a > * { grid-column: 1; }
   /* 카탈로그 표 — 모바일에서는 컬럼 이름 줄을 감춥니다 */
-  .cat-head { display: none; }
   .cat { border-top: 1px solid var(--rule-strong); }
 
   /* 글 목록 — 날짜·매체가 위, 제목이 아래 */
@@ -1498,7 +1497,7 @@ body[data-chrome="min"] .nav-toggle { display: none; }
   /* 5) 기록 — 연도 열을 없애고 코드에 연도를 합쳐서 (AF2020) --------
      열 정의는 위의 --cat-cols 변수만 바꿉니다 (헤더·행이 함께 따라옵니다). */
   :root { --cat-cols: auto minmax(0, 1fr); }
-  .cat-head, .cat-row { gap: 14px; }
+  .cat-row { gap: 14px; }
 
   .cat-code, .cat-year { display: none; }   /* 데스크톱용 셀은 감춤 */
   .cat-code-m { display: inline; }          /* 병합 코드만 표시 */
