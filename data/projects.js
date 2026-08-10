@@ -98,7 +98,7 @@ const PROJECTS = {
       ]
     },
 
-    tags: ["국제협력", "아시아연대", "이동성", "독립수평", "제도와공공성"]
+    tags: ["international", "asian-solidarity", "mobility", "independent", "institutions"]
   },
 
   /* ── 예술텃밭 예술가 레지던시 — 기후변화 ──────────────────────────── */
@@ -185,7 +185,7 @@ const PROJECTS = {
 
     photos: { credit: "사진 제공 예술텃밭 기후변화 레지던시" },
 
-    tags: ["기후위기", "지역과공동체", "독립수평", "과정중심"]
+    tags: ["climate-crisis", "region-community", "independent", "process"]
   },
 
   /* ── 히히히스토리 ──────────────────────────────────────────────────── */
@@ -329,7 +329,7 @@ const PROJECTS = {
       ]
     },
 
-    tags: ["기후정의"]
+    tags: ["climate-justice"]
   },
 
   /* ── TNN — The Next Normal ─────────────────────────────────────────── */
@@ -379,7 +379,7 @@ const PROJECTS = {
       ]
     },
 
-    tags: ["국제협력", "아시아연대", "기후위기", "창조적마찰", "경계와공존"]
+    tags: ["international", "asian-solidarity", "climate-crisis", "creative-friction", "borders-coexistence"]
   },
 
   /* ── 무용 × 기술 창작 랩 ───────────────────────────────────────────── */
@@ -434,7 +434,7 @@ const PROJECTS = {
       ]
     },
 
-    tags: ["기술사회", "포스트휴먼", "AI", "창조적마찰", "경계와공존", "과정중심"]
+    tags: ["tech-society", "posthuman", "ai", "creative-friction", "borders-coexistence", "process"]
   },
 
   /* ── sync de sync 싱크 디 싱크 ─────────────────────────────────────── */
@@ -631,6 +631,6 @@ const PROJECTS = {
     },
 
     /* 태그 — data/tags.js 의 태그와 같은 이름이면 '질문으로 보기'로 이어집니다 */
-    tags: ["경계와공존", "기후위기", "지역과공동체", "국제협력", "이동성", "축제다원예술", "시민참여", "과정중심"]
+    tags: ["borders-coexistence", "climate-crisis", "region-community", "international", "mobility", "festival", "civic", "process"]
   }
 };

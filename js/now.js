@@ -61,8 +61,9 @@
     }).join("");
 
     const tags = (it.tags || []).map(function (t) {
-      return '<a class="now-tag" href="by-question.html?tag=' + encodeURIComponent(t) + '">' +
-        esc(t) + "</a>";
+      const label = (typeof tagLabel === "function") ? tagLabel(t) : { ko: t, en: t };
+      return '<a class="now-tag" href="by-question.html?tag=' + encodeURIComponent(t) + '" ' +
+        bi(label) + ">" + esc(label.ko) + "</a>";
     }).join("");
 
     return '<li class="now-item' + (it.cover ? "" : " no-cover") + '"' +

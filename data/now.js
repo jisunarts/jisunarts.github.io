@@ -77,7 +77,7 @@ const NOW = [
     role: "드라마투르그",
     cover: "img/works/not-the-end/not-the-end-poster.jpg",
     page: "projects/not-the-end-of-the-world.html",
-    tags: ["기후정의"],
+    tags: ["climate-justice"],
     detail: {
       photoCredit: "",
       runs: [
@@ -167,7 +167,7 @@ const NOW = [
     cover: "img/works/app/01.jpg",
     page: "projects/app.html",
     summary: "아시아에서 일하는 독립 프로듀서들이 동료로서 서로를 잇기 위해 만든 수평적 네트워크.",
-    tags: ["국제협력", "아시아연대", "이동성", "독립수평", "제도와공공성"],
+    tags: ["international", "asian-solidarity", "mobility", "independent", "institutions"],
     /* 상세 내용은 data/projects.js 의 app 에 있습니다 */
     detail: { photoCredit: "" }
   },
@@ -183,7 +183,7 @@ const NOW = [
     partner: "앤드씨어터 × 프로듀서그룹도트 × 강화유니버스",
     cover: "img/photos/ganghwa/ganghwa-01.jpg",
     page: "projects/ganghwa.html",
-    tags: ["경계와공존", "기후위기", "지역과공동체", "국제협력", "이동성", "축제다원예술", "시민참여", "과정중심"],
+    tags: ["borders-coexistence", "climate-crisis", "region-community", "international", "mobility", "festival", "civic", "process"],
     /* 상세 내용은 강화도 상세 페이지(data/projects.js)에 있습니다 */
     detail: { photoCredit: "Jisun" }
   },
@@ -199,7 +199,7 @@ const NOW = [
     partner: "국립현대무용단 공동 기획",
     cover: "img/works/dance-techlab/01.jpg",
     page: "projects/dance-techlab.html",
-    tags: ["기술사회", "포스트휴먼", "AI", "창조적마찰", "경계와공존", "과정중심"],
+    tags: ["tech-society", "posthuman", "ai", "creative-friction", "borders-coexistence", "process"],
     detail: {
       photoCredit: "2025 무용기술 오픈위크 · 사진 제공 국립현대무용단",
       description: "〈무용 × 기술 창작랩〉은 2021년부터 이어온 무용과 기술의 실험적 교류의 장이다. 기술을 창작의 '도구'로만 다루는 관점의 한계에서 출발해, 안무가와 기술 연구자·개발자·작가가 서로의 언어와 매체, 실행 방법론을 익히며 협업하는 프로젝트로, '질문이 증발된 실험에 빠지지 않는 것'을 중요한 원칙으로 한다.\n\n2021년에는 신체성의 확장과 탈피, 사회적 거리두기 이후 무용의 감각적 경험, 안무 창작의 주체성을 다뤘다. 2022년부터는 '포스트휴먼 & 포스트휴머니즘'을 주제로 삼아 참여자들이 다양한 질문을 생성하고 이를 예술적 실험으로 확장하는 과정을 이어오고 있다. 강의와 워크숍, 팀별 연구와 실험을 결합한 과정 중심 프로그램으로, 인공지능·로봇·가상현실·포스트휴먼 바디 등 동시대적 주제를 통해 예술과 기술의 관계를 새롭게 모색하고 있으며 2025년에는 참여 예술가들이 도출한 8개의 프로토타입을 발표했다.\n\n2026년 창작랩은 인공지능과 데이터가 창작의 도구를 넘어 자율적 주체(Agent)로 진화하는 시대에 예술가가 던져야 할 근본적인 질문에서 출발한다. 지난 4년 동안 '포스트휴먼 & 포스트휴머니즘'이라는 주제 아래 인간·동물·식물·기계가 공존하는 세상의 경계를 해제하는 탐구를 지속해 왔다면, 2026년에는 그 무경계의 땅 위에서 다시 '인간'의 미래를 질문하고자 한다. 인공지능은 콘텐츠를 생성하는 수준을 넘어 스스로 계획하고 도구를 사용하며 문제를 해결하는 '에이전틱 AI'로 발전했고, 현실 세계에서 직접 임무를 수행하는 '피지컬 AI'까지 등장했다. 알고리즘 기반의 데이터와 물리적 해결 능력을 갖춘 기술 환경 속에서 '인간은 어떻게 공존해야 하는가'는 우리가 직면한 지속적인 질문이다. 2026 창작랩은 기술과 신체의 윤리적 공존을 깊이 있게 탐구한다.\n\n안무가, 기술 언어를 보유한 테크니션, 연구자, 프로듀서들은 5월·8월·10월에 걸친 3단계의 랩을 통해 질문을 생성하고, 실험을 거쳐 프로토타입을 제작한다.",
@@ -224,7 +224,7 @@ const NOW = [
     cover: "img/works/climate-residency/2021/08.jpg",
     page: "projects/climate-residency.html",
     summary: "기후변화라는 거대 담론을 삶 속에 구체화하고 예술적 실천으로 옮기는 예술가 레지던시.",
-    tags: ["기후위기", "지역과공동체", "독립수평", "과정중심"],
+    tags: ["climate-crisis", "region-community", "independent", "process"],
     /* 상세 내용은 data/projects.js 의 climate-residency 에 있습니다 */
     detail: { photoCredit: "사진 제공 예술텃밭 기후변화 레지던시" }
   },
@@ -239,7 +239,7 @@ const NOW = [
     role: "기획 · 아시아 네트워크",
     cover: "img/works/TNN/01.jpg",
     page: "projects/tnn.html",
-    tags: ["국제협력", "아시아연대", "기후위기", "창조적마찰", "경계와공존"],
+    tags: ["international", "asian-solidarity", "climate-crisis", "creative-friction", "borders-coexistence"],
     detail: {
       photoCredit: "사진 제공 한국문화예술위원회",
       summary: "지금과 미래를 위한 예술가들의 질문과 실천 — '정상(Normal)'의 의미를 다시 생각하다",
@@ -263,7 +263,7 @@ const NOW = [
     partner: "앤드씨어터",
     cover: "img/works/asian-eyes/01.jpg",
     summary: "태국 메솟 · 치앙마이에서 미얀마 사람들의 목소리를 담는 리서치. 2025–2026 진행 중.",
-    tags: ["기후정의", "아시아연대", "이동성", "기후위기"],
+    tags: ["climate-justice", "asian-solidarity", "mobility", "climate-crisis"],
     detail: {
       photoCredit: "",
       photos: {
@@ -286,7 +286,7 @@ const NOW = [
     partner: "Academy for Theatre and Digitality (Dortmund) × 프로듀서그룹 도트 (서울)",
     cover: "img/works/aesthethics.jpg",
     url: "",
-    tags: ["AI", "기술사회", "국제협력", "제도와공공성", "창조적마찰", "이동성"],
+    tags: ["ai", "tech-society", "international", "institutions", "creative-friction", "mobility"],
     detail: {
       photoCredit: "",
       description: "도르트문트 연극 및 디지털리티 아카데미와 프로듀서그룹 도트의 공동 협력 프로젝트다. 2026년은 리서치 해이다.\n\n'Aesth:ethics'의 첫 단계에서는 협력을 위한 로드맵을 설계하고, 향후 선보일 연극 공연 프로그램의 구체적인 컨셉을 개발할 예정이다. 이 프로그램은 글로벌 기술 혁신 영역, 특히 인공지능의 활용과 그에 따른 윤리적 시사점들이 던지는 시급한 사회적 질문들을 다룬다.\n\n인공지능의 급격한 발전은 권력과 민주주의, 전쟁과 감시, 로봇 공학과 생명 공학에 대한 질문을 야기하며, 이는 오늘날 예술·사회·과학계 전반의 글로벌 거대 담론으로 부상하고 있다. 이러한 질문들은 미학적 혁신, 예술적·기술적 연구개발, 그리고 사회적 책임감을 결합하는 예술 제작의 출발점이 된다.\n\n공동의 로드맵과 프로젝트 컨셉은 두 차례의 현지 대면 컨셉 워크숍을 통해 구체화된다. 1차 워크숍은 2026년 5월 3–9일 도르트문트에서, 2차 워크숍은 2026년 9월 말 서울에서 진행된다. 각 도시에서는 ⑴ 크리에이티브 코딩 및 공연예술 ⑵ 과학 및 시민사회 ⑶ 연극 프로듀싱 및 지속가능성 분야의 지역·국가 전문가들을 초청해 자문을 구하고, 다른 문화적 배경을 가진 상대 국가의 동일 분야 전문가들을 온라인으로 연결해 다각도의 논의를 펼친다. 워크숍 이외의 실무 회의는 온라인으로 진행된다.\n\n공연예술·시민사회·과학·지속가능성 분야의 지역 전문가들을 컨셉 개발 단계부터 적극적으로 참여시킴으로써, 양측의 파트너십을 위한 단단한 기초를 다지는 동시에 예술적 탁월함과 지속 가능한 실천이 구체적인 사회적 영향력으로 이어질 수 있는 공명의 장을 마련하고자 한다.",

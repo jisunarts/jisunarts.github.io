@@ -345,8 +345,9 @@
       head({ ko: "질문 · 태그", en: "Questions · Tags" }) +
       '<div class="pj-tags">' +
         p.tags.map(function (t) {
+          const label = (typeof tagLabel === "function") ? tagLabel(t) : { ko: t, en: t };
           return '<a class="qb-tag" href="' + BASE + "by-question.html?tag=" +
-            encodeURIComponent(t) + '">' + esc(t) + "</a>";
+            encodeURIComponent(t) + '" ' + bi(label) + ">" + esc(label.ko) + "</a>";
         }).join("") +
       "</div></section>";
   }

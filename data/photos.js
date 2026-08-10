@@ -8,7 +8,7 @@ const PHOTOS = [
     id: "sync-tinc",
     title_ko: "싱크 디 싱크 — TINC 리허설 기록",
     title_en: "Sync the Sync — TINC Rehearsal",
-    category: "공연", year: "2026", tags: ["기술사회","포스트휴먼","과정중심"],
+    category: "공연", year: "2026", tags: ["tech-society","posthuman","process"],
     cover: "img/photos/sync-cover.jpg",
     link: "https://jisunarts.github.io/syncdesync_photo"
   },
@@ -16,7 +16,7 @@ const PHOTOS = [
     id: "patagonia-book",
     title_ko: "파타고니아",
     title_en: "Patagonia",
-    category: "여행기", year: "2024", tags: ["이동성"],
+    category: "여행기", year: "2024", tags: ["mobility"],
     cover: "img/photos/patagonia/001.jpg",
     page: "photos/patagonia.html"
   }

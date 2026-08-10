@@ -38,11 +38,19 @@
       ? '<span class="wr-arrow" aria-hidden="true">↗</span>'
       : "";
 
+    /* 영문 제목이 있으면 그것을, 없으면 국문 제목 그대로.
+       원문은 번역하지 않으므로, 영문 모드에서는 'in Korean' 을 작게 덧붙입니다. */
+    const title = { ko: it.title, en: it.title_en || it.title };
+    const orig = it.title_en
+      ? ""
+      : '<span class="wr-orig" data-ko="" data-en="in Korean"></span>';
+
     const cells =
       '<span class="wr-date tnum">' + esc(it.date) + "</span>" +
       '<span class="wr-media">' + esc(it.media) + "</span>" +
       '<span class="wr-title-cell">' +
-        '<span class="wr-title">' + esc(it.title) + "</span>" + mark + label +
+        '<span class="wr-title" ' + bi(title) + ">" + esc(title.ko) + "</span>" +
+        mark + orig + label +
       "</span>";
 
     /* 전문은 사이트 안에서, 나머지는 원문으로 */

@@ -394,6 +394,14 @@ a.wr-row:hover .wr-title { text-decoration: underline; text-underline-offset: 3p
 .wr-title-cell { min-width: 0; }
 .wr-title { font-size: clamp(15px, 1.7vw, 17px); line-height: 1.45; letter-spacing: -0.018em; }
 .wr-arrow { font-size: 12px; margin-left: 5px; vertical-align: 1px; }
+
+/* 영문 모드에서 원문이 한국어임을 알리는 표시 */
+.wr-orig {
+  font-family: var(--font-meta);
+  font-size: 11px; opacity: 0.6;
+  margin-left: 6px; white-space: nowrap;
+}
+.wr-orig:empty { margin-left: 0; }
 .wr-kind {
   margin-left: 8px; font-size: 11px; letter-spacing: 0.06em;
   padding: 1px 6px; box-shadow: inset 0 0 0 1px var(--rule-strong);
@@ -1088,7 +1096,8 @@ body[data-chrome="min"] .nav-toggle { display: none; }
 
 .home-grid {
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: 80px; align-items: start;
+  gap: 40px;                 /* 두 열 사이만 좁혀 궤적 열을 왼쪽으로 */
+  align-items: start;
 }
 
 /* 홈에서는 상단 메뉴의 작은 로고를 감춥니다 (바로 아래 큰 로고가 있어서) */
@@ -1112,7 +1121,10 @@ body[data-chrome="min"] .nav-toggle { display: none; }
 }
 
 /* 오른쪽 — 궤적. '01 궤적'이 왼쪽 '이동하는 사람…' 줄과 같은 라인에 오도록 */
-.home-right { padding-top: 30px; }   /* 왼쪽 '이동하는 사람…' 줄과 같은 라인 */
+/* '01 궤적'의 글자 기준선을 왼쪽 '이동하는 사람 · …' 줄에 맞춥니다.
+   = 제목(박지선) 줄 높이 + 제목·설명 사이 여백 + 두 줄의 글자 크기 차이 보정.
+   제목 크기를 바꾸면 이 값도 따라 움직입니다. */
+.home-right { padding-top: calc(1rem * 1.65 + var(--page-title-gap) + 1px); }
 
 .home-sec-head {
   display: flex; align-items: baseline; gap: 12px;

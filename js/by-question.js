@@ -130,21 +130,25 @@
   });
 
   /* 사전 순서를 먼저, 사전에 없는 태그는 뒤에 */
-  const dict = (typeof TAG_QUESTIONS !== "undefined") ? TAG_QUESTIONS : [];
-  const known = dict.map(function (t) { return t.tag; });
+  const dict = (typeof TAGS !== "undefined") ? TAGS : [];
+  const known = dict.map(function (t) { return t.key; });
   const extra = Object.keys(counts).filter(function (t) { return known.indexOf(t) < 0; });
   const order = known.concat(extra).filter(function (t) { return counts[t]; });
 
   function questionOf(tag) {
-    const found = dict.filter(function (t) { return t.tag === tag; })[0];
-    return found ? found.question : null;
+    return (typeof tagQuestion === "function") ? tagQuestion(tag) : null;
+  }
+  function labelOf(tag) {
+    return (typeof tagLabel === "function") ? tagLabel(tag) : { ko: tag, en: tag };
   }
 
   /* 태그는 개수와 상관없이 모두 같은 크기입니다 (개수는 옆에 작게) */
   cloud.innerHTML = order.map(function (tag) {
+    const label = labelOf(tag);
     return '<button type="button" class="qb-tag" ' +
       'data-tag="' + esc(tag) + '" aria-pressed="false">' +
-      esc(tag) + '<span class="qb-tag-n tnum">' + counts[tag] + "</span>" +
+      "<span " + bi(label) + ">" + esc(label.ko) + "</span>" +
+      '<span class="qb-tag-n tnum">' + counts[tag] + "</span>" +
     "</button>";
   }).join("");
 
@@ -165,6 +169,7 @@
 
     const picked = items.filter(function (it) { return (it.tags || []).indexOf(tag) >= 0; });
     const question = questionOf(tag);
+    const label = labelOf(tag);
 
     const groups = Object.keys(SOURCE).map(function (key) {
       const rows = picked.filter(function (it) { return it.source === key; });
@@ -192,8 +197,10 @@
 
     result.innerHTML =
       '<div class="qb-question">' +
-        '<p class="meta">' + esc(tag) + '<span class="qb-total tnum"> · ' + picked.length + "</span></p>" +
-        "<h2>" + esc(question || tag) + "</h2>" +
+        '<p class="meta"><span ' + bi(label) + ">" + esc(label.ko) + "</span>" +
+          '<span class="qb-total tnum"> · ' + picked.length + "</span></p>" +
+        "<h2" + (question ? " " + bi(question) : "") + ">" +
+          esc(question ? question.ko : label.ko) + "</h2>" +
       "</div>" + groups;
 
     /* 언어 전환이 방금 그린 글자에도 적용되도록 */
