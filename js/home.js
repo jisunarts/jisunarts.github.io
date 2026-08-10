@@ -20,9 +20,13 @@
   const img = SITE.hero.image;
 
   hero.innerHTML =
-    '<p class="home-logo"><img src="img/logo.svg" alt="" width="26" height="22"></p>' +
-
-    "<h1 class=\"home-name\" " + bi(SITE.name) + ">" + esc(SITE.name.ko) + "</h1>" +
+    /* 큰 점 마크는 화면에서 뺐습니다 (img/logo.svg 파일은 그대로 있습니다).
+       이름은 다른 페이지 제목과 같은 규칙(.page-head h1)을 씁니다. */
+    '<div class="page-head home-head">' +
+      "<h1 " + bi(SITE.name) + ">" + esc(SITE.name.ko) + "</h1>" +
+      '<p class="page-sub home-kicker" ' + bi(SITE.hero.tagline) + ">" +
+        esc(SITE.hero.tagline.ko) + "</p>" +
+    "</div>" +
     '<p class="home-kicker" ' + bi(SITE.hero.tagline) + ">" + esc(SITE.hero.tagline.ko) + "</p>" +
 
     '<div class="home-intro">' + lead + "</div>" +
