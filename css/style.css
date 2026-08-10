@@ -322,21 +322,14 @@ a.cat-row:hover .cat-title { text-decoration: underline; }
 
 .documents-section { padding-bottom: clamp(72px, 10vw, 128px); }
 
-.doc-group + .doc-group { margin-top: clamp(40px, 5vw, 64px); }
-.doc-group-title {
-  display: flex; align-items: baseline; gap: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--rule-strong);
-  font-size: 15px; font-weight: 500;
-  scroll-margin-top: 80px;          /* 상단 메뉴에 가리지 않게 */
-}
-
+/* 자료집 — 계열 라벨·구분선 없이 하나의 균일한 그리드 */
 .doc-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 28px 22px;
   padding-top: clamp(24px, 3vw, 32px);
 }
+.doc-item { scroll-margin-top: 90px; }   /* 계열 첫 자료집이 앵커 */
 
 .doc-item a { display: block; }
 
@@ -1321,16 +1314,7 @@ body[data-page="home"] .brand-logo { visibility: hidden; }
 }
 
 @media (max-width: 760px) {
-  .doc-group + .doc-group { margin-top: clamp(40px, 5vw, 64px); }
-.doc-group-title {
-  display: flex; align-items: baseline; gap: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--rule-strong);
-  font-size: 15px; font-weight: 500;
-  scroll-margin-top: 80px;          /* 상단 메뉴에 가리지 않게 */
-}
-
-.doc-grid { grid-template-columns: repeat(3, 1fr); gap: 24px 18px; }
+  .doc-grid { grid-template-columns: repeat(3, 1fr); gap: 24px 18px; }
 }
 
 @media (max-width: 900px) {
@@ -1450,13 +1434,13 @@ body[data-page="home"] .brand-logo { visibility: hidden; }
   .index-item[data-open="true"] > .index-row { padding: 8px 12px; }
 
   /* 섹션 제목 — 위 28px / 아래 14px */
-  .pj-label, .cat-group-title, .doc-group-title, .qb-group-title,
+  .pj-label, .cat-group-title, .qb-group-title,
   .links-head, .home-sec-head, .pj-edition-title {
     margin-top: 28px; margin-bottom: 14px; padding-bottom: 8px;
   }
   .section-head { padding-top: 28px; margin-bottom: 14px; }
   .cat-group { padding-top: 28px; }
-  .doc-group + .doc-group, .now-group + .now-group,
+  .now-group + .now-group,
   .qb-group + .qb-group, .pj-section { margin-top: 28px; }
 
   /* 2) 궤적 — 펼친 내용: 대표 활동 · 질문이 위, 설명은 아래 ---------- */

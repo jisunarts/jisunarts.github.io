@@ -16,7 +16,7 @@
 
   const DICT = (typeof DOC_PROJECTS !== "undefined") ? DOC_PROJECTS : {};
 
-  function card(doc) {
+  function card(doc, anchor) {
 
     const title = { ko: doc.title_ko, en: doc.title_en || doc.title_ko };
 
@@ -24,7 +24,7 @@
       ? '<img src="' + esc(doc.cover) + '" alt="" loading="lazy">'
       : "";
 
-    return '<li class="doc-item">' +
+    return '<li class="doc-item"' + (anchor ? ' id="' + esc(anchor) + '"' : "") + ">" +
       '<a href="' + esc(doc.url) + '" target="_blank" rel="noopener">' +
 
         '<span class="doc-cover">' +
@@ -40,29 +40,39 @@
     "</li>";
   }
 
+  /* 계열(project) 묶음은 유지하되 라벨·구분선 없이 하나의 그리드로 이어 붙입니다.
+     · 계열 순서는 DOC_PROJECTS 에 적힌 순서 그대로
+     · 같은 계열 안에서는 연도 내림차순(최신 먼저)
+     · 계열이 행 중간에서 시작해도 그대로 둡니다 (줄바꿈 강제 없음)
+     · 데이터의 project 필드는 그대로 두고, 화면에 라벨만 그리지 않습니다      */
+
+  function startYear(d) {
+    const m = String(d.year || "").match(/\d{4}/);
+    return m ? parseInt(m[0], 10) : 0;
+  }
+
   const order = Object.keys(DICT).filter(function (k) {
     return DOCUMENTS.some(function (d) { return d.project === k; });
   });
   const rest = DOCUMENTS.filter(function (d) { return !d.project || !DICT[d.project]; });
 
-  mount.innerHTML = order.map(function (k) {
-    const rows = DOCUMENTS.filter(function (d) { return d.project === k; });
-    return '<section class="doc-group">' +
-      '<h2 class="doc-group-title" id="' + esc(k) + '">' +
-        "<span " + bi(DICT[k]) + ">" + esc(DICT[k].ko) + "</span>" +
-        '<span class="meta tnum">' + rows.length + "</span>" +
-      "</h2>" +
-      '<ul class="doc-grid">' + rows.map(card).join("") + "</ul>" +
-    "</section>";
-  }).join("") +
-  (rest.length
-    ? '<section class="doc-group">' +
-        '<h2 class="doc-group-title" id="etc" data-ko="그 외" data-en="Other">그 외' +
-          '<span class="meta tnum">' + rest.length + "</span>" +
-        "</h2>" +
-        '<ul class="doc-grid">' + rest.map(card).join("") + "</ul>" +
-      "</section>"
-    : "");
+  const rows = [];
+  order.forEach(function (k) {
+    DOCUMENTS.filter(function (d) { return d.project === k; })
+      .slice()
+      .sort(function (a, b) { return startYear(b) - startYear(a); })
+      .forEach(function (d, i) {
+        /* 계열의 첫 자료집이 앵커를 이어받습니다 (documents.html#dance-techlab) */
+        rows.push({ doc: d, anchor: i === 0 ? k : null });
+      });
+  });
+  rest.slice()
+    .sort(function (a, b) { return startYear(b) - startYear(a); })
+    .forEach(function (d, i) { rows.push({ doc: d, anchor: i === 0 ? "etc" : null }); });
+
+  mount.innerHTML = '<ul class="doc-grid">' +
+    rows.map(function (r) { return card(r.doc, r.anchor); }).join("") +
+  "</ul>";
 
   /* 표지 파일이 없으면 그 이미지는 치우고 대체 상자가 보이게 */
   mount.querySelectorAll(".doc-cover img").forEach(function (img) {
