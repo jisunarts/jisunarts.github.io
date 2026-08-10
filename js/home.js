@@ -27,7 +27,6 @@
       '<p class="page-sub home-kicker" ' + bi(SITE.hero.tagline) + ">" +
         esc(SITE.hero.tagline.ko) + "</p>" +
     "</div>" +
-    '<p class="home-kicker" ' + bi(SITE.hero.tagline) + ">" + esc(SITE.hero.tagline.ko) + "</p>" +
 
     '<div class="home-intro">' + lead + "</div>" +
 
