@@ -7,3 +7,6 @@ node_modules/
 # 원본·보관용 이미지 — 공개 저장소에 올리지 않습니다
 img/_original/
 img/_archive/
+
+# 임시 목록 파일 — 커밋하지 않습니다
+_temp-*
