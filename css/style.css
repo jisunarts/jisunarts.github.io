@@ -1094,11 +1094,20 @@ body[data-chrome="min"] .nav-toggle { display: none; }
   display: flex; flex-direction: column; justify-content: center;
 }
 
+/* 히어로 — 2열 그리드. 왼쪽 요소 크기가 바뀌어도 정렬이 따라오도록
+   여백 값이 아니라 '행'과 '기준선'으로 맞춥니다.
+     1행 : 왼쪽 이름 / 오른쪽 비움
+     2행 : 왼쪽 '이동하는 사람 …' / 오른쪽 '01 궤적' 블록 */
 .home-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 40px;                 /* 두 열 사이만 좁혀 궤적 열을 왼쪽으로 */
-  align-items: start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;          /* 두 열 사이만 좁혀 궤적 열을 왼쪽으로 */
+  row-gap: 0;
+  align-items: baseline;     /* 같은 행의 첫 글자 기준선을 맞춥니다 */
 }
+.home-name-cell { grid-column: 1; grid-row: 1; }
+.home-left      { grid-column: 1; grid-row: 2; }
+.home-right     { grid-column: 2; grid-row: 2; }
 
 /* 홈에서는 상단 메뉴의 작은 로고를 감춥니다 (바로 아래 큰 로고가 있어서) */
 /* 로고는 모든 페이지에서 같은 자리·같은 크기로 보입니다 (홈 예외 없음) */
@@ -1107,8 +1116,15 @@ body[data-chrome="min"] .nav-toggle { display: none; }
 
 /* 이름 묶음 — .page-head 규칙을 그대로 씁니다 (크기·굵기는 거기서 한 번만 정의).
    홈은 세로 가운데 정렬이라 위 여백만 없앱니다. */
-.home-head { padding-top: 0; padding-bottom: 0; }
-.home-kicker { max-width: 60ch; }
+.home-name-cell h1 {
+  font-size: 1rem; line-height: 1.65; letter-spacing: -0.011em;
+  font-weight: var(--w-title);       /* 다른 페이지 제목과 같은 값 */
+}
+.home-kicker {
+  margin-top: var(--page-title-gap);
+  max-width: 60ch;
+  font-size: 1rem; line-height: 1.65; font-weight: var(--w-body);
+}
 
 .home-intro {
   margin-top: clamp(16px, 2.6vh, 26px);   /* 이름 묶음과 한 칸 */
@@ -1121,10 +1137,7 @@ body[data-chrome="min"] .nav-toggle { display: none; }
 }
 
 /* 오른쪽 — 궤적. '01 궤적'이 왼쪽 '이동하는 사람…' 줄과 같은 라인에 오도록 */
-/* '01 궤적'의 글자 기준선을 왼쪽 '이동하는 사람 · …' 줄에 맞춥니다.
-   = 제목(박지선) 줄 높이 + 제목·설명 사이 여백 + 두 줄의 글자 크기 차이 보정.
-   제목 크기를 바꾸면 이 값도 따라 움직입니다. */
-.home-right { padding-top: calc(1rem * 1.65 + var(--page-title-gap) + 1px); }
+/* 세로 위치는 그리드 행 + 기준선 정렬이 담당합니다 (여백 값 없음) */
 
 .home-sec-head {
   display: flex; align-items: baseline; gap: 12px;
@@ -1348,7 +1361,9 @@ body[data-chrome="min"] .nav-toggle { display: none; }
     min-height: 0; padding: 36px 0 56px;
     display: block;
   }
-  .home-grid { grid-template-columns: 1fr; gap: 0; }
+  .home-grid { grid-template-columns: 1fr; gap: 0; align-items: start; }
+  .home-name-cell, .home-left, .home-right { grid-column: 1; grid-row: auto; }
+  .home-name-cell { padding: 0 var(--pad); }
 
   .home-left, .home-right { padding: 0 var(--pad); }
 

@@ -19,14 +19,16 @@
   /* 왼쪽 — 로고 · 이름 한 줄 · 소개 · 사진 */
   const img = SITE.hero.image;
 
+  /* 이름은 1행, 한 줄 소개부터는 2행 — 오른쪽 궤적이 2행에서 시작해
+     '이동하는 사람 …' 줄과 같은 기준선에 놓입니다 (여백 계산 없이 구조로). */
+  const nameCell = document.getElementById("home-name");
+  if (nameCell) {
+    nameCell.innerHTML = "<h1 " + bi(SITE.name) + ">" + esc(SITE.name.ko) + "</h1>";
+  }
+
   hero.innerHTML =
-    /* 큰 점 마크는 화면에서 뺐습니다 (img/logo.svg 파일은 그대로 있습니다).
-       이름은 다른 페이지 제목과 같은 규칙(.page-head h1)을 씁니다. */
-    '<div class="page-head home-head">' +
-      "<h1 " + bi(SITE.name) + ">" + esc(SITE.name.ko) + "</h1>" +
-      '<p class="page-sub home-kicker" ' + bi(SITE.hero.tagline) + ">" +
-        esc(SITE.hero.tagline.ko) + "</p>" +
-    "</div>" +
+    '<p class="home-kicker" ' + bi(SITE.hero.tagline) + ">" +
+      esc(SITE.hero.tagline.ko) + "</p>" +
 
     '<div class="home-intro">' + lead + "</div>" +
 
