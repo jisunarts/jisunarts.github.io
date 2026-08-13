@@ -98,7 +98,7 @@ const PROJECTS = {
       ]
     },
 
-    tags: ["international", "asian-solidarity", "mobility", "independent", "institutions"]
+    tags: ["international", "asian-solidarity", "mobility", "independent", "horizontal", "institutions"]
   },
 
   /* ── 예술텃밭 예술가 레지던시 — 기후변화 ──────────────────────────── */
@@ -185,7 +185,7 @@ const PROJECTS = {
 
     photos: { credit: "사진 제공 예술텃밭 기후변화 레지던시" },
 
-    tags: ["climate-crisis", "region-community", "independent", "process"]
+    tags: ["climate-crisis", "region-community", "independent", "horizontal", "process"]
   },
 
   /* ── 히히히스토리 ──────────────────────────────────────────────────── */
@@ -631,6 +631,6 @@ const PROJECTS = {
     },
 
     /* 태그 — data/tags.js 의 태그와 같은 이름이면 '질문으로 보기'로 이어집니다 */
-    tags: ["borders-coexistence", "climate-crisis", "region-community", "international", "mobility", "festival", "civic", "process"]
+    tags: ["borders-coexistence", "climate-crisis", "region-community", "international", "mobility", "festival", "multidisciplinary", "civic", "process"]
   }
 };

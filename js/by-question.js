@@ -199,8 +199,8 @@
       '<div class="qb-question">' +
         '<p class="meta"><span ' + bi(label) + ">" + esc(label.ko) + "</span>" +
           '<span class="qb-total tnum"> · ' + picked.length + "</span></p>" +
-        "<h2" + (question ? " " + bi(question) : "") + ">" +
-          esc(question ? question.ko : label.ko) + "</h2>" +
+        "<h2 " + bi(question || label) + ">" +
+          esc((question || label).ko) + "</h2>" +
       "</div>" + groups;
 
     /* 언어 전환이 방금 그린 글자에도 적용되도록 */

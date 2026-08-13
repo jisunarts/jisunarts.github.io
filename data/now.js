@@ -167,7 +167,7 @@ const NOW = [
     cover: "img/works/app/01.jpg",
     page: "projects/app.html",
     summary: "아시아에서 일하는 독립 프로듀서들이 동료로서 서로를 잇기 위해 만든 수평적 네트워크.",
-    tags: ["international", "asian-solidarity", "mobility", "independent", "institutions"],
+    tags: ["international", "asian-solidarity", "mobility", "independent", "horizontal", "institutions"],
     /* 상세 내용은 data/projects.js 의 app 에 있습니다 */
     detail: { photoCredit: "" }
   },
@@ -183,7 +183,7 @@ const NOW = [
     partner: "앤드씨어터 × 프로듀서그룹도트 × 강화유니버스",
     cover: "img/photos/ganghwa/ganghwa-01.jpg",
     page: "projects/ganghwa.html",
-    tags: ["borders-coexistence", "climate-crisis", "region-community", "international", "mobility", "festival", "civic", "process"],
+    tags: ["borders-coexistence", "climate-crisis", "region-community", "international", "mobility", "festival", "multidisciplinary", "civic", "process"],
     /* 상세 내용은 강화도 상세 페이지(data/projects.js)에 있습니다 */
     detail: { photoCredit: "Jisun" }
   },
@@ -224,7 +224,7 @@ const NOW = [
     cover: "img/works/climate-residency/2021/08.jpg",
     page: "projects/climate-residency.html",
     summary: "기후변화라는 거대 담론을 삶 속에 구체화하고 예술적 실천으로 옮기는 예술가 레지던시.",
-    tags: ["climate-crisis", "region-community", "independent", "process"],
+    tags: ["climate-crisis", "region-community", "independent", "horizontal", "process"],
     /* 상세 내용은 data/projects.js 의 climate-residency 에 있습니다 */
     detail: { photoCredit: "사진 제공 예술텃밭 기후변화 레지던시" }
   },
