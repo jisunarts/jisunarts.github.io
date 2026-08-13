@@ -13,10 +13,26 @@ function esc(str) {
     .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 }
 
-/** {ko, en} 객체를 data-ko / data-en 속성 문자열로 (i18n.js 가 이걸 보고 바꿈) */
+/** 값을 { ko, en } 으로 고릅니다.
+
+    데이터에 문자열과 { ko, en } 객체가 섞여 있어도 안전합니다.
+    · 문자열   — 아직 영문이 없다는 뜻. 양쪽에 같은 값을 넣어 지금과 똑같이 보입니다.
+    · { ko, en } — 그대로. en 이 비어 있으면 ko 를 씁니다.
+    덕분에 한 필드씩 번역해 넣어도 되고, 중간 상태에서도 화면이 깨지지 않습니다. */
+function pair(v) {
+  if (v == null) return { ko: "", en: "" };
+  if (typeof v === "string") return { ko: v, en: v };
+  return { ko: v.ko || "", en: v.en || v.ko || "" };
+}
+
+/** 처음 그릴 때 넣을 글자 (국문). 뒤이어 i18n.js 가 언어를 맞춥니다. */
+function koOf(v) { return pair(v).ko; }
+
+/** { ko, en } 객체나 문자열을 data-ko / data-en 속성으로 (i18n.js 가 이걸 보고 바꿈) */
 function bi(obj) {
-  if (!obj) return "";
-  return 'data-ko="' + esc(obj.ko) + '" data-en="' + esc(obj.en) + '"';
+  if (obj == null) return "";
+  const t = pair(obj);
+  return 'data-ko="' + esc(t.ko) + '" data-en="' + esc(t.en) + '"';
 }
 
 /** 주소창의 쿼리 값 읽기 — archive.html?from=2001 등 */

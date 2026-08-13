@@ -17,7 +17,7 @@
     return;
   }
 
-  document.title = p.title + " — 박지선 Park Jisun";
+  document.title = koOf(p.title) + " — 박지선 Park Jisun";
 
   /* 사진 — { src, span? } 목록. span 이 있는 사진은 오른쪽 격자에도 나옵니다. */
   const photoDir  = (p.photos && p.photos.dir) || (p.gallery && p.gallery.dir) || "";
@@ -49,12 +49,13 @@
         ? '<p><a class="pj-back" href="' + BASE + esc(p.back.href) + '" ' + bi(p.back) + ">" +
             esc(p.back.ko) + "</a></p>"
         : "") +
-      '<p class="pj-eyebrow">' + esc(p.eyebrow || "") + "</p>" +
-      "<h1>" + esc(p.title) + "</h1>" +
-      (p.credit ? '<p class="pj-credit">' + esc(p.credit) + "</p>" : "") +
+      '<p class="pj-eyebrow" ' + bi(p.eyebrow) + ">" + esc(koOf(p.eyebrow)) + "</p>" +
+      "<h1 " + bi(p.title) + ">" + esc(koOf(p.title)) + "</h1>" +
+      (p.credit ? '<p class="pj-credit" ' + bi(p.credit) + ">" + esc(koOf(p.credit)) + "</p>" : "") +
       (p.role
         ? '<p class="pj-role"><span class="pj-role-label" ' + bi(p.role.label) + ">" +
-            esc(p.role.label.ko) + "</span>" + esc(p.role.text) + "</p>"
+            esc(p.role.label.ko) + "</span>" +
+            "<span " + bi(p.role.text) + ">" + esc(koOf(p.role.text)) + "</span></p>"
         : "") +
     "</header>";
 
@@ -62,8 +63,11 @@
   if (p.hero) {
     html +=
       '<figure class="pj-hero">' +
-        '<img src="' + BASE + esc(p.hero.src) + '" alt="' + esc(p.hero.caption || p.title) + '">' +
-        (p.hero.caption ? "<figcaption>" + esc(p.hero.caption) + "</figcaption>" : "") +
+        '<img src="' + BASE + esc(p.hero.src) + '" alt="' +
+          esc(koOf(p.hero.caption) || koOf(p.title)) + '">' +
+        (p.hero.caption
+          ? "<figcaption " + bi(p.hero.caption) + ">" + esc(koOf(p.hero.caption)) + "</figcaption>"
+          : "") +
       "</figure>";
   }
 
@@ -122,13 +126,15 @@
       '<ul class="pj-runs">' +
         p.runs.rows.map(function (r) {
           return "<li>" +
-            '<span class="pj-run-date tnum">' + esc(r.dates) + "</span>" +
-            '<span class="pj-run-time tnum">' + esc(r.time || "") + "</span>" +
-            '<span class="pj-run-venue">' + esc(r.venue || "") + "</span>" +
+            '<span class="pj-run-date tnum" ' + bi(r.dates) + ">" + esc(koOf(r.dates)) + "</span>" +
+            '<span class="pj-run-time tnum" ' + bi(r.time) + ">" + esc(koOf(r.time)) + "</span>" +
+            '<span class="pj-run-venue" ' + bi(r.venue) + ">" + esc(koOf(r.venue)) + "</span>" +
           "</li>";
         }).join("") +
       "</ul>" +
-      (p.runs.note ? '<p class="pj-run-note">' + esc(p.runs.note) + "</p>" : "") +
+      (p.runs.note
+        ? '<p class="pj-run-note" ' + bi(p.runs.note) + ">" + esc(koOf(p.runs.note)) + "</p>"
+        : "") +
     "</section>";
   }
 
@@ -137,7 +143,7 @@
     /* works — 제목 한 줄 아래에 작은 링크가 붙습니다 */
     const works = (s.works || []).map(function (w) {
       return '<div class="pj-work">' +
-        '<p class="pj-work-title">' + esc(w.title) + "</p>" +
+        '<p class="pj-work-title" ' + bi(w.title) + ">" + esc(koOf(w.title)) + "</p>" +
         (w.link
           ? '<p class="pj-work-link"><a href="' + esc(w.link.url) + '" target="_blank" ' +
               'rel="noopener">' + esc(w.link.label) + " ↗</a></p>"
@@ -147,7 +153,7 @@
 
     html += '<section class="pj-section">' + head(s.label) +
       '<div class="pj-body">' + works +
-        (s.paras || []).map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("") +
+        (s.paras || []).map(function (t) { return "<p " + bi(t) + ">" + esc(koOf(t)) + "</p>"; }).join("") +
       "</div></section>";
   });
 
@@ -158,11 +164,13 @@
         p.timeline.rows.map(function (r) {
           return "<li>" +
             '<span class="pj-tl-year tnum">' + esc(r.year) + "</span>" +
-            '<span class="pj-tl-place">' + esc(r.place) + "</span>" +
+            '<span class="pj-tl-place" ' + bi(r.place) + ">" + esc(koOf(r.place)) + "</span>" +
           "</li>";
         }).join("") +
       "</ul>" +
-      (p.timeline.note ? '<p class="pj-run-note">' + esc(p.timeline.note) + "</p>" : "") +
+      (p.timeline.note
+        ? '<p class="pj-run-note" ' + bi(p.timeline.note) + ">" + esc(koOf(p.timeline.note)) + "</p>"
+        : "") +
     "</section>";
   }
 
@@ -173,7 +181,7 @@
       Accordion.block(
         '<span class="pj-label-inline" ' + bi(n.label) + ">" + esc(n.label.ko) + "</span>",
         '<div class="pj-body">' +
-          n.paras.map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("") +
+          n.paras.map(function (t) { return "<p " + bi(t) + ">" + esc(koOf(t)) + "</p>"; }).join("") +
         "</div>") +
     "</section>";
   });
@@ -185,8 +193,9 @@
         '<span class="pj-label-inline" ' + bi(p.credits.label) + ">" + esc(p.credits.label.ko) + "</span>",
         '<ul class="pj-credits">' +
           p.credits.rows.map(function (r) {
-            return "<li><span class=\"pj-credit-role\">" + esc(r[0]) + "</span>" +
-              '<span class="pj-credit-name">' + esc(r[1]) + "</span></li>";
+            return "<li><span class=\"pj-credit-role\" " + bi(r[0]) + ">" + esc(koOf(r[0])) +
+              "</span>" +
+              '<span class="pj-credit-name" ' + bi(r[1]) + ">" + esc(koOf(r[1])) + "</span></li>";
           }).join("") +
         "</ul>") +
     "</section>";
@@ -195,7 +204,8 @@
   /* 후원 ---------------------------------------------------------------- */
   if (p.support) {
     html += '<section class="pj-section">' + head(p.support.label) +
-      '<p class="pj-support">' + esc(p.support.text) + "</p></section>";
+      '<p class="pj-support" ' + bi(p.support.text) + ">" + esc(koOf(p.support.text)) +
+      "</p></section>";
   }
 
   /* 참가자 -------------------------------------------------------------- */
@@ -224,7 +234,7 @@
 
     if (embed && !local) {
       video = '<div class="pj-video"><iframe src="' + esc(embed) + '" ' +
-        'title="' + esc(p.video.title || p.title) + '" ' +
+        'title="' + esc(koOf(p.video.title) || koOf(p.title)) + '" ' +
         'allow="encrypted-media; picture-in-picture; web-share" ' +
         'referrerpolicy="strict-origin-when-cross-origin" ' +
         'allowfullscreen loading="lazy"></iframe></div>';
@@ -371,7 +381,7 @@
     const box = document.createElement("span");
     box.className = "pj-media-video";
     box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
-      '?autoplay=1" title="' + esc(p.title) + ' 영상" ' +
+      '?autoplay=1" title="' + esc(koOf(p.title)) + ' 영상" ' +
       'allow="autoplay; encrypted-media; picture-in-picture; web-share" ' +
       'referrerpolicy="strict-origin-when-cross-origin" ' +
       'allowfullscreen loading="lazy"></iframe>';
@@ -409,7 +419,7 @@
 
     const shot = e.target.closest("[data-shot]");
     if (shot && typeof Lightbox !== "undefined") {
-      Lightbox.open(listOf(shot), p.title, shot, parseInt(shot.dataset.shot, 10));
+      Lightbox.open(listOf(shot), koOf(p.title), shot, parseInt(shot.dataset.shot, 10));
     }
   });
 

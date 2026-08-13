@@ -16,7 +16,7 @@
 
   /* 위에서부터 순서대로 — 공연, 그다음 프로젝트 */
   const GROUPS = [
-    { key: "공연",     label: { ko: "공연",     en: "Performance" } },
+    { key: "공연",     label: { ko: "공연",     en: "Performances" } },
     { key: "프로젝트", label: { ko: "프로젝트", en: "Projects" } }
   ];
 
@@ -37,7 +37,9 @@
     const credits = [it.category === "공연" ? it.artist : "", it.role,
                      it.category === "공연" ? "" : it.partner]
       .filter(Boolean)
-      .map(function (line) { return '<span class="now-credit">' + esc(line) + "</span>"; })
+      .map(function (line) {
+        return '<span class="now-credit" ' + bi(line) + ">" + esc(koOf(line)) + "</span>";
+      })
       .join("");
 
     const inner =
@@ -46,7 +48,9 @@
         (it.year ? '<span class="now-year tnum">' + esc(it.year) + "</span>" : "") +
         '<span class="now-title" ' + bi(title) + ">" + esc(it.title_ko) + "</span>" + mark +
         credits +
-        (it.summary ? '<span class="now-summary">' + esc(it.summary) + "</span>" : "") +
+        (it.summary
+          ? '<span class="now-summary" ' + bi(it.summary) + ">" + esc(koOf(it.summary)) + "</span>"
+          : "") +
       "</span>";
 
     const body = href

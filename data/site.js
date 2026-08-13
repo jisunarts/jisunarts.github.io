@@ -37,10 +37,10 @@ const SITE = {
         "그러다 보면, 늘 좋은 동료들을 만납니다."
       ],
       en: [
-        "I read the present, ask questions, and find my way through conversation.",
-        "I like to work independently, horizontally, creatively.",
-        "I like to walk — always moving, on the level.",
-        "And so I keep meeting good companions."
+        "Reading the present, asking questions, finding a way through conversation.",
+        "Working independently, horizontally, creatively.",
+        "Walking — always moving, on the level.",
+        "And so, always meeting good companions."
       ]
     },
 
