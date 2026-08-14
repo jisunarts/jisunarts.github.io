@@ -45,6 +45,30 @@ function param(key) {
 /** 하위 폴더(projects/ 등)에 있는 페이지는 <body data-base="../"> 를 붙입니다 */
 const BASE = (document.body && document.body.dataset.base) || "";
 
+/* 사진 주소에 붙는 판 번호.
+   스크립트·CSS 는 <script src="…?v=…"> 로 캐시를 넘기는데 사진에는 그게 없어서,
+   같은 이름으로 사진을 바꾸면 브라우저가 예전 것을 계속 보여 줍니다.
+   사진을 갈아 끼운 뒤에는 이 값을 바꿔 주세요. */
+const ASSET_V = "20260814a";
+
+/** 사진 주소에 판 번호를 붙입니다. 이미 ? 가 있으면 & 로 잇습니다. */
+function asset(path) {
+  const p = String(path == null ? "" : path);
+  if (!p || /^(https?:|data:)/.test(p)) return p;      /* 외부 주소는 그대로 */
+  return p + (p.indexOf("?") < 0 ? "?v=" : "&v=") + ASSET_V;
+}
+
+/* 분류 이름 — 값은 한글 그대로 두고(비교·필터용) 화면 이름만 여기서 정합니다.
+   '지금'·'사진'·'질문으로 보기' 세 화면이 이 하나를 같이 봅니다. */
+const CATEGORY = {
+  "공연":     { ko: "공연",     en: "Performances" },
+  "프로젝트": { ko: "프로젝트", en: "Projects" },
+  "여행기":   { ko: "여행기",   en: "Travels" }
+};
+
+/** 분류 key 로 { ko, en } 을 얻습니다. 사전에 없으면 한글이 그대로 나옵니다. */
+function catLabel(v) { return CATEGORY[v] || v; }
+
 (function buildHeader() {
   const mount = document.getElementById("site-header");
   if (!mount) return;

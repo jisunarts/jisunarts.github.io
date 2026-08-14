@@ -21,7 +21,7 @@
     const title = { ko: doc.title_ko, en: doc.title_en || doc.title_ko };
 
     const cover = doc.cover
-      ? '<img src="' + esc(doc.cover) + '" alt="" loading="lazy">'
+      ? '<img src="' + esc(asset(doc.cover)) + '" alt="" loading="lazy">'
       : "";
 
     return '<li class="doc-item"' + (anchor ? ' id="' + esc(anchor) + '"' : "") + ">" +
@@ -78,6 +78,20 @@
   mount.querySelectorAll(".doc-cover img").forEach(function (img) {
     img.addEventListener("error", function () { img.remove(); });
   });
+
+  /* --- 주소에 #계열 이 있으면 그 자료집으로 이동 -------------------------
+     목록은 이 스크립트가 그리므로, 브라우저가 주소의 # 를 처리하는 시점에는
+     아직 그 칸이 없습니다. 그려 놓은 다음 여기서 직접 옮겨 줍니다.
+     (js/archive.js 의 highlight() 와 같은 방식)                              */
+  (function jumpToAnchor() {
+    const id = decodeURIComponent((window.location.hash || "").slice(1));
+    if (!id) return;
+    const item = document.getElementById(id);
+    if (!item) return;
+    item.classList.add("is-target");
+    item.scrollIntoView({ block: "center" });
+    setTimeout(function () { item.classList.remove("is-target"); }, 2600);
+  })();
 
   /* 개수 */
   const count = document.getElementById("documents-count");

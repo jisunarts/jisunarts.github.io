@@ -18,14 +18,7 @@
     book:    { ko: "포토북",        en: "Photobook" }
   };
 
-  /* 분류 — 데이터의 값은 한글 그대로 두고(비교·필터용), 화면에 보이는 이름만 여기서 정합니다.
-     js/now.js 의 GROUPS 와 같은 방식입니다. 사전에 없는 값은 한글이 그대로 나옵니다. */
-  const CATEGORY = {
-    "공연":     { ko: "공연",     en: "Performances" },
-    "프로젝트": { ko: "프로젝트", en: "Projects" },
-    "여행기":   { ko: "여행기",   en: "Travels" }
-  };
-  function catLabel(v) { return CATEGORY[v] || v; }
+  /* 분류 이름은 js/layout.js 의 CATEGORY · catLabel() 을 함께 씁니다. */
 
   /* --- 그리드 ---------------------------------------------------------- */
 
@@ -45,7 +38,7 @@
 
     const inner =
       '<span class="ph-cover">' +
-        '<img src="' + esc(p.cover) + '" alt="" loading="lazy">' +
+        '<img src="' + esc(asset(p.cover)) + '" alt="" loading="lazy">' +
         badge + count +
       "</span>" +
       '<span class="ph-title" ' + bi(title) + ">" + esc(p.title_ko) + "</span>" +

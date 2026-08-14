@@ -14,11 +14,9 @@
   const mount = document.getElementById("now-mount");
   if (!mount || typeof NOW === "undefined") return;
 
-  /* 위에서부터 순서대로 — 공연, 그다음 프로젝트 */
-  const GROUPS = [
-    { key: "공연",     label: { ko: "공연",     en: "Performances" } },
-    { key: "프로젝트", label: { ko: "프로젝트", en: "Projects" } }
-  ];
+  /* 위에서부터 순서대로 — 공연, 그다음 프로젝트.
+     묶음을 가르는 값은 한글 그대로 쓰고, 화면 이름은 layout.js 의 CATEGORY 가 정합니다. */
+  const GROUPS = [{ key: "공연" }, { key: "프로젝트" }];
 
   function card(it) {
     const title = { ko: it.title_ko, en: it.title_en || it.title_ko };
@@ -26,7 +24,7 @@
     const href = it.page || it.url || null;
 
     const cover = it.cover
-      ? '<span class="now-cover"><img src="' + esc(it.cover) + '" alt="" loading="lazy"></span>'
+      ? '<span class="now-cover"><img src="' + esc(asset(it.cover)) + '" alt="" loading="lazy"></span>'
       : "";
 
     const mark = href
@@ -87,7 +85,7 @@
     return '<section class="now-group">' +
       '<div class="home-sec-head">' +
         '<span class="section-num meta tnum">' + String(i + 1).padStart(2, "0") + "</span>" +
-        "<h2 " + bi(g.label) + ">" + esc(g.label.ko) + "</h2>" +
+        "<h2 " + bi(catLabel(g.key)) + ">" + esc(koOf(catLabel(g.key))) + "</h2>" +
       "</div>" +
       '<ul class="now-grid">' + rows.map(card).join("") + "</ul>" +
     "</section>";

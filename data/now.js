@@ -20,7 +20,7 @@ const NOW = [
   {
     category: "공연",
     id: "sync-de-sync",
-    order: 1,
+    order: 3,
     title_ko: "sync de sync 싱크 디 싱크",
     title_en: "sync de sync",
     year: "2025–2026",
@@ -116,7 +116,7 @@ const NOW = [
   {
     category: "공연",
     id: "hihihistory",
-    order: 3,
+    order: 1,
     title_ko: "히히히스토리",
     title_en: "hihihistory",
     year: "2026",

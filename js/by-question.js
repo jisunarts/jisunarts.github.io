@@ -60,7 +60,13 @@
   }
 
   if (typeof NOW !== "undefined") {
-    NOW.forEach(function (it) {
+    /* '지금' 화면과 같은 차례로 — 공연 먼저, 각 묶음 안에서는 order 순 */
+    const NOW_ORDER = ["공연", "프로젝트"];
+    NOW.slice().sort(function (a, b) {
+      const ga = NOW_ORDER.indexOf(a.category), gb = NOW_ORDER.indexOf(b.category);
+      if (ga !== gb) return ga - gb;
+      return (a.order || 999) - (b.order || 999);
+    }).forEach(function (it) {
       /* 상세 페이지가 있으면 그리로, 없으면 지금 페이지의 그 카드로 */
       add("now", {
         tags: it.tags || [],
@@ -115,7 +121,13 @@
       add("photos", {
         tags: it.tags || [],
         title: { ko: it.title_ko, en: it.title_en || it.title_ko },
-        meta: [it.category, it.year].filter(Boolean).join(" · "),
+        /* 분류는 사전을 거쳐 두 언어로. 연도는 그대로 붙입니다. */
+        meta: (function () {
+          const c = it.category ? catLabel(it.category) : null;
+          const y = it.year || "";
+          const join = function (a, b) { return [a, b].filter(Boolean).join(" · "); };
+          return c ? { ko: join(koOf(c), y), en: join(pair(c).en, y) } : y;
+        })(),
         url: it.id ? "photos.html#" + it.id : "photos.html",
         external: false
       });
@@ -185,7 +197,7 @@
             '<span class="qb-title" ' + bi(it.title) + ">" + esc(it.title.ko) + "</span>" +
             (it.url && it.external ? '<span class="qb-arrow" aria-hidden="true">↗</span>' : "") +
             '<span class="qb-kind" ' + bi(SOURCE[it.source]) + ">" + esc(SOURCE[it.source].ko) + "</span>" +
-            '<span class="qb-meta">' + esc(it.meta) + "</span>";
+            '<span class="qb-meta" ' + bi(it.meta) + ">" + esc(koOf(it.meta)) + "</span>";
 
           if (!it.url) return '<li class="qb-item"><div class="qb-row is-plain">' + cells + "</div></li>";
 

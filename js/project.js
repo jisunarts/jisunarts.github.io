@@ -28,7 +28,7 @@
   const photoCredit = (p.photos && p.photos.credit) || "";
   const gallery = photoData
     .filter(function (m) { return m.type !== "video" && m.src; })
-    .map(function (m) { return BASE + photoDir + m.src; });
+    .map(function (m) { return asset(BASE + photoDir + m.src); });
 
   /* width·height 를 미리 적어 두면 사진이 뜨기 전에도 자리가 잡힙니다 */
   function size(m) {
@@ -63,7 +63,7 @@
   if (p.hero) {
     html +=
       '<figure class="pj-hero">' +
-        '<img src="' + BASE + esc(p.hero.src) + '" alt="' +
+        '<img src="' + BASE + esc(asset(p.hero.src)) + '" alt="' +
           esc(koOf(p.hero.caption) || koOf(p.title)) + '">' +
         (p.hero.caption
           ? "<figcaption " + bi(p.hero.caption) + ">" + esc(koOf(p.hero.caption)) + "</figcaption>"
@@ -76,7 +76,7 @@
     html += '<section class="pj-section">' + head(p.posters.label) +
       '<ul class="pj-posters">' +
         p.posters.files.map(function (f) {
-          return '<li><img src="' + BASE + esc(f.src) + '" alt="' + esc(f.alt || "") + '" ' +
+          return '<li><img src="' + BASE + esc(asset(f.src)) + '" alt="' + esc(f.alt || "") + '" ' +
             'loading="lazy">' +
             (f.caption ? '<span class="pj-poster-cap">' + esc(f.caption) + "</span>" : "") +
           "</li>";
@@ -110,7 +110,7 @@
             '<span class="pj-play" aria-hidden="true">▶</span>' +
           "</button>";
       } else {
-        inner = '<img src="' + BASE + esc(m.src) + '" alt="' + esc(m.alt || "") + '"' +
+        inner = '<img src="' + BASE + esc(asset(m.src)) + '" alt="' + esc(m.alt || "") + '"' +
           size(m) + ' loading="lazy">';
       }
 
