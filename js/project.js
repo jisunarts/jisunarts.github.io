@@ -7,7 +7,38 @@
 (function renderProject() {
 
   const mount = document.getElementById("project-mount");
-  if (!mount || typeof PROJECTS === "undefined") return;
+  if (!mount) return;
+
+  /* --- 준비 확인 -------------------------------------------------------
+     이 파일은 layout.js 의 도움 함수와 data 파일을 전제로 합니다.
+     그중 하나라도 내려받지 못하면 예전에는 아무 말 없이 빈 화면이 됐습니다.
+     여기서는 무엇이 없었는지 콘솔에 남기고, 화면에도 한 줄 띄웁니다.
+     (layout.js 자체가 없을 수 있으므로 이 블록은 도움 함수를 쓰지 않습니다.) */
+  function needed(list) {
+    var missing = [];
+    for (var i = 0; i < list.length; i++) if (!list[i].ok) missing.push(list[i].what);
+    return missing;
+  }
+  function bail(mountEl, screen, missing) {
+    console.error("[" + screen + "] 화면을 그리지 못했습니다. 없는 것: " + missing.join(", ") +
+      " — 스크립트가 모두 내려받아졌는지 확인해 주세요.");
+    if (mountEl) {
+      mountEl.innerHTML = '<p class="read-missing" ' +
+        'data-ko="목록을 불러오지 못했습니다. 새로고침해 주세요." ' +
+        'data-en="Could not load this list. Please refresh.">' +
+        "목록을 불러오지 못했습니다. 새로고침해 주세요.</p>";
+    }
+  }
+
+  var _miss = needed([
+    { what: "data/projects.js (PROJECTS)", ok: typeof PROJECTS !== "undefined" },
+    { what: "js/layout.js (esc)", ok: typeof esc === "function" },
+    { what: "js/layout.js (bi)", ok: typeof bi === "function" },
+    { what: "js/layout.js (koOf)", ok: typeof koOf === "function" },
+    { what: "js/layout.js (asset)", ok: typeof asset === "function" }
+  ]);
+  if (_miss.length) { bail(mount, "프로젝트", _miss); return; }
+
 
   const slug = document.body.dataset.project;
   const p = PROJECTS[slug];
@@ -366,12 +397,17 @@
   const rightHtml = editionsHtml || (mediaHtml + galleryHtml);
   if (typeof Accordion !== "undefined") Accordion.bind(mount);
 
+  try {
   mount.innerHTML = rightHtml
     ? '<div class="pj-split">' +
         '<div class="pj-col-left">' + html + "</div>" +
         '<div class="pj-col-right">' + rightHtml + "</div>" +
       "</div>"
     : html;
+  } catch (e) {
+    console.error("[프로젝트] 본문을 그리지 못했습니다:", slug, e);
+    bail(mount, "프로젝트", ["렌더 중 오류 — " + (e && e.message)]);
+  }
 
   /* 영상 — 처음엔 썸네일만, 누르면 그때 유튜브를 불러옵니다 */
   mount.addEventListener("click", function (e) {
