@@ -1426,9 +1426,8 @@ body[data-chrome="min"] .nav-toggle { display: none; }
     display: none;
     position: fixed; inset: 0; z-index: 80;
     flex-direction: column; align-items: stretch; justify-content: flex-start;
-    /* 로고가 흐름의 첫 칸이 되었으므로, 목록 첫 항목이 이전처럼
-       화면 세로 19% 에서 시작하도록 로고 높이(16)+여백(24)=40px 를 당깁니다. */
-    gap: 0; padding: calc(19vh - 40px) var(--pad) 40px;
+    /* 로고가 목록의 첫 행이므로, 점부터 화면 세로 19% 에서 시작합니다. */
+    gap: 0; padding: 19vh var(--pad) 40px;
     overflow-y: auto;
   }
   .nav[data-open="true"] { display: flex; }
@@ -1642,14 +1641,14 @@ body[data-chrome="min"] .nav-toggle { display: none; }
      (둘 다 .nav 의 콘텐츠 상자 왼쪽 = var(--pad) 에서 시작). */
   .nav-logo { display: none; }
   .nav[data-open="true"] .nav-logo {
-    display: block;
-    position: static;          /* 절대배치 해제 */
-    padding: 0;                /* .nav a 의 6px 세로 padding 상쇄 */
-    min-height: 0;             /* .nav a 의 44px 상쇄 */
+    /* 메뉴 항목과 똑같은 '행' 으로 만듭니다 — 세로 여백(6px)과 행 높이(44px)를
+       .nav a 와 같게 두면 점과 '지금' 사이 간격이 항목 사이 간격과 저절로 같아집니다. */
+    display: flex; align-items: center;
+    padding: 6px 0;
+    min-height: 44px;
     line-height: 0;
-    /* 항목 사이 간격은 .nav a 의 위아래 padding 6px+6px = 12px.
-       그 2배인 24px 를 점과 첫 항목 사이에 둡니다. */
-    margin-bottom: 24px;
+    /* 점의 가로 '중심' 을 글자 왼쪽 끝에 맞춥니다 (지름 16px 의 절반). */
+    margin-left: -8px;
   }
 
   /* B-4) 메뉴 배경 사진 — 색은 버리고 명암만 남아 파랑에 녹습니다 -------
@@ -1680,10 +1679,14 @@ body[data-chrome="min"] .nav-toggle { display: none; }
       rgba(22, 104, 224, 0)   100%);
   }
 
-  /* 글자·로고·닫기는 사진과 그러데이션보다 위 */
+  /* 글자·로고는 사진과 그러데이션보다 위 */
   .nav[data-open="true"] a,
-  .nav[data-open="true"] .nav-logo,
-  .nav[data-open="true"] .nav-close { position: relative; z-index: 2; }
+  .nav[data-open="true"] .nav-logo { position: relative; z-index: 2; }
+
+  /* 닫기(X)는 z-index 만 올립니다.
+     여기에 position:relative 를 주면 위쪽의 absolute 를 덮어써서
+     흐름 안으로 돌아가 왼쪽 열에 끼어듭니다. */
+  .nav[data-open="true"] .nav-close { z-index: 2; }
 }
 
 /* 메뉴가 닫혀 있을 때는 사진을 아예 두지 않습니다 */
