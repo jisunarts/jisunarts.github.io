@@ -901,7 +901,7 @@ body[data-theme="invert"] {
   --wash:        rgba(255, 255, 255, 0.10);
   --blue-pale:   rgba(255, 255, 255, 0.16);  /* 태그 바탕 */
   --blue-pale-2: rgba(255, 255, 255, 0.28);  /* 태그 hover */
-  --orange:      #F26E22;                    /* 켜진 태그 */
+  --accent:      #CCFF00;                    /* 켜진 태그 (형광 연두) */
 
   min-height: 100vh;
   background-color: #1668E0;
@@ -915,7 +915,7 @@ body[data-theme="invert"] img { border-color: rgba(255, 255, 255, 0.18); }
 /* 태그 — 각진 네모, 켜지면 오렌지 */
 body[data-theme="invert"] .qb-tag { border-radius: 0; }
 body[data-theme="invert"] .qb-tag[aria-pressed="true"] {
-  background: var(--orange); color: #FFFFFF;
+  background: var(--accent); color: #1668E0;
 }
 
 /* 링크인 행만 흰 밑줄 (반투명) */
@@ -1600,7 +1600,7 @@ body[data-chrome="min"] .nav-toggle { display: none; }
     color: #FFFFFF;
   }
   .nav[data-open="true"] a { color: #FFFFFF; border-bottom-color: rgba(255, 255, 255, 0.28); }
-  .nav[data-open="true"] a[aria-current="page"] { color: #F26E22; }
+  .nav[data-open="true"] a[aria-current="page"] { color: #CCFF00; }
   .nav[data-open="true"] .nav-close svg { stroke: #FFFFFF; }
 
   /* 오버레이 안의 반전 로고 (흰 점 + 오렌지 한 점) */
@@ -1715,8 +1715,21 @@ body[data-chrome="min"] .nav-toggle { display: none; }
   font-family: var(--font-title); font-weight: 600;
   font-size: 30px; line-height: 1.2; letter-spacing: -0.025em;
 }
-.traj-col.is-open .traj-title { color: #F26E22; }
-.traj-col:hover .traj-title { color: #F26E22; }
+/* 형광펜 블록이 글자 폭만큼만 깔리도록 — 앞의 .traj-year 가 block 이라 줄은 나뉩니다 */
+.traj-title { display: inline; }
+/* 열린 시기 — 회색 바탕에서는 연두를 글자색으로 쓰지 않습니다(대비 1.2:1).
+   글자는 파랑 그대로 두고 뒤에 형광펜처럼 연두 블록을 깝니다.
+   글자 높이의 0.6배, 베이스라인 쪽에 붙입니다. */
+.traj-col.is-open .traj-title,
+.traj-col:hover .traj-title {
+  color: var(--blue);
+  background-image: linear-gradient(#CCFF00, #CCFF00);
+  background-repeat: no-repeat;
+  background-size: 100% 0.6em;
+  background-position: 0 88%;
+  -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;   /* 두 줄로 접혀도 줄마다 칠해집니다 */
+}
 
 /* 패널 — 네 열 아래에 하나. 선 없이 바탕색만. */
 .traj-panel {
