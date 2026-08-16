@@ -85,9 +85,9 @@ function catLabel(v) { return CATEGORY[v] || v; }
       '<div class="wrap header-inner">' +
         '<div class="brand">' +
           '<a href="' + BASE + 'index.html" class="brand-logo" aria-label="박지선 홈">' +
-            /* 색을 반전한 페이지에서는 파란 배경에 보이도록 흰 점 로고 */
-            '<img src="' + BASE + (document.body.dataset.theme === "invert"
-              ? "img/logo-invert.svg" : "img/logo.svg") + '" alt="" width="26" height="22">' +
+            /* 형광 연두 점 하나. 회색 배경에서는 CSS 가 파란 테두리를 둘러
+               창백해 보이지 않게 하고, 파란 배경에서는 테두리를 뗍니다. */
+            '<span class="logo-dot" aria-hidden="true"></span>' +
           "</a>" +
         "</div>" +
 
@@ -96,7 +96,7 @@ function catLabel(v) { return CATEGORY[v] || v; }
           '<img class="menu-bg" alt="" aria-hidden="true">' +
           /* 메뉴가 열렸을 때만 보이는 반전 로고 */
           '<a class="nav-logo" href="' + BASE + 'index.html" aria-label="박지선 홈">' +
-            '<img src="' + BASE + 'img/logo-invert.svg" alt="" width="26" height="22">' +
+            '<span class="logo-dot" aria-hidden="true"></span>' +
           "</a>" +
           '<button type="button" class="nav-close" id="nav-close" aria-label="메뉴 닫기">' +
             '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
