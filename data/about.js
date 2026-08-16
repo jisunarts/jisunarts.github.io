@@ -40,27 +40,19 @@ const ABOUT = {
   /* 연결 (Links) ---------------------------------------------------------
      · items 가 있으면  "라벨 — 값 · 값"  으로 나옵니다. (이메일)
      · url 만 있으면    라벨 자체가 링크가 됩니다. (주소는 감춰집니다)     */
+  /* 연결 — 항목 이름('이메일' 등) 없이 값만 보여 줍니다.
+     · 이메일은 주소를 그대로 노출합니다.
+     · 인스타그램은 한글 이름만 보이고 @아이디는 감춥니다 (주소에만 있습니다). */
   links: [
-    {
-      label: { ko: "이메일", en: "Email" },
-      items: [
-        { text: "twetty1199@gmail.com", url: "mailto:twetty1199@gmail.com" },
-        { text: "jisunarts@yahoo.com",  url: "mailto:jisunarts@yahoo.com" }
-      ]
-    },
-    { label: { ko: "인스타그램", en: "Instagram" },
+    { ko: "twetty1199@gmail.com", en: "twetty1199@gmail.com",
+      url: "mailto:twetty1199@gmail.com" },
+    { ko: "jisunarts@yahoo.com",  en: "jisunarts@yahoo.com",
+      url: "mailto:jisunarts@yahoo.com" },
+    { ko: "인스타그램",             en: "Instagram",
       url: "https://www.instagram.com/jisun_park_092/" },
-
-    { label: { ko: "프로듀서 그룹 도트", en: "Producer Group DOT" },
-      url: "http://producergroupdot.kr" },
-
-    { label: { ko: "아시아 프로듀서 플랫폼(APP)", en: "Asian Producers' Platform (APP)" },
-      url: "https://www.asianproducersplatform.com" },
-
-    { label: { ko: "기후변화 예술가 레지던시", en: "Climate Change Artist Residency" },
-      url: "http://artstutbatclimatechange.com" },
-
-    { label: { ko: "둥지230", en: "Doongji 230" },
-      url: "https://www.instagram.com/doongji230/" }
+    { ko: "둥지 230 인스타그램",     en: "Doongji 230 Instagram",
+      url: "https://www.instagram.com/doongji230/" },
+    { ko: "프로듀서그룹 도트",       en: "Producer Group DOT",
+      url: "http://producergroupdot.kr" }
   ]
 };

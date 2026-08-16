@@ -23,24 +23,10 @@
     }).join("");
 
     if (links) {
+      /* 항목 이름 없이 값만 — data/about.js 의 links 차례 그대로 */
       links.innerHTML = ABOUT.links.map(function (row) {
-        const label = esc(row.label[lang] || row.label.ko);
-
-        /* 주소만 있는 줄 — 이름 자체가 링크 (주소는 감춥니다) */
-        if (!row.items) {
-          return '<p class="links-row">' + anchor(row.url, label) + "</p>";
-        }
-
-        /* 값이 있는 줄 — "라벨 — 값 · 값" */
-        const values = row.items.map(function (item) {
-          return anchor(item.url, esc(item.text));
-        }).join('<span class="link-sep" aria-hidden="true"> · </span>');
-
-        return '<p class="links-row">' +
-          '<span class="links-label">' + label + "</span>" +
-          '<span class="links-dash" aria-hidden="true"> — </span>' +
-          values +
-        "</p>";
+        const text = (row[lang] && row[lang].trim()) ? row[lang] : row.ko;
+        return '<p class="links-row">' + anchor(row.url, esc(text)) + "</p>";
       }).join("");
     }
   }

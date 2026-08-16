@@ -53,26 +53,8 @@
       (mail ? "" : ' target="_blank" rel="noopener"') + ">" + text + "</a>";
   }
 
-  /* 연결 — 산문 문단 안에 이미 링크로 나온 주소는 뺍니다.
-     (도트 · APP · 기후변화 레지던시 · 둥지230 이 여기 해당합니다.)
-     주소를 손으로 나열하지 않고 산문에서 뽑아 비교하므로,
-     나중에 산문이 바뀌어도 목록이 저절로 따라갑니다. */
-  const inProse = (function () {
-    const urls = {};
-    ABOUT.paragraphs.forEach(function (p) {
-      ["ko", "en"].forEach(function (k) {
-        String(p[k] || "").replace(/\[[^\]]+\]\(([^)\s]+)\)/g, function (_, u) {
-          urls[u] = true; return "";
-        });
-      });
-    });
-    return urls;
-  })();
-
-  function isKept(row) {
-    if (row.items) return true;                 /* 이메일 — 산문에 없음 */
-    return !inProse[String(row.url || "")];     /* 산문에 이미 있으면 뺍니다 */
-  }
+  /* 연결 — data/about.js 의 links 를 적힌 차례 그대로 보여 줍니다.
+     항목 이름 없이 값만 나오고, 메일은 같은 창·나머지는 새 탭입니다. */
 
   /* --- 이름 · 한 줄 · 산문 · 연결 --------------------------------------- */
   function drawTop(lang) {
@@ -81,16 +63,8 @@
       return "<p>" + withLinks(text) + "</p>";
     }).join("");
 
-    const links = ABOUT.links.filter(isKept).map(function (row) {
-      const label = esc(row.label[lang] || row.label.ko);
-      if (!row.items) return '<p class="links-row">' + anchor(row.url, label) + "</p>";
-      const values = row.items.map(function (item) {
-        return anchor(item.url, esc(item.text));
-      }).join('<span class="link-sep" aria-hidden="true"> · </span>');
-      return '<p class="links-row">' +
-        '<span class="links-label">' + label + "</span>" +
-        '<span class="links-dash" aria-hidden="true"> — </span>' + values +
-      "</p>";
+    const links = ABOUT.links.map(function (row) {
+      return '<p class="links-row">' + anchor(row.url, esc(pick(row, lang))) + "</p>";
     }).join("");
 
     mount.innerHTML =

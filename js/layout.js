@@ -85,8 +85,8 @@ function catLabel(v) { return CATEGORY[v] || v; }
       '<div class="wrap header-inner">' +
         '<div class="brand">' +
           '<a href="' + BASE + 'index.html" class="brand-logo" aria-label="박지선 홈">' +
-            /* 형광 연두 점 하나. 회색 배경에서는 CSS 가 파란 테두리를 둘러
-               창백해 보이지 않게 하고, 파란 배경에서는 테두리를 뗍니다. */
+            /* 형광 연두 점 하나 — 모든 페이지가 같은 한 벌을 씁니다.
+               모양은 css/style.css 의 .logo-dot 한 곳에서만 정합니다. */
             '<span class="logo-dot" aria-hidden="true"></span>' +
           "</a>" +
         "</div>" +
