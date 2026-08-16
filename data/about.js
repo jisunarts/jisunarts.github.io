@@ -12,8 +12,8 @@ const ABOUT = {
   /* 본문 6문단 ---------------------------------------------------------- */
   paragraphs: [
     {
-      ko: "박지선은 크리에이티브 프로듀서이자 독립 기획자, 리서처이며 예술 정책 자문가입니다. 동시대를 읽고, 질문을 던지고, 대화하며 길을 찾아 나갑니다. 독립적으로, 수평적으로, 창의적으로 일하기를 좋아합니다.",
-      en: "Park Jisun is a creative producer, independent producer, researcher, and arts policy consultant. She reads the present, asks questions, and finds her way through conversation. She likes to work independently, horizontally, and creatively."
+      ko: "박지선은 크리에이티브 프로듀서이자 독립 기획자, 리서처이며 예술 정책 자문가입니다. 독립적으로, 수평적으로, 창의적으로 일하기를 좋아합니다.",
+      en: "Park Jisun is a creative producer, independent producer, researcher, and arts policy consultant. She likes to work independently, horizontally, and creatively."
     },
     {
       ko: "2000년대 초부터 춘천마임축제 · 서울국제공연예술제(SPAF) · 아시테지 국제총회 · 원주따뚜 등 여러 공연예술 축제를 기획했고, 2002년부터 2009년까지 춘천마임축제 기획실장으로 일했습니다. 2005년 프로덕션 컴퍼니 아시아나우(AsiaNow)를 공동 설립해 한국 연극의 해외진출과 국제공동제작을 이끌었으며, 2009년부터 2012년까지 (재)예술경영지원센터 국제사업부 전략기획팀장으로 서울아트마켓(PAMS)을 총괄하고 한국 공연예술의 국제화 전략을 설계했습니다.",

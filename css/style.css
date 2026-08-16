@@ -1652,3 +1652,102 @@ body[data-chrome="min"] .nav-toggle { display: none; }
 @media (min-width: 761px) {
   .menu-bg { display: none; }
 }
+
+/* ==========================================================================
+   홈 — 소개를 합친 화면 (index.html)
+   이름 · 한 줄 소개 · 산문 3단 · 연결 · 궤적 4열
+   ========================================================================== */
+
+.home { padding: clamp(32px, 5vw, 64px) 0 clamp(56px, 8vw, 96px); }
+
+/* 이름 — 본문 크기 볼드 (페이지 제목 규칙과 동일) */
+.home-name {
+  font-size: 1rem; font-weight: 600; line-height: 1.5;
+  letter-spacing: -0.01em; margin: 0;
+}
+.home-name-en { margin-left: 0.6em; }
+
+/* 이름 아래 한 줄 */
+.home-line {
+  font-size: 1rem; line-height: 1.6;
+  margin: 0.35em 0 3rem;
+}
+
+/* 산문 — 3단. 문단이 단 경계에서 잘려도 됩니다. */
+.home-prose {
+  column-count: 3;
+  column-gap: 2.5rem;
+}
+.home-prose p {
+  break-inside: auto;          /* 단 경계에서 잘려도 됨 */
+  orphans: 2;
+  widows: 2;
+  overflow-wrap: anywhere;
+}
+
+/* 연결 — 작은 글씨 */
+.home-links {
+  margin-top: clamp(40px, 6vw, 64px);
+  font-size: 13px;
+}
+
+/* --- 궤적 — 가로 4열 + 아래 패널 하나 ---------------------------------- */
+.traj { margin-top: clamp(56px, 8vw, 96px); }
+
+.traj-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0 2.5rem;
+}
+
+.traj-col {
+  display: block; width: 100%;
+  text-align: left; background: none; border: 0; padding: 0 0 14px;
+  cursor: pointer; color: inherit;
+}
+.traj-year {
+  display: block;
+  font-family: var(--font-meta); font-size: 13px;
+  margin-bottom: 6px;
+}
+.traj-title {
+  display: block;
+  font-family: var(--font-title); font-weight: 600;
+  font-size: 30px; line-height: 1.2; letter-spacing: -0.025em;
+}
+.traj-col.is-open .traj-title { color: #F26E22; }
+.traj-col:hover .traj-title { color: #F26E22; }
+
+/* 패널 — 네 열 아래에 하나. 선 없이 바탕색만. */
+.traj-panel {
+  background: #EDEDEA;
+  border: 0;
+  margin-top: 4px;
+  padding: clamp(24px, 3vw, 36px) clamp(20px, 2.5vw, 32px);
+}
+.traj-panel[hidden] { display: none; }
+
+.traj-panel-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 2.5rem;
+}
+.traj-label { display: block; margin-bottom: 8px; }
+.traj-body {
+  margin: 0; font-size: 14px; line-height: 1.75;
+  word-break: keep-all; overflow-wrap: anywhere;
+}
+.traj-panel .qset { margin: 0; }
+.traj-more { margin: 14px 0 0; font-size: 13px; }
+
+/* --- 좁은 화면 — 4열을 1열로, 패널 속도 1단 ---------------------------- */
+@media (max-width: 760px) {
+  .home-prose { column-count: 1; }
+  .home-line { margin-bottom: 2rem; }
+
+  .traj-cols { grid-template-columns: 1fr; gap: 0; }
+  .traj-col { padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  .traj-title { font-size: 24px; }
+
+  .traj-panel-inner { grid-template-columns: 1fr; gap: 24px; }
+}

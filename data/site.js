@@ -13,7 +13,6 @@ const SITE = {
 
   /* 상단 메뉴 (순서대로 표시됩니다) ------------------------------------ */
   nav: [
-    { id: "about",     href: "about.html",       ko: "소개",          en: "About" },
     { id: "now",       href: "now.html",         ko: "지금",          en: "Now" },
     { id: "archive",   href: "archive.html",     ko: "기록",          en: "Archive" },
     { id: "documents", href: "documents.html",   ko: "자료집",        en: "Documents" },
@@ -26,8 +25,8 @@ const SITE = {
   /* lead 는 한 줄이 한 문장입니다. 줄을 더하거나 빼도 그대로 반영됩니다.   */
   hero: {
     tagline: {
-      ko: "이동하는 사람 · 동시대를 읽는 사람 · 질문을 던지는 사람 · 대화하는 사람",
-      en: "A person who moves · who reads the present · who asks questions · who talks with others"
+      ko: "동시대를 읽고 질문을 던지고 대화하며 길을 찾는 프로듀서",
+      en: "A producer reading the present, asking questions, finding a way through conversation"
     },
     lead: {
       ko: [

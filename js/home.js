@@ -1,113 +1,194 @@
 /* ==========================================================================
    js/home.js — 홈(index.html)
-   히어로(이름 · 네 구절 · 소개 문장 · 사진)와 궤적 네 시기만 그립니다.
-   나머지 내용은 상단 메뉴의 각 페이지에 있습니다.
-   글과 항목은 data/site.js · data/trajectory.js 에서 읽어옵니다.
+   소개 페이지를 홈으로 합쳤습니다. 위에서부터
+     이름 · 한 줄 소개 · 산문 6문단(3단) · 연결 · 궤적 네 시기
+   글은 data/site.js · data/about.js · data/trajectory.js 에서 읽어옵니다.
+
+   · 산문에 링크가 들어 있어(언어마다 위치가 다름) 언어가 바뀌면 다시 그립니다.
+   · 궤적은 가로 4열이고, 패널은 네 열 아래에 '하나만' 둡니다.
+     열을 누르면 그 패널의 내용만 갈아 끼웁니다 (한 번에 하나만 열림).
    ========================================================================== */
 
 (function renderHome() {
 
-  /* 히어로 ------------------------------------------------------------- */
-  const hero = document.getElementById("hero-mount");
-  if (!hero) return;
+  const mount = document.getElementById("home-mount");
+  if (!mount) return;
 
-  /* 소개 — 한 줄이 한 문단. 네 줄 그대로 유지됩니다. */
-  const lead = SITE.hero.lead.ko.map(function (line, i) {
-    return "<p " + bi({ ko: line, en: SITE.hero.lead.en[i] || line }) + ">" + esc(line) + "</p>";
-  }).join("");
-
-  /* 왼쪽 — 로고 · 이름 한 줄 · 소개 · 사진 */
-  const img = SITE.hero.image;
-
-  /* 이름은 1행, 한 줄 소개부터는 2행 — 오른쪽 궤적이 2행에서 시작해
-     '이동하는 사람 …' 줄과 같은 기준선에 놓입니다 (여백 계산 없이 구조로). */
-  const nameCell = document.getElementById("home-name");
-  if (nameCell) {
-    nameCell.innerHTML = "<h1 " + bi(SITE.name) + ">" + esc(SITE.name.ko) + "</h1>";
+  /* --- 준비 확인 (js/now.js 등과 같은 방식) ----------------------------- */
+  function needed(list) {
+    var missing = [];
+    for (var i = 0; i < list.length; i++) if (!list[i].ok) missing.push(list[i].what);
+    return missing;
+  }
+  var _miss = needed([
+    { what: "data/site.js (SITE)",         ok: typeof SITE !== "undefined" },
+    { what: "data/about.js (ABOUT)",       ok: typeof ABOUT !== "undefined" },
+    { what: "js/layout.js (esc)",          ok: typeof esc === "function" },
+    { what: "js/layout.js (bi)",           ok: typeof bi === "function" }
+  ]);
+  if (_miss.length) {
+    console.error("[홈] 화면을 그리지 못했습니다. 없는 것: " + _miss.join(", ") +
+      " — 스크립트가 모두 내려받아졌는지 확인해 주세요.");
+    mount.innerHTML = '<p class="read-missing" ' +
+      'data-ko="내용을 불러오지 못했습니다. 새로고침해 주세요." ' +
+      'data-en="Could not load this page. Please refresh.">' +
+      "내용을 불러오지 못했습니다. 새로고침해 주세요.</p>";
+    return;
   }
 
-  hero.innerHTML =
-    '<p class="home-kicker" ' + bi(SITE.hero.tagline) + ">" +
-      esc(SITE.hero.tagline.ko) + "</p>" +
+  /* 지금 언어 — i18n.js 가 body 에 적어 둡니다 */
+  function curLang() { return document.body.dataset.lang === "en" ? "en" : "ko"; }
+  function pick(o, lang) { return (o && o[lang] && String(o[lang]).trim()) ? o[lang] : (o ? o.ko : ""); }
 
-    '<div class="home-intro">' + lead + "</div>" +
-
-    '<figure class="home-photo">' +
-      '<img src="' + esc(img.src) + '" alt="' + esc(img.alt.ko) + '" ' +
-        'data-alt-ko="' + esc(img.alt.ko) + '" data-alt-en="' + esc(img.alt.en) + '">' +
-    "</figure>";
-
-  /* 궤적 — data/trajectory.js 의 네 시기.
-     한 줄에 연도 · 제목 · 한 줄 요약 · 태그, 누르면 그 시기의 질문이 펼쳐집니다. */
-  const traj = document.getElementById("trajectory-mount");
-  if (traj && typeof TRAJECTORY !== "undefined") {
-    traj.innerHTML = TRAJECTORY.map(function (p, idx) {
-
-      /* "2020–현재" → 영문일 때 "2020–Present" */
-      const years = { ko: p.years, en: p.years.replace("현재", "Present") };
-
-      const keys = (p.tags || []).map(function (label) {
-        return "<span>" + esc(label) + "</span>";
-      }).join("");
-
-      const questions = (p.questions || []).map(function (q, i) {
-        return "<li>" +
-          '<span class="meta tnum">' + String(i + 1).padStart(2, "0") + "</span>" +
-          "<span " + bi(q) + ">" + esc(q.ko) + "</span>" +
-        "</li>";
-      }).join("");
-
-      const works = p.works_ko
-        ? '<span class="meta detail-label" data-ko="대표 활동" data-en="Selected Work">대표 활동</span>' +
-          '<p class="detail-body">' + esc(p.works_ko) + "</p>"
-        : "";
-
-      return '<li class="index-item" data-open="false">' +
-        '<button type="button" class="index-row" data-acc-toggle id="traj-' + esc(p.id) + '-btn" ' +
-          'aria-expanded="false" aria-controls="traj-' + esc(p.id) + '-panel">' +
-          '<span class="index-lead meta tnum" ' + bi(years) + ">" + esc(years.ko) + "</span>" +
-          "<span>" +
-            '<span class="index-title" ' + bi({ ko: p.title_ko, en: p.title_en }) + ">" +
-              esc(p.title_ko) +
-            "</span>" +
-            '<span class="index-sub" ' + bi({ ko: p.essence_ko, en: p.essence_en }) + ">" +
-              esc(p.essence_ko) +
-            "</span>" +
-            (keys ? '<span class="keys">' + keys + "</span>" : "") +
-          "</span>" +
-          '<span class="index-tail acc-mark meta" aria-hidden="true">+</span>' +
-        "</button>" +
-
-        '<div class="index-detail" id="traj-' + esc(p.id) + '-panel" role="region" ' +
-          'aria-labelledby="traj-' + esc(p.id) + '-btn">' +
-          '<div class="detail-inner">' +
-            works +
-            '<span class="meta detail-label" data-ko="질문" data-en="Questions">질문</span>' +
-            '<ul class="qset">' + questions + "</ul>" +
-            /* 설명 — 모바일에서만 펼침 안에 보입니다 (데스크톱은 행에 그대로) */
-            '<span class="meta detail-label is-mobile" data-ko="설명" data-en="Summary">설명</span>' +
-            '<p class="detail-body is-mobile" ' + bi({ ko: p.essence_ko, en: p.essence_en }) + ">" +
-              esc(p.essence_ko) + "</p>" +
-            /* 이 시기의 기록으로 */
-            '<span class="detail-label"></span>' +
-            '<p class="traj-more"><a href="archive.html?period=' + (idx + 1) + '" ' +
-              'data-ko="이 시기 기록 보기 →" data-en="See this period in the archive →">' +
-              "이 시기 기록 보기 →</a></p>" +
-          "</div>" +
-        "</div>" +
-      "</li>";
-    }).join("");
-
-    /* 열고 닫기 — 공용 아코디언(js/accordion.js)과 같은 방식 */
-    traj.addEventListener("click", function (e) {
-      const btn = e.target.closest(".index-row");
-      if (!btn) return;
-      const item = btn.parentElement;
-      const open = item.dataset.open !== "true";
-      if (typeof Accordion !== "undefined") Accordion.set(item, open);
-      else { item.dataset.open = String(open); btn.setAttribute("aria-expanded", String(open)); }
-      btn.querySelector(".index-tail").textContent = open ? "−" : "+";
+  /* [보이는 글자](주소) → 새 탭으로 열리는 링크 (js/about.js 와 같은 규칙) */
+  function withLinks(text) {
+    return esc(text).replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, function (_, label, url) {
+      return '<a class="inline-link" href="' + url + '" target="_blank" rel="noopener">' + label + "</a>";
     });
   }
 
+  function anchor(url, text) {
+    const mail = String(url).indexOf("mailto:") === 0;
+    return '<a class="inline-link" href="' + esc(url) + '"' +
+      (mail ? "" : ' target="_blank" rel="noopener"') + ">" + text + "</a>";
+  }
+
+  /* 연결 — 산문 문단 안에 이미 링크로 나온 주소는 뺍니다.
+     (도트 · APP · 기후변화 레지던시 · 둥지230 이 여기 해당합니다.)
+     주소를 손으로 나열하지 않고 산문에서 뽑아 비교하므로,
+     나중에 산문이 바뀌어도 목록이 저절로 따라갑니다. */
+  const inProse = (function () {
+    const urls = {};
+    ABOUT.paragraphs.forEach(function (p) {
+      ["ko", "en"].forEach(function (k) {
+        String(p[k] || "").replace(/\[[^\]]+\]\(([^)\s]+)\)/g, function (_, u) {
+          urls[u] = true; return "";
+        });
+      });
+    });
+    return urls;
+  })();
+
+  function isKept(row) {
+    if (row.items) return true;                 /* 이메일 — 산문에 없음 */
+    return !inProse[String(row.url || "")];     /* 산문에 이미 있으면 뺍니다 */
+  }
+
+  /* --- 이름 · 한 줄 · 산문 · 연결 --------------------------------------- */
+  function drawTop(lang) {
+    const paras = ABOUT.paragraphs.map(function (p) {
+      const text = (p[lang] && p[lang].trim()) ? p[lang] : p.ko;
+      return "<p>" + withLinks(text) + "</p>";
+    }).join("");
+
+    const links = ABOUT.links.filter(isKept).map(function (row) {
+      const label = esc(row.label[lang] || row.label.ko);
+      if (!row.items) return '<p class="links-row">' + anchor(row.url, label) + "</p>";
+      const values = row.items.map(function (item) {
+        return anchor(item.url, esc(item.text));
+      }).join('<span class="link-sep" aria-hidden="true"> · </span>');
+      return '<p class="links-row">' +
+        '<span class="links-label">' + label + "</span>" +
+        '<span class="links-dash" aria-hidden="true"> — </span>' + values +
+      "</p>";
+    }).join("");
+
+    mount.innerHTML =
+      '<h1 class="home-name">' +
+        '<span class="home-name-ko">' + esc(SITE.name.ko) + "</span>" +
+        '<span class="home-name-en">' + esc(SITE.name.en) + "</span>" +
+      "</h1>" +
+      '<p class="home-line" ' + bi(SITE.hero.tagline) + ">" +
+        esc(pick(SITE.hero.tagline, lang)) + "</p>" +
+      '<div class="prose home-prose">' + paras + "</div>" +
+      '<div class="home-links links-list">' + links + "</div>";
+  }
+
+  /* --- 궤적 — 가로 4열 + 패널 하나 -------------------------------------- */
+  const traj = document.getElementById("trajectory-mount");
+
+  function yearsOf(p) { return { ko: p.years, en: p.years.replace("현재", "Present") }; }
+
+  function panelHtml(p, idx, lang) {
+    const questions = (p.questions || []).map(function (q, i) {
+      return "<li>" +
+        '<span class="meta tnum">' + String(i + 1).padStart(2, "0") + "</span>" +
+        "<span " + bi(q) + ">" + esc(pick(q, lang)) + "</span>" +
+      "</li>";
+    }).join("");
+
+    const works = p.works_ko
+      ? '<p class="traj-body" ' + bi({ ko: p.works_ko, en: p.works_en || p.works_ko }) + ">" +
+          esc(lang === "en" ? (p.works_en || p.works_ko) : p.works_ko) + "</p>"
+      : "";
+
+    return '<div class="traj-panel-inner">' +
+      "<div>" +
+        '<span class="meta traj-label" data-ko="설명" data-en="Summary">' + (lang === "en" ? "Summary" : "설명") + '</span>' +
+        '<p class="traj-body" ' + bi({ ko: p.essence_ko, en: p.essence_en }) + ">" +
+          esc(lang === "en" ? p.essence_en : p.essence_ko) + "</p>" +
+      "</div>" +
+      "<div>" +
+        '<span class="meta traj-label" data-ko="대표 활동" data-en="Selected Work">' + (lang === "en" ? "Selected Work" : "대표 활동") + '</span>' +
+        works +
+      "</div>" +
+      "<div>" +
+        '<span class="meta traj-label" data-ko="질문" data-en="Questions">' + (lang === "en" ? "Questions" : "질문") + '</span>' +
+        '<ul class="qset">' + questions + "</ul>" +
+        '<p class="traj-more"><a href="archive.html?period=' + (idx + 1) + '" ' +
+          'data-ko="이 시기 기록 보기 →" data-en="See this period in the archive →">' +
+          (lang === "en" ? "See this period in the archive →" : "이 시기 기록 보기 →") +
+          "</a></p>" +
+      "</div>" +
+    "</div>";
+  }
+
+  /* 지금 열려 있는 열 (-1 이면 모두 닫힘). 언어를 바꿔도 유지됩니다. */
+  let openIdx = -1;
+
+  function drawTraj(lang) {
+    if (!traj || typeof TRAJECTORY === "undefined") return;
+
+    const cols = TRAJECTORY.map(function (p, i) {
+      const years = yearsOf(p);
+      const on = (i === openIdx);
+      return '<button type="button" class="traj-col' + (on ? " is-open" : "") + '" data-i="' + i + '" ' +
+        'aria-expanded="' + String(on) + '" aria-controls="traj-panel">' +
+        '<span class="traj-year meta tnum" ' + bi(years) + ">" + esc(pick(years, lang)) + "</span>" +
+        '<span class="traj-title" ' + bi({ ko: p.title_ko, en: p.title_en }) + ">" +
+          esc(lang === "en" ? p.title_en : p.title_ko) + "</span>" +
+      "</button>";
+    }).join("");
+
+    const panel = openIdx >= 0
+      ? '<div class="traj-panel" id="traj-panel">' + panelHtml(TRAJECTORY[openIdx], openIdx, lang) + "</div>"
+      : '<div class="traj-panel" id="traj-panel" hidden></div>';
+
+    traj.innerHTML = '<div class="traj-cols">' + cols + "</div>" + panel;
+  }
+
+  /* 리스너는 한 번만 답니다 — drawTraj 는 안쪽 HTML 만 갈아 끼웁니다.
+     (매번 붙이면 언어를 바꾼 뒤 클릭이 두 번씩 발동합니다.) */
+  if (traj) {
+    traj.addEventListener("click", function (e) {
+      const btn = e.target.closest(".traj-col");
+      if (!btn) return;
+      const i = parseInt(btn.dataset.i, 10);
+      openIdx = (i === openIdx) ? -1 : i;    /* 같은 열을 다시 누르면 닫힘 */
+      drawTraj(curLang());
+    });
+  }
+
+  drawTop(curLang());
+  drawTraj(curLang());
+
+  /* 언어가 바뀌면 다시 그립니다. 산문은 문단 안 링크 위치가 언어마다 달라
+     data-ko/data-en 으로는 처리할 수 없기 때문입니다.
+     ※ 여기서 applyLang() 을 부르면 i18n.js 가 langchange 를 다시 쏘아
+        무한히 되풀이됩니다. 그래서 각 글자를 처음부터 그 언어로 그립니다. */
+  document.addEventListener("langchange", function (e) {
+    const lang = e.detail.lang === "en" ? "en" : "ko";
+    drawTop(lang);
+    drawTraj(lang);          /* openIdx 가 유지되므로 열려 있던 시기도 그대로 */
+  });
 })();

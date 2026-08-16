@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/complete/css/wanted-sans-variable.min.css">
-<link rel="stylesheet" href="css/style.css?v=20260811a">
+<link rel="stylesheet" href="css/style.css?v=20260816a">
 </head>
 
 <body data-page="home">
@@ -20,38 +20,27 @@
 <div id="site-header"></div>
 
 <main class="home">
-  <div class="home-inner">
-    <div class="home-grid">
+  <div class="wrap">
 
-      <!-- 1행 왼쪽 — 이름 (오른쪽 칸은 비움) -->
-      <div class="home-name-cell" id="home-name"></div>
+    <!-- 이름 · 한 줄 소개 · 산문 · 연결 -->
+    <div id="home-mount"></div>
 
-      <!-- 2행 왼쪽 — 한 줄 소개 · 소개 4줄 · 사진 -->
-      <div class="home-left" id="hero-mount"></div>
+    <!-- 궤적 네 시기 — 가로 4열, 아래에 패널 하나 -->
+    <section class="traj" id="trajectory-mount"></section>
 
-      <!-- 오른쪽 — 궤적 네 시기 -->
-      <div class="home-right">
-        <div class="home-sec-head">
-          <span class="section-num meta tnum">01</span>
-          <h2 data-ko="궤적" data-en="Trajectory">궤적</h2>
-        </div>
-        <ul class="index home-traj" id="trajectory-mount"></ul>
-      </div>
-
-    </div>
   </div>
 </main>
 
 <div id="site-footer"></div>
 
 <!-- 콘텐츠 데이터 -->
-<script src="data/site.js?v=20260811a"></script>
-<script src="data/trajectory.js?v=20260811a"></script>
+<script src="data/site.js?v=20260816a"></script>
+<script src="data/about.js?v=20260816a"></script>
+<script src="data/trajectory.js?v=20260816a"></script>
 <!-- 화면 그리기 -->
-<script src="js/layout.js?v=20260811a"></script>
-<script src="js/accordion.js?v=20260811a"></script>
-<script src="js/home.js?v=20260811a"></script>
+<script src="js/layout.js?v=20260816a"></script>
+<script src="js/home.js?v=20260816a"></script>
 <!-- 언어 전환은 항상 마지막 -->
-<script src="js/i18n.js?v=20260811a"></script>
+<script src="js/i18n.js?v=20260816a"></script>
 </body>
 </html>
