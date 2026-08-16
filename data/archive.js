@@ -108,14 +108,14 @@ const ARCHIVE = [
   { year: "2002", type: "IN", title_ko: "ASSITEJ 국제총회 — 관객지원팀장", title_en: "ASSITEJ World Congress — Audience Services Lead", tags: ["international", "festival", "civic"] },
 
   // ── 국제 · 네트워크 · 컨퍼런스 (NW) ──
-  { year: "2026", type: "NW", title_ko: "국제 컨퍼런스 〈더 넥스트 노멀: 다이알로그 인 아시아〉 총괄 기획 (한국문화예술위원회)", title_en: "〈The Next Normal: Dialogue in Asia〉 — Director", links: [{ label: "지금 보기", url: "now.html#tnn" }, { label: "웹사이트", url: "https://thenextnormalasia.com/" }], tags: ["asian-solidarity", "international", "institutions"] },
+  { year: "2026", type: "NW", title_ko: "국제 컨퍼런스 〈더 넥스트 노멀: 다이알로그 인 아시아〉 총괄 기획 (한국문화예술위원회)", title_en: "〈The Next Normal: Dialogue in Asia〉 — Director", links: [{ label: "자세히 보기", url: "projects/tnn.html" }, { label: "웹사이트", url: "https://thenextnormalasia.com/" }], tags: ["asian-solidarity", "international", "institutions"] },
   { year: "2014–25", type: "NW", title_ko: "아시아 프로듀서 플랫폼(APP) 창설 및 APP CAMP 기획", title_en: "Asian Producers' Platform (APP) & APP CAMP — Founder", tags: ["asian-solidarity", "independent", "horizontal"] },
   { year: "2022", type: "NW", title_ko: "아르코 국제심포지엄 〈다시 생각하고, 상상하고, 행동하기〉 기획", title_en: "ARKO Int'l Symposium 〈Rethink, Reimagine, Act〉", links: [{ url: "https://drive.google.com/file/d/1xdxmf_9LpLPHPwTAet28nTpKFxKffeCm/view?usp=drive_link" }], tags: ["international"] },
   { year: "2021", type: "NW", title_ko: "아시아 도시 프로젝트–송도 / 커넥티드 시티 리서치·포럼 (연수구문화재단)", title_en: "Asia City Project–Songdo / Connected City Forum", links: [{ label: "자료집", url: "documents.html#connected-city" }], tags: ["asian-solidarity", "city-art", "process"] },
   { year: "2021", type: "NW", title_ko: "VR3 — 아시아 프로듀서 플랫폼 온라인 포럼 공동기획", title_en: "VR3 — APP Online Forum", tags: ["tech-society", "asian-solidarity", "region-community", "independent", "horizontal"] },
   { year: "2019", type: "NW", title_ko: "서커스 국제 포럼 〈WHY? HOW? WHERE?〉 기획 (서울문화재단)", title_en: "Circus Int'l Forum 〈WHY? HOW? WHERE?〉", tags: ["international", "multidisciplinary"] },
   { year: "2019", type: "NW", title_ko: "21세기 디지털 시대의 연극 국제포럼 (독일문화원)", title_en: "Theatre in the Digital Age Int'l Forum", tags: ["tech-society", "international"] },
-  { year: "2019", type: "NW", title_ko: "포용적 접근의 장애예술 창작·관객개발 워크숍·포럼 (남산예술극장·제주문화재단)", title_en: "Disability Arts Access Workshop & Forum", links: [{ label: "자료집", url: "documents.html#inclusive-access" }], tags: ["civic", "process"] },
+  { year: "2019", type: "NW", title_ko: "포용적 접근의 장애예술 창작·관객개발 워크숍·포럼 (남산예술극장·제주문화재단)", title_en: "Disability Arts Access Workshop & Forum", links: [{ label: "자료집", url: "documents.html#inclusive-access" }, { label: "기록집", url: "https://drive.google.com/file/d/1vJMkrvOUFRsas3L474qWa88GEEOI5jy5/view" }], tags: ["civic", "process"] },
   { year: "2018", type: "NW", title_ko: "컨템포러리 서커스 국제컨퍼런스 (서울문화재단)", title_en: "Contemporary Circus Int'l Conference", tags: ["international", "multidisciplinary"] },
   { year: "2013", type: "NW", title_ko: "크리에이티브 프로듀서 포럼", title_en: "Creative Producers Forum", links: [{ url: "https://drive.google.com/file/d/1-qBrpiMJaJdo4abmA3JLZctiaXAAaSPH/view?usp=drive_link" }], tags: ["independent", "horizontal"] },
 
@@ -144,7 +144,7 @@ const ARCHIVE = [
   { year: "2014", type: "RS", title_ko: "추계예술대 문화예술경영대학원 국제문화교류 강의", title_en: "Chugye Univ. Graduate — Int'l Exchange Lecturer", tags: ["international"] },
   { year: "2009", type: "RS", title_ko: "성균관대 대학원 공연예술협동과정 '공연예술특수연구' 강의", title_en: "Sungkyunkwan Univ. Graduate — Lecturer", tags: ["process"] },
   { year: "2007", type: "RS", title_ko: "예술경영지원센터 국제교류아카데미 강사·컨설턴트 (2007·2008·2009)", title_en: "KAMS Int'l Exchange Academy — Lecturer/Consultant", tags: ["international"] },
-  { year: "2007", type: "RS", title_ko: "에딘버러 진출 매뉴얼 집필 (예술경영지원센터, 단행본)", title_en: "Edinburgh guidebook — Author (KAMS)", links: [{ url: "https://drive.google.com/file/d/1rMgys4v1KHsJWyIQp_sOXtBC9EZHnWDr/view?usp=drive_link" }], tags: ["mobility", "institutions"] },
+  { year: "2007", type: "RS", title_ko: "에든버러 프린지 A to Z", title_en: "Edinburgh Fringe A to Z", links: [{ url: "https://drive.google.com/file/d/1rMgys4v1KHsJWyIQp_sOXtBC9EZHnWDr/view?usp=drive_link" }], tags: ["mobility", "institutions"] },
   { year: "2007", type: "RS", title_ko: "문체부 '국제교류실무매뉴얼' 공연예술분야 (도서)", title_en: "Int'l exchange manual — Performing arts (MCST)", tags: ["international", "institutions"] },
   { year: "2005", type: "RS", title_ko: "서울문화재단 '국제교류매뉴얼' (단행본)", title_en: "Int'l exchange manual (SFAC)", tags: ["international", "institutions"] },
   { year: "2001", type: "RS", title_ko: "한국문화정책개발원 연구 보조", title_en: "Korea Culture Policy Institute — Research assistant", tags: ["process", "institutions"] },

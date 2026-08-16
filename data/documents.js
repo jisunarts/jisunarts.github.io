@@ -17,6 +17,9 @@ const DOC_PROJECTS = {
 };
 
 const DOCUMENTS = [
+  { title_ko: "감각 너머 포럼: 경험으로서의 미술관 — 극장-무대, 객석, 퍼포머, 관객의 재위치와 감각의 확장", title_en: "Beyond the Senses Forum: The Museum as Experience — Repositioning Stage, Auditorium, Performer and Audience", year: "2023", url: "https://drive.google.com/file/d/15so4ntoOYQAD8FA8kWZHyNJiSQUvc0ss/view", cover: "img/covers/sense.png", tags: ["civic", "tech-society"] },
+  { title_ko: "ACC_R 〈시어터 바이오필리아〉 한–태 레지던시", title_en: "ACC_R 〈Theatre Biophilia〉 KR–TH Residency", year: "2021", url: "https://drive.google.com/file/d/1S2Te8ozwy-kWdWMIZLJFX0vrteFeLjom/view", cover: "img/covers/bio.png", tags: ["asian-solidarity", "process"] },
+  { title_ko: "에든버러 프린지 A to Z", title_en: "Edinburgh Fringe A to Z", year: "2007", url: "https://drive.google.com/file/d/1rMgys4v1KHsJWyIQp_sOXtBC9EZHnWDr/view", cover: "img/covers/edinburgh.png", tags: ["mobility", "international"] },
   { title_ko: "TNN : Dialogue in Asia — 사전 자료집", title_en: "TNN: Dialogue in Asia — Pre-forum Booklet", year: "2026", url: "https://drive.google.com/file/d/1NMc6hj7TR6JeGWIGCPeVddzKEYjnZojx/view?usp=drive_link", project: "tnn", cover: "img/covers/tnn-2026.jpg", tags: ["international"] },
   { title_ko: "디지털 드라마터지 워크숍 : 개념과 실천을 중심으로", title_en: "Digital Dramaturgy Workshop", year: "2025", url: "https://drive.google.com/file/d/1TVRmrDyJSDfyvbtR0A7q_L1zGsrPTeLO/view?usp=drive_link", project: "digital-dramaturgy", cover: "img/covers/digital-dramaturgy-2025.jpg", tags: ["tech-society", "process"] },
   { title_ko: "⬡⬡의 섬 : 강화도 결과보고집", title_en: "The Island of ⬡⬡ : Ganghwa", year: "2025", url: "https://drive.google.com/file/d/1W1GN-JpnbSK6YQOm3evwzBSLu5SEGPOi/view?usp=drive_link", project: "ganghwa", cover: "img/covers/island-ganghwa-2025.jpg", tags: ["borders-coexistence"] },
