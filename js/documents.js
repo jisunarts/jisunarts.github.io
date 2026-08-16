@@ -71,9 +71,10 @@
   }
 
   /* 계열(project) 묶음은 유지하되 라벨·구분선 없이 하나의 그리드로 이어 붙입니다.
-     · 계열 순서는 DOC_PROJECTS 에 적힌 순서 그대로
-     · 같은 계열 안에서는 연도 내림차순(최신 먼저)
-     · 계열이 행 중간에서 시작해도 그대로 둡니다 (줄바꿈 강제 없음)
+     · 같은 계열 자료는 붙어 있습니다
+     · 묶음 순서는 '대표 연도'(그 묶음에서 가장 최근 연도) 내림차순
+     · 계열이 없는 자료는 1건짜리 묶음으로 보아 같은 자격으로 제 연도 자리에 놓입니다
+     · 묶음 안에서는 시작 연도 내림차순(최신 먼저)
      · 데이터의 project 필드는 그대로 두고, 화면에 라벨만 그리지 않습니다      */
 
   function startYear(d) {
@@ -81,24 +82,33 @@
     return m ? parseInt(m[0], 10) : 0;
   }
 
-  const order = Object.keys(DICT).filter(function (k) {
-    return DOCUMENTS.some(function (d) { return d.project === k; });
+  /* 묶기 — project 가 없거나 사전에 없는 자료는 혼자서 한 묶음이 됩니다 */
+  const groups = [];
+  const byKey = {};
+  DOCUMENTS.forEach(function (d) {
+    const key = (d.project && DICT[d.project]) ? d.project : null;
+    if (!key) { groups.push({ key: null, docs: [d] }); return; }
+    if (!byKey[key]) { byKey[key] = { key: key, docs: [] }; groups.push(byKey[key]); }
+    byKey[key].docs.push(d);
   });
-  const rest = DOCUMENTS.filter(function (d) { return !d.project || !DICT[d.project]; });
+
+  /* 묶음 안을 정렬하고, 그 결과의 첫 항목 연도를 대표 연도로 삼습니다 */
+  groups.forEach(function (g) {
+    g.docs.sort(function (a, b) { return startYear(b) - startYear(a); });
+    g.year = g.docs.length ? startYear(g.docs[0]) : 0;
+  });
+
+  /* 묶음끼리 — 대표 연도 내림차순.
+     연도가 같으면 원래 데이터 차례가 유지됩니다(정렬이 안정적이므로). */
+  groups.sort(function (a, b) { return b.year - a.year; });
 
   const rows = [];
-  order.forEach(function (k) {
-    DOCUMENTS.filter(function (d) { return d.project === k; })
-      .slice()
-      .sort(function (a, b) { return startYear(b) - startYear(a); })
-      .forEach(function (d, i) {
-        /* 계열의 첫 자료집이 앵커를 이어받습니다 (documents.html#dance-techlab) */
-        rows.push({ doc: d, anchor: i === 0 ? k : null });
-      });
+  groups.forEach(function (g) {
+    g.docs.forEach(function (d, i) {
+      /* 계열의 첫 자료집이 앵커를 이어받습니다 (documents.html#dance-techlab) */
+      rows.push({ doc: d, anchor: (g.key && i === 0) ? g.key : null });
+    });
   });
-  rest.slice()
-    .sort(function (a, b) { return startYear(b) - startYear(a); })
-    .forEach(function (d, i) { rows.push({ doc: d, anchor: i === 0 ? "etc" : null }); });
 
   mount.innerHTML = '<ul class="doc-grid">' +
     rows.map(function (r) {
