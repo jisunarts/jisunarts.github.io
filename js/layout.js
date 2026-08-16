@@ -92,6 +92,8 @@ function catLabel(v) { return CATEGORY[v] || v; }
         "</div>" +
 
         '<nav class="nav" id="main-nav" aria-label="주요 메뉴">' +
+          /* 배경 사진 — 모바일에서 메뉴를 열 때만 채워 넣습니다 (setMenu 참고) */
+          '<img class="menu-bg" alt="" aria-hidden="true">' +
           /* 메뉴가 열렸을 때만 보이는 반전 로고 */
           '<a class="nav-logo" href="' + BASE + 'index.html" aria-label="박지선 홈">' +
             '<img src="' + BASE + 'img/logo-invert.svg" alt="" width="26" height="22">' +
@@ -121,11 +123,41 @@ function catLabel(v) { return CATEGORY[v] || v; }
   const toggle = document.getElementById("nav-toggle");
   const nav    = document.getElementById("main-nav");
 
+  /* 메뉴 배경 사진 — 열 때마다 한 장씩 돌아가며 씁니다.
+     · 데스크톱에서는 CSS 가 사진을 감추므로 아예 불러오지 않습니다.
+     · 사진이 없거나 못 불러와도 파란 바탕은 그대로라 메뉴는 정상 동작합니다. */
+  const WALKS = ["walk-1.webp", "walk-2.webp", "walk-3.webp"];
+
+  function setMenuPhoto() {
+    const bg = nav.querySelector(".menu-bg");
+    if (!bg) return;
+    if (window.matchMedia && window.matchMedia("(min-width: 761px)").matches) return;
+
+    // 홈 히어로(img/photos/walking-road.jpg)와 walk-3.webp는 같은 사진(IMG_8757)의
+    // 컬러 원본 / 흑백 크롭 버전이라 홈에서는 제외
+    const isHome = /(^\/$|index\.html$)/.test(window.location.pathname);
+    const pool = isHome ? WALKS.slice(0, 2) : WALKS;
+
+    let i = 0;
+    try {
+      i = Number(sessionStorage.getItem("walkIdx") || 0) % pool.length;
+      sessionStorage.setItem("walkIdx", String((i + 1) % pool.length));
+    } catch (e) { /* 저장이 막힌 환경이면 늘 첫 장 */ }
+
+    const next = BASE + "img/menu/" + pool[i];
+    if (bg.getAttribute("src") === next) { bg.style.opacity = ""; return; }
+
+    bg.style.opacity = "0";
+    bg.onload  = function () { bg.style.opacity = ""; };   /* 값은 CSS 가 정합니다 */
+    bg.onerror = function () { bg.removeAttribute("src"); };
+    bg.src = next;
+  }
+
   function setMenu(open) {
     toggle.setAttribute("aria-expanded", String(open));
     nav.dataset.open = String(open);
     document.body.style.overflow = open ? "hidden" : "";
-    if (open) document.getElementById("nav-close").focus();
+    if (open) { setMenuPhoto(); document.getElementById("nav-close").focus(); }
     else toggle.focus();
   }
 

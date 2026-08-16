@@ -27,7 +27,7 @@ const ARCHIVE = [
   { year: "2002–09", type: "AF", title_ko: "춘천마임축제 — 기획실장", title_en: "Chuncheon Mime Festival — Planning Director", order: 6, tags: ["festival"] },
 
   // ── 협력 예술가 (CL) ──
-  { year: "2023–", type: "CA", title_ko: "황수현", title_en: "Hwang Soo-hyun", tags: ["etc"] },
+  { year: "2023–", type: "CA", title_ko: "황수현", title_en: "Hwang Soohyun", tags: ["etc"] },
   { year: "2020–", type: "CA", title_ko: "권병준", title_en: "Kwon Byungjun", links: [{ url: "https://byungjun.pe.kr/" }], tags: ["etc"] },
   { year: "2015–", type: "CA", title_ko: "김보람 (무제의 길)", title_en: "Kim Boram (Untitled Road)", links: [{ url: "https://www.untitledroad.com/" }], tags: ["etc"] },
   { year: "2021–", type: "CA", title_ko: "앤드씨어터", title_en: "AND Theatre", links: [{ url: "https://www.instagram.com/and_theatre/" }], tags: ["etc"] },
@@ -36,13 +36,13 @@ const ARCHIVE = [
 
   // ── 공연 · 제작 · 투어 (PF) ──
   { year: "2026", type: "PF", title_ko: "앤드씨어터 〈세상의 종말이 아닌〉 — 드라마터그 @강화 없는 극장·서울 연희예술극장", title_en: "AND Theatre 〈Not the End of the World〉 — Dramaturg", links: [{ url: "https://www.instagram.com/p/DaSgvLEgRB2/" }], tags: ["borders-coexistence"] },
-  { year: "2026", type: "PF", title_ko: "황수현 〈싱크 디 싱크〉 @TICC", title_en: "Hwang Soo-hyun 〈Sync the Sync〉 @TICC", links: [{ url: "https://www.instagram.com/p/DZ2FkZhgTH_/" }], tags: ["etc"] },
-  { year: "2025", type: "PF", title_ko: "황수현 〈싱크 디 싱크〉 @TICC", title_en: "Hwang Soo-hyun 〈Sync the Sync〉 @TICC", tags: ["etc"] },
+  { year: "2026", type: "PF", title_ko: "황수현 〈싱크 디 싱크〉 @TICC", title_en: "Hwang Soohyun 〈Sync the Sync〉 @TICC", links: [{ url: "https://www.instagram.com/p/DZ2FkZhgTH_/" }], tags: ["etc"] },
+  { year: "2025", type: "PF", title_ko: "황수현 〈싱크 디 싱크〉 @TICC", title_en: "Hwang Soohyun 〈Sync the Sync〉 @TICC", tags: ["etc"] },
   { year: "2025", type: "PF", title_ko: "앤드씨어터 낭독공연 〈세상의 종말이 아닌〉 — 에코 드라마터그", title_en: "AND Theatre reading 〈Not the End of the World〉 — Eco-dramaturg", tags: ["etc"] },
   { year: "2025", type: "PF", title_ko: "앤드씨어터 낭독공연 〈교토〉 — 에코 드라마터그", title_en: "AND Theatre reading 〈Kyoto〉 — Eco-dramaturg", tags: ["etc"] },
   { year: "2025", type: "PF", title_ko: "무제의 길 〈끝의 섬 :2150〉 — 드라마터그 @신촌극장·변방연극제", title_en: "Untitled Road 〈Island at the End: 2150〉 — Dramaturg", links: [{ url: "https://www.untitledroad.com/projects/island-at-the-end-2150" }], tags: ["borders-coexistence"] },
   { year: "2024", type: "PF", title_ko: "권병준 〈새들의 날에〉 — 제작·해외투어 (서울국제공연예술제·IMPACT 벨기에)", title_en: "Kwon Byungjun 〈On the Day of the Birds〉 — Production, tour", links: [{ url: "http://spaf.or.kr/2024/program/program_view06.php" }], tags: ["mobility", "international"] },
-  { year: "2023", type: "PF", title_ko: "황수현 〈Zzz〉 — 대학로극장 쿼드 제작", title_en: "Hwang Soo-hyun 〈Zzz〉", links: [{ url: "https://drive.google.com/file/d/1jnvAx-6orAjmRmtFUk9plWyuh_VRFCOF/view?usp=drive_link" }], tags: ["etc"] },
+  { year: "2023", type: "PF", title_ko: "황수현 〈Zzz〉 — 대학로극장 쿼드 제작", title_en: "Hwang Soohyun 〈Zzz〉", links: [{ url: "https://drive.google.com/file/d/1jnvAx-6orAjmRmtFUk9plWyuh_VRFCOF/view?usp=drive_link" }], tags: ["etc"] },
   { year: "2023", type: "PF", title_ko: "지연X전환 〈에너지_보이지 않는 언어〉 — 도트 제작, 서울국제공연예술제 초청", title_en: "〈Energy: The Invisible Language〉 — DOT, SPAF", links: [{ label: "SPAF 프로그램", url: "http://spaf.or.kr/2023/program/program_view16.php" }, { label: "공연 영상", url: "https://youtu.be/arl9qntbhXc" }], tags: ["climate-crisis", "international", "independent", "horizontal"] },
   { year: "2023", type: "PF", title_ko: "적극 〈다페르튜토 쿼드〉 — 대학로극장 쿼드 제작", title_en: "Dappertutto Studio 〈Jeokgeuk〉", links: [{ url: "https://drive.google.com/file/d/178JIPSJUxlFu9awqpzQUWD1SYEWw7suT/view?usp=drive_link" }], tags: ["etc"] },
   { year: "2023", type: "PF", title_ko: "송주원 〈이십삼각삼각〉 VR 라이브 — 크리에이티브 프로듀서 (국립현대무용단)", title_en: "Song Ju-won 〈23gak〉 VR Live — Creative Producer (KNCDC)", tags: ["tech-society", "independent"] },
