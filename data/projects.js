@@ -13,21 +13,21 @@ const PROJECTS = {
   /* ── 아시아 프로듀서 플랫폼 (APP) ─────────────────────────────────── */
 
   app: {
-    eyebrow: "프로젝트 · 2014– · 아시아 독립 프로듀서 네트워크",
+    eyebrow: { ko: "프로젝트 · 2014– · 아시아 독립 프로듀서 네트워크", en: "Project · 2014– · A network of independent producers across Asia" },
     title: "아시아 프로듀서 플랫폼 (APP)",
     credit: "Asian Producers' Platform",
-    role: { label: { ko: "역할", en: "Role" }, text: "박지선 — 공동 창립 · 기획팀" },
+    role: { label: { ko: "역할", en: "Role" }, text: { ko: "박지선 — 공동 창립 · 기획팀", en: "Park Jisun — Co-founder, programming team" } },
     back: { href: "now.html", ko: "← 지금", en: "← Now" },
 
     sections: [
       {
         label: { ko: "소개", en: "About" },
         paras: [
-          "아시아에서 일하는 독립 프로듀서들이 동료로서 서로를 잇기 위해 만든 네트워크.",
-          "아시아 프로듀서 플랫폼(APP)은 아시아 각지에서 활동하는 소수의 독립 프로듀서들이 만든 동료 간 네트워크다. 아시아 지역을 가로질러 협업할 수 있는 프로듀서들의 촘촘한 연결망을 만드는 것이 목표였다. 2014년부터 APP는 대표 프로그램인 APP 캠프를 매년 열어왔다.",
-          "APP 캠프는 참가자들이 업계 네트워크를 만들고, 프로듀싱을 하나의 창작 실천으로 탐구하며, 문화를 가로지르는 프로듀싱 기술을 익히고, 기존과는 다른 예술 리더십의 관점과 방법론을 길러내는 자리로 구상되었다.",
-          "APP는 우정과 유기적 멘토십, 수평적 구조를 가장 중요한 원칙으로 삼는다.",
-          "APP는 지금도 느슨한 구조를 유지한다. 아시아 각지의 APP 멤버들로 이루어진 자원 기획팀이 운영을 맡고, 어느 한 나라에 본부를 두지 않으며, 캠프는 매번 프로젝트 단위의 지원으로 꾸려진다."
+          { ko: "아시아에서 일하는 독립 프로듀서들이 동료로서 서로를 잇기 위해 만든 네트워크.", en: "A network built by independent producers working across Asia to connect with one another as colleagues." },
+          { ko: "아시아 프로듀서 플랫폼(APP)은 아시아 각지에서 활동하는 소수의 독립 프로듀서들이 만든 동료 간 네트워크다. 아시아 지역을 가로질러 협업할 수 있는 프로듀서들의 촘촘한 연결망을 만드는 것이 목표였다. 2014년부터 APP는 대표 프로그램인 APP 캠프를 매년 열어왔다.", en: "The Asian Producers' Platform (APP) is a peer network made by a small number of independent producers active across Asia. The aim was to build a close-knit web of producers able to collaborate across the region. Since 2014 APP has held its flagship programme, APP Camp, every year." },
+          { ko: "APP 캠프는 참가자들이 업계 네트워크를 만들고, 프로듀싱을 하나의 창작 실천으로 탐구하며, 문화를 가로지르는 프로듀싱 기술을 익히고, 기존과는 다른 예술 리더십의 관점과 방법론을 길러내는 자리로 구상되었다.", en: "APP Camp was conceived as a place where participants build networks in the field, explore producing as a creative practice, learn the craft of producing across cultures, and cultivate the perspectives and methods of a different kind of artistic leadership." },
+          { ko: "APP는 우정과 유기적 멘토십, 수평적 구조를 가장 중요한 원칙으로 삼는다.", en: "APP holds friendship, organic mentorship and horizontal structure as its most important principles." },
+          { ko: "APP는 지금도 느슨한 구조를 유지한다. 아시아 각지의 APP 멤버들로 이루어진 자원 기획팀이 운영을 맡고, 어느 한 나라에 본부를 두지 않으며, 캠프는 매번 프로젝트 단위의 지원으로 꾸려진다.", en: "APP still keeps a loose structure. A volunteer programming team of APP members from across Asia runs it, it has no headquarters in any one country, and each camp is put together with project-based funding." }
           /* TODO — 여기에 박지선의 문단을 넣어 주세요.
              왜 이 네트워크가 필요했는지, 서구를 경유하지 않고 아시아끼리
              직접 연결된다는 것이 그때 무엇이었는지, 10년이 지난 지금 무엇이 남았는지. */
@@ -36,7 +36,7 @@ const PROJECTS = {
       {
         label: { ko: "APP 캠프", en: "APP Camp" },
         paras: [
-          "APP 캠프는 아시아 · 태평양에서 살고 일하는 공연예술 프로듀서들이 아시아의 여러 도시를 찾아가, 그곳의 문화적 맥락을 현지 실천가들에게 직접 배우는 프로그램이다. 2014년 이후 200명이 넘는 신진 · 중견 프로듀서가 말레이시아, 태국, 홍콩 · 웨강아오 대만구, 인도네시아, 호주, 대만, 일본, 한국에서 열린 집중 캠프를 거쳐 갔다. 현장 방문, 강연, 토론, 리서치, 공연 관람, 동료 간 교류로 짜인 프로그램을 통해 참가자들은 지역 예술 생태계를 이해하고, 예술가와 프로듀서가 놓인 사회적 · 정치적 · 문화적 지형을 함께 읽는다. 그리고 그 지역의 동료들과 만나고, 나누고, 먹는다."
+          { ko: "APP 캠프는 아시아 · 태평양에서 살고 일하는 공연예술 프로듀서들이 아시아의 여러 도시를 찾아가, 그곳의 문화적 맥락을 현지 실천가들에게 직접 배우는 프로그램이다. 2014년 이후 200명이 넘는 신진 · 중견 프로듀서가 말레이시아, 태국, 홍콩 · 웨강아오 대만구, 인도네시아, 호주, 대만, 일본, 한국에서 열린 집중 캠프를 거쳐 갔다. 현장 방문, 강연, 토론, 리서치, 공연 관람, 동료 간 교류로 짜인 프로그램을 통해 참가자들은 지역 예술 생태계를 이해하고, 예술가와 프로듀서가 놓인 사회적 · 정치적 · 문화적 지형을 함께 읽는다. 그리고 그 지역의 동료들과 만나고, 나누고, 먹는다.", en: "APP Camp brings performing arts producers living and working across Asia and the Pacific to cities around the region, where they learn the local cultural context directly from practitioners on the ground. Since 2014, more than 200 emerging and mid-career producers have passed through intensive camps in Malaysia, Thailand, Hong Kong and the Greater Bay Area, Indonesia, Australia, Taiwan, Japan and Korea. Through site visits, lectures, discussions, research, performances and peer exchange, participants come to understand local arts ecologies and read together the social, political and cultural terrain that artists and producers work within. And they meet, share and eat with colleagues in that place." }
         ]
       }
     ],
@@ -51,11 +51,11 @@ const PROJECTS = {
         { year: "2017", place: "호주" },
         { year: "2018", place: "인도네시아" },
         { year: "2019", place: "홍콩 · 웨강아오 대만구" },
-        { year: "2020–2022", place: "팬데믹으로 대면 활동 중단, 온라인 프로그램 진행" },
+        { year: "2020–2022", place: { ko: "팬데믹으로 대면 활동 중단, 온라인 프로그램 진행", en: "In-person activity suspended due to the pandemic; programme held online" } },
         { year: "2023", place: "태국" },
         { year: "2024", place: "말레이시아" }
       ],
-      note: "초기 네 번의 캠프(2014 · 2015 · 2016 · 2017)는 한국 · 대만 · 일본 · 호주의 민관 협력으로 운영되었고, APP 기획팀이 각 지역의 재단 · 기관 · 극장과 함께 제작했다. 2018년 APP는 더 유연한 모델로 전환해, 캠프를 아시아의 더 넓은 지역에서 열기 시작했다."
+      note: { ko: "초기 네 번의 캠프(2014 · 2015 · 2016 · 2017)는 한국 · 대만 · 일본 · 호주의 민관 협력으로 운영되었고, APP 기획팀이 각 지역의 재단 · 기관 · 극장과 함께 제작했다. 2018년 APP는 더 유연한 모델로 전환해, 캠프를 아시아의 더 넓은 지역에서 열기 시작했다.", en: "The first four camps (2014, 2015, 2016, 2017) were run through public–private cooperation across Korea, Taiwan, Japan and Australia, produced by the APP programming team together with foundations, institutions and theatres in each region. In 2018 APP moved to a more flexible model and began holding camps across a wider part of Asia." }
     },
 
 
@@ -105,17 +105,17 @@ const PROJECTS = {
   /* ── 예술텃밭 예술가 레지던시 — 기후변화 ──────────────────────────── */
 
   "climate-residency": {
-    eyebrow: "프로젝트 · 2020–2022 · 화천 예술텃밭",
+    eyebrow: { ko: "프로젝트 · 2020–2022 · 화천 예술텃밭", en: "Project · 2020–2022 · Arts Farm Tutbat, Hwacheon" },
     title: "예술텃밭 예술가 레지던시 — 기후변화",
-    credit: "예술텃밭 Arts Farm Tutbat × 프로듀서그룹 도트",
-    role: { label: { ko: "역할", en: "Role" }, text: "박지선 — 공동 기획" },
+    credit: { ko: "예술텃밭 Arts Farm Tutbat × 프로듀서그룹 도트", en: "Arts Farm Tutbat × Producer Group DOT" },
+    role: { label: { ko: "역할", en: "Role" }, text: { ko: "박지선 — 공동 기획", en: "Park Jisun — Co-curator" } },
     back: { href: "now.html", ko: "← 지금", en: "← Now" },
 
     sections: [
       {
         label: { ko: "소개", en: "About" },
         paras: [
-          "기후변화라는 거대 담론을 삶 속에 구체화하고 예술적 실천으로 옮기는 예술가 레지던시.",
+          { ko: "기후변화라는 거대 담론을 삶 속에 구체화하고 예술적 실천으로 옮기는 예술가 레지던시.", en: "An artist residency that grounds the vast discourse of climate change in daily life and turns it into artistic practice." },
           "예술텃밭 예술가 레지던시는 2020년 시작된 예술가들의 기후변화 대응 프로젝트다. 연극, 다원예술, 시각예술, 영화, 영상, 책 등 다양한 분야의 예술가와 기획자, 리서처들이 함께 기후변화에 대해 탐구하며, 막연한 거대 담론을 우리의 삶 속에 구체화하고 예술적 실천을 만들어내고자 한다.",
           "2020년 인류를 습격한 코로나 바이러스는 전 지구인의 삶을 변화시켰고, 우리는 여전히 불확실한 일상을 살아가고 있다. 많은 전문가들은 지구 온난화와 환경 문제가 코로나 바이러스 같은 신종 바이러스를 촉발시켰다고 이야기하며, 향후에도 또 다른 전염병 유행 확률이 높아질 것이라 예상한다. 기후변화는 지구와 인류의 지속가능성을 위한 시급한 문제다. 그리고 이것은 자연, 동물, 먹거리, 노동, 인권의 문제와도 연관된 복잡한 체계 안에 놓여 있다."
         ]
@@ -123,19 +123,19 @@ const PROJECTS = {
       {
         label: { ko: "진행 방식", en: "How It Works" },
         paras: [
-          "온라인과 오프라인 레지던시가 동시에 진행된다.",
-          "참여 작가는 개별 리서치와 개별 작업을 진행하지만, 공동 리서치와 공유 시간을 통해 서로 정보와 지식, 영감을 나누며 협업한다.",
-          "기후변화에 대한 지역적 관점과 전 지구적 관점을 동시에 갖는다."
+          { ko: "온라인과 오프라인 레지던시가 동시에 진행된다.", en: "The residency runs online and in person at the same time." },
+          { ko: "참여 작가는 개별 리서치와 개별 작업을 진행하지만, 공동 리서치와 공유 시간을 통해 서로 정보와 지식, 영감을 나누며 협업한다.", en: "Participating artists pursue their own research and their own work, but collaborate through shared research and sharing sessions, exchanging information, knowledge and inspiration." },
+          { ko: "기후변화에 대한 지역적 관점과 전 지구적 관점을 동시에 갖는다.", en: "It holds a local and a planetary view of climate change at once." }
         ]
       },
       {
         label: { ko: "이어진 작업", en: "Works That Followed" },
         /* works 는 제목 바로 아래에 링크가 붙습니다 */
         works: [
-          { title: "2022 · 무제의 길 〈움직이는 숲〉 — 서울국제공연예술제 초청작",
+          { title: { ko: "2022 · 무제의 길 〈움직이는 숲〉 — 서울국제공연예술제 초청작", en: "2022 · Untitled Road, *The Moving Forest* — invited to the Seoul Performing Arts Festival" },
             link: { label: "무제의 길 〈움직이는 숲〉",
                     url: "https://www.untitledroad.com/projects/moving-a-forest_theatre-game" } },
-          { title: "2023 · 지연 X 전환 〈에너지_보이지 않는 언어〉 — 서울국제공연예술제 초청작",
+          { title: { ko: "2023 · 지연 X 전환 〈에너지_보이지 않는 언어〉 — 서울국제공연예술제 초청작", en: "2023 · Delay X Shift, *Energy: The Invisible Language* — invited to the Seoul Performing Arts Festival" },
             link: { label: "공연 영상", url: "https://youtu.be/arl9qntbhXc" } }
         ],
         paras: [
@@ -194,7 +194,7 @@ const PROJECTS = {
       }
     ],
 
-    photos: { credit: "사진 제공 예술텃밭 기후변화 레지던시" },
+    photos: { credit: { ko: "사진 제공 예술텃밭 기후변화 레지던시", en: "Photographs courtesy of the Arts Farm Tutbat Climate Change Residency" } },
 
     tags: ["climate-crisis", "region-community", "independent", "horizontal", "process"]
   },
@@ -202,27 +202,27 @@ const PROJECTS = {
   /* ── 히히히스토리 ──────────────────────────────────────────────────── */
 
   hihihistory: {
-    eyebrow: "공연 · 2026 · 대학로예술극장 소극장",
+    eyebrow: { ko: "공연 · 2026 · 대학로예술극장 소극장", en: "Performance · 2026 · Daehakro Arts Theatre, Small Hall" },
     title: "히히히스토리",
-    credit: "황수현 컨셉·안무·출연",
+    credit: { ko: "황수현 컨셉·안무·출연", en: "Concept, choreography and performance by Hwang Soohyun" },
     role: { label: { ko: "역할", en: "Role" }, text: "박지선 — 크리에이티브 프로듀서" },
     back: { href: "now.html", ko: "← 지금", en: "← Now" },
 
     runs: {
       label: { ko: "일정", en: "Schedule" },
       rows: [
-        { dates: "2026.10.15(목)", time: "19:30", venue: "대학로예술극장 소극장" },
-        { dates: "2026.10.16(금)", time: "19:30", venue: "대학로예술극장 소극장" },
-        { dates: "2026.10.17(토)", time: "15:00", venue: "대학로예술극장 소극장" }
+        { dates: "2026.10.15(목)", time: "19:30", venue: { ko: "대학로예술극장 소극장", en: "Daehakro Arts Theatre, Small Hall" } },
+        { dates: "2026.10.16(금)", time: "19:30", venue: { ko: "대학로예술극장 소극장", en: "Daehakro Arts Theatre, Small Hall" } },
+        { dates: "2026.10.17(토)", time: "15:00", venue: { ko: "대학로예술극장 소극장", en: "Daehakro Arts Theatre, Small Hall" } }
       ],
-      note: "러닝타임 50분 · 2026년 서울국제공연예술제(SPAF) 협력 아티스트 초청 공연"
+      note: { ko: "러닝타임 50분 · 2026년 서울국제공연예술제(SPAF) 협력 아티스트 초청 공연", en: "Running time 50 minutes · Presented as an Associate Artist invitation at the Seoul Performing Arts Festival (SPAF) 2026" }
     },
 
     sections: [
       {
         label: { ko: "작품 소개", en: "About the Work" },
         paras: [
-          "헛웃음처럼 새어 나오는 감각의 균열을 어긋난 몸으로 호출하는 1인 라이브 퍼포먼스",
+          { ko: "헛웃음처럼 새어 나오는 감각의 균열을 어긋난 몸으로 호출하는 1인 라이브 퍼포먼스", en: "A solo live performance that summons, through a body out of joint, the fissures in sensation that escape as a hollow laugh" },
           "〈히히히스토리〉는 움직임과 소리, 말을 다루는 1인 라이브 퍼포먼스다. 무대 위 '황수현'은 말하고, 춤추고, 노래하지만 결코 하나의 인물이나 완결된 서사로 고정되지 않는다. 말은 고백처럼 시작되지만 설명으로 닫히지 않고, 춤은 이미지로 완성되지 않으며, 노래는 안정된 리듬에 도달하지 않는다. 분명한 형태로 향하지 않고 서로 다른 방향으로 미끄러지는 이 행위들은 기존의 질서 안에서 매끄럽게 설명되지 않는 감각의 상태를 집요하게 따라간다.",
           "제목의 “히히히”는 진지한 말이 완전히 믿어지지 않을 때 새어 나오는 헛웃음이자, 무언가 스며 나오는 스산한 기척의 소리다. 이 정체 모를 소리는 공연의 표면에 작은 균열을 내고 흐름을 예기치 못한 방향으로 비틀어버린다.",
           "그 과정에서 뒤섞이는 질감과 리듬, 파동은 관객을 익숙하지 않은 감각의 서사로 이끈다. 작품은 그렇게 아직 이름 붙지 않은 감각의 자리를 탐색하며, 매끄러운 미래가 지워버린 감각을 어긋난 몸으로 다시 호출한다."
@@ -266,9 +266,9 @@ const PROJECTS = {
   /* ── 세상의 종말이 (아닌) ──────────────────────────────────────────── */
 
   "not-the-end-of-the-world": {
-    eyebrow: "공연 · 2026",
+    eyebrow: { ko: "공연 · 2026", en: "Performance · 2026" },
     title: "세상의 종말이 (아닌)",
-    credit: "크리스 부시 작 · 전윤환 연출 · 앤드씨어터",
+    credit: { ko: "크리스 부시 작 · 전윤환 연출 · 앤드씨어터", en: "Written by Chris Bush · Directed by Jeon Yoonhwan · A.N.D.Theatre" },
     role: { label: { ko: "역할", en: "Role" }, text: "박지선 — 드라마투르그" },
     back: { href: "now.html", ko: "← 지금", en: "← Now" },
 
@@ -284,7 +284,7 @@ const PROJECTS = {
       {
         label: { ko: "작품 소개", en: "About the Work" },
         paras: [
-          "세상의 끝, 혹은 끝나지 않은 세상.",
+          { ko: "세상의 끝, 혹은 끝나지 않은 세상.", en: "The end of the world, or a world that has not ended." },
           "기후 변화 연구자 '안나'는 저명한 기후과학자 우타 오버도르프 교수가 이끄는 한 대학의 기후연구소에서, 자신의 인생이 걸린 박사 후 연구원 면접을 치른다. 면접은 아주 작은 말과 행동의 차이 속에서 반복되고 되감긴다. 우타 교수는 안나의 연구에 냉담한 태도를 보이기도 하고, 깊은 관심을 드러내기도 한다. 두 사람은 과학과 정의, 특권과 희생, 그리고 기후위기를 둘러싼 책임에 관해 충돌한다.",
           "또 다른 시간대에서 안나는 서로 다른 모습으로 나타나는 '릴리'들과 마주한다. 북극 탐사에서 한 여성이 죽었고, 안나는 그 죽음을 둘러싼 질문과 조사를 받는다. 그보다 더 먼 미래에는 '레나'가 죽은 어머니를 위한 추도사를 낭독한다. 한 사람의 삶과 죽음에 관한 이야기는 점차 인류의 역사와 우리가 살아가는 지구를 위한 애도의 언어로 확장된다.",
           "이야기의 틈 사이로 분홍색 눈과 굶주린 곰, 8만 년 된 나무 군락과 끝없이 추출되는 석유, 사라진 생명과 아직 남아 있는 가능성들이 모습을 드러낸다. 〈세상의 종말이 (아닌)〉은 '세계의 종말'을 이야기하면서 동시에 '종말이 아닌 것'을 이야기한다. 우리가 매일 맞이하는 사소한 끝들, 그리고 여전히 끝나지 않은 삶의 가능성들을."
@@ -328,7 +328,7 @@ const PROJECTS = {
 
     support: {
       label: { ko: "후원", en: "Support" },
-      text: "주최·주관 앤드씨어터 · 후원 한국문화예술위원회 공연예술창작주체지원사업"
+      text: { ko: "주최·주관 앤드씨어터 · 후원 한국문화예술위원회 공연예술창작주체지원사업", en: "Presented and produced by A.N.D.Theatre · Supported by Arts Council Korea" }
     },
 
     /* 공연 사진이 들어오면 items 에 { src, w, h } 를 더하면 됩니다 */
@@ -356,10 +356,10 @@ const PROJECTS = {
       {
         label: { ko: "소개", en: "About" },
         paras: [
-          "'정상'이란 무엇일까. 그 답은 결코 고정된 적이 없다. 19세기에는 오직 백인 남성의 투표권만이 '정상'이었다. 20세기와 21세기를 거치며 그 경계는 젠더, 인종, 신체적 능력을 넘어 인간과 비인간의 영역으로 끊임없이 확장되고 변화해 왔다.",
-          "오늘날 우리는 이 질문을 다시 던져야 한다. 우리가 자원을 소비하고 접근하는 방식에서 당연하게 여겨온 '정상'이라는 가정들은 이제 전 지구적 위기의 원인이 되었다. 한때 인류가 가졌던 확신, 즉 지구의 자원을 마음껏 쓸 수 있다는 '당연한 권리'는 역설적으로 생존을 위협하고 변화에 대한 적응을 늦추는 족쇄가 되었다.",
-          "더 넥스트 노멀(TNN)은 질문한다. 예술은 어떻게 '정상'이라 여겨지는 것의 경계를 재설정할 수 있을까? 우리는 익숙한 것들을 재검토하고, 사회적 · 생태적 · 윤리적으로 새로운 형태의 정상성을 상상해야 한다. 이 프로젝트는 기후위기, 평등, 다양성, 창조적 마찰, 디아스포라, 포스트휴머니즘 등 시급한 동시대 의제에 주목하며, 예술가들에게 현재에서 미래로 우리를 이끌어 줄 새로운 규범을 제안하고 상상할 것을 요청한다.",
-          "TNN은 아시아가 당면한 시급한 의제들을 예술의 언어로 해석하여 지역 내 담론을 활성화하는 것을 목표로 한다. 특히 아시아 각지의 레지던시를 발굴하고 연결하여, 예술가들이 그곳에 머물며 인간과 자연, 문화와 예술에 깊이 접속할 수 있도록 돕고자 한다. 이는 예술가의 이동성을 확장하는 것을 넘어 관계의 밀도를 높이는 새로운 차원의 예술 협업 및 지식 공유 모델이 될 것이다.",
+          { ko: "'정상'이란 무엇일까. 그 답은 결코 고정된 적이 없다. 19세기에는 오직 백인 남성의 투표권만이 '정상'이었다. 20세기와 21세기를 거치며 그 경계는 젠더, 인종, 신체적 능력을 넘어 인간과 비인간의 영역으로 끊임없이 확장되고 변화해 왔다.", en: "What is \"normal\"? The answer has never once held still. In the nineteenth century, only the white man's vote was normal. Across the twentieth and twenty-first centuries that boundary has shifted and widened without pause — past gender, race and physical ability, and out into the realm of the human and the non-human." },
+          { ko: "오늘날 우리는 이 질문을 다시 던져야 한다. 우리가 자원을 소비하고 접근하는 방식에서 당연하게 여겨온 '정상'이라는 가정들은 이제 전 지구적 위기의 원인이 되었다. 한때 인류가 가졌던 확신, 즉 지구의 자원을 마음껏 쓸 수 있다는 '당연한 권리'는 역설적으로 생존을 위협하고 변화에 대한 적응을 늦추는 족쇄가 되었다.", en: "Today we have to ask it again. The assumptions of normality we have taken for granted in how we consume and reach for resources are now the cause of a planetary crisis. The certainty humankind once held — the self-evident right to use the earth's resources at will — has become, by a bitter turn, the thing that threatens our survival and slows our adaptation to change." },
+          { ko: "더 넥스트 노멀(TNN)은 질문한다. 예술은 어떻게 '정상'이라 여겨지는 것의 경계를 재설정할 수 있을까? 우리는 익숙한 것들을 재검토하고, 사회적 · 생태적 · 윤리적으로 새로운 형태의 정상성을 상상해야 한다. 이 프로젝트는 기후위기, 평등, 다양성, 창조적 마찰, 디아스포라, 포스트휴머니즘 등 시급한 동시대 의제에 주목하며, 예술가들에게 현재에서 미래로 우리를 이끌어 줄 새로운 규범을 제안하고 상상할 것을 요청한다.", en: "The Next Normal asks: how can art reset the boundary of what counts as normal? We need to re-examine the familiar and imagine new forms of normality — socially, ecologically, ethically. Attending to urgent contemporary agendas — the climate crisis, equality, diversity, creative friction, diaspora, posthumanism — the project asks artists to propose and imagine the new norms that might carry us from the present into the future." },
+          { ko: "TNN은 아시아가 당면한 시급한 의제들을 예술의 언어로 해석하여 지역 내 담론을 활성화하는 것을 목표로 한다. 특히 아시아 각지의 레지던시를 발굴하고 연결하여, 예술가들이 그곳에 머물며 인간과 자연, 문화와 예술에 깊이 접속할 수 있도록 돕고자 한다. 이는 예술가의 이동성을 확장하는 것을 넘어 관계의 밀도를 높이는 새로운 차원의 예술 협업 및 지식 공유 모델이 될 것이다.", en: "TNN aims to read the urgent agendas facing Asia through the language of art, and so to enliven discourse within the region. In particular it seeks out and connects residencies across Asia, so that artists can stay in those places and connect deeply with people and nature, culture and art. This goes beyond widening artists' mobility: it becomes a model of artistic collaboration and knowledge-sharing at a new order of relational density." },
           "2024년부터 시작했으며, 2026년 2월 서울에서 '다이얼로그 인 아시아(DIA)' 포럼을 통해 그 여정의 시작을 알렸다. 한국을 비롯해 뉴질랜드, 대만, 말레이시아, 인도네시아, 일본, 태국, 호주, 홍콩 등 9개 지역 파트너가 함께한 포럼은 아시아의 다양한 담론과 새로운 협력 방식을 펼쳐내는 장이 되었다."
         ]
       }
@@ -373,7 +373,7 @@ const PROJECTS = {
     },
 
     photos: {
-      credit: "사진 제공 한국문화예술위원회",
+      credit: { ko: "사진 제공 한국문화예술위원회", en: "Photographs courtesy of Arts Council Korea" },
       label: { ko: "사진", en: "Photographs" },
       dir: "img/works/TNN/",
       items: [
@@ -398,7 +398,7 @@ const PROJECTS = {
   "dance-techlab": {
     eyebrow: "프로젝트 · 2021– · 국립현대무용단 공동 기획",
     title: "무용 × 기술 창작 랩",
-    credit: "국립현대무용단 공동 기획",
+    credit: { ko: "국립현대무용단 공동 기획", en: "Co-programmed with the Korea National Contemporary Dance Company" },
     role: { label: { ko: "역할", en: "Role" }, text: "박지선 — 총괄 기획" },
     back: { href: "now.html", ko: "← 지금", en: "← Now" },
 
@@ -406,10 +406,10 @@ const PROJECTS = {
       {
         label: { ko: "소개", en: "About" },
         paras: [
-          "〈무용 × 기술 창작랩〉은 2021년부터 이어온 무용과 기술의 실험적 교류의 장이다. 기술을 창작의 '도구'로만 다루는 관점의 한계에서 출발해, 안무가와 기술 연구자 · 개발자 · 작가가 서로의 언어와 매체, 실행 방법론을 익히며 협업하는 프로젝트로, '질문이 증발된 실험에 빠지지 않는 것'을 중요한 원칙으로 한다.",
-          "2021년에는 신체성의 확장과 탈피, 사회적 거리두기 이후 무용의 감각적 경험, 안무 창작의 주체성을 다뤘다. 2022년부터는 '포스트휴먼 & 포스트휴머니즘'을 주제로 삼아 참여자들이 다양한 질문을 생성하고 이를 예술적 실험으로 확장하는 과정을 이어오고 있다. 강의와 워크숍, 팀별 연구와 실험을 결합한 과정 중심 프로그램으로, 인공지능 · 로봇 · 가상현실 · 포스트휴먼 바디 등 동시대적 주제를 통해 예술과 기술의 관계를 새롭게 모색하고 있으며 2025년에는 참여 예술가들이 도출한 8개의 프로토타입을 발표했다.",
-          "2026년 창작랩은 인공지능과 데이터가 창작의 도구를 넘어 자율적 주체(Agent)로 진화하는 시대에 예술가가 던져야 할 근본적인 질문에서 출발한다. 지난 4년 동안 '포스트휴먼 & 포스트휴머니즘'이라는 주제 아래 인간 · 동물 · 식물 · 기계가 공존하는 세상의 경계를 해제하는 탐구를 지속해 왔다면, 2026년에는 그 무경계의 땅 위에서 다시 '인간'의 미래를 질문하고자 한다. 인공지능은 콘텐츠를 생성하는 수준을 넘어 스스로 계획하고 도구를 사용하며 문제를 해결하는 '에이전틱 AI'로 발전했고, 현실 세계에서 직접 임무를 수행하는 '피지컬 AI'까지 등장했다. 알고리즘 기반의 데이터와 물리적 해결 능력을 갖춘 기술 환경 속에서 '인간은 어떻게 공존해야 하는가'는 우리가 직면한 지속적인 질문이다. 2026 창작랩은 기술과 신체의 윤리적 공존을 깊이 있게 탐구한다.",
-          "안무가, 기술 언어를 보유한 테크니션, 연구자, 프로듀서들은 5월 · 8월 · 10월에 걸친 3단계의 랩을 통해 질문을 생성하고, 실험을 거쳐 프로토타입을 제작한다."
+          { ko: "〈무용 × 기술 창작랩〉은 2021년부터 이어온 무용과 기술의 실험적 교류의 장이다. 기술을 창작의 '도구'로만 다루는 관점의 한계에서 출발해, 안무가와 기술 연구자 · 개발자 · 작가가 서로의 언어와 매체, 실행 방법론을 익히며 협업하는 프로젝트로, '질문이 증발된 실험에 빠지지 않는 것'을 중요한 원칙으로 한다.", en: "Dance × Technology Creative Lab has been a site of experimental exchange between dance and technology since 2021. It begins from the limits of treating technology merely as a creative \"tool,\" bringing choreographers together with technology researchers, developers and artists to learn one another's languages, media and working methods. Its guiding principle: never to fall into experiment from which the question has evaporated." },
+          { ko: "2021년에는 신체성의 확장과 탈피, 사회적 거리두기 이후 무용의 감각적 경험, 안무 창작의 주체성을 다뤘다. 2022년부터는 '포스트휴먼 & 포스트휴머니즘'을 주제로 삼아 참여자들이 다양한 질문을 생성하고 이를 예술적 실험으로 확장하는 과정을 이어오고 있다. 강의와 워크숍, 팀별 연구와 실험을 결합한 과정 중심 프로그램으로, 인공지능 · 로봇 · 가상현실 · 포스트휴먼 바디 등 동시대적 주제를 통해 예술과 기술의 관계를 새롭게 모색하고 있으며 2025년에는 참여 예술가들이 도출한 8개의 프로토타입을 발표했다.", en: "In 2021 it took up the extension and shedding of corporeality, the sensory experience of dance after social distancing, and agency in choreographic creation. Since 2022 it has worked under the theme of \"posthuman and posthumanism,\" with participants generating questions and carrying them out into artistic experiment. A process-led programme combining lectures, workshops and team-based research, it looks afresh at the relation between art and technology through contemporary subjects — artificial intelligence, robotics, virtual reality, the posthuman body. In 2025 the participating artists presented eight prototypes." },
+          { ko: "2026년 창작랩은 인공지능과 데이터가 창작의 도구를 넘어 자율적 주체(Agent)로 진화하는 시대에 예술가가 던져야 할 근본적인 질문에서 출발한다. 지난 4년 동안 '포스트휴먼 & 포스트휴머니즘'이라는 주제 아래 인간 · 동물 · 식물 · 기계가 공존하는 세상의 경계를 해제하는 탐구를 지속해 왔다면, 2026년에는 그 무경계의 땅 위에서 다시 '인간'의 미래를 질문하고자 한다. 인공지능은 콘텐츠를 생성하는 수준을 넘어 스스로 계획하고 도구를 사용하며 문제를 해결하는 '에이전틱 AI'로 발전했고, 현실 세계에서 직접 임무를 수행하는 '피지컬 AI'까지 등장했다. 알고리즘 기반의 데이터와 물리적 해결 능력을 갖춘 기술 환경 속에서 '인간은 어떻게 공존해야 하는가'는 우리가 직면한 지속적인 질문이다. 2026 창작랩은 기술과 신체의 윤리적 공존을 깊이 있게 탐구한다.", en: "The 2026 lab starts from the fundamental question an artist must ask in an age when artificial intelligence and data are evolving past being tools of creation into autonomous agents. If the past four years, under the theme of \"posthuman and posthumanism,\" were spent undoing the boundaries of a world shared by humans, animals, plants and machines, then 2026 returns — on that borderless ground — to ask after the future of the human. AI has developed beyond generating content into \"agentic AI\" that plans for itself, uses tools and solves problems, and now into \"physical AI\" that carries out tasks in the world. Within a technological environment possessed of algorithmic data and the capacity to act physically, \"how are humans to coexist?\" is the question that stays with us. The 2026 lab explores in depth the ethical coexistence of technology and the body." },
+          { ko: "안무가, 기술 언어를 보유한 테크니션, 연구자, 프로듀서들은 5월 · 8월 · 10월에 걸친 3단계의 랩을 통해 질문을 생성하고, 실험을 거쳐 프로토타입을 제작한다.", en: "Choreographers, technicians fluent in the language of technology, researchers and producers generate questions across three stages of the lab — in May, August and October — and work through experiment toward prototypes." }
         ]
       }
     ],
@@ -422,7 +422,7 @@ const PROJECTS = {
     },
 
     photos: {
-      credit: "2025 무용기술 오픈위크 · 사진 제공 국립현대무용단",
+      credit: { ko: "2025 무용기술 오픈위크 · 사진 제공 국립현대무용단", en: "2025 Dance & Technology Open Week · Photographs courtesy of the Korea National Contemporary Dance Company" },
       label: { ko: "사진", en: "Photographs" },
       dir: "img/works/dance-techlab/",
       items: [
@@ -451,9 +451,9 @@ const PROJECTS = {
   /* ── sync de sync 싱크 디 싱크 ─────────────────────────────────────── */
 
   "sync-de-sync": {
-    eyebrow: "공연 · 2025–2026",
+    eyebrow: { ko: "공연 · 2025–2026", en: "Performance · 2025–2026" },
     title: "sync de sync 싱크 디 싱크",
-    credit: "황수현 컨셉·안무 · 박지선 크리에이티브 프로듀서",
+    credit: { ko: "황수현 컨셉·안무 · 박지선 크리에이티브 프로듀서", en: "Concept and choreography by Hwang Soohyun · Creative producer Park Jisun" },
     back: { href: "now.html", ko: "← 지금", en: "← Now" },
 
     /* 오른쪽 미디어 격자 — 4칸 기준, span 으로 폭을 정합니다
@@ -463,7 +463,7 @@ const PROJECTS = {
       { src: "img/works/sync-poster-2025.png", span: 2, caption: "2025", alt: "sync de sync 2025 포스터" }
       /* TODO — 영상 주소가 생기면 아래 줄의 주석을 풀고 src 를 채우세요
       , { type: "video", span: 4, src: "https://www.youtube-nocookie.com/embed/영상아이디",
-          watch: "https://youtu.be/영상아이디", caption: "트레일러" } */
+          watch: "https://youtu.be/영상아이디", caption: { ko: "트레일러", en: "Trailer" } } */
     ],
 
     photos: {
@@ -500,14 +500,14 @@ const PROJECTS = {
         { dates: "2025.8.14–16", time: "7:00pm", venue: "TINC (This is Not A Church)" },
         { dates: "2026.7.16–19", time: "7:30pm", venue: "TINC (This is Not A Church)" }
       ],
-      note: "러닝타임 60분"
+      note: { ko: "러닝타임 60분", en: "Running time 60 minutes" }
     },
 
     sections: [
       {
         label: { ko: "작품 소개", en: "About the Work" },
         paras: [
-          "조율되고 틀어지는 순간, 완전한 일치도 완전한 분리도 아닌 상태에서 작동하는 감각들을 따라간다.",
+          { ko: "조율되고 틀어지는 순간, 완전한 일치도 완전한 분리도 아닌 상태에서 작동하는 감각들을 따라간다.", en: "Following the senses as they work in the moment of tuning and slipping — neither wholly in unison nor wholly apart." },
           "《sync de sync》는 조율되고 틀어지는 순간, 완전한 일치도 완전한 분리도 아닌 상태에서 작동하는 감각들을 따라간다. 말은 입술과 성대를 지나 소리와 진동으로 흩어지고, 움직임은 형태보다 몸을 통과한 파동과 질감으로 번진다. 빛과 어둠, 온도와 공기, 무대 안팎의 보이는 것들과 보이지 않는 것들은 서로 겹치고 스며들며 감각의 얽힘을 만든다. 그 얽힘은 공간의 밀도, 온도와 습도, 기운의 변화를 몸에 닿게 한다. 《sync de sync》는 고정되지 않는 주변 환경에 반응하며, 현재의 감각 안에 이미 도착한 변화를 더듬는다."
         ]
       }
@@ -541,7 +541,7 @@ const PROJECTS = {
 
     support: {
       label: { ko: "후원", en: "Support" },
-      text: "서울특별시, 서울문화재단 · 2026년 서울문화재단 예술창작활동지원(다년) 선정 프로젝트"
+      text: { ko: "서울특별시, 서울문화재단 · 2026년 서울문화재단 예술창작활동지원(다년) 선정 프로젝트", en: "Seoul Metropolitan Government, Seoul Foundation for Arts and Culture · Selected for the SFAC Multi-Year Arts Creation Grant, 2026" }
     },
 
     links: {
@@ -556,10 +556,10 @@ const PROJECTS = {
   /* ── ⬡⬡의 섬 : 강화도 ─────────────────────────────────────────────── */
 
   ganghwa: {
-    eyebrow: "프로젝트 · 2025–2026 · 강화도",
+    eyebrow: { ko: "프로젝트 · 2025–2026 · 강화도", en: "Project · 2025–2026 · Ganghwa Island" },
     title: "⬡⬡의 섬 : 강화도",
-    credit: "기획 · 앤드씨어터 × 프로듀서그룹도트 × 강화유니버스",
-    role: { label: { ko: "역할", en: "Role" }, text: "박지선 — 기획·프로듀서" },
+    credit: { ko: "기획 · 앤드씨어터 × 프로듀서그룹도트 × 강화유니버스", en: "Curated by A.N.D.Theatre × Producer Group DOT × Ganghwa Universe" },
+    role: { label: { ko: "역할", en: "Role" }, text: { ko: "박지선 — 기획·프로듀서", en: "Park Jisun — Curator and Producer" } },
 
     /* 돌아가기 링크 */
     back: { href: "now.html", ko: "← 지금", en: "← Now" },
@@ -568,20 +568,20 @@ const PROJECTS = {
       {
         label: { ko: "개념", en: "Concept" },
         paras: [
-          "⬡⬡의 섬은 사라지는 것들에 대한 질문에서 시작한다. 예술가와 기획자, 시민들이 함께 '소멸'을 응시하고 그 자리에 시적인 공간을 만들어내는 프로젝트이다.",
-          "2025-2026 ⬡⬡의 섬은 강화도이다. 2025년은 리서치 단계로 한국, 싱가포르, 이탈리아의 예술가·기획자가 강화도에 모였다. 강화도의 길을 걷고, 역사적·문화적 장소를 방문하고, 사람들을 만나다 보니, 그 과정에서 강화의 시간과 자연이 몸에 스며들었고, 각자의 방식으로 '여기서 무엇이 사라지고 있는가'를 감각하기 시작했다.",
-          "⬡⬡의 섬의 두 개의 육각형은 프로젝트의 상징이다. 육각형은 서로 맞물리면서 새로운 공간과 구조를 만들어내는 형태로, 이는 개개인의 섬이 서로 연결되어 새로운 공동의 세계를 형성하는 과정을 의미한다. 즉, 각각의 육각형은 '나의 섬'이자 '우리의 섬'이며, 이들이 모여 만들어지는 새로운 공간은 예술을 통해 서로의 존재를 인식하고 확장하는 장이 된다.",
-          "'소멸'은 기후위기와 함께 '멸종'이라는 단어와 연결된다. 국가의 존속, 경제 성장과 연결해서는 '지역 소멸'로 연결된다. 生과 연결한다면 '소멸'은 '자연스러움'으로 연결된다.",
-          "그러나 ⬡⬡의 섬이 바라보는 '소멸'은 두려움이 아닌, 다시 관계 맺기 위한 시작의 순간으로 바라본다. 사라지는 것들의 자취를 따라가며, 그 속에서 새로 태어나는 감각과 언어를 예술의 시각과 감각으로 포획하고 기록하고 공유하며, 사라짐의 공간에 예술적·시적 상상의 공간을 만들어내고자 한다.",
-          "2026년 ⬡⬡의 섬 프로젝트가 다시 시작된다. 2025년에 발견한 질문들을 가지고 강화도에 다시 모여, 사라짐의 자리에 시적 장소를 만들고, 그 상상의 공간이 섬 위에 천천히 쌓여가기를 바란다."
+          { ko: "⬡⬡의 섬은 사라지는 것들에 대한 질문에서 시작한다. 예술가와 기획자, 시민들이 함께 '소멸'을 응시하고 그 자리에 시적인 공간을 만들어내는 프로젝트이다.", en: "The Island of ⬡⬡ begins with a question about the things that are vanishing. It is a project in which artists, curators and citizens look together at disappearance and make a poetic space where it has been." },
+          { ko: "2025-2026 ⬡⬡의 섬은 강화도이다. 2025년은 리서치 단계로 한국, 싱가포르, 이탈리아의 예술가·기획자가 강화도에 모였다. 강화도의 길을 걷고, 역사적·문화적 장소를 방문하고, 사람들을 만나다 보니, 그 과정에서 강화의 시간과 자연이 몸에 스며들었고, 각자의 방식으로 '여기서 무엇이 사라지고 있는가'를 감각하기 시작했다.", en: "For 2025–2026, the Island of ⬡⬡ is Ganghwa. 2025 was the research phase, when artists and curators from Korea, Singapore and Italy gathered on the island. Walking its roads, visiting historical and cultural sites, meeting its people — Ganghwa's time and nature seeped into the body, and each began, in their own way, to sense what is disappearing here." },
+          { ko: "⬡⬡의 섬의 두 개의 육각형은 프로젝트의 상징이다. 육각형은 서로 맞물리면서 새로운 공간과 구조를 만들어내는 형태로, 이는 개개인의 섬이 서로 연결되어 새로운 공동의 세계를 형성하는 과정을 의미한다. 즉, 각각의 육각형은 '나의 섬'이자 '우리의 섬'이며, 이들이 모여 만들어지는 새로운 공간은 예술을 통해 서로의 존재를 인식하고 확장하는 장이 된다.", en: "The two hexagons of the Island of ⬡⬡ are the project's emblem. Hexagons interlock to make new spaces and structures — the figure of individual islands connecting to form a shared world. Each hexagon is at once \"my island\" and \"our island,\" and the space they make together becomes a place where, through art, we recognise and extend one another's existence." },
+          { ko: "'소멸'은 기후위기와 함께 '멸종'이라는 단어와 연결된다. 국가의 존속, 경제 성장과 연결해서는 '지역 소멸'로 연결된다. 生과 연결한다면 '소멸'은 '자연스러움'으로 연결된다.", en: "Set beside the climate crisis, disappearance reaches toward the word extinction. Set beside the survival of a nation and the demands of economic growth, it becomes the disappearance of whole regions. Set beside life itself, disappearance becomes something natural." },
+          { ko: "그러나 ⬡⬡의 섬이 바라보는 '소멸'은 두려움이 아닌, 다시 관계 맺기 위한 시작의 순간으로 바라본다. 사라지는 것들의 자취를 따라가며, 그 속에서 새로 태어나는 감각과 언어를 예술의 시각과 감각으로 포획하고 기록하고 공유하며, 사라짐의 공간에 예술적·시적 상상의 공간을 만들어내고자 한다.", en: "But the disappearance the Island of ⬡⬡ looks at is not a thing to fear: it is the opening moment of relation being made again. Following the traces of what is going, we want to catch, record and share — through the eye and the senses of art — the sensations and language being newly born there, and to make a space of artistic and poetic imagination where disappearance has left room." },
+          { ko: "2026년 ⬡⬡의 섬 프로젝트가 다시 시작된다. 2025년에 발견한 질문들을 가지고 강화도에 다시 모여, 사라짐의 자리에 시적 장소를 만들고, 그 상상의 공간이 섬 위에 천천히 쌓여가기를 바란다.", en: "In 2026 the Island of ⬡⬡ begins again. Carrying the questions found in 2025, we gather once more on Ganghwa to make poetic places where things have gone, in the hope that these imagined spaces will slowly accumulate on the island." }
         ]
       },
       {
         label: { ko: "2025 리서치 · 주제 “소멸”", en: "2025 Research · “Disappearance”" },
         paras: [
-          "'소멸'은 단순히 사라짐이 아니라, 변화의 한 형태이자 다시 태어남의 가능성을 품은 개념으로, 강화도의 시간과 사람, 그리고 자연을 통해 탐구하고자 했다. 강화 안팎의 예술가·기획자·연구자, 그리고 강화에 거주하는 사람들이 모여 '소멸을 어떻게 해석할 수 있을까', '강화에서 우리는 소멸과 관련해 무엇을 발견할 수 있을까'라는 질문을 중심으로 대화를 이어갔다.",
-          "2주 동안 강화도의 여러 지역을 걸으며, 강화의 사람들을 만나고 그들의 일상과 기억, 그리고 땅의 변화를 몸으로 체험했다. 이 과정에서 '소멸'은 단순한 부정의 언어가 아니라, 존재의 또 다른 방식, 관계의 재구성, 그리고 기억의 전승이라는 새로운 의미로 확장되었다.",
-          "이 짧은 여정은 하나의 시작점이다. 참여자들은 각자의 삶으로 돌아가 올해의 시간을 되새기며, 내년에 다시 강화에서 모여 보다 확장된 관점으로 '소멸'을 이야기하고자 한다."
+          { ko: "'소멸'은 단순히 사라짐이 아니라, 변화의 한 형태이자 다시 태어남의 가능성을 품은 개념으로, 강화도의 시간과 사람, 그리고 자연을 통해 탐구하고자 했다. 강화 안팎의 예술가·기획자·연구자, 그리고 강화에 거주하는 사람들이 모여 '소멸을 어떻게 해석할 수 있을까', '강화에서 우리는 소멸과 관련해 무엇을 발견할 수 있을까'라는 질문을 중심으로 대화를 이어갔다.", en: "Disappearance is not simply a going-away but a form of change, a concept holding the possibility of being born again — and we set out to explore it through Ganghwa's time, its people and its nature. Artists, curators and researchers from on and off the island, together with people who live on Ganghwa, gathered around two questions: how might we read disappearance, and what can we find here on Ganghwa that bears on it?" },
+          { ko: "2주 동안 강화도의 여러 지역을 걸으며, 강화의 사람들을 만나고 그들의 일상과 기억, 그리고 땅의 변화를 몸으로 체험했다. 이 과정에서 '소멸'은 단순한 부정의 언어가 아니라, 존재의 또 다른 방식, 관계의 재구성, 그리고 기억의 전승이라는 새로운 의미로 확장되었다.", en: "Over two weeks we walked through many parts of Ganghwa, meeting its people and experiencing in the body their daily lives, their memories and the changing of the land. In the process disappearance widened past being merely a word of negation into new meanings: another mode of existence, a reconfiguring of relations, and the passing on of memory." },
+          { ko: "이 짧은 여정은 하나의 시작점이다. 참여자들은 각자의 삶으로 돌아가 올해의 시간을 되새기며, 내년에 다시 강화에서 모여 보다 확장된 관점으로 '소멸'을 이야기하고자 한다.", en: "This short journey is a starting point. Participants return to their own lives carrying this year with them, and will gather again on Ganghwa next year to speak of disappearance from a wider vantage." }
         ]
       }
     ],
@@ -617,7 +617,7 @@ const PROJECTS = {
       label: { ko: "사진", en: "Photographs" },
       dir: "img/photos/ganghwa/",
       items: [
-        { type: "video", id: "fffQOEcYuRs", span: 4, caption: "2025 리서치 트레일러" },
+        { type: "video", id: "fffQOEcYuRs", span: 4, caption: { ko: "2025 리서치 트레일러", en: "2025 research trailer" } },
         { src: "ganghwa-01.jpg", w: 1800, h: 1012, span: 4 },
         { src: "ganghwa-02.jpg", w: 1800, h: 1012, span: 2 },
         { src: "ganghwa-03.jpg", w: 1800, h: 1012, span: 2 },
@@ -661,7 +661,7 @@ const PROJECTS = {
         label: { ko: "소개", en: "About" },
         paras: [
           "도르트문트 연극 및 디지털리티 아카데미와 프로듀서그룹 도트의 공동 협력 프로젝트다. 2024년 시작해, 2026년은 리서치 해이다.",
-          "'Aesth:ethics'의 첫 단계에서는 협력을 위한 로드맵을 설계하고, 향후 선보일 연극 공연 프로그램의 구체적인 컨셉을 개발할 예정이다. 이 프로그램은 글로벌 기술 혁신 영역, 특히 인공지능의 활용과 그에 따른 윤리적 시사점들이 던지는 시급한 사회적 질문들을 다룬다.",
+          { ko: "'Aesth:ethics'의 첫 단계에서는 협력을 위한 로드맵을 설계하고, 향후 선보일 연극 공연 프로그램의 구체적인 컨셉을 개발할 예정이다. 이 프로그램은 글로벌 기술 혁신 영역, 특히 인공지능의 활용과 그에 따른 윤리적 시사점들이 던지는 시급한 사회적 질문들을 다룬다.", en: "The first stage of Aesth:ethics will design a roadmap for the collaboration and develop the concrete concept for a theatre programme to come. That programme takes up the urgent social questions posed by the field of global technological innovation — above all the use of artificial intelligence and its ethical implications." },
           "인공지능의 급격한 발전은 권력과 민주주의, 전쟁과 감시, 로봇 공학과 생명 공학에 대한 질문을 야기하며, 이는 오늘날 예술·사회·과학계 전반의 글로벌 거대 담론으로 부상하고 있다. 이러한 질문들은 미학적 혁신, 예술적·기술적 연구개발, 그리고 사회적 책임감을 결합하는 예술 제작의 출발점이 된다.",
           "공동의 로드맵과 프로젝트 컨셉은 두 차례의 현지 대면 컨셉 워크숍을 통해 구체화된다. 1차 워크숍은 2026년 5월 3–9일 도르트문트에서, 2차 워크숍은 2026년 9월 29일–10월 3일 서울에서 진행된다. 각 도시에서는 ⑴ 크리에이티브 코딩 및 공연예술 ⑵ 과학 및 시민사회 ⑶ 연극 프로듀싱 및 지속가능성 분야의 지역·국가 전문가들을 초청해 자문을 구하고, 다른 문화적 배경을 가진 상대 국가의 동일 분야 전문가들을 온라인으로 연결해 다각도의 논의를 펼친다. 워크숍 이외의 실무 회의는 온라인으로 진행된다.",
           "공연예술·시민사회·과학·지속가능성 분야의 지역 전문가들을 컨셉 개발 단계부터 적극적으로 참여시킴으로써, 양측의 파트너십을 위한 단단한 기초를 다지는 동시에 예술적 탁월함과 지속 가능한 실천이 구체적인 사회적 영향력으로 이어질 수 있는 공명의 장을 마련하고자 한다.",
