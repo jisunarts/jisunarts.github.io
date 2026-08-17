@@ -14,6 +14,10 @@
      · 기획·행정 = Planning & Producing (행정은 제작 일에 포함되는 것으로 봅니다)
      · 인명 로마자는 성+이름 붙여쓰기가 기본이지만, 본인이 쓰는 표기가 따로 있으면
        그쪽을 따릅니다 (예: 앨리사 김 = Alyssa Kim — 이름+성, 규칙 예외)
+     · 아래는 본인이 쓰는 표기로 확정된 이름입니다. 규칙으로 지은 잠정 표기가 아니므로
+       성+이름 붙여쓰기 규칙에 맞춰 고치지 마세요.
+         백종관 Paik Jongkwan   홍소이 Hong Soi     배요섭 Bae Yosup (Yoseop 아님)
+         이주야 Lee Juya        최봉민 Choi Bongmin  전윤환 Jeon Yunhwan
 
    · 데이터는 렌더 코드(js/project.js)가 이미 아는 키로만 넣습니다.
      새 키를 만들면 렌더 코드를 함께 고쳐야 하고, 그 페이지만 구조가 달라집니다.
@@ -58,7 +62,7 @@ const PROJECTS = {
       label: { ko: "캠프 연혁", en: "Camp Editions" },
       rows: [
         { year: "2014", place: { ko: "한국 서울", en: "Seoul, Korea" } },
-        { year: "2015", place: { ko: "대만 타이베이, 이란", en: "Taipei, Yilan, Taiwan" } },
+        { year: "2015", place: { ko: "대만 타이베이, 이란현", en: "Taipei, Yilan County, Taiwan" } },
         { year: "2016", place: { ko: "일본 도쿄, 시즈오카", en: "Tokyo, Shizuoka, Japan" } },
         { year: "2017", place: { ko: "호주 멜버른", en: "Melbourne, Australia" } },
         { year: "2018", place: { ko: "인도네시아 자카르타, 족자카르타", en: "Jakarta, Yogyakarta, Indonesia" } },
@@ -163,8 +167,6 @@ const PROJECTS = {
     credits: {
       label: { ko: "크레딧", en: "Credits" },
       rows: [
-        /* 배요섭·이주야·최봉민 로마자는 도트 저장소(data/works.json · producers.json)의
-           표기를 따랐습니다. 규칙(성+이름 붙여쓰기)으로 지은 잠정 표기가 아닙니다. */
         [{ ko: "주관, 기획", en: "Organised & Programmed by" },
          { ko: "예술텃밭(배요섭, 이주야), 프로듀서그룹 도트(박지선, 최봉민)",
            en: "Arts Farm Tutbat (Bae Yosup, Lee Juya), Producer Group DOT (Park Jisun, Choi Bongmin)" }],
@@ -552,7 +554,7 @@ const PROJECTS = {
         [{ ko: "사운드 디자인", en: "Sound Design" }, { ko: "홍초선", en: "Hong Choseon" }],
         [{ ko: "조명 디자인", en: "Lighting Design" }, { ko: "공연화", en: "Gong Yeonhwa" }],
         [{ ko: "조명", en: "Lighting" }, { ko: "김인애, 오채은", en: "Kim Inae, Oh Chaeeun" }],
-        [{ ko: "영상", en: "Video" }, { ko: "윤재민(2025), 백종관(2026)", en: "Yoon Jaemin (2025), Baek Jongkwan (2026)" }],
+        [{ ko: "영상", en: "Video" }, { ko: "윤재민(2025), 백종관(2026)", en: "Yoon Jaemin (2025), Paik Jongkwan (2026)" }],
         [{ ko: "리허설 어시스턴트", en: "Rehearsal Assistant" }, { ko: "강호정", en: "Kang Hojung" }],
         [{ ko: "아웃사이드 아이", en: "Outside Eye" }, { ko: "손나예", en: "Son Naye" }],
         [{ ko: "크리에이티브 프로듀서", en: "Creative Producer" }, { ko: "박지선", en: "Park Jisun" }],
