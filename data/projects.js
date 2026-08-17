@@ -57,15 +57,15 @@ const PROJECTS = {
     timeline: {
       label: { ko: "캠프 연혁", en: "Camp Editions" },
       rows: [
-        { year: "2014", place: "한국 서울" },
-        { year: "2015", place: "대만" },
-        { year: "2016", place: "일본 도쿄" },
-        { year: "2017", place: "호주" },
-        { year: "2018", place: "인도네시아" },
-        { year: "2019", place: "홍콩 · 웨강아오 대만구" },
+        { year: "2014", place: { ko: "한국 서울", en: "Seoul, Korea" } },
+        { year: "2015", place: { ko: "대만", en: "Taiwan" } },
+        { year: "2016", place: { ko: "일본 도쿄", en: "Tokyo, Japan" } },
+        { year: "2017", place: { ko: "호주", en: "Australia" } },
+        { year: "2018", place: { ko: "인도네시아", en: "Indonesia" } },
+        { year: "2019", place: { ko: "홍콩 · 웨강아오 대만구", en: "Hong Kong · Greater Bay Area" } },
         { year: "2020–2022", place: { ko: "팬데믹으로 대면 활동 중단, 온라인 프로그램 진행", en: "In-person activity suspended due to the pandemic; programme held online" } },
-        { year: "2023", place: "태국" },
-        { year: "2024", place: "말레이시아" }
+        { year: "2023", place: { ko: "태국", en: "Thailand" } },
+        { year: "2024", place: { ko: "말레이시아", en: "Malaysia" } }
       ],
       note: { ko: "초기 네 번의 캠프(2014 · 2015 · 2016 · 2017)는 한국 · 대만 · 일본 · 호주의 민관 협력으로 운영되었고, APP 기획팀이 각 지역의 재단 · 기관 · 극장과 함께 제작했다. 2018년 APP는 더 유연한 모델로 전환해, 캠프를 아시아의 더 넓은 지역에서 열기 시작했다.", en: "The first four camps (2014, 2015, 2016, 2017) were run through public–private cooperation across Korea, Taiwan, Japan and Australia, produced by the APP programming team together with foundations, institutions and theatres in each region. In 2018 APP moved to a more flexible model and began holding camps across a wider part of Asia." }
     },
@@ -144,11 +144,11 @@ const PROJECTS = {
         label: { ko: "이어진 작업", en: "Works That Followed" },
         /* works 는 제목 바로 아래에 링크가 붙습니다 */
         works: [
-          { title: { ko: "2022 · 무제의 길 〈움직이는 숲〉 — 서울국제공연예술제 초청작", en: "2022 · Untitled Road, *The Moving Forest* — invited to the Seoul Performing Arts Festival" },
-            link: { label: "무제의 길 〈움직이는 숲〉",
+          { title: { ko: "2022 · 무제의 길 〈움직이는 숲〉 — 서울국제공연예술제 초청작", en: "2022 · Untitled Road, *Moving a Forest* — invited to the Seoul Performing Arts Festival" },
+            link: { label: { ko: "무제의 길 〈움직이는 숲〉", en: "Untitled Road 〈Moving a Forest〉" },
                     url: "https://www.untitledroad.com/projects/moving-a-forest_theatre-game" } },
           { title: { ko: "2023 · 지연 X 전환 〈에너지_보이지 않는 언어〉 — 서울국제공연예술제 초청작", en: "2023 · Delay X Shift, *Energy: The Invisible Language* — invited to the Seoul Performing Arts Festival" },
-            link: { label: "공연 영상", url: "https://youtu.be/arl9qntbhXc" } }
+            link: { label: { ko: "공연 영상", en: "Performance video" }, url: "https://youtu.be/arl9qntbhXc" } }
         ],
         paras: [
           { ko: "예술텃밭 기후변화 레지던시는 2022년 이후에도 매해 예술가들과 텃밭을 가꾸고 리서치를 하며 비정기적으로 모임을 지속하고 있다. 현재 다음 단계의 국제 레지던시로 확장하기 위한 논의를 진행하고 있다.", en: "Since 2022 the Arts Farm Tutbat climate change residency has continued to meet irregularly each year, tending the garden and carrying out research with artists. Discussions are now under way to expand it into an international residency at the next stage." }
@@ -363,9 +363,9 @@ const PROJECTS = {
   /* ── TNN — The Next Normal ─────────────────────────────────────────── */
 
   tnn: {
-    eyebrow: "프로젝트 · 2024– · 아시아 네트워크",
+    eyebrow: { ko: "프로젝트 · 2024– · 아시아 네트워크", en: "Project · 2024– · Asia Network" },
     title: { ko: "TNN — The Next Normal", en: "TNN — The Next Normal" },
-    credit: "다이얼로그 인 아시아(DIA) · 9개 지역 파트너",
+    credit: { ko: "다이얼로그 인 아시아(DIA) · 9개 지역 파트너", en: "Dialogue in Asia (DIA) · Partners from nine regions" },
     role: { label: { ko: "역할", en: "Role" }, text: { ko: "박지선 — 기획 · 아시아 네트워크", en: "Park Jisun — Programming" } },
     back: { href: "now.html", ko: "← 지금", en: "← Now" },
 
@@ -394,7 +394,7 @@ const PROJECTS = {
       label: { ko: "사진", en: "Photographs" },
       dir: "img/works/TNN/",
       items: [
-        { type: "video", id: "sbUxGuR3LCA", poster: "img/works/TNN/video-cover-web.jpg", span: 4, caption: "다이얼로그 인 아시아(DIA) 포럼" },
+        { type: "video", id: "sbUxGuR3LCA", poster: "img/works/TNN/video-cover-web.jpg", span: 4, caption: { ko: "다이얼로그 인 아시아(DIA) 포럼", en: "Dialogue in Asia (DIA) Forum" } },
         { src: "01.jpg", w: 1600, h: 1067, span: 4 },
         { src: "02.jpg", w: 1600, h: 1067, span: 2 },
         { src: "03.jpg", w: 1600, h: 1067, span: 2 },
@@ -413,7 +413,7 @@ const PROJECTS = {
   /* ── 무용 × 기술 창작 랩 ───────────────────────────────────────────── */
 
   "dance-techlab": {
-    eyebrow: "프로젝트 · 2021– · 국립현대무용단 공동 기획",
+    eyebrow: { ko: "프로젝트 · 2021– · 국립현대무용단 공동 기획", en: "Project · 2021– · Co-programmed with the Korea National Contemporary Dance Company" },
     title: { ko: "무용 × 기술 창작 랩", en: "Dance × Technology Creative Lab" },
     credit: { ko: "국립현대무용단 공동 기획", en: "Co-programmed with the Korea National Contemporary Dance Company" },
     role: { label: { ko: "역할", en: "Role" }, text: { ko: "박지선 — 기획", en: "Park Jisun — Programming" } },
@@ -673,7 +673,7 @@ const PROJECTS = {
   /* ── Aesth:ethics ──────────────────────────────────────────────────── */
 
   aesthethics: {
-    eyebrow: "프로젝트 · 2024– · 도르트문트 · 서울",
+    eyebrow: { ko: "프로젝트 · 2024– · 도르트문트 · 서울", en: "Project · 2024– · Dortmund · Seoul" },
     title: { ko: "Aesth:ethics", en: "Aesth:ethics" },
     credit: { ko: "글로벌 코드, 인공지능, 그리고 공연예술을 탐색하다", en: "Exploring Global Codes, Artificial Intelligence, and Performing Arts" },
     role: { label: { ko: "역할", en: "Role" },

@@ -111,7 +111,7 @@
 {
   "id": "moving-forest-2022",
   "title_ko": "움직이는 숲 : 씨어터 게임",
-  "title_en": "The Moving Forest: Theatre Game",
+  "title_en": "Moving a Forest: Theatre Game",
   "year": "2022",
   "section": "now" | "archive" | "writing" | "photo",
   "type": "PF",

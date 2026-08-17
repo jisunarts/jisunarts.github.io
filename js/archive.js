@@ -83,8 +83,9 @@
     const linkList = many
       ? '<span class="cat-links">' + many.map(function (l) {
           const ins = isInside(l.url);
-          return '<a href="' + esc(l.url) + '"' + (ins ? "" : ' target="_blank" rel="noopener"') + ">" +
-            esc(l.label || "보기") + (ins ? " →" : " ↗") + "</a>";
+          const lab = l.label || { ko: "보기", en: "See" };
+          return '<a href="' + esc(l.url) + '"' + (ins ? "" : ' target="_blank" rel="noopener"') +
+            " " + bi(lab) + ">" + esc(koOf(lab)) + (ins ? " →" : " ↗") + "</a>";
         }).join("") + "</span>"
       : "";
 
