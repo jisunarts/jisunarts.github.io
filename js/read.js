@@ -22,7 +22,7 @@
     return;
   }
 
-  document.title = doc.title + " — 박지선 Park Jisun";
+  document.title = koOf(doc.title) + " — 박지선 Park Jisun";
 
   /* 매체명은 { ko, en } 일 수 있습니다 — 언어별로 따로 이어 붙입니다.
      (그냥 join 하면 객체가 [object Object] 로 찍힙니다.) */
@@ -42,7 +42,7 @@
     '<header class="read-head">' +
       '<p class="meta"><a class="read-back" href="writing.html" ' +
         'data-ko="← 글" data-en="← Writing">← 글</a></p>' +
-      "<h1>" + esc(doc.title) + "</h1>" +
+      "<h1 " + bi(doc.title) + ">" + esc(koOf(doc.title)) + "</h1>" +
       '<p class="read-meta" ' + bi(metaPair) + ">" + esc(metaPair.ko) + "</p>" +
     "</header>" +
 
