@@ -36,8 +36,8 @@ const ARCHIVE = [
 
   // ── 공연 · 제작 · 투어 (PF) ──
   { year: "2026", type: "PF", title_ko: "앤드씨어터 〈세상의 종말이 아닌〉 — 드라마터그 @강화 없는 극장·서울 연희예술극장", title_en: "A.N.D.Theatre 〈(Not) the End of the World〉 — Dramaturg @Void Theatre, Ganghwado · Yeonhee Art Theater, Seoul", links: [{ url: "https://www.instagram.com/p/DaSgvLEgRB2/" }], tags: ["borders-coexistence"] },
-  { year: "2026", type: "PF", title_ko: "황수현 〈싱크 디 싱크〉 @TICC", title_en: "Hwang Soohyun 〈Sync the Sync〉 @TICC", links: [{ url: "http://soohyunhwang.com/syncdesync/" }], tags: ["etc"] },
-  { year: "2025", type: "PF", title_ko: "황수현 〈싱크 디 싱크〉 @TICC", title_en: "Hwang Soohyun 〈Sync the Sync〉 @TICC", tags: ["etc"] },
+  { year: "2026", type: "PF", title_ko: "황수현 〈싱크 디 싱크〉 @TICC", title_en: "Hwang Soohyun 〈sync de sync〉 @TICC", links: [{ url: "http://soohyunhwang.com/syncdesync/" }], tags: ["etc"] },
+  { year: "2025", type: "PF", title_ko: "황수현 〈싱크 디 싱크〉 @TICC", title_en: "Hwang Soohyun 〈sync de sync〉 @TICC", links: [{ label: { ko: "웹 포토북", en: "Web Photobook" }, url: "https://jisunarts.github.io/syncdesync_photo" }], tags: ["etc"] },
   { year: "2025", type: "PF", title_ko: "앤드씨어터 낭독공연 〈세상의 종말이 아닌〉 — 에코 드라마터그", title_en: "AND Theatre reading 〈Not the End of the World〉 — Eco-dramaturg", tags: ["etc"] },
   { year: "2025", type: "PF", title_ko: "앤드씨어터 낭독공연 〈교토〉 — 에코 드라마터그", title_en: "AND Theatre reading 〈Kyoto〉 — Eco-dramaturg", tags: ["etc"] },
   { year: "2025", type: "PF", title_ko: "무제의 길 〈끝의 섬 :2150〉 — 드라마터그 @신촌극장·변방연극제", title_en: "Untitled Road 〈Island at the End: 2150〉 — Dramaturg", links: [{ url: "https://www.untitledroad.com/projects/island-at-the-end-2150" }], tags: ["borders-coexistence"] },

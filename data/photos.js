@@ -7,7 +7,7 @@ const PHOTOS = [
   {
     id: "sync-tinc",
     title_ko: "싱크 디 싱크 — TINC 리허설 기록",
-    title_en: "Sync the Sync — TINC Rehearsal",
+    title_en: "sync de sync — TINC Rehearsal",
     category: "공연", year: "2026", tags: ["tech-society","posthuman","process"],
     cover: "img/photos/sync-cover.jpg",
     link: "https://jisunarts.github.io/syncdesync_photo"
