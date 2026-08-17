@@ -35,7 +35,7 @@ const ARCHIVE = [
   { year: "2005–08", type: "CA", title_ko: "극단 여행자 · 사다리움직임연구소", title_en: "Yohangza · Sadari Movement Lab", tags: ["mobility", "process"] },
 
   // ── 공연 · 제작 · 투어 (PF) ──
-  { year: "2026", type: "PF", title_ko: "앤드씨어터 〈세상의 종말이 아닌〉 — 드라마터그 @강화 없는 극장·서울 연희예술극장", title_en: "AND Theatre 〈Not the End of the World〉 — Dramaturg", links: [{ url: "https://www.instagram.com/p/DaSgvLEgRB2/" }], tags: ["borders-coexistence"] },
+  { year: "2026", type: "PF", title_ko: "앤드씨어터 〈세상의 종말이 아닌〉 — 드라마터그 @강화 없는 극장·서울 연희예술극장", title_en: "A.N.D.Theatre 〈(Not) the End of the World〉 — Dramaturg @Void Theatre, Ganghwado · 연희예술극장, Seoul", links: [{ url: "https://www.instagram.com/p/DaSgvLEgRB2/" }], tags: ["borders-coexistence"] },
   { year: "2026", type: "PF", title_ko: "황수현 〈싱크 디 싱크〉 @TICC", title_en: "Hwang Soohyun 〈Sync the Sync〉 @TICC", links: [{ url: "https://www.instagram.com/p/DZ2FkZhgTH_/" }], tags: ["etc"] },
   { year: "2025", type: "PF", title_ko: "황수현 〈싱크 디 싱크〉 @TICC", title_en: "Hwang Soohyun 〈Sync the Sync〉 @TICC", tags: ["etc"] },
   { year: "2025", type: "PF", title_ko: "앤드씨어터 낭독공연 〈세상의 종말이 아닌〉 — 에코 드라마터그", title_en: "AND Theatre reading 〈Not the End of the World〉 — Eco-dramaturg", tags: ["etc"] },

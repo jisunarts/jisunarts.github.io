@@ -12,6 +12,12 @@
        Producing   — 하나의 작업을 실현시키는 일
        Planning    — 아직 없는 것을 설계하는 단계
      · 기획·행정 = Planning & Producing (행정은 제작 일에 포함되는 것으로 봅니다)
+     · 인명 로마자는 성+이름 붙여쓰기가 기본이지만, 본인이 쓰는 표기가 따로 있으면
+       그쪽을 따릅니다 (예: 앨리사 김 = Alyssa Kim — 이름+성, 규칙 예외)
+
+   · 데이터는 렌더 코드(js/project.js)가 이미 아는 키로만 넣습니다.
+     새 키를 만들면 렌더 코드를 함께 고쳐야 하고, 그 페이지만 구조가 달라집니다.
+     (sections2 · lead · source 로 같은 실수를 세 번 했습니다.)
    ========================================================================== */
 
 const PROJECTS = {
@@ -274,14 +280,18 @@ const PROJECTS = {
   "not-the-end-of-the-world": {
     eyebrow: { ko: "공연 · 2026", en: "Performance · 2026" },
     title: { ko: "세상의 종말이 (아닌)", en: "(Not) the End of the World" },
+    credit: { ko: "크리스 부시 작 · 전윤환 연출 · 앤드씨어터", en: "Written by Chris Bush · Directed by Jeon Yunhwan · A.N.D.Theatre" },
     role: { label: { ko: "역할", en: "Role" }, text: { ko: "박지선 — 드라마투르그", en: "Park Jisun — Dramaturg" } },
-    back: { href: "now.html", ko: "← 지금", en: "← Now" },
+    back: { href: "now.html", ko: { ko: "← 지금", en: "← Now" }, en: "← Now" },
 
     runs: {
       label: { ko: "일정", en: "Schedule" },
       rows: [
-        { dates: "프리뷰 · 2026.7.31(금)–8.1(토)", time: "15:00", venue: "없는극장 (강화군 길상면 해안남로 627, 1층)" },
-        { dates: "본공연 · 2026.8.6(목)–8.9(일)", time: "평일 19:30 / 주말 15:00", venue: "연희예술극장" }
+        { dates: { ko: "프리뷰 · 2026.7.31(금)–8.1(토)", en: "Preview · Fri 31 Jul – Sat 1 Aug 2026" }, time: "15:00", /* 극장 이름은 각 극장이 정한 표기를 그대로 씁니다 — 로마자 규칙도, 영국식 철자 규칙도
+             적용하지 않습니다. Void Theatre 와 Yeonhee Art Theater 의 철자가 다른 것도 그 때문입니다. */
+          venue: { ko: "없는극장 (강화군 길상면 해안남로 627, 1층)", en: "Void Theatre (1F, 627 Haean-namno, Gilsang-myeon, Ganghwa-gun)" } },
+        { dates: { ko: "본공연 · 2026.8.6(목)–8.9(일)", en: "Main run · Thu 6 – Sun 9 Aug 2026" }, time: { ko: "평일 19:30 / 주말 15:00", en: "Weekdays 19:30 / Weekends 15:00" }, 
+          venue: { ko: "연희예술극장", en: "Yeonhee Art Theater" } }
       ]
     },
 
@@ -290,9 +300,10 @@ const PROJECTS = {
         label: { ko: "작품 소개", en: "About the Work" },
         paras: [
           { ko: "세상의 끝, 혹은 끝나지 않은 세상.", en: "The end of the world, or a world that has not ended." },
-          "기후 변화 연구자 '안나'는 저명한 기후과학자 우타 오버도르프 교수가 이끄는 한 대학의 기후연구소에서, 자신의 인생이 걸린 박사 후 연구원 면접을 치른다. 면접은 아주 작은 말과 행동의 차이 속에서 반복되고 되감긴다. 우타 교수는 안나의 연구에 냉담한 태도를 보이기도 하고, 깊은 관심을 드러내기도 한다. 두 사람은 과학과 정의, 특권과 희생, 그리고 기후위기를 둘러싼 책임에 관해 충돌한다.",
-          "또 다른 시간대에서 안나는 서로 다른 모습으로 나타나는 '릴리'들과 마주한다. 북극 탐사에서 한 여성이 죽었고, 안나는 그 죽음을 둘러싼 질문과 조사를 받는다. 그보다 더 먼 미래에는 '레나'가 죽은 어머니를 위한 추도사를 낭독한다. 한 사람의 삶과 죽음에 관한 이야기는 점차 인류의 역사와 우리가 살아가는 지구를 위한 애도의 언어로 확장된다.",
-          "이야기의 틈 사이로 분홍색 눈과 굶주린 곰, 8만 년 된 나무 군락과 끝없이 추출되는 석유, 사라진 생명과 아직 남아 있는 가능성들이 모습을 드러낸다. 〈세상의 종말이 (아닌)〉은 '세계의 종말'을 이야기하면서 동시에 '종말이 아닌 것'을 이야기한다. 우리가 매일 맞이하는 사소한 끝들, 그리고 여전히 끝나지 않은 삶의 가능성들을."
+          { ko: "기후 변화 연구자 '안나'는 저명한 기후과학자 우타 오버도르프 교수가 이끄는 한 대학의 기후연구소에서, 자신의 인생이 걸린 박사 후 연구원 면접을 치른다. 면접은 아주 작은 말과 행동의 차이 속에서 반복되고 되감긴다. 우타 교수는 안나의 연구에 냉담한 태도를 보이기도 하고, 깊은 관심을 드러내기도 한다. 두 사람은 과학과 정의, 특권과 희생, 그리고 기후위기를 둘러싼 책임에 관해 충돌한다.", en: "Anna, a climate change researcher, sits a postdoctoral interview on which her life depends, at a university climate institute led by the eminent climate scientist Professor Uta Oberdorf. The interview repeats and rewinds through the smallest differences of word and gesture. Uta is by turns coldly dismissive of Anna's research and deeply interested in it. The two clash over science and justice, privilege and sacrifice, and responsibility for the climate crisis." },
+          
+          { ko: "또 다른 시간대에서 안나는 서로 다른 모습으로 나타나는 '릴리'들과 마주한다. 북극 탐사에서 한 여성이 죽었고, 안나는 그 죽음을 둘러싼 질문과 조사를 받는다. 그보다 더 먼 미래에는 '레나'가 죽은 어머니를 위한 추도사를 낭독한다. 한 사람의 삶과 죽음에 관한 이야기는 점차 인류의 역사와 우리가 살아가는 지구를 위한 애도의 언어로 확장된다.", en: "In another timeline Anna encounters the several Lilys, each appearing differently. A woman has died on an Arctic expedition, and Anna faces questions and investigation surrounding that death. Further in the future, Lena reads a eulogy for her dead mother. A story about one person's life and death gradually widens into a language of mourning for human history and for the earth we live on." },
+          { ko: "이야기의 틈 사이로 분홍색 눈과 굶주린 곰, 8만 년 된 나무 군락과 끝없이 추출되는 석유, 사라진 생명과 아직 남아 있는 가능성들이 모습을 드러낸다. 〈세상의 종말이 (아닌)〉은 '세계의 종말'을 이야기하면서 동시에 '종말이 아닌 것'을 이야기한다. 우리가 매일 맞이하는 사소한 끝들, 그리고 여전히 끝나지 않은 삶의 가능성들을.", en: "Through the gaps in the story appear pink snow and starving bears, an eighty-thousand-year-old stand of trees and endlessly extracted oil, lives that have vanished and possibilities that remain. *(Not) the End of the World* speaks of the end of the world and, at the same time, of what is not the end — the small endings we meet each day, and the possibilities of a life still unfinished." }
         ]
       }
     ],
@@ -301,13 +312,13 @@ const PROJECTS = {
       {
         label: { ko: "작가 소개", en: "About the Playwright" },
         paras: [
-          "크리스 부시(Chris Bush)는 올리비에 상을 수상한 영국의 극작가이자 작사가, 각본가이다. 날카로운 사회적 시선과 실험적인 형식으로 주목받아 왔으며, The Stage 선정 '영국 연극계에서 가장 영향력 있는 100인'에 두 차례 이름을 올렸다. 주요 작품으로 《Standing at the Sky's Edge》, 《The Assassination of Katie Hopkins》, 《Faustus: That Damned Woman》, 《Hungry》, 《Otherland》 등이 있으며, 《(Kein) Weltuntergang》은 독일 샤우뷔네에서 초연되었다. 수전 스미스 블랙번 상 후보에 올랐으며, 영국 연극상, 사우스 뱅크 스카이 아츠 상 등 다수의 상을 수상했다. 단편영화 《MARS》는 런던 및 트라이베카 영화제에 공식 초청되었다."
+          { ko: "크리스 부시(Chris Bush)는 올리비에 상을 수상한 영국의 극작가이자 작사가, 각본가이다. 날카로운 사회적 시선과 실험적인 형식으로 주목받아 왔으며, The Stage 선정 '영국 연극계에서 가장 영향력 있는 100인'에 두 차례 이름을 올렸다. 주요 작품으로 《Standing at the Sky's Edge》, 《The Assassination of Katie Hopkins》, 《Faustus: That Damned Woman》, 《Hungry》, 《Otherland》 등이 있으며, 《(Kein) Weltuntergang》은 독일 샤우뷔네에서 초연되었다. 수전 스미스 블랙번 상 후보에 올랐으며, 영국 연극상, 사우스 뱅크 스카이 아츠 상 등 다수의 상을 수상했다. 단편영화 《MARS》는 런던 및 트라이베카 영화제에 공식 초청되었다.", en: "Chris Bush is an Olivier Award-winning British playwright, lyricist and screenwriter. Known for a sharp social eye and experimental form, she has twice been named among The Stage's 100 most influential people in British theatre. Her work includes *Standing at the Sky's Edge*, *The Assassination of Katie Hopkins*, *Faustus: That Damned Woman*, *Hungry* and *Otherland*; *(Not) the End of the World* premiered at the Schaubühne in Berlin. She has been shortlisted for the Susan Smith Blackburn Prize and has won the UK Theatre Awards and the South Bank Sky Arts Award, among others. Her short film *MARS* was officially selected for the London and Tribeca film festivals." }
         ]
       },
       {
         label: { ko: "제작 소개", en: "About the Company" },
         paras: [
-          "앤드씨어터는 다큐멘터리 연극의 동시대성을 인식하며 실재를 매개하기 위한 다양한 연극방법론을 고민해 왔다. 또한 극장과 극장 밖 사이의 장력을 탐구하며 동시대 연극의 가능성에 대한 질문을 이어 나가고 있다. 현재는 인천에서 강화도까지 지역 예술의 방식을 탐색하고 있다. 이는 제도권 바깥으로 이탈하는 것이 아니라, 제도권 너머의 또 다른 작업 언어를 만드는 방식이라 할 수 있다."
+          { ko: "앤드씨어터는 다큐멘터리 연극의 동시대성을 인식하며 실재를 매개하기 위한 다양한 연극방법론을 고민해 왔다. 또한 극장과 극장 밖 사이의 장력을 탐구하며 동시대 연극의 가능성에 대한 질문을 이어 나가고 있다. 현재는 인천에서 강화도까지 지역 예술의 방식을 탐색하고 있다. 이는 제도권 바깥으로 이탈하는 것이 아니라, 제도권 너머의 또 다른 작업 언어를 만드는 방식이라 할 수 있다.", en: "A.N.D.Theatre works from a sense of the contemporaneity of documentary theatre, searching out theatrical methodologies for mediating the real. It explores the tension between the theatre and what lies outside it, continuing to ask what contemporary theatre can be. It is currently exploring ways of making regional art from Incheon out to Ganghwado — not a departure from the institutional world, but a way of building another working language beyond it." }
         ]
       }
     ],
@@ -315,19 +326,20 @@ const PROJECTS = {
     credits: {
       label: { ko: "크레딧", en: "Credits" },
       rows: [
-        ["작", "크리스 부시 (Chris Bush)"],
-        ["번역", "Kim Alyssa"],
-        ["연출", "전윤환"],
-        ["드라마투르그", "박지선"],
-        ["출연", "강윤민지, 박혜영, 다은"],
-        ["프로듀서", "권근영"],
-        ["프로듀서보", "이유정"],
-        ["무대", "송지인"],
-        ["조명", "공연화"],
-        ["사운드", "최영두"],
-        ["무대감독", "민재원"],
-        ["그래픽·사진", "김솔"],
-        ["티켓매니저", "김현주"]
+        [{ ko: "작", en: "Written by" }, { ko: "크리스 부시", en: "Chris Bush" }],
+        [{ ko: "원작 초연", en: "Premiere" }, { ko: "2021 베를린 샤우뷔네, 연출 케이티 미첼", en: "Schaubühne Berlin, 2021, directed by Katie Mitchell" }],
+        [{ ko: "번역", en: "Translation" }, { ko: "앨리사 김", en: "Alyssa Kim" }],
+        [{ ko: "연출", en: "Direction" }, { ko: "전윤환", en: "Jeon Yunhwan" }],
+        [{ ko: "드라마투르그", en: "Dramaturgy" }, { ko: "박지선", en: "Park Jisun" }],
+        [{ ko: "출연", en: "Performance" }, { ko: "강윤민지, 박혜영, 다은", en: "Kang Yunminji, Park Hyeyoung, Daeun" }],
+        [{ ko: "프로듀서", en: "Producer" }, { ko: "권근영", en: "Kwon Keunyoung" }],
+        [{ ko: "프로듀서보", en: "Assistant Producer" }, { ko: "이유정", en: "Lee Yujeong" }],
+        [{ ko: "무대", en: "Set" }, { ko: "송지인", en: "Song Jiin" }],
+        [{ ko: "조명", en: "Lighting" }, { ko: "공연화", en: "Gong Yeonhwa" }],
+        [{ ko: "사운드", en: "Sound" }, { ko: "최영두", en: "Choi Youngdoo" }],
+        [{ ko: "무대감독", en: "Stage Manager" }, { ko: "민재원", en: "Min Jaewon" }],
+        [{ ko: "그래픽·사진", en: "Graphics & Photography" }, { ko: "김솔", en: "Kim Sol" }],
+        [{ ko: "티켓매니저", en: "Ticketing Manager" }, { ko: "김현주", en: "Kim Hyunju" }]
       ]
     },
 
