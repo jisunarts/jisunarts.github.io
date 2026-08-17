@@ -169,7 +169,7 @@ const PROJECTS = {
          { ko: "예술텃밭(배요섭, 이주야), 프로듀서그룹 도트(박지선, 최봉민)",
            en: "Arts Farm Tutbat (Bae Yosup, Lee Juya), Producer Group DOT (Park Jisun, Choi Bongmin)" }],
         [{ ko: "후원", en: "Supported by" },
-         { ko: "강원도, 강원문화재단", en: "Gangwon Province, Gangwon Cultural Foundation" }]
+         { ko: "강원도, 강원문화재단", en: "Gangwon Province, Gangwon Art & Culture Foundation" }]
       ]
     },
 
