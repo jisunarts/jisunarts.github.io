@@ -66,6 +66,25 @@
     return (m && m.w && m.h) ? ' width="' + m.w + '" height="' + m.h + '"' : "";
   }
 
+  /* 영상 표지(썸네일) — 세 갈래를 한 곳에서 정합니다.
+       1) poster 가 있으면 사이트 자체 이미지 (img/works/… )
+       2) 없으면 유튜브 maxresdefault
+       3) maxresdefault 가 없는 영상이 있어(404 대신 회색 기본 이미지가 옵니다)
+          onerror 로 hqdefault 로 한 번 내려갑니다. hqdefault 는 모든 영상에 있습니다.
+     영상이 들어가는 곳은 모두 이 함수를 씁니다 — 마크업을 두 곳에서 만들지 않도록. */
+  function videoFacade(id, poster) {
+    const hq = "https://img.youtube.com/vi/" + esc(id) + "/hqdefault.jpg";
+    const src = poster
+      ? BASE + esc(asset(poster))
+      : "https://img.youtube.com/vi/" + esc(id) + "/maxresdefault.jpg";
+    const fallback = poster ? "" : ' onerror="this.onerror=null;this.src=\'' + hq + '\'"';
+    return '<button type="button" class="pj-video-facade" data-video="' + esc(id) + '" ' +
+        'aria-label="영상 재생">' +
+        '<img src="' + src + '" alt=""' + fallback + ' width="1280" height="720" loading="lazy">' +
+        '<span class="pj-play" aria-hidden="true">▶</span>' +
+      "</button>";
+  }
+
   /* 소제목 한 줄 */
   function head(label) {
     return '<h2 class="pj-label" ' + bi(label) + ">" + esc(label.ko) + "</h2>";
@@ -121,6 +140,7 @@
   const spanned = photoData
     .map(function (m, i) { return { src: m.src ? photoDir + m.src : "", span: m.span,
                                     caption: m.caption, type: m.type, id: m.id,
+                                    poster: m.poster,
                                     w: m.w, h: m.h, i: i }; })
     .filter(function (m) { return m.span; });
 
@@ -133,13 +153,7 @@
       let inner;
 
       if (m.type === "video") {
-        const id = m.id;
-        inner = '<button type="button" class="pj-video-facade" data-video="' + esc(id) + '" ' +
-            'aria-label="영상 재생">' +
-            '<img src="https://img.youtube.com/vi/' + esc(id) + '/maxresdefault.jpg" alt="" ' +
-              'width="1280" height="720" loading="lazy">' +
-            '<span class="pj-play" aria-hidden="true">▶</span>' +
-          "</button>";
+        inner = videoFacade(m.id, m.poster);
       } else {
         inner = '<img src="' + BASE + esc(asset(m.src)) + '" alt="' + esc(m.alt || "") + '"' +
           size(m) + ' loading="lazy">';
@@ -328,14 +342,9 @@
   }
 
   /* 영상 한 칸 (썸네일 먼저) */
-  function videoCell(id, span, caption) {
+  function videoCell(id, span, caption, poster) {
     return '<li data-span="' + (span || 4) + '">' +
-      '<button type="button" class="pj-video-facade" data-video="' + esc(id) + '" ' +
-        'aria-label="영상 재생">' +
-        '<img src="https://img.youtube.com/vi/' + esc(id) + '/maxresdefault.jpg" alt="" ' +
-          'width="1280" height="720" loading="lazy">' +
-        '<span class="pj-play" aria-hidden="true">▶</span>' +
-      "</button>" +
+      videoFacade(id, poster) +
       (caption ? '<span class="pj-media-cap">' + esc(caption) + "</span>" : "") +
     "</li>";
   }
@@ -368,7 +377,7 @@
           '<span class="tnum">' + esc(ed.year) + "</span> · " + esc(ed.title) +
         "</h3>" +
         '<ul class="pj-media">' +
-          (ed.video ? videoCell(ed.video, 4, ed.year + " 기록 영상") : "") +
+          (ed.video ? videoCell(ed.video, 4, ed.year + " 기록 영상", ed.poster) : "") +
           grid +
         "</ul>" +
         (all.length ? slideBlock("y" + ed.year, ed.year + " 사진 전체 보기", all) : "") +

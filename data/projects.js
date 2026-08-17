@@ -394,7 +394,7 @@ const PROJECTS = {
       label: { ko: "사진", en: "Photographs" },
       dir: "img/works/TNN/",
       items: [
-        { type: "video", id: "sbUxGuR3LCA", span: 4, caption: "다이얼로그 인 아시아(DIA) 포럼" },
+        { type: "video", id: "sbUxGuR3LCA", poster: "img/works/TNN/video-cover.png", span: 4, caption: "다이얼로그 인 아시아(DIA) 포럼" },
         { src: "01.jpg", w: 1600, h: 1067, span: 4 },
         { src: "02.jpg", w: 1600, h: 1067, span: 2 },
         { src: "03.jpg", w: 1600, h: 1067, span: 2 },
