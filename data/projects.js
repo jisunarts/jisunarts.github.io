@@ -6,6 +6,11 @@
 
    · 이미지 경로는 사이트 최상단 기준으로 씁니다 (예: img/photos/ganghwa/…)
    · sections 의 각 문단은 그대로 한 문단이 됩니다.
+
+   · 역할명 영문 기준 (curator·curating 은 쓰지 않습니다 — 시각예술 용어)
+       Programming — 여러 작업·작가를 골라 프로그램을 구성하는 일
+       Producing   — 하나의 작업을 실현시키는 일
+       Planning    — 아직 없는 것을 설계하는 단계
    ========================================================================== */
 
 const PROJECTS = {
@@ -14,9 +19,9 @@ const PROJECTS = {
 
   app: {
     eyebrow: { ko: "프로젝트 · 2014– · 아시아 독립 프로듀서 네트워크", en: "Project · 2014– · A network of independent producers across Asia" },
-    title: "아시아 프로듀서 플랫폼 (APP)",
+    title: { ko: "아시아 프로듀서 플랫폼 (APP)", en: "Asian Producers' Platform (APP)" },
     credit: "Asian Producers' Platform",
-    role: { label: { ko: "역할", en: "Role" }, text: { ko: "박지선 — 공동 창립 · 기획팀", en: "Park Jisun — Co-founder, programming team" } },
+    role: { label: { ko: "역할", en: "Role" }, text: { ko: "박지선 — 공동 창립 · 기획팀", en: "Park Jisun — Co-founder, Planning Team" } },
     back: { href: "now.html", ko: "← 지금", en: "← Now" },
 
     sections: [
@@ -106,9 +111,9 @@ const PROJECTS = {
 
   "climate-residency": {
     eyebrow: { ko: "프로젝트 · 2020–2022 · 화천 예술텃밭", en: "Project · 2020–2022 · Arts Farm Tutbat, Hwacheon" },
-    title: "예술텃밭 예술가 레지던시 — 기후변화",
+    title: { ko: "예술텃밭 예술가 레지던시 — 기후변화", en: "Arts Farm Tutbat Artist Residency — Climate Change" },
     credit: { ko: "예술텃밭 Arts Farm Tutbat × 프로듀서그룹 도트", en: "Arts Farm Tutbat × Producer Group DOT" },
-    role: { label: { ko: "역할", en: "Role" }, text: { ko: "박지선 — 공동 기획", en: "Park Jisun — Co-curator" } },
+    role: { label: { ko: "역할", en: "Role" }, text: { ko: "박지선 — 공동 기획", en: "Park Jisun — Co-programming" } },
     back: { href: "now.html", ko: "← 지금", en: "← Now" },
 
     sections: [
@@ -203,9 +208,9 @@ const PROJECTS = {
 
   hihihistory: {
     eyebrow: { ko: "공연 · 2026 · 대학로예술극장 소극장", en: "Performance · 2026 · Daehakro Arts Theatre, Small Hall" },
-    title: "히히히스토리",
+    title: { ko: "히히히스토리", en: "hihihistory" },
     credit: { ko: "황수현 컨셉·안무·출연", en: "Concept, choreography and performance by Hwang Soohyun" },
-    role: { label: { ko: "역할", en: "Role" }, text: "박지선 — 크리에이티브 프로듀서" },
+    role: { label: { ko: "역할", en: "Role" }, text: { ko: "박지선 — 크리에이티브 프로듀서", en: "Park Jisun — Creative Producer" } },
     back: { href: "now.html", ko: "← 지금", en: "← Now" },
 
     runs: {
@@ -223,9 +228,9 @@ const PROJECTS = {
         label: { ko: "작품 소개", en: "About the Work" },
         paras: [
           { ko: "헛웃음처럼 새어 나오는 감각의 균열을 어긋난 몸으로 호출하는 1인 라이브 퍼포먼스", en: "A solo live performance that summons, through a body out of joint, the fissures in sensation that escape as a hollow laugh" },
-          "〈히히히스토리〉는 움직임과 소리, 말을 다루는 1인 라이브 퍼포먼스다. 무대 위 '황수현'은 말하고, 춤추고, 노래하지만 결코 하나의 인물이나 완결된 서사로 고정되지 않는다. 말은 고백처럼 시작되지만 설명으로 닫히지 않고, 춤은 이미지로 완성되지 않으며, 노래는 안정된 리듬에 도달하지 않는다. 분명한 형태로 향하지 않고 서로 다른 방향으로 미끄러지는 이 행위들은 기존의 질서 안에서 매끄럽게 설명되지 않는 감각의 상태를 집요하게 따라간다.",
-          "제목의 “히히히”는 진지한 말이 완전히 믿어지지 않을 때 새어 나오는 헛웃음이자, 무언가 스며 나오는 스산한 기척의 소리다. 이 정체 모를 소리는 공연의 표면에 작은 균열을 내고 흐름을 예기치 못한 방향으로 비틀어버린다.",
-          "그 과정에서 뒤섞이는 질감과 리듬, 파동은 관객을 익숙하지 않은 감각의 서사로 이끈다. 작품은 그렇게 아직 이름 붙지 않은 감각의 자리를 탐색하며, 매끄러운 미래가 지워버린 감각을 어긋난 몸으로 다시 호출한다."
+          { ko: "〈히히히스토리〉는 움직임과 소리, 말을 다루는 1인 라이브 퍼포먼스다. 무대 위 '황수현'은 말하고, 춤추고, 노래하지만 결코 하나의 인물이나 완결된 서사로 고정되지 않는다. 말은 고백처럼 시작되지만 설명으로 닫히지 않고, 춤은 이미지로 완성되지 않으며, 노래는 안정된 리듬에 도달하지 않는다. 분명한 형태로 향하지 않고 서로 다른 방향으로 미끄러지는 이 행위들은 기존의 질서 안에서 매끄럽게 설명되지 않는 감각의 상태를 집요하게 따라간다.", en: "hihihistory is a solo live performance woven from movement, sound and speech. On stage, Hwang Soohyun speaks, dances and sings, yet is never fixed into a single character or a completed narrative. Her speech begins like a confession but refuses to close into explanation; her dance never resolves into an image; her song never settles into a stable rhythm. Rather than heading towards fixed form, these gestures continually diverge, doggedly pursuing states of sensation that resist explanation within the familiar, existing order." },
+          { ko: "제목의 “히히히”는 진지한 말이 완전히 믿어지지 않을 때 새어 나오는 헛웃음이자, 무언가 스며 나오는 스산한 기척의 소리다. 이 정체 모를 소리는 공연의 표면에 작은 균열을 내고 흐름을 예기치 못한 방향으로 비틀어버린다.", en: "The repeated ‘hihihi’ in the title evokes an uneasy laugh that escapes when earnest words do not seem entirely believable; it is also the eerie stirring of something quietly leaking into the world. This mysterious sound creates small cracks in the surface of the performance and twists its flow in unexpected ways." },
+          { ko: "그 과정에서 뒤섞이는 질감과 리듬, 파동은 관객을 익숙하지 않은 감각의 서사로 이끈다. 작품은 그렇게 아직 이름 붙지 않은 감각의 자리를 탐색하며, 매끄러운 미래가 지워버린 감각을 어긋난 몸으로 다시 호출한다.", en: "The textures, rhythms and waves that mingle in the process lead the audience into an unfamiliar narrative of the senses. In this way hihihistory searches for places of sensation that have yet to be named, using a body out of sync to summon back the senses that a frictionless future has erased." }
         ]
       }
     ],
@@ -234,8 +239,8 @@ const PROJECTS = {
       {
         label: { ko: "안무가 소개", en: "About the Choreographer" },
         paras: [
-          "황수현은 춤을 매개로 신체 경험의 잠재성을 확장해 온 안무가다. 춤을 단순히 시각적으로 보여지는 형식을 넘어 몸과 몸, 몸과 공간, 그리고 눈에 보이지 않는 것들 사이에 발생하는 '경험의 구조'로 다룬다. 주로 호흡과 구음, 진동, 어둠, 미세한 운동감각 같은 비가시적 요소들을 안무의 핵심 재료로 삼는다. 〈검정감각〉, 〈음———〉, 〈카베에〉, 〈Zzz〉 등의 작품을 통해 시각 중심의 관람 방식을 전복하고, 서로 다른 몸들이 극장이라는 공간 안에서 함께 감각하는 '공동의 상태'를 탐구해왔다. 최근에는 이러한 감각적 경험을 가능하게 했던 방식들이 하나의 고정된 틀로 굳어지는 것을 경계하며, 몸이 환경과 또 다른 방식으로 관계 맺을 수 있는 새로운 안무적 실험을 이어가고 있다.",
-          "주요 작품으로 〈세계〉(2026), 〈sync de sync〉(2025), 〈Zzz〉(2023), 〈카베에〉(2023) 등이 있으며, 〈음 ━—━〉으로 제27회 무용예술상 안무상(2021)을 수상하고 문화체육관광부장관 표창(2020)을 받았다. 또한 〈검정감각〉을 통해 한국춤비평가협회 '2019 베스트 작품상'을 수상했다."
+          { ko: "황수현은 춤을 매개로 신체 경험의 잠재성을 확장해 온 안무가다. 춤을 단순히 시각적으로 보여지는 형식을 넘어 몸과 몸, 몸과 공간, 그리고 눈에 보이지 않는 것들 사이에 발생하는 '경험의 구조'로 다룬다. 주로 호흡과 구음, 진동, 어둠, 미세한 운동감각 같은 비가시적 요소들을 안무의 핵심 재료로 삼는다. 〈검정감각〉, 〈음———〉, 〈카베에〉, 〈Zzz〉 등의 작품을 통해 시각 중심의 관람 방식을 전복하고, 서로 다른 몸들이 극장이라는 공간 안에서 함께 감각하는 '공동의 상태'를 탐구해왔다. 최근에는 이러한 감각적 경험을 가능하게 했던 방식들이 하나의 고정된 틀로 굳어지는 것을 경계하며, 몸이 환경과 또 다른 방식으로 관계 맺을 수 있는 새로운 안무적 실험을 이어가고 있다.", en: "Hwang Soohyun is a choreographer who has expanded the latent possibilities of physical experience through dance. Rather than treating dance as a purely visual medium, she approaches it as a structure of experience that emerges between bodies, between body and space, and between the things that are invisible. Breath, vocal resonance, vibration, darkness and micro-kinaesthetic sensations form the core materials of her choreographic language. Through works such as Sense of Darkness, Hmmmm, caveae and Zzz, she has overturned visually oriented modes of spectatorship and explored a communal state of perception, in which different bodies experience sensation together within the space of the theatre. More recently, wary of the very methods that once enabled these sensory experiences turning into fixed templates, she continues new choreographic experiments in how the body might relate to its environment otherwise." },
+          { ko: "주요 작품으로 〈세계〉(2026), 〈sync de sync〉(2025), 〈Zzz〉(2023), 〈카베에〉(2023) 등이 있으며, 〈음 ━—━〉으로 제27회 무용예술상 안무상(2021)을 수상하고 문화체육관광부장관 표창(2020)을 받았다. 또한 〈검정감각〉을 통해 한국춤비평가협회 '2019 베스트 작품상'을 수상했다.", en: "Her notable works include SE GYE (2026), sync de sync (2025), Zzz (2023) and caveae (2023). She received the Choreography Award at the 27th Dance Art Awards (2021) and a commendation from the Minister of Culture, Sports and Tourism (2020). Her earlier work Sense of Darkness was named Best Work of 2019 by the Korean Association of Dance Critics and Researchers." }
         ]
       }
     ],
@@ -267,9 +272,9 @@ const PROJECTS = {
 
   "not-the-end-of-the-world": {
     eyebrow: { ko: "공연 · 2026", en: "Performance · 2026" },
-    title: "세상의 종말이 (아닌)",
+    title: { ko: "세상의 종말이 (아닌)", en: "(Not) the End of the World" },
     credit: { ko: "크리스 부시 작 · 전윤환 연출 · 앤드씨어터", en: "Written by Chris Bush · Directed by Jeon Yoonhwan · A.N.D.Theatre" },
-    role: { label: { ko: "역할", en: "Role" }, text: "박지선 — 드라마투르그" },
+    role: { label: { ko: "역할", en: "Role" }, text: { ko: "박지선 — 드라마투르그", en: "Park Jisun — Dramaturg" } },
     back: { href: "now.html", ko: "← 지금", en: "← Now" },
 
     runs: {
@@ -347,9 +352,9 @@ const PROJECTS = {
 
   tnn: {
     eyebrow: "프로젝트 · 2024– · 아시아 네트워크",
-    title: "TNN — The Next Normal",
+    title: { ko: "TNN — The Next Normal", en: "TNN — The Next Normal" },
     credit: "다이얼로그 인 아시아(DIA) · 9개 지역 파트너",
-    role: { label: { ko: "역할", en: "Role" }, text: "박지선 — 기획 · 아시아 네트워크" },
+    role: { label: { ko: "역할", en: "Role" }, text: { ko: "박지선 — 기획 · 아시아 네트워크", en: "Park Jisun — Programming" } },
     back: { href: "now.html", ko: "← 지금", en: "← Now" },
 
     sections: [
@@ -397,9 +402,9 @@ const PROJECTS = {
 
   "dance-techlab": {
     eyebrow: "프로젝트 · 2021– · 국립현대무용단 공동 기획",
-    title: "무용 × 기술 창작 랩",
+    title: { ko: "무용 × 기술 창작 랩", en: "Dance × Technology Creative Lab" },
     credit: { ko: "국립현대무용단 공동 기획", en: "Co-programmed with the Korea National Contemporary Dance Company" },
-    role: { label: { ko: "역할", en: "Role" }, text: "박지선 — 총괄 기획" },
+    role: { label: { ko: "역할", en: "Role" }, text: { ko: "박지선 — 총괄 기획", en: "Park Jisun — Lead Programming" } },
     back: { href: "now.html", ko: "← 지금", en: "← Now" },
 
     sections: [
@@ -452,7 +457,7 @@ const PROJECTS = {
 
   "sync-de-sync": {
     eyebrow: { ko: "공연 · 2025–2026", en: "Performance · 2025–2026" },
-    title: "sync de sync 싱크 디 싱크",
+    title: { ko: "sync de sync 싱크 디 싱크", en: "sync de sync" },
     credit: { ko: "황수현 컨셉·안무 · 박지선 크리에이티브 프로듀서", en: "Concept and choreography by Hwang Soohyun · Creative producer Park Jisun" },
     back: { href: "now.html", ko: "← 지금", en: "← Now" },
 
@@ -557,9 +562,9 @@ const PROJECTS = {
 
   ganghwa: {
     eyebrow: { ko: "프로젝트 · 2025–2026 · 강화도", en: "Project · 2025–2026 · Ganghwa Island" },
-    title: "⬡⬡의 섬 : 강화도",
-    credit: { ko: "기획 · 앤드씨어터 × 프로듀서그룹도트 × 강화유니버스", en: "Curated by A.N.D.Theatre × Producer Group DOT × Ganghwa Universe" },
-    role: { label: { ko: "역할", en: "Role" }, text: { ko: "박지선 — 기획·프로듀서", en: "Park Jisun — Curator and Producer" } },
+    title: { ko: "⬡⬡의 섬 : 강화도", en: "Island of ⬡⬡ : Ganghwado" },
+    credit: { ko: "기획 · 앤드씨어터 × 프로듀서그룹도트 × 강화유니버스", en: "Organised by A.N.D.Theatre × Producer Group DOT × Ganghwa Universe" },
+    role: { label: { ko: "역할", en: "Role" }, text: { ko: "박지선 — 기획·프로듀서", en: "Park Jisun — Programming & Producing" } },
 
     /* 돌아가기 링크 */
     back: { href: "now.html", ko: "← 지금", en: "← Now" },
@@ -568,8 +573,8 @@ const PROJECTS = {
       {
         label: { ko: "개념", en: "Concept" },
         paras: [
-          { ko: "⬡⬡의 섬은 사라지는 것들에 대한 질문에서 시작한다. 예술가와 기획자, 시민들이 함께 '소멸'을 응시하고 그 자리에 시적인 공간을 만들어내는 프로젝트이다.", en: "The Island of ⬡⬡ begins with a question about the things that are vanishing. It is a project in which artists, curators and citizens look together at disappearance and make a poetic space where it has been." },
-          { ko: "2025-2026 ⬡⬡의 섬은 강화도이다. 2025년은 리서치 단계로 한국, 싱가포르, 이탈리아의 예술가·기획자가 강화도에 모였다. 강화도의 길을 걷고, 역사적·문화적 장소를 방문하고, 사람들을 만나다 보니, 그 과정에서 강화의 시간과 자연이 몸에 스며들었고, 각자의 방식으로 '여기서 무엇이 사라지고 있는가'를 감각하기 시작했다.", en: "For 2025–2026, the Island of ⬡⬡ is Ganghwa. 2025 was the research phase, when artists and curators from Korea, Singapore and Italy gathered on the island. Walking its roads, visiting historical and cultural sites, meeting its people — Ganghwa's time and nature seeped into the body, and each began, in their own way, to sense what is disappearing here." },
+          { ko: "⬡⬡의 섬은 사라지는 것들에 대한 질문에서 시작한다. 예술가와 기획자, 시민들이 함께 '소멸'을 응시하고 그 자리에 시적인 공간을 만들어내는 프로젝트이다.", en: "The Island of ⬡⬡ begins with a question about the things that are vanishing. It is a project in which artists, producers and citizens look together at disappearance and make a poetic space where it has been." },
+          { ko: "2025-2026 ⬡⬡의 섬은 강화도이다. 2025년은 리서치 단계로 한국, 싱가포르, 이탈리아의 예술가·기획자가 강화도에 모였다. 강화도의 길을 걷고, 역사적·문화적 장소를 방문하고, 사람들을 만나다 보니, 그 과정에서 강화의 시간과 자연이 몸에 스며들었고, 각자의 방식으로 '여기서 무엇이 사라지고 있는가'를 감각하기 시작했다.", en: "For 2025–2026, the Island of ⬡⬡ is Ganghwado. 2025 was the research phase, when artists and producers from Korea, Singapore and Italy gathered on the island. Walking its roads, visiting historical and cultural sites, meeting its people — Ganghwa's time and nature seeped into the body, and each began, in their own way, to sense what is disappearing here." },
           { ko: "⬡⬡의 섬의 두 개의 육각형은 프로젝트의 상징이다. 육각형은 서로 맞물리면서 새로운 공간과 구조를 만들어내는 형태로, 이는 개개인의 섬이 서로 연결되어 새로운 공동의 세계를 형성하는 과정을 의미한다. 즉, 각각의 육각형은 '나의 섬'이자 '우리의 섬'이며, 이들이 모여 만들어지는 새로운 공간은 예술을 통해 서로의 존재를 인식하고 확장하는 장이 된다.", en: "The two hexagons of the Island of ⬡⬡ are the project's emblem. Hexagons interlock to make new spaces and structures — the figure of individual islands connecting to form a shared world. Each hexagon is at once \"my island\" and \"our island,\" and the space they make together becomes a place where, through art, we recognise and extend one another's existence." },
           { ko: "'소멸'은 기후위기와 함께 '멸종'이라는 단어와 연결된다. 국가의 존속, 경제 성장과 연결해서는 '지역 소멸'로 연결된다. 生과 연결한다면 '소멸'은 '자연스러움'으로 연결된다.", en: "Set beside the climate crisis, disappearance reaches towards the word extinction. Set beside the survival of a nation and the demands of economic growth, it becomes the disappearance of whole regions. Set beside life itself, disappearance becomes something natural." },
           { ko: "그러나 ⬡⬡의 섬이 바라보는 '소멸'은 두려움이 아닌, 다시 관계 맺기 위한 시작의 순간으로 바라본다. 사라지는 것들의 자취를 따라가며, 그 속에서 새로 태어나는 감각과 언어를 예술의 시각과 감각으로 포획하고 기록하고 공유하며, 사라짐의 공간에 예술적·시적 상상의 공간을 만들어내고자 한다.", en: "But the disappearance the Island of ⬡⬡ looks at is not a thing to fear: it is the opening moment of relation being made again. Following the traces of what is going, we want to catch, record and share — through the eye and the senses of art — the sensations and language being newly born there, and to make a space of artistic and poetic imagination where disappearance has left room." },
@@ -579,7 +584,7 @@ const PROJECTS = {
       {
         label: { ko: "2025 리서치 · 주제 “소멸”", en: "2025 Research · “Disappearance”" },
         paras: [
-          { ko: "'소멸'은 단순히 사라짐이 아니라, 변화의 한 형태이자 다시 태어남의 가능성을 품은 개념으로, 강화도의 시간과 사람, 그리고 자연을 통해 탐구하고자 했다. 강화 안팎의 예술가·기획자·연구자, 그리고 강화에 거주하는 사람들이 모여 '소멸을 어떻게 해석할 수 있을까', '강화에서 우리는 소멸과 관련해 무엇을 발견할 수 있을까'라는 질문을 중심으로 대화를 이어갔다.", en: "Disappearance is not simply a going-away but a form of change, a concept holding the possibility of being born again — and we set out to explore it through Ganghwa's time, its people and its nature. Artists, curators and researchers from on and off the island, together with people who live on Ganghwa, gathered around two questions: how might we read disappearance, and what can we find here on Ganghwa that bears on it?" },
+          { ko: "'소멸'은 단순히 사라짐이 아니라, 변화의 한 형태이자 다시 태어남의 가능성을 품은 개념으로, 강화도의 시간과 사람, 그리고 자연을 통해 탐구하고자 했다. 강화 안팎의 예술가·기획자·연구자, 그리고 강화에 거주하는 사람들이 모여 '소멸을 어떻게 해석할 수 있을까', '강화에서 우리는 소멸과 관련해 무엇을 발견할 수 있을까'라는 질문을 중심으로 대화를 이어갔다.", en: "Disappearance is not simply a going-away but a form of change, a concept holding the possibility of being born again — and we set out to explore it through Ganghwa's time, its people and its nature. Artists, producers and researchers from on and off the island, together with people who live on Ganghwa, gathered around two questions: how might we read disappearance, and what can we find here on Ganghwa that bears on it?" },
           { ko: "2주 동안 강화도의 여러 지역을 걸으며, 강화의 사람들을 만나고 그들의 일상과 기억, 그리고 땅의 변화를 몸으로 체험했다. 이 과정에서 '소멸'은 단순한 부정의 언어가 아니라, 존재의 또 다른 방식, 관계의 재구성, 그리고 기억의 전승이라는 새로운 의미로 확장되었다.", en: "Over two weeks we walked through many parts of Ganghwa, meeting its people and experiencing in the body their daily lives, their memories and the changing of the land. In the process disappearance widened past being merely a word of negation into new meanings: another mode of existence, a reconfiguring of relations, and the passing on of memory." },
           { ko: "이 짧은 여정은 하나의 시작점이다. 참여자들은 각자의 삶으로 돌아가 올해의 시간을 되새기며, 내년에 다시 강화에서 모여 보다 확장된 관점으로 '소멸'을 이야기하고자 한다.", en: "This short journey is a starting point. Participants return to their own lives carrying this year with them, and will gather again on Ganghwa next year to speak of disappearance from a wider vantage." }
         ]
@@ -588,7 +593,7 @@ const PROJECTS = {
 
     /* 참가자 — name 은 이름, aff 는 소속(작게 표시) */
     participants: {
-      label: { ko: "참가자 · 2025년 9월 @강화도", en: "Participants · September 2025 @Ganghwa" },
+      label: { ko: "참가자 · 2025년 9월 @강화도", en: "Participants · September 2025 @Ganghwado" },
       lines: [
         { name: { ko: "박지선, 송미선", en: "Park Jisun, Song Miseon" }, aff: { ko: "프로듀서그룹도트", en: "Producer Group DOT" } },
         { name: { ko: "강윤민지, 권근영, 민재원, 전윤환, 조냇물", en: "Kang Yunminji, Kwon Keunyoung, Min Jaewon, Jeon Yoonhwan, Jo Naetmul" }, aff: { ko: "앤드씨어터", en: "A.N.D.Theatre" } },
@@ -596,6 +601,14 @@ const PROJECTS = {
         { name: { ko: "안나, 지오바니", en: "Anna, Giovanni" }, aff: { ko: "테아트린 게스타치오네, 이탈리아", en: "Teatringestazione, Italy" } },
         { name: { ko: "헝루운", en: "Heng Leun" }, aff: { ko: "드라마박스, 싱가포르", en: "Drama Box, Singapore" } },
         { name: { ko: "츄 쇼 엔", en: "Chew Shaw En" }, aff: { ko: "싱가포르", en: "Singapore" } }
+      ]
+    },
+
+    credits: {
+      label: { ko: "정보", en: "Info" },
+      rows: [
+        [{ ko: "장소", en: "Place" }, { ko: "강화도", en: "Ganghwado" }],
+        [{ ko: "기간", en: "Period" }, { ko: "2025–2026", en: "2025–2026" }]
       ]
     },
 
@@ -649,8 +662,8 @@ const PROJECTS = {
 
   aesthethics: {
     eyebrow: "프로젝트 · 2024– · 도르트문트 · 서울",
-    title: "Aesth:ethics",
-    credit: "도르트문트 연극·디지털리티 아카데미 × 프로듀서그룹 도트",
+    title: { ko: "Aesth:ethics", en: "Aesth:ethics" },
+    credit: { ko: "글로벌 코드, 인공지능, 그리고 공연예술을 탐색하다", en: "Exploring Global Codes, Artificial Intelligence, and Performing Arts" },
     role: { label: { ko: "역할", en: "Role" },
             text: { ko: "박지선 — 기획. 도르트문트 아카데미와 함께 프로젝트를 기획하고 있습니다.",
                     en: "Park Jisun — Concept & Planning. Developing the project together with the Academy for Theatre and Digitality." } },
@@ -660,12 +673,10 @@ const PROJECTS = {
       {
         label: { ko: "소개", en: "About" },
         paras: [
-          "도르트문트 연극 및 디지털리티 아카데미와 프로듀서그룹 도트의 공동 협력 프로젝트다. 2024년 시작해, 2026년은 리서치 해이다.",
-          { ko: "'Aesth:ethics'의 첫 단계에서는 협력을 위한 로드맵을 설계하고, 향후 선보일 연극 공연 프로그램의 구체적인 컨셉을 개발할 예정이다. 이 프로그램은 글로벌 기술 혁신 영역, 특히 인공지능의 활용과 그에 따른 윤리적 시사점들이 던지는 시급한 사회적 질문들을 다룬다.", en: "The first stage of Aesth:ethics will design a roadmap for the collaboration and develop the concrete concept for a theatre programme to come. That programme takes up the urgent social questions posed by the field of global technological innovation — above all the use of artificial intelligence and its ethical implications." },
-          "인공지능의 급격한 발전은 권력과 민주주의, 전쟁과 감시, 로봇 공학과 생명 공학에 대한 질문을 야기하며, 이는 오늘날 예술·사회·과학계 전반의 글로벌 거대 담론으로 부상하고 있다. 이러한 질문들은 미학적 혁신, 예술적·기술적 연구개발, 그리고 사회적 책임감을 결합하는 예술 제작의 출발점이 된다.",
-          "공동의 로드맵과 프로젝트 컨셉은 두 차례의 현지 대면 컨셉 워크숍을 통해 구체화된다. 1차 워크숍은 2026년 5월 3–9일 도르트문트에서, 2차 워크숍은 2026년 9월 29일–10월 3일 서울에서 진행된다. 각 도시에서는 ⑴ 크리에이티브 코딩 및 공연예술 ⑵ 과학 및 시민사회 ⑶ 연극 프로듀싱 및 지속가능성 분야의 지역·국가 전문가들을 초청해 자문을 구하고, 다른 문화적 배경을 가진 상대 국가의 동일 분야 전문가들을 온라인으로 연결해 다각도의 논의를 펼친다. 워크숍 이외의 실무 회의는 온라인으로 진행된다.",
-          "공연예술·시민사회·과학·지속가능성 분야의 지역 전문가들을 컨셉 개발 단계부터 적극적으로 참여시킴으로써, 양측의 파트너십을 위한 단단한 기초를 다지는 동시에 예술적 탁월함과 지속 가능한 실천이 구체적인 사회적 영향력으로 이어질 수 있는 공명의 장을 마련하고자 한다.",
-          "홍콩과 ACC(아시아문화전당)는 2027년부터 합류할 예정이다."
+          { ko: "〈Aesth:ethics〉는 도르트문트 연극 및 디지털리티 아카데미와 프로듀서그룹 도트의 공동 협력 프로젝트다. 2026년은 리서치의 해로, 협력을 위한 로드맵을 설계하고 향후 선보일 공연 프로그램의 구체적인 컨셉을 개발한다.", en: "Aesth:ethics is a collaboration between the Academy for Theatre and Digitality in Dortmund and Producer Group DOT in Seoul. 2026 is a year of research, in which a roadmap of collaboration and a concise concept for a future programme of theatre performances are developed." },
+          { ko: "이 프로그램은 글로벌 기술 혁신 영역, 특히 인공지능의 활용과 그에 따른 윤리적 시사점들이 던지는 시급한 사회적 질문들을 다룬다. 인공지능의 급격한 발전은 권력과 민주주의, 전쟁과 감시, 로봇 공학과 생명 공학에 대한 질문을 야기하며, 이는 오늘날 예술·사회·과학계 전반의 거대 담론으로 부상하고 있다. 이러한 질문들은 미학적 혁신, 예술적·기술적 연구개발, 그리고 사회적 책임감을 결합하는 예술 제작의 출발점이 된다.", en: "The programme addresses pressing social issues in the global field of technological innovation — in particular artificial intelligence, its use and its ethical implications. The rapid development of artificial intelligence raises questions about power and democracy, war and surveillance, robotics and biotechnology, which have become focal points of global discourse in the arts, society and the sciences. They form the starting point for artistic productions that combine aesthetic innovation with artistic and technical research and development, and with social responsibility." },
+          { ko: "공동의 로드맵과 프로젝트 컨셉은 두 차례의 대면 컨셉 워크숍을 통해 구체화된다. 각 도시에서는 크리에이티브 코딩 및 공연예술, 과학 및 시민사회, 연극 프로듀싱 및 지속가능성 분야의 지역·국가 전문가들을 초청해 자문을 구하고, 다른 문화적 배경을 가진 상대 국가의 같은 분야 전문가들을 온라인으로 연결해 다각도의 논의를 펼친다.", en: "The roadmap and the concept are developed primarily in two onsite concept workshops. In each city, regional and national experts are brought in as advisors from three fields — creative coding and performing arts; science and civil society; theatre producing and sustainability — while experts from the same fields in the other cultural context join online." },
+          { ko: "공연예술, 시민사회, 과학, 지속가능성 분야의 지역 전문가들을 컨셉 개발 단계부터 적극적으로 참여시킴으로써, 양측의 파트너십을 위한 단단한 기초를 다지는 동시에 예술적 탁월함과 지속 가능한 실천이 구체적인 사회적 영향력으로 이어질 수 있는 공명의 장을 마련하고자 한다.", en: "By actively involving regional experts from the performing arts, civil society, science and sustainability from the concept stage onward, the project builds a solid foundation for the partnership and, at the same time, a resonance space in which artistic excellence and sustainable action can have a concrete social impact." }
         ]
       },
       {
@@ -687,6 +698,7 @@ const PROJECTS = {
     credits: {
       label: { ko: "크레딧", en: "Credits" },
       rows: [
+        [{ ko: "파트너", en: "Partners" }, { ko: "도르트문트 연극·디지털리티 아카데미 × 프로듀서그룹 도트", en: "Academy for Theatre and Digitality × Producer Group DOT" }],
         [{ ko: "코어 프로젝트팀", en: "Core project team" }, { ko: "프로듀서그룹 도트 3인 · 도르트문트 아카데미 3인", en: "Three members each from DOT and the Academy" }],
         [{ ko: "자문 분야", en: "Advisory fields" }, { ko: "크리에이티브 코딩·공연예술 / 과학·시민사회 / 연극 프로듀싱·지속가능성", en: "Creative coding and performing arts / science and civil society / theatre producing and sustainability" }]
       ]

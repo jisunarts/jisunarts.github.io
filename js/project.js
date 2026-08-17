@@ -244,8 +244,11 @@
     html += '<section class="pj-section">' + head(p.participants.label) +
       '<ul class="pj-parts">' +
         p.participants.lines.map(function (l) {
-          return "<li>" + esc(l.name) +
-            (l.aff ? ' <span class="pj-aff">' + esc(l.aff) + "</span>" : "") + "</li>";
+          /* name·aff 는 문자열일 수도 { ko, en } 일 수도 있습니다.
+             객체를 그대로 찍으면 [object Object] 가 나오므로 bi()·koOf() 를 거칩니다. */
+          return "<li><span " + bi(l.name) + ">" + esc(koOf(l.name)) + "</span>" +
+            (l.aff ? ' <span class="pj-aff" ' + bi(l.aff) + ">" + esc(koOf(l.aff)) + "</span>" : "") +
+          "</li>";
         }).join("") +
       "</ul></section>";
   }

@@ -9,7 +9,7 @@ const SITE = {
   /* 이름 · 역할 -------------------------------------------------------- */
   name:  { ko: "박지선",  en: "Park Jisun" },
   role:  { ko: "크리에이티브 프로듀서 · 독립 기획자 · 리서처",
-           en: "Creative Producer · Independent Curator · Researcher" },
+           en: "Creative Producer · Independent Arts Programmer · Researcher" },
 
   /* 상단 메뉴 (순서대로 표시됩니다) ------------------------------------ */
   nav: [
