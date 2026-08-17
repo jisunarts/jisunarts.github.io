@@ -11,6 +11,7 @@
        Programming — 여러 작업·작가를 골라 프로그램을 구성하는 일
        Producing   — 하나의 작업을 실현시키는 일
        Planning    — 아직 없는 것을 설계하는 단계
+     · 기획·행정 = Planning & Producing (행정은 제작 일에 포함되는 것으로 봅니다)
    ========================================================================== */
 
 const PROJECTS = {
@@ -273,7 +274,6 @@ const PROJECTS = {
   "not-the-end-of-the-world": {
     eyebrow: { ko: "공연 · 2026", en: "Performance · 2026" },
     title: { ko: "세상의 종말이 (아닌)", en: "(Not) the End of the World" },
-    credit: { ko: "크리스 부시 작 · 전윤환 연출 · 앤드씨어터", en: "Written by Chris Bush · Directed by Jeon Yoonhwan · A.N.D.Theatre" },
     role: { label: { ko: "역할", en: "Role" }, text: { ko: "박지선 — 드라마투르그", en: "Park Jisun — Dramaturg" } },
     back: { href: "now.html", ko: "← 지금", en: "← Now" },
 
@@ -459,13 +459,13 @@ const PROJECTS = {
     eyebrow: { ko: "공연 · 2025–2026", en: "Performance · 2025–2026" },
     title: { ko: "sync de sync 싱크 디 싱크", en: "sync de sync" },
     credit: { ko: "황수현 컨셉·안무 · 박지선 크리에이티브 프로듀서", en: "Concept and choreography by Hwang Soohyun · Creative producer Park Jisun" },
-    back: { href: "now.html", ko: "← 지금", en: "← Now" },
+    back: { href: "now.html", ko: { ko: "← 지금", en: "← Now" }, en: "← Now" },
 
     /* 오른쪽 미디어 격자 — 4칸 기준, span 으로 폭을 정합니다
        { src, span, caption } · 영상은 { type:"video", src, span } */
     media: [
-      { src: "img/works/sync-poster-2026.png", span: 2, caption: "2026", alt: "sync de sync 2026 포스터" },
-      { src: "img/works/sync-poster-2025.png", span: 2, caption: "2025", alt: "sync de sync 2025 포스터" }
+      { src: "img/works/sync-poster-2026.png", span: 2, caption: "2026", alt: { ko: "sync de sync 2026 포스터", en: "sync de sync 2026 poster" } },
+      { src: "img/works/sync-poster-2025.png", span: 2, caption: "2025", alt: { ko: "sync de sync 2025 포스터", en: "sync de sync 2025 poster" } }
       /* TODO — 영상 주소가 생기면 아래 줄의 주석을 풀고 src 를 채우세요
       , { type: "video", span: 4, src: "https://www.youtube-nocookie.com/embed/영상아이디",
           watch: "https://youtu.be/영상아이디", caption: { ko: "트레일러", en: "Trailer" } } */
@@ -502,8 +502,8 @@ const PROJECTS = {
     runs: {
       label: { ko: "일정", en: "Schedule" },
       rows: [
-        { dates: "2025.8.14–16", time: "7:00pm", venue: "TINC (This is Not A Church)" },
-        { dates: "2026.7.16–19", time: "7:30pm", venue: "TINC (This is Not A Church)" }
+        { dates: { ko: "2025.8.14–16", en: "14–16 Aug 2025" }, time: "7:00pm", venue: { ko: "TINC (This is Not A Church)", en: "TINC (This is Not A Church)" } },
+        { dates: { ko: "2026.7.16–19", en: "16–19 Jul 2026" }, time: "7:30pm", venue: "TINC (This is Not A Church)" }
       ],
       note: { ko: "러닝타임 60분", en: "Running time 60 minutes" }
     },
@@ -513,7 +513,7 @@ const PROJECTS = {
         label: { ko: "작품 소개", en: "About the Work" },
         paras: [
           { ko: "조율되고 틀어지는 순간, 완전한 일치도 완전한 분리도 아닌 상태에서 작동하는 감각들을 따라간다.", en: "Following the senses as they work in the moment of tuning and slipping — neither wholly in unison nor wholly apart." },
-          "《sync de sync》는 조율되고 틀어지는 순간, 완전한 일치도 완전한 분리도 아닌 상태에서 작동하는 감각들을 따라간다. 말은 입술과 성대를 지나 소리와 진동으로 흩어지고, 움직임은 형태보다 몸을 통과한 파동과 질감으로 번진다. 빛과 어둠, 온도와 공기, 무대 안팎의 보이는 것들과 보이지 않는 것들은 서로 겹치고 스며들며 감각의 얽힘을 만든다. 그 얽힘은 공간의 밀도, 온도와 습도, 기운의 변화를 몸에 닿게 한다. 《sync de sync》는 고정되지 않는 주변 환경에 반응하며, 현재의 감각 안에 이미 도착한 변화를 더듬는다."
+          { ko: "《sync de sync》는 조율되고 틀어지는 순간, 완전한 일치도 완전한 분리도 아닌 상태에서 작동하는 감각들을 따라간다. 말은 입술과 성대를 지나 소리와 진동으로 흩어지고, 움직임은 형태보다 몸을 통과한 파동과 질감으로 번진다. 빛과 어둠, 온도와 공기, 무대 안팎의 보이는 것들과 보이지 않는 것들은 서로 겹치고 스며들며 감각의 얽힘을 만든다. 그 얽힘은 공간의 밀도, 온도와 습도, 기운의 변화를 몸에 닿게 한다. 《sync de sync》는 고정되지 않는 주변 환경에 반응하며, 현재의 감각 안에 이미 도착한 변화를 더듬는다.", en: "*sync de sync* follows the senses at work in the moment of tuning and slipping, in a state that is neither complete unison nor complete separation. Speech passes the lips and vocal cords and scatters into sound and vibration; movement spreads less as shape than as wave and texture passing through the body. Light and dark, temperature and air, the visible and invisible on and off stage overlap and seep into one another, making an entanglement of the senses. That entanglement brings the density of a space, its heat and humidity, its shifting energy into contact with the body. *sync de sync* responds to surroundings that never hold still, feeling for the change that has already arrived within present sensation." }
         ]
       }
     ],
@@ -521,26 +521,26 @@ const PROJECTS = {
     note: {
       label: { ko: "안무가 소개", en: "About the Choreographer" },
       paras: [
-        "황수현은 춤을 통해 몸이 세계와 관계 맺는 감각의 조건을 탐구한다. 그는 춤을 보여지는 형식이 아니라, 몸과 몸, 몸과 공간, 보이지 않는 것 사이에서 발생하는 경험의 구조로 다룬다. 호흡, 구음, 진동, 어둠, 미세한 운동감각과 같은 비가시적 요소를 주요한 재료로 안무한다. 《검정감각》, 《음------》, 《카베에》, 《Zzz》 등을 거치며 보는 중심의 관람을 흔들고, 서로 다른 몸들이 함께 감각하는 '공동'의 상태를 탐구해왔다. 최근에는 이러한 감각 경험을 가능하게 해온 방식이 고정된 구조로 굳어지는 순간을 경계하며, 몸이 환경과 새롭게 관계 맺을 수 있도록 안무를 다시 실험하고 있다."
+        { ko: "황수현은 춤을 통해 몸이 세계와 관계 맺는 감각의 조건을 탐구한다. 그는 춤을 보여지는 형식이 아니라, 몸과 몸, 몸과 공간, 보이지 않는 것 사이에서 발생하는 경험의 구조로 다룬다. 호흡, 구음, 진동, 어둠, 미세한 운동감각과 같은 비가시적 요소를 주요한 재료로 안무한다. 《검정감각》, 《음------》, 《카베에》, 《Zzz》 등을 거치며 보는 중심의 관람을 흔들고, 서로 다른 몸들이 함께 감각하는 '공동'의 상태를 탐구해왔다. 최근에는 이러한 감각 경험을 가능하게 해온 방식이 고정된 구조로 굳어지는 순간을 경계하며, 몸이 환경과 새롭게 관계 맺을 수 있도록 안무를 다시 실험하고 있다.", en: "Hwang Soohyun explores, through dance, the sensory conditions under which the body enters into relation with the world. She treats dance not as a form to be looked at but as a structure of experience arising between body and body, body and space, and the things that cannot be seen. She choreographs with invisible materials as her principal medium — breath, vocalisation, vibration, darkness, minute kinaesthetic sensation. Through 《Black Sense》, 《Eum ------》, 《caveae》 and 《Zzz》, she has unsettled sight-centred spectatorship and explored the 'common' state in which different bodies sense together. Recently she has been wary of the moment when the very methods that made such sensory experience possible harden into fixed structure, and is experimenting with choreography anew so that the body may enter into fresh relation with its environment." }
       ]
     },
 
     credits: {
       label: { ko: "크레딧", en: "Credits" },
       rows: [
-        ["컨셉, 안무", "황수현"],
-        ["리서치·출연", "정나원, 최승윤, 황수현"],
-        ["사운드 디자인", "홍초선"],
-        ["조명 디자인", "공연화"],
-        ["조명", "김인애, 오채은"],
-        ["영상", "윤재민(2025), 백종관(2026)"],
-        ["리허설 어시스턴트", "강호정"],
-        ["아웃사이드 아이", "손나예"],
-        ["크리에이티브 프로듀서", "박지선"],
-        ["기획·행정", "송미선"],
-        ["무대감독", "최진아(2025), 김세현(2026)"],
-        ["셋업 및 진행", "김지현, 김채민"],
-        ["그래픽 디자인", "홍소이"]
+        [{ ko: "컨셉, 안무", en: "Concept, Choreography" }, { ko: "황수현", en: "Hwang Soohyun" }],
+        [{ ko: "리서치·출연", en: "Research, Performance" }, { ko: "정나원, 최승윤, 황수현", en: "Jeong Nawon, Choi Seungyun, Hwang Soohyun" }],
+        [{ ko: "사운드 디자인", en: "Sound Design" }, { ko: "홍초선", en: "Hong Choseon" }],
+        [{ ko: "조명 디자인", en: "Lighting Design" }, { ko: "공연화", en: "Gong Yeonhwa" }],
+        [{ ko: "조명", en: "Lighting" }, { ko: "김인애, 오채은", en: "Kim Inae, Oh Chaeeun" }],
+        [{ ko: "영상", en: "Video" }, { ko: "윤재민(2025), 백종관(2026)", en: "Yoon Jaemin (2025), Baek Jongkwan (2026)" }],
+        [{ ko: "리허설 어시스턴트", en: "Rehearsal Assistant" }, { ko: "강호정", en: "Kang Hojung" }],
+        [{ ko: "아웃사이드 아이", en: "Outside Eye" }, { ko: "손나예", en: "Son Naye" }],
+        [{ ko: "크리에이티브 프로듀서", en: "Creative Producer" }, { ko: "박지선", en: "Park Jisun" }],
+        [{ ko: "기획·행정", en: "Planning & Producing" }, { ko: "송미선", en: "Song Miseon" }],
+        [{ ko: "무대감독", en: "Stage Manager" }, { ko: "최진아(2025), 김세현(2026)", en: "Choi Jina (2025), Kim Sehyun (2026)" }],
+        [{ ko: "셋업 및 진행", en: "Setup & Running Crew" }, { ko: "김지현, 김채민", en: "Kim Jihyun, Kim Chaemin" }],
+        [{ ko: "그래픽 디자인", en: "Graphic Design" }, { ko: "홍소이", en: "Hong Soi" }]
       ]
     },
 
@@ -552,8 +552,8 @@ const PROJECTS = {
     links: {
       label: { ko: "링크", en: "Links" },
       items: [
-        { ko: "프로그램북", en: "Programme", url: "http://soohyunhwang.com/syncdesync/" },
-        { ko: "웹 포토북", en: "Web Photobook", url: "https://jisunarts.github.io/syncdesync_photo" }
+        { ko: { ko: "프로그램북", en: "Programme Book" }, en: "Programme", url: "http://soohyunhwang.com/syncdesync/" },
+        { ko: { ko: "웹 포토북", en: "Web Photobook" }, en: "Web Photobook", url: "https://jisunarts.github.io/syncdesync_photo" }
       ]
     }
   },
@@ -596,7 +596,7 @@ const PROJECTS = {
       label: { ko: "참가자 · 2025년 9월 @강화도", en: "Participants · September 2025 @Ganghwado" },
       lines: [
         { name: { ko: "박지선, 송미선", en: "Park Jisun, Song Miseon" }, aff: { ko: "프로듀서그룹도트", en: "Producer Group DOT" } },
-        { name: { ko: "강윤민지, 권근영, 민재원, 전윤환, 조냇물", en: "Kang Yunminji, Kwon Keunyoung, Min Jaewon, Jeon Yoonhwan, Jo Naetmul" }, aff: { ko: "앤드씨어터", en: "A.N.D.Theatre" } },
+        { name: { ko: "강윤민지, 권근영, 민재원, 전윤환, 조냇물", en: "Kang Yunminji, Kwon Keunyoung, Min Jaewon, Jeon Yunhwan, Jo Naetmul" }, aff: { ko: "앤드씨어터", en: "A.N.D.Theatre" } },
         { name: { ko: "김나래, 이건희", en: "Kim Narae, Lee Gunhee" }, aff: { ko: "희와래 · 연리목", en: "Heewarae · Yonrimog" } },
         { name: { ko: "안나, 지오바니", en: "Anna, Giovanni" }, aff: { ko: "테아트린 게스타치오네, 이탈리아", en: "Teatringestazione, Italy" } },
         { name: { ko: "헝루운", en: "Heng Leun" }, aff: { ko: "드라마박스, 싱가포르", en: "Drama Box, Singapore" } },
