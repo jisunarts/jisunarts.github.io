@@ -15,7 +15,7 @@
 # 함께 바뀌는 것
 #   · 모든 *.html 의 og:url · og:image · twitter:image · canonical
 #   · data/site.js 의 SITE.baseUrl   (사이트 안에서 주소가 필요할 때 쓰는 값)
-#   · sitemap.xml 의 모든 <loc>
+#   · sitemap.xml 의 모든 <loc> · robots.txt 의 Sitemap 줄
 #   · 이 파일의 CURRENT
 #
 # 커스텀 도메인을 붙일 때는 CNAME 파일도 함께 만들어야 합니다.
@@ -42,7 +42,7 @@ cd "$(dirname "$0")/.." || exit 1
 
 n=0
 for f in $(find . -name '*.html' -not -path './.git/*' -not -path './data/*') \
-         data/site.js sitemap.xml tools/set-domain.sh; do
+         data/site.js sitemap.xml robots.txt tools/set-domain.sh; do
   [ -f "$f" ] || continue
   if grep -q "$CURRENT" "$f" 2>/dev/null; then
     # | 를 구분자로 써서 주소 안의 / 를 이스케이프하지 않아도 되게 합니다

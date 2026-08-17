@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="no-cache">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>찾는 페이지가 없습니다 — 박지선 Park Jisun</title>
+
+<!-- 없는 주소는 색인에 들어가면 안 됩니다 -->
+<meta name="robots" content="noindex, follow">
+<meta name="description" content="찾는 페이지가 없습니다. 주소가 바뀌었거나 지워진 페이지일 수 있습니다.">
+
+<!-- 이 페이지만 경로를 / 로 시작합니다.
+     깃허브 페이지스는 없는 주소면 깊이에 상관없이 이 파일 하나를 돌려줍니다.
+     그런데 브라우저는 상대 경로를 '요청한 주소' 기준으로 풉니다 —
+     /projects/없는페이지.html 로 들어오면 css/style.css 가
+     /projects/css/style.css 로 읽혀 화면이 깨집니다.
+     그래서 여기서는 스타일·스크립트·메뉴 링크를 모두 절대 경로로 씁니다. -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/wanted-sans@1.0.3/fonts/webfonts/variable/split/WantedSansVariable.css">
+<link rel="stylesheet" href="/css/style.css?v=20260817a">
+</head>
+
+<!-- data-base="/" 덕분에 js/layout.js 가 메뉴 링크를 /now.html 처럼 만듭니다 -->
+<body data-page="404" data-base="/">
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <h1 data-ko="찾는 페이지가 없습니다" data-en="Page not found">찾는 페이지가 없습니다</h1>
+      <p class="page-sub"
+         data-ko="주소가 바뀌었거나 지워진 페이지일 수 있습니다."
+         data-en="The address may have changed, or the page may no longer exist.">
+        주소가 바뀌었거나 지워진 페이지일 수 있습니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <p class="read-missing">
+      <a class="tlink" href="/" data-ko="홈으로 돌아가기" data-en="Back to home">홈으로 돌아가기</a>
+    </p>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="/data/site.js?v=20260817a"></script>
+<script src="/js/layout.js?v=20260817a"></script>
+<!-- 언어 전환은 항상 마지막 -->
+<script src="/js/i18n.js?v=20260817a"></script>
+</body>
+</html>

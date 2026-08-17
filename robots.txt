@@ -1,0 +1,9 @@
+# 검색 노출을 허용합니다.
+User-agent: *
+Allow: /
+
+# 시안·작업 파일은 색인에서 빼 둡니다
+Disallow: /data/documents-mock.html
+Disallow: /img/_archive/
+
+Sitemap: https://jisunarts.github.io/sitemap.xml

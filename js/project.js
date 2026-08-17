@@ -44,7 +44,8 @@
   const p = PROJECTS[slug];
 
   if (!p) {
-    mount.innerHTML = '<p class="read-missing">프로젝트를 찾을 수 없습니다.</p>';
+    mount.innerHTML = '<p class="read-missing" data-ko="프로젝트를 찾을 수 없습니다." ' +
+      'data-en="Project not found.">프로젝트를 찾을 수 없습니다.</p>';
     return;
   }
 
