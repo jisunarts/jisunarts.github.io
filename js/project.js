@@ -320,7 +320,7 @@
     return '<section class="pj-section pj-photos" data-slides="' + id + '">' +
       '<button type="button" class="pj-photos-toggle" data-photos-toggle ' +
         'aria-expanded="false">' +
-        "<span>" + esc(label) + "</span>" +
+        "<span " + bi(label) + ">" + esc(koOf(label)) + "</span>" +
         '<span class="tnum"> (' + list.length + ")</span>" +
         '<span class="pj-toggle-mark" aria-hidden="true">+</span>' +
       "</button>" +
@@ -352,7 +352,7 @@
   let galleryHtml = "";
   const spannedPhotos = spanned.filter(function (m) { return m.type !== "video"; }).length;
   if (gallery.length > spannedPhotos) {
-    galleryHtml = slideBlock("all", "사진 전체 보기", gallery,
+    galleryHtml = slideBlock("all", { ko: "사진 전체 보기", en: "See all photos" }, gallery,
                              photoData.filter(function (m) { return m.type !== "video" && m.src; })) +
       (photoCredit ? '<p class="pj-photo-credit">' + esc(photoCredit) + "</p>" : "");
   }
@@ -380,7 +380,8 @@
           (ed.video ? videoCell(ed.video, 4, ed.year + " 기록 영상", ed.poster) : "") +
           grid +
         "</ul>" +
-        (all.length ? slideBlock("y" + ed.year, ed.year + " 사진 전체 보기", all) : "") +
+        (all.length ? slideBlock("y" + ed.year,
+            { ko: ed.year + " 사진 전체 보기", en: "See all photos, " + ed.year }, all) : "") +
       "</section>";
     }).join("");
 

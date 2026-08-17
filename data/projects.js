@@ -58,14 +58,18 @@ const PROJECTS = {
       label: { ko: "캠프 연혁", en: "Camp Editions" },
       rows: [
         { year: "2014", place: { ko: "한국 서울", en: "Seoul, Korea" } },
-        { year: "2015", place: { ko: "대만", en: "Taiwan" } },
-        { year: "2016", place: { ko: "일본 도쿄", en: "Tokyo, Japan" } },
-        { year: "2017", place: { ko: "호주", en: "Australia" } },
-        { year: "2018", place: { ko: "인도네시아", en: "Indonesia" } },
-        { year: "2019", place: { ko: "홍콩 · 웨강아오 대만구", en: "Hong Kong · Greater Bay Area" } },
-        { year: "2020–2022", place: { ko: "팬데믹으로 대면 활동 중단, 온라인 프로그램 진행", en: "In-person activity suspended due to the pandemic; programme held online" } },
-        { year: "2023", place: { ko: "태국", en: "Thailand" } },
-        { year: "2024", place: { ko: "말레이시아", en: "Malaysia" } }
+        { year: "2015", place: { ko: "대만 타이베이, 이란", en: "Taipei, Yilan, Taiwan" } },
+        { year: "2016", place: { ko: "일본 도쿄, 시즈오카", en: "Tokyo, Shizuoka, Japan" } },
+        { year: "2017", place: { ko: "호주 멜버른", en: "Melbourne, Australia" } },
+        { year: "2018", place: { ko: "인도네시아 자카르타, 족자카르타", en: "Jakarta, Yogyakarta, Indonesia" } },
+        { year: "2019", place: { ko: "홍콩, 광저우, 마카오", en: "Hong Kong, Guangzhou, Macao" } },
+        { year: "2020–2022", place: { ko: "팬데믹으로 대면 캠프 중단, 온라인 리서치 진행", en: "In-person camps suspended during the pandemic; research continued online" } },
+        { year: "2022", place: { ko: "VR3 — 아시아 프로듀서 플랫폼 온라인 포럼", en: "VR3 — Asian Producers' Platform Online Forum" } },
+        { year: "2023", place: { ko: "태국 방콕, 치앙마이", en: "Bangkok, Chiang Mai, Thailand" } },
+        { year: "2024", place: { ko: "말레이시아 쿠알라룸푸르, 페낭", en: "Kuala Lumpur, Penang, Malaysia" } },
+        { year: "2025", place: { ko: "대만 타이둥, 일본 오키나와", en: "Taitung, Taiwan · Okinawa, Japan" } }
+      
+      
       ],
       note: { ko: "초기 네 번의 캠프(2014 · 2015 · 2016 · 2017)는 한국 · 대만 · 일본 · 호주의 민관 협력으로 운영되었고, APP 기획팀이 각 지역의 재단 · 기관 · 극장과 함께 제작했다. 2018년 APP는 더 유연한 모델로 전환해, 캠프를 아시아의 더 넓은 지역에서 열기 시작했다.", en: "The first four camps (2014, 2015, 2016, 2017) were run through public–private cooperation across Korea, Taiwan, Japan and Australia, produced by the APP programming team together with foundations, institutions and theatres in each region. In 2018 APP moved to a more flexible model and began holding camps across a wider part of Asia." }
     },
@@ -94,10 +98,10 @@ const PROJECTS = {
     credits: {
       label: { ko: "창립과 협력", en: "Founding & Partners" },
       rows: [
-        ["호주", "Performing Lines, Live Performance Australia"],
-        ["일본", "국제교류기금(The Japan Foundation), ONPAM"],
-        ["한국", "더프로듀서추진단, 프로듀서그룹 도트, 한국문화예술위원회"],
-        ["대만", "National Culture & Arts Foundation, PAA"]
+        [{ ko: "호주", en: "Australia" }, "Performing Lines, Live Performance Australia"],
+        [{ ko: "일본", en: "Japan" }, { ko: "국제교류기금(The Japan Foundation), ONPAM", en: "The Japan Foundation, ONPAM" }],
+        [{ ko: "한국", en: "Korea" }, { ko: "더프로듀서추진단, 프로듀서그룹 도트, 한국문화예술위원회", en: "The Steering Committee for the Producer, Producer Group DOT, Arts Council Korea" }],
+        [{ ko: "대만", en: "Taiwan" }, "National Culture & Arts Foundation, PAA"]
       ]
     },
 
