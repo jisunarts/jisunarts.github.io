@@ -31,7 +31,7 @@
     const kind = KIND[it.kind];
 
     const label = kind
-      ? '<span class="wr-kind" ' + bi(kind) + ">" + esc(kind.ko) + "</span>"
+      ? '<span class="wr-kind" ' + bi(kind) + ">" + esc(koOf(kind)) + "</span>"
       : "";
 
     const mark = (it.kind !== "full" && it.url)
@@ -49,7 +49,7 @@
       '<span class="wr-date tnum">' + esc(it.date) + "</span>" +
       '<span class="wr-media" ' + bi(it.media) + ">" + esc(koOf(it.media)) + "</span>" +
       '<span class="wr-title-cell">' +
-        '<span class="wr-title" ' + bi(title) + ">" + esc(title.ko) + "</span>" +
+        '<span class="wr-title" ' + bi(title) + ">" + esc(koOf(title)) + "</span>" +
         mark + orig + label +
       "</span>";
 

@@ -31,7 +31,7 @@
 
   const back = PHOTOBOOK.back
     ? '<a class="pb-back" href="' + esc(PHOTOBOOK.back.href) + '" ' + bi(PHOTOBOOK.back) + ">" +
-        esc(PHOTOBOOK.back.ko) + "</a>"
+        esc(koOf(PHOTOBOOK.back)) + "</a>"
     : "";
 
   strip.innerHTML =

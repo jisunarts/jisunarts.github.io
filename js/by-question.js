@@ -159,7 +159,7 @@
     const label = labelOf(tag);
     return '<button type="button" class="qb-tag" ' +
       'data-tag="' + esc(tag) + '" aria-pressed="false">' +
-      "<span " + bi(label) + ">" + esc(label.ko) + "</span>" +
+      "<span " + bi(label) + ">" + esc(koOf(label)) + "</span>" +
       '<span class="qb-tag-n tnum">' + counts[tag] + "</span>" +
     "</button>";
   }).join("");
@@ -189,14 +189,14 @@
 
       return '<section class="qb-group">' +
         '<h3 class="qb-group-title">' +
-          "<span " + bi(SOURCE[key]) + ">" + esc(SOURCE[key].ko) + "</span>" +
+          "<span " + bi(SOURCE[key]) + ">" + esc(koOf(SOURCE[key])) + "</span>" +
           '<span class="meta tnum">' + rows.length + "</span>" +
         "</h3>" +
         '<ul class="qb-list">' + rows.map(function (it) {
           const cells =
-            '<span class="qb-title" ' + bi(it.title) + ">" + esc(it.title.ko) + "</span>" +
+            '<span class="qb-title" ' + bi(it.title) + ">" + esc(koOf(it.title)) + "</span>" +
             (it.url && it.external ? '<span class="qb-arrow" aria-hidden="true">↗</span>' : "") +
-            '<span class="qb-kind" ' + bi(SOURCE[it.source]) + ">" + esc(SOURCE[it.source].ko) + "</span>" +
+            '<span class="qb-kind" ' + bi(SOURCE[it.source]) + ">" + esc(koOf(SOURCE[it.source])) + "</span>" +
             '<span class="qb-meta" ' + bi(it.meta) + ">" + esc(koOf(it.meta)) + "</span>";
 
           if (!it.url) return '<li class="qb-item"><div class="qb-row is-plain">' + cells + "</div></li>";
@@ -209,7 +209,7 @@
 
     result.innerHTML =
       '<div class="qb-question">' +
-        '<p class="meta"><span ' + bi(label) + ">" + esc(label.ko) + "</span>" +
+        '<p class="meta"><span ' + bi(label) + ">" + esc(koOf(label)) + "</span>" +
           '<span class="qb-total tnum"> · ' + picked.length + "</span></p>" +
         "<h2 " + bi(question || label) + ">" +
           esc((question || label).ko) + "</h2>" +

@@ -88,7 +88,7 @@
 
   /* 소제목 한 줄 */
   function head(label) {
-    return '<h2 class="pj-label" ' + bi(label) + ">" + esc(label.ko) + "</h2>";
+    return '<h2 class="pj-label" ' + bi(label) + ">" + esc(koOf(label)) + "</h2>";
   }
 
   let html = "";
@@ -98,14 +98,14 @@
     '<header class="pj-head">' +
       (p.back
         ? '<p><a class="pj-back" href="' + BASE + esc(p.back.href) + '" ' + bi(p.back) + ">" +
-            esc(p.back.ko) + "</a></p>"
+            esc(koOf(p.back)) + "</a></p>"
         : "") +
       '<p class="pj-eyebrow" ' + bi(p.eyebrow) + ">" + esc(koOf(p.eyebrow)) + "</p>" +
       "<h1 " + bi(p.title) + ">" + esc(koOf(p.title)) + "</h1>" +
       (p.credit ? '<p class="pj-credit" ' + bi(p.credit) + ">" + esc(koOf(p.credit)) + "</p>" : "") +
       (p.role
         ? '<p class="pj-role"><span class="pj-role-label" ' + bi(p.role.label) + ">" +
-            esc(p.role.label.ko) + "</span>" +
+            esc(koOf(p.role.label)) + "</span>" +
             "<span " + bi(p.role.text) + ">" + esc(koOf(p.role.text)) + "</span></p>"
         : "") +
     "</header>";
@@ -225,7 +225,7 @@
   notes.forEach(function (n) {
     html += '<section class="pj-section">' +
       Accordion.block(
-        '<span class="pj-label-inline" ' + bi(n.label) + ">" + esc(n.label.ko) + "</span>",
+        '<span class="pj-label-inline" ' + bi(n.label) + ">" + esc(koOf(n.label)) + "</span>",
         '<div class="pj-body">' +
           n.paras.map(function (t) { return "<p " + bi(t) + ">" + esc(koOf(t)) + "</p>"; }).join("") +
         "</div>") +
@@ -236,7 +236,7 @@
   if (p.credits && p.credits.rows && p.credits.rows.length) {
     html += '<section class="pj-section">' +
       Accordion.block(
-        '<span class="pj-label-inline" ' + bi(p.credits.label) + ">" + esc(p.credits.label.ko) + "</span>",
+        '<span class="pj-label-inline" ' + bi(p.credits.label) + ">" + esc(koOf(p.credits.label)) + "</span>",
         '<ul class="pj-credits">' +
           p.credits.rows.map(function (r) {
             return "<li><span class=\"pj-credit-role\" " + bi(r[0]) + ">" + esc(koOf(r[0])) +
@@ -308,7 +308,7 @@
           const inside = !/^(https?:|mailto:)/.test(l.url);
           return '<a href="' + (inside ? BASE : "") + esc(l.url) + '"' +
             (inside ? "" : ' target="_blank" rel="noopener"') + " " + bi(l) + ">" +
-            esc(l.ko) + "</a>";
+            esc(koOf(l)) + "</a>";
         }).join("") +
       "</div></section>";
   }
@@ -402,7 +402,7 @@
         p.tags.map(function (t) {
           const label = (typeof tagLabel === "function") ? tagLabel(t) : { ko: t, en: t };
           return '<a class="qb-tag" href="' + BASE + "by-question.html?tag=" +
-            encodeURIComponent(t) + '" ' + bi(label) + ">" + esc(label.ko) + "</a>";
+            encodeURIComponent(t) + '" ' + bi(label) + ">" + esc(koOf(label)) + "</a>";
         }).join("") +
       "</div></section>";
   }

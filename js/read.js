@@ -43,7 +43,7 @@
       '<p class="meta"><a class="read-back" href="writing.html" ' +
         'data-ko="← 글" data-en="← Writing">← 글</a></p>' +
       "<h1 " + bi(doc.title) + ">" + esc(koOf(doc.title)) + "</h1>" +
-      '<p class="read-meta" ' + bi(metaPair) + ">" + esc(metaPair.ko) + "</p>" +
+      '<p class="read-meta" ' + bi(metaPair) + ">" + esc(koOf(metaPair)) + "</p>" +
     "</header>" +
 
     '<div class="read-body">' + body + "</div>" +

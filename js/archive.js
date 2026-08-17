@@ -138,7 +138,7 @@
         en: period.years.replace("현재", "Present") + " · " + period.title_en
       };
       bar.innerHTML =
-        '<span class="cat-filter-label" ' + bi(label) + ">" + esc(label.ko) + "</span>" +
+        '<span class="cat-filter-label" ' + bi(label) + ">" + esc(koOf(label)) + "</span>" +
         '<a class="cat-filter-clear" href="archive.html" ' +
           'data-ko="× 전체 보기" data-en="× See all">× 전체 보기</a>';
       bar.hidden = false;
@@ -151,7 +151,7 @@
   mount.innerHTML = groups.map(function (g) {
     return '<section class="cat-group">' +
       '<h2 class="cat-group-title">' +
-        "<span " + bi(g.type) + ">" + esc(g.type.ko) + "</span>" +
+        "<span " + bi(g.type) + ">" + esc(koOf(g.type)) + "</span>" +
         '<span class="meta tnum">' + g.rows.length + "</span>" +
       "</h2>" +
       '<ul class="cat">' + g.rows.map(renderRow).join("") + "</ul>" +

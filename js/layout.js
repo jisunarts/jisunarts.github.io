@@ -77,7 +77,7 @@ function catLabel(v) { return CATEGORY[v] || v; }
 
   const links = SITE.nav.map(function (item) {
     const active = item.id === current ? ' aria-current="page"' : "";
-    return '<a href="' + BASE + esc(item.href) + '"' + active + " " + bi(item) + ">" + esc(item.ko) + "</a>";
+    return '<a href="' + BASE + esc(item.href) + '"' + active + " " + bi(item) + ">" + esc(koOf(item)) + "</a>";
   }).join("");
 
   mount.outerHTML =
@@ -183,7 +183,7 @@ function catLabel(v) { return CATEGORY[v] || v; }
   if (!mount) return;
 
   const links = SITE.nav.map(function (item) {
-    return '<a href="' + BASE + esc(item.href) + '" ' + bi(item) + ">" + esc(item.ko) + "</a>";
+    return '<a href="' + BASE + esc(item.href) + '" ' + bi(item) + ">" + esc(koOf(item)) + "</a>";
   }).join("");
 
   const contacts = (SITE.footer.contact || []).map(function (c) {
@@ -194,7 +194,7 @@ function catLabel(v) { return CATEGORY[v] || v; }
     '<footer class="site-footer">' +
       '<div class="wrap footer-inner">' +
         '<nav class="footer-nav" aria-label="아래 메뉴">' + links + contacts + "</nav>" +
-        '<p class="footer-copy" ' + bi(SITE.footer.copy) + ">" + esc(SITE.footer.copy.ko) + "</p>" +
+        '<p class="footer-copy" ' + bi(SITE.footer.copy) + ">" + esc(koOf(SITE.footer.copy)) + "</p>" +
       "</div>" +
     "</footer>";
 })();

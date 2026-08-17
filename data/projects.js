@@ -291,7 +291,7 @@ const PROJECTS = {
     title: { ko: "세상의 종말이 (아닌)", en: "(Not) the End of the World" },
     credit: { ko: "크리스 부시 작 · 전윤환 연출 · 앤드씨어터", en: "Written by Chris Bush · Directed by Jeon Yunhwan · A.N.D.Theatre" },
     role: { label: { ko: "역할", en: "Role" }, text: { ko: "박지선 — 드라마투르그", en: "Park Jisun — Dramaturg" } },
-    back: { href: "now.html", ko: { ko: "← 지금", en: "← Now" }, en: "← Now" },
+    back: { href: "now.html", ko: "← 지금", en: "← Now" },
 
     runs: {
       label: { ko: "일정", en: "Schedule" },
@@ -480,7 +480,7 @@ const PROJECTS = {
     eyebrow: { ko: "공연 · 2025–2026", en: "Performance · 2025–2026" },
     title: { ko: "sync de sync 싱크 디 싱크", en: "sync de sync" },
     credit: { ko: "황수현 컨셉·안무 · 박지선 크리에이티브 프로듀서", en: "Concept and choreography by Hwang Soohyun · Creative producer Park Jisun" },
-    back: { href: "now.html", ko: { ko: "← 지금", en: "← Now" }, en: "← Now" },
+    back: { href: "now.html", ko: "← 지금", en: "← Now" },
 
     /* 오른쪽 미디어 격자 — 4칸 기준, span 으로 폭을 정합니다
        { src, span, caption } · 영상은 { type:"video", src, span } */
@@ -573,8 +573,8 @@ const PROJECTS = {
     links: {
       label: { ko: "링크", en: "Links" },
       items: [
-        { ko: { ko: "프로그램북", en: "Programme Book" }, en: "Programme", url: "http://soohyunhwang.com/syncdesync/" },
-        { ko: { ko: "웹 포토북", en: "Web Photobook" }, en: "Web Photobook", url: "https://jisunarts.github.io/syncdesync_photo" }
+        { ko: "프로그램북", en: "Programme Book", url: "http://soohyunhwang.com/syncdesync/" },
+        { ko: "웹 포토북", en: "Web Photobook", url: "https://jisunarts.github.io/syncdesync_photo" }
       ]
     }
   },

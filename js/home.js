@@ -69,7 +69,7 @@
 
     mount.innerHTML =
       '<h1 class="home-name">' +
-        '<span class="home-name-ko">' + esc(SITE.name.ko) + "</span>" +
+        '<span class="home-name-ko">' + esc(koOf(SITE.name)) + "</span>" +
         '<span class="home-name-en">' + esc(SITE.name.en) + "</span>" +
       "</h1>" +
       '<p class="home-line" ' + bi(SITE.hero.tagline) + ">" +

@@ -60,10 +60,10 @@
     const hasGallery = Boolean(p.images && p.images.length);
 
     const badge = p.page
-      ? '<span class="ph-badge" ' + bi(BADGE.book) + ">" + esc(BADGE.book.ko) + "</span>"
+      ? '<span class="ph-badge" ' + bi(BADGE.book) + ">" + esc(koOf(BADGE.book)) + "</span>"
       : (hasGallery
-        ? '<span class="ph-badge" ' + bi(BADGE.gallery) + ">" + esc(BADGE.gallery.ko) + "</span>"
-        : (p.link ? '<span class="ph-badge" ' + bi(BADGE.link) + ">" + esc(BADGE.link.ko) + "</span>" : ""));
+        ? '<span class="ph-badge" ' + bi(BADGE.gallery) + ">" + esc(koOf(BADGE.gallery)) + "</span>"
+        : (p.link ? '<span class="ph-badge" ' + bi(BADGE.link) + ">" + esc(koOf(BADGE.link)) + "</span>" : ""));
 
     const count = hasGallery
       ? '<span class="ph-count tnum">' + p.images.length + "</span>"
