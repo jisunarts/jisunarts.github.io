@@ -47,7 +47,7 @@
 
     const cells =
       '<span class="wr-date tnum">' + esc(it.date) + "</span>" +
-      '<span class="wr-media">' + esc(it.media) + "</span>" +
+      '<span class="wr-media" ' + bi(it.media) + ">" + esc(koOf(it.media)) + "</span>" +
       '<span class="wr-title-cell">' +
         '<span class="wr-title" ' + bi(title) + ">" + esc(title.ko) + "</span>" +
         mark + orig + label +

@@ -403,7 +403,7 @@ const PROJECTS = {
       label: { ko: "사진", en: "Photographs" },
       dir: "img/works/TNN/",
       items: [
-        { type: "video", id: "sbUxGuR3LCA", poster: "img/works/TNN/video-cover-web.jpg", span: 4, caption: { ko: "다이얼로그 인 아시아(DIA) 포럼", en: "Dialogue in Asia (DIA) Forum" } },
+        { type: "video", id: "sbUxGuR3LCA", poster: "img/works/TNN/video-cover.webp", span: 4, caption: { ko: "다이얼로그 인 아시아(DIA) 포럼", en: "Dialogue in Asia (DIA) Forum" } },
         { src: "01.jpg", w: 1600, h: 1067, span: 4 },
         { src: "02.jpg", w: 1600, h: 1067, span: 2 },
         { src: "03.jpg", w: 1600, h: 1067, span: 2 },

@@ -24,7 +24,12 @@
 
   document.title = doc.title + " — 박지선 Park Jisun";
 
-  const meta = [doc.media, doc.year].filter(Boolean).join(" · ");
+  /* 매체명은 { ko, en } 일 수 있습니다 — 언어별로 따로 이어 붙입니다.
+     (그냥 join 하면 객체가 [object Object] 로 찍힙니다.) */
+  const metaPair = {
+    ko: [koOf(doc.media), doc.year].filter(Boolean).join(" · "),
+    en: [pair(doc.media).en, doc.year].filter(Boolean).join(" · ")
+  };
 
   const body = (doc.paras || []).map(function (para) {
     const text = String(para);
@@ -38,7 +43,7 @@
       '<p class="meta"><a class="read-back" href="writing.html" ' +
         'data-ko="← 글" data-en="← Writing">← 글</a></p>' +
       "<h1>" + esc(doc.title) + "</h1>" +
-      '<p class="read-meta">' + esc(meta) + "</p>" +
+      '<p class="read-meta" ' + bi(metaPair) + ">" + esc(metaPair.ko) + "</p>" +
     "</header>" +
 
     '<div class="read-body">' + body + "</div>" +
