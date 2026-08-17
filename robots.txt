@@ -6,4 +6,4 @@ Allow: /
 Disallow: /data/documents-mock.html
 Disallow: /img/_archive/
 
-Sitemap: https://jisunarts.github.io/sitemap.xml
+Sitemap: https://jisunarts.com/sitemap.xml

@@ -13,7 +13,7 @@ const SITE = {
      HTML · sitemap.xml · 이 값이 한꺼번에 바뀝니다.
 
          sh tools/set-domain.sh https://새주소.com                      */
-  baseUrl: "https://jisunarts.github.io",
+  baseUrl: "https://jisunarts.com",
 
   /* 이름 · 역할 -------------------------------------------------------- */
   name:  { ko: "박지선",  en: "Park Jisun" },

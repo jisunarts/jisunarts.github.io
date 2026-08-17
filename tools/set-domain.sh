@@ -21,7 +21,7 @@
 # 커스텀 도메인을 붙일 때는 CNAME 파일도 함께 만들어야 합니다.
 # ==========================================================================
 
-CURRENT="https://jisunarts.github.io"
+CURRENT="https://jisunarts.com"
 
 NEW="$1"
 if [ -z "$NEW" ]; then
