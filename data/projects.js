@@ -166,7 +166,7 @@ const PROJECTS = {
     /* 오른쪽 60% — 해마다 한 블록 (영상 → 사진 5장 → 그 해 전체 슬라이드) */
     editions: [
       {
-        year: "2020", title: "기후변화 2020 — 화천의 환경을 둘러싼 강연과 대화",
+        year: "2020", title: { ko: "기후변화 2020 — 화천의 환경을 둘러싼 강연과 대화", en: "Climate Change 2020 — Talks on environment in Hwacheon" },
         video: "4JJyId1JZMY",
         dir: "img/works/climate-residency/2020/", total: 14,
         grid: [
@@ -175,7 +175,7 @@ const PROJECTS = {
         ]
       },
       {
-        year: "2021", title: "관점의 전환, 세상을 보는 시선들",
+        year: "2021", title: { ko: "관점의 전환, 세상을 보는 시선들", en: "Change of perspective, points of view looking at the world" },
         video: "oz65z1gxYbc",
         dir: "img/works/climate-residency/2021/", total: 24,
         grid: [
@@ -184,7 +184,7 @@ const PROJECTS = {
         ]
       },
       {
-        year: "2022", title: "기후변화 2022 — 기후위기와 에너지",
+        year: "2022", title: { ko: "기후변화 2022 — 기후위기와 에너지", en: "Climate Change 2022 — Climate Crisis and Energy" },
         video: "RVg2Oe2gHPc",
         dir: "img/works/climate-residency/2022/", total: 20,
         grid: [
@@ -211,9 +211,9 @@ const PROJECTS = {
     runs: {
       label: { ko: "일정", en: "Schedule" },
       rows: [
-        { dates: "2026.10.15(목)", time: "19:30", venue: { ko: "대학로예술극장 소극장", en: "Daehakro Arts Theatre, Small Hall" } },
-        { dates: "2026.10.16(금)", time: "19:30", venue: { ko: "대학로예술극장 소극장", en: "Daehakro Arts Theatre, Small Hall" } },
-        { dates: "2026.10.17(토)", time: "15:00", venue: { ko: "대학로예술극장 소극장", en: "Daehakro Arts Theatre, Small Hall" } }
+        { dates: { ko: "2026.10.15(목)", en: "Thu 15 Oct 2026" }, time: "19:30", venue: { ko: "대학로예술극장 소극장", en: "Daehakro Arts Theatre, Small Hall" } },
+        { dates: { ko: "2026.10.16(금)", en: "Fri 16 Oct 2026" }, time: "19:30", venue: { ko: "대학로예술극장 소극장", en: "Daehakro Arts Theatre, Small Hall" } },
+        { dates: { ko: "2026.10.17(토)", en: "Sat 17 Oct 2026" }, time: "15:00", venue: { ko: "대학로예술극장 소극장", en: "Daehakro Arts Theatre, Small Hall" } }
       ],
       note: { ko: "러닝타임 50분 · 2026년 서울국제공연예술제(SPAF) 협력 아티스트 초청 공연", en: "Running time 50 minutes · Presented as an Associate Artist invitation at the Seoul Performing Arts Festival (SPAF) 2026" }
     },
@@ -243,13 +243,13 @@ const PROJECTS = {
     credits: {
       label: { ko: "크레딧", en: "Credits" },
       rows: [
-        ["컨셉·안무·출연", "황수현"],
-        ["크리에이티브 프로듀서", "박지선"],
-        ["리허설 어시스턴트", "강호정"],
-        ["음악", "김현수"],
-        ["조명", "공연화"],
-        ["사운드", "우경민, 천준하"],
-        ["무대감독", "이율, 김민수"]
+        [{ ko: "컨셉·안무·출연", en: "Concept, Choreography & Performance" }, { ko: "황수현", en: "Hwang Soohyun" }],
+        [{ ko: "크리에이티브 프로듀서", en: "Creative Producer" }, { ko: "박지선", en: "Park Jisun" }],
+        [{ ko: "리허설 어시스턴트", en: "Rehearsal Assistant" }, { ko: "강호정", en: "Kang Hojung" }],
+        [{ ko: "음악", en: "Music" }, { ko: "김현수", en: "Kim Hyunsoo" }],
+        [{ ko: "조명", en: "Lighting" }, { ko: "공연화", en: "Gong Yeonhwa" }],
+        [{ ko: "사운드", en: "Sound" }, { ko: "우경민, 천준하", en: "Woo Kyungmin, Cheon Junha" }],
+        [{ ko: "무대감독", en: "Stage Manager" }, { ko: "이율, 김민수", en: "Lee Yool, Kim Minsu" }]
       ]
     },
 
@@ -409,7 +409,7 @@ const PROJECTS = {
           { ko: "〈무용 × 기술 창작랩〉은 2021년부터 이어온 무용과 기술의 실험적 교류의 장이다. 기술을 창작의 '도구'로만 다루는 관점의 한계에서 출발해, 안무가와 기술 연구자 · 개발자 · 작가가 서로의 언어와 매체, 실행 방법론을 익히며 협업하는 프로젝트로, '질문이 증발된 실험에 빠지지 않는 것'을 중요한 원칙으로 한다.", en: "Dance × Technology Creative Lab has been a site of experimental exchange between dance and technology since 2021. It begins from the limits of treating technology merely as a creative \"tool,\" bringing choreographers together with technology researchers, developers and artists to learn one another's languages, media and working methods. Its guiding principle: never to fall into experiment from which the question has evaporated." },
           { ko: "2021년에는 신체성의 확장과 탈피, 사회적 거리두기 이후 무용의 감각적 경험, 안무 창작의 주체성을 다뤘다. 2022년부터는 '포스트휴먼 & 포스트휴머니즘'을 주제로 삼아 참여자들이 다양한 질문을 생성하고 이를 예술적 실험으로 확장하는 과정을 이어오고 있다. 강의와 워크숍, 팀별 연구와 실험을 결합한 과정 중심 프로그램으로, 인공지능 · 로봇 · 가상현실 · 포스트휴먼 바디 등 동시대적 주제를 통해 예술과 기술의 관계를 새롭게 모색하고 있으며 2025년에는 참여 예술가들이 도출한 8개의 프로토타입을 발표했다.", en: "In 2021 it took up the extension and shedding of corporeality, the sensory experience of dance after social distancing, and agency in choreographic creation. Since 2022 it has worked under the theme of \"posthuman and posthumanism,\" with participants generating questions and carrying them out into artistic experiment. A process-led programme combining lectures, workshops and team-based research, it looks afresh at the relation between art and technology through contemporary subjects — artificial intelligence, robotics, virtual reality, the posthuman body. In 2025 the participating artists presented eight prototypes." },
           { ko: "2026년 창작랩은 인공지능과 데이터가 창작의 도구를 넘어 자율적 주체(Agent)로 진화하는 시대에 예술가가 던져야 할 근본적인 질문에서 출발한다. 지난 4년 동안 '포스트휴먼 & 포스트휴머니즘'이라는 주제 아래 인간 · 동물 · 식물 · 기계가 공존하는 세상의 경계를 해제하는 탐구를 지속해 왔다면, 2026년에는 그 무경계의 땅 위에서 다시 '인간'의 미래를 질문하고자 한다. 인공지능은 콘텐츠를 생성하는 수준을 넘어 스스로 계획하고 도구를 사용하며 문제를 해결하는 '에이전틱 AI'로 발전했고, 현실 세계에서 직접 임무를 수행하는 '피지컬 AI'까지 등장했다. 알고리즘 기반의 데이터와 물리적 해결 능력을 갖춘 기술 환경 속에서 '인간은 어떻게 공존해야 하는가'는 우리가 직면한 지속적인 질문이다. 2026 창작랩은 기술과 신체의 윤리적 공존을 깊이 있게 탐구한다.", en: "The 2026 lab starts from the fundamental question an artist must ask in an age when artificial intelligence and data are evolving past being tools of creation into autonomous agents. If the past four years, under the theme of \"posthuman and posthumanism,\" were spent undoing the boundaries of a world shared by humans, animals, plants and machines, then 2026 returns — on that borderless ground — to ask after the future of the human. AI has developed beyond generating content into \"agentic AI\" that plans for itself, uses tools and solves problems, and now into \"physical AI\" that carries out tasks in the world. Within a technological environment possessed of algorithmic data and the capacity to act physically, \"how are humans to coexist?\" is the question that stays with us. The 2026 lab explores in depth the ethical coexistence of technology and the body." },
-          { ko: "안무가, 기술 언어를 보유한 테크니션, 연구자, 프로듀서들은 5월 · 8월 · 10월에 걸친 3단계의 랩을 통해 질문을 생성하고, 실험을 거쳐 프로토타입을 제작한다.", en: "Choreographers, technicians fluent in the language of technology, researchers and producers generate questions across three stages of the lab — in May, August and October — and work through experiment toward prototypes." }
+          { ko: "안무가, 기술 언어를 보유한 테크니션, 연구자, 프로듀서들은 5월 · 8월 · 10월에 걸친 3단계의 랩을 통해 질문을 생성하고, 실험을 거쳐 프로토타입을 제작한다.", en: "Choreographers, technicians fluent in the language of technology, researchers and producers generate questions across three stages of the lab — in May, August and October — and work through experiment towards prototypes." }
         ]
       }
     ],
@@ -571,7 +571,7 @@ const PROJECTS = {
           { ko: "⬡⬡의 섬은 사라지는 것들에 대한 질문에서 시작한다. 예술가와 기획자, 시민들이 함께 '소멸'을 응시하고 그 자리에 시적인 공간을 만들어내는 프로젝트이다.", en: "The Island of ⬡⬡ begins with a question about the things that are vanishing. It is a project in which artists, curators and citizens look together at disappearance and make a poetic space where it has been." },
           { ko: "2025-2026 ⬡⬡의 섬은 강화도이다. 2025년은 리서치 단계로 한국, 싱가포르, 이탈리아의 예술가·기획자가 강화도에 모였다. 강화도의 길을 걷고, 역사적·문화적 장소를 방문하고, 사람들을 만나다 보니, 그 과정에서 강화의 시간과 자연이 몸에 스며들었고, 각자의 방식으로 '여기서 무엇이 사라지고 있는가'를 감각하기 시작했다.", en: "For 2025–2026, the Island of ⬡⬡ is Ganghwa. 2025 was the research phase, when artists and curators from Korea, Singapore and Italy gathered on the island. Walking its roads, visiting historical and cultural sites, meeting its people — Ganghwa's time and nature seeped into the body, and each began, in their own way, to sense what is disappearing here." },
           { ko: "⬡⬡의 섬의 두 개의 육각형은 프로젝트의 상징이다. 육각형은 서로 맞물리면서 새로운 공간과 구조를 만들어내는 형태로, 이는 개개인의 섬이 서로 연결되어 새로운 공동의 세계를 형성하는 과정을 의미한다. 즉, 각각의 육각형은 '나의 섬'이자 '우리의 섬'이며, 이들이 모여 만들어지는 새로운 공간은 예술을 통해 서로의 존재를 인식하고 확장하는 장이 된다.", en: "The two hexagons of the Island of ⬡⬡ are the project's emblem. Hexagons interlock to make new spaces and structures — the figure of individual islands connecting to form a shared world. Each hexagon is at once \"my island\" and \"our island,\" and the space they make together becomes a place where, through art, we recognise and extend one another's existence." },
-          { ko: "'소멸'은 기후위기와 함께 '멸종'이라는 단어와 연결된다. 국가의 존속, 경제 성장과 연결해서는 '지역 소멸'로 연결된다. 生과 연결한다면 '소멸'은 '자연스러움'으로 연결된다.", en: "Set beside the climate crisis, disappearance reaches toward the word extinction. Set beside the survival of a nation and the demands of economic growth, it becomes the disappearance of whole regions. Set beside life itself, disappearance becomes something natural." },
+          { ko: "'소멸'은 기후위기와 함께 '멸종'이라는 단어와 연결된다. 국가의 존속, 경제 성장과 연결해서는 '지역 소멸'로 연결된다. 生과 연결한다면 '소멸'은 '자연스러움'으로 연결된다.", en: "Set beside the climate crisis, disappearance reaches towards the word extinction. Set beside the survival of a nation and the demands of economic growth, it becomes the disappearance of whole regions. Set beside life itself, disappearance becomes something natural." },
           { ko: "그러나 ⬡⬡의 섬이 바라보는 '소멸'은 두려움이 아닌, 다시 관계 맺기 위한 시작의 순간으로 바라본다. 사라지는 것들의 자취를 따라가며, 그 속에서 새로 태어나는 감각과 언어를 예술의 시각과 감각으로 포획하고 기록하고 공유하며, 사라짐의 공간에 예술적·시적 상상의 공간을 만들어내고자 한다.", en: "But the disappearance the Island of ⬡⬡ looks at is not a thing to fear: it is the opening moment of relation being made again. Following the traces of what is going, we want to catch, record and share — through the eye and the senses of art — the sensations and language being newly born there, and to make a space of artistic and poetic imagination where disappearance has left room." },
           { ko: "2026년 ⬡⬡의 섬 프로젝트가 다시 시작된다. 2025년에 발견한 질문들을 가지고 강화도에 다시 모여, 사라짐의 자리에 시적 장소를 만들고, 그 상상의 공간이 섬 위에 천천히 쌓여가기를 바란다.", en: "In 2026 the Island of ⬡⬡ begins again. Carrying the questions found in 2025, we gather once more on Ganghwa to make poetic places where things have gone, in the hope that these imagined spaces will slowly accumulate on the island." }
         ]
@@ -590,12 +590,12 @@ const PROJECTS = {
     participants: {
       label: { ko: "참가자 · 2025년 9월 @강화도", en: "Participants · September 2025 @Ganghwa" },
       lines: [
-        { name: "박지선, 송미선", aff: "프로듀서그룹도트" },
-        { name: "강윤민지, 권근영, 민재원, 전윤환, 조냇물", aff: "앤드씨어터" },
-        { name: "김나래, 이건희", aff: "희와래 · 연리목" },
-        { name: "안나, 지오바니", aff: "테아트린 게스타치오네, 이탈리아" },
-        { name: "헝루운", aff: "드라마박스, 싱가포르" },
-        { name: "츄 쇼 엔", aff: "싱가포르" }
+        { name: { ko: "박지선, 송미선", en: "Park Jisun, Song Miseon" }, aff: { ko: "프로듀서그룹도트", en: "Producer Group DOT" } },
+        { name: { ko: "강윤민지, 권근영, 민재원, 전윤환, 조냇물", en: "Kang Yunminji, Kwon Keunyoung, Min Jaewon, Jeon Yoonhwan, Jo Naetmul" }, aff: { ko: "앤드씨어터", en: "A.N.D.Theatre" } },
+        { name: { ko: "김나래, 이건희", en: "Kim Narae, Lee Gunhee" }, aff: { ko: "희와래 · 연리목", en: "Heewarae · Yonrimog" } },
+        { name: { ko: "안나, 지오바니", en: "Anna, Giovanni" }, aff: { ko: "테아트린 게스타치오네, 이탈리아", en: "Teatringestazione, Italy" } },
+        { name: { ko: "헝루운", en: "Heng Leun" }, aff: { ko: "드라마박스, 싱가포르", en: "Drama Box, Singapore" } },
+        { name: { ko: "츄 쇼 엔", en: "Chew Shaw En" }, aff: { ko: "싱가포르", en: "Singapore" } }
       ]
     },
 
@@ -667,23 +667,28 @@ const PROJECTS = {
           "공연예술·시민사회·과학·지속가능성 분야의 지역 전문가들을 컨셉 개발 단계부터 적극적으로 참여시킴으로써, 양측의 파트너십을 위한 단단한 기초를 다지는 동시에 예술적 탁월함과 지속 가능한 실천이 구체적인 사회적 영향력으로 이어질 수 있는 공명의 장을 마련하고자 한다.",
           "홍콩과 ACC(아시아문화전당)는 2027년부터 합류할 예정이다."
         ]
+      },
+      {
+        /* 지속가능한 협업 — 도트 저장소에서 국·영 그대로 */
+        label: { ko: "지속가능한 협업", en: "Sustainable collaboration" },
+        paras: [{ ko: "생태적 책임을 협업의 조건으로 둔다. 채식 케이터링, 이동과 숙박·워크숍에서 발생하는 탄소의 상쇄(Gold Standard), 에너지 효율이 높은 로컬 AI 모델의 사용을 원칙으로 한다. 두 차례의 대면 워크숍이 신뢰의 바탕을 만들고, 그 밖의 모든 회의는 온라인으로 진행한다.", en: "Ecological responsibility is treated as a condition of the collaboration: vegetarian catering, CO₂ compensation for travel, accommodation and workshops through Gold Standard projects, and the use of energy-efficient, local AI models. Two onsite workshops create the personal ground for trust; all further meetings take place online." }]
       }
     ],
 
     runs: {
       label: { ko: "워크숍", en: "Workshops" },
       rows: [
-        { dates: "1차 · 2026.5.3–9", venue: "도르트문트" },
-        { dates: "2차 · 2026.9.29–10.3", venue: "서울" }
+        { dates: { ko: "1차 · 2026.5.3–9", en: "First workshop · 3–9 May 2026" }, venue: { ko: "도르트문트", en: "Dortmund" } },
+        { dates: { ko: "2차 · 2026.9.29–10.3", en: "Second workshop · 29 Sep – 3 Oct 2026" }, venue: { ko: "서울", en: "Seoul" } }
       ],
-      note: "워크숍 외 실무 회의는 모두 온라인으로 진행한다."
+      note: { ko: "워크숍 외 실무 회의는 모두 온라인으로 진행한다.", en: "All other working meetings take place online" }
     },
 
     credits: {
       label: { ko: "크레딧", en: "Credits" },
       rows: [
-        ["코어 프로젝트팀", "프로듀서그룹 도트 3인 · 도르트문트 아카데미 3인"],
-        ["자문 분야", "크리에이티브 코딩·공연예술 / 과학·시민사회 / 연극 프로듀싱·지속가능성"]
+        [{ ko: "코어 프로젝트팀", en: "Core project team" }, { ko: "프로듀서그룹 도트 3인 · 도르트문트 아카데미 3인", en: "Three members each from DOT and the Academy" }],
+        [{ ko: "자문 분야", en: "Advisory fields" }, { ko: "크리에이티브 코딩·공연예술 / 과학·시민사회 / 연극 프로듀싱·지속가능성", en: "Creative coding and performing arts / science and civil society / theatre producing and sustainability" }]
       ]
     },
 

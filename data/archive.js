@@ -67,7 +67,7 @@ const ARCHIVE = [
   { year: "2016", type: "PF", title_ko: "한–벨 공동제작 〈나티보스〉 @예술의전당 자유소극장", title_en: "〈Nativos〉 KR–BE @Seoul Arts Center", links: [{ url: "https://drive.google.com/file/d/10X3XtNN9XSVkEyonLJJ6ptajLnFPDeSd/view?usp=drive_link" }], tags: ["international", "region-community"] },
   { year: "2015", type: "PF", title_ko: "무제의 길 〈무제의 산〉·〈Station〉, 창작그룹노니 〈기억하는 사물들–취수장〉", title_en: "Untitled Road & NONI works, 2015", links: [{ label: "무제의 산", url: "https://www.untitledroad.com/projects/untitled-mountain" }, { label: "기억하는 사물들 — 취수장", url: "https://www.youtube.com/watch?v=Relau1S-QS0" }], tags: ["etc"] },
   { year: "2014", type: "PF", title_ko: "창작그룹노니 〈역〉·〈기억하는 사물들–서울역〉 외", title_en: "NONI 〈Station〉·〈…Seoul Station〉 and more", tags: ["etc"] },
-  { year: "2014", type: "PF", title_ko: "컨템포러리 서커스 〈사물이야기〉·한–벨 기획특집 총괄 (1년 6개월)", title_en: "〈Object Stories〉 & KR–BE special program (18 months)", tags: ["multidisciplinary"] },
+  { year: "2014", type: "PF", title_ko: "컨템포러리 서커스 〈사물이야기〉·한–벨 기획특집 총괄 (1년 6개월)", title_en: "〈Object Stories〉 & KR–BE special programme (18 months)", tags: ["multidisciplinary"] },
   { year: "2013", type: "PF", title_ko: "한–영–일 국제공동제작 〈원데이 메이비〉 — 아시아나우 제작", title_en: "〈One Day, Maybe〉 KR–UK–JP co-production, AsiaNow", tags: ["asian-solidarity", "international", "region-community"] },
   { year: "2007–08", type: "PF", title_ko: "사다리움직임연구소 〈보이첵〉 — 런던마임축제·폴란드 Dialog 외 해외 투어", title_en: "Sadari 〈Woyzeck〉 — London Mime Festival, Dialog & tour", tags: ["mobility", "asian-solidarity", "festival", "multidisciplinary", "process"] },
   { year: "2007", type: "PF", title_ko: "사다리움직임연구소 〈보이첵〉 — 에든버러 프린지", title_en: "Sadari 〈Woyzeck〉 — Edinburgh Fringe", tags: ["asian-solidarity", "international", "process"] },

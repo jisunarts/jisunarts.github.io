@@ -26,6 +26,10 @@
 - **반응형**: 맥북과 모바일 모두에서 자연스럽게. 모바일에서 위→아래로
   깔끔히 접히는 레이아웃을 우선. (절대: 좌표로 흩뿌리는 성좌형 금지.)
 - **이중언어(국문/영문)**: 상단 KO/EN 토글. 모든 섹션 라벨·본문 대응.
+- **영문 철자**: 새로 쓰는 영문은 영국식을 기본으로 합니다
+  (theatre · programme · centre · organise · towards · realise · recognise).
+  다만 기관·극장·축제·사업의 **공식 영문명은 그 기관의 표기를 그대로** 씁니다
+  (예: Seoul Arts Center, Seoul Theatre Center, Asia Teaching Artist Program).
 - **직접 관리 가능**: 콘텐츠는 코드가 아니라 데이터 파일에서 읽어오게.
   비개발자가 데이터 파일만 고쳐도 사이트가 갱신되도록.
 

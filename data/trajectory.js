@@ -45,7 +45,7 @@ const TRAJECTORY = [
     questions: [
       { ko: "마켓이 아니라 프로듀서 중심의 네트워크는 가능한가 — 아시아 연대?", en: "Is a producer-centered network — not a market — possible? (Asian solidarity)" },
       { ko: "민간에서 독립 기획자로 산다는 것은 무엇인가?", en: "What does it mean to live as an independent producer outside institutions?" },
-      { ko: "위계가 아닌 수평적 조직 실험은 어떻게 가능한가?", en: "How is a horizontal, non-hierarchical organization possible?" },
+      { ko: "위계가 아닌 수평적 조직 실험은 어떻게 가능한가?", en: "How is a horizontal, non-hierarchical organisation possible?" },
       { ko: "게토화·박제화되는 도시에서 지금 축제는 어떻게 존재해야 하는가?", en: "In a city turning to ghettos and taxidermy, how should a festival exist now?" },
       { ko: "마찰 없는 기술사회에서 창조적 마찰을 어떻게 만들 것인가?", en: "In a frictionless technological society, how do we make creative friction?" },
       { ko: "시장 진출에서 사람 교류로, 결과에서 과정으로.", en: "From market entry to human exchange; from result to process." }
