@@ -49,7 +49,7 @@ const BASE = (document.body && document.body.dataset.base) || "";
    스크립트·CSS 는 <script src="…?v=…"> 로 캐시를 넘기는데 사진에는 그게 없어서,
    같은 이름으로 사진을 바꾸면 브라우저가 예전 것을 계속 보여 줍니다.
    사진을 갈아 끼운 뒤에는 이 값을 바꿔 주세요. */
-const ASSET_V = "20260814a";
+const ASSET_V = "20260817a";
 
 /** 사진 주소에 판 번호를 붙입니다. 이미 ? 가 있으면 & 로 잇습니다. */
 function asset(path) {
