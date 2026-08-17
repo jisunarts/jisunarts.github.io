@@ -128,8 +128,8 @@ const PROJECTS = {
         label: { ko: "소개", en: "About" },
         paras: [
           { ko: "기후변화라는 거대 담론을 삶 속에 구체화하고 예술적 실천으로 옮기는 예술가 레지던시.", en: "An artist residency that grounds the vast discourse of climate change in daily life and turns it into artistic practice." },
-          "예술텃밭 예술가 레지던시는 2020년 시작된 예술가들의 기후변화 대응 프로젝트다. 연극, 다원예술, 시각예술, 영화, 영상, 책 등 다양한 분야의 예술가와 기획자, 리서처들이 함께 기후변화에 대해 탐구하며, 막연한 거대 담론을 우리의 삶 속에 구체화하고 예술적 실천을 만들어내고자 한다.",
-          "2020년 인류를 습격한 코로나 바이러스는 전 지구인의 삶을 변화시켰고, 우리는 여전히 불확실한 일상을 살아가고 있다. 많은 전문가들은 지구 온난화와 환경 문제가 코로나 바이러스 같은 신종 바이러스를 촉발시켰다고 이야기하며, 향후에도 또 다른 전염병 유행 확률이 높아질 것이라 예상한다. 기후변화는 지구와 인류의 지속가능성을 위한 시급한 문제다. 그리고 이것은 자연, 동물, 먹거리, 노동, 인권의 문제와도 연관된 복잡한 체계 안에 놓여 있다."
+          { ko: "예술텃밭 예술가 레지던시는 2020년 시작된 예술가들의 기후변화 대응 프로젝트다. 연극, 다원예술, 시각예술, 영화, 영상, 책 등 다양한 분야의 예술가와 기획자, 리서처들이 함께 기후변화에 대해 탐구하며, 막연한 거대 담론을 우리의 삶 속에 구체화하고 예술적 실천을 만들어내고자 한다.", en: "The Arts Farm Tutbat artist residency is a climate response project by artists, begun in 2020. Artists, programmers and researchers from many fields — theatre, multidisciplinary art, visual art, film, video, publishing — explore climate change together, seeking to bring an otherwise abstract discourse down into our lives and to make artistic practice from it." },
+          { ko: "2020년 인류를 습격한 코로나 바이러스는 전 지구인의 삶을 변화시켰고, 우리는 여전히 불확실한 일상을 살아가고 있다. 많은 전문가들은 지구 온난화와 환경 문제가 코로나 바이러스 같은 신종 바이러스를 촉발시켰다고 이야기하며, 향후에도 또 다른 전염병 유행 확률이 높아질 것이라 예상한다. 기후변화는 지구와 인류의 지속가능성을 위한 시급한 문제다. 그리고 이것은 자연, 동물, 먹거리, 노동, 인권의 문제와도 연관된 복잡한 체계 안에 놓여 있다.", en: "The coronavirus that struck in 2020 changed lives across the planet, and we are still living an uncertain everyday. Many experts say that global warming and environmental damage triggered novel viruses such as this one, and expect the likelihood of further epidemics to rise. Climate change is an urgent question for the sustainability of the earth and of humankind — and it sits within a complex system bound up with nature, animals, food, labour and human rights." }
         ]
       },
       {
@@ -151,7 +151,7 @@ const PROJECTS = {
             link: { label: "공연 영상", url: "https://youtu.be/arl9qntbhXc" } }
         ],
         paras: [
-          "예술텃밭 기후변화 레지던시는 2022년 이후에도 매해 예술가들과 텃밭을 가꾸고 리서치를 하며 비정기적으로 모임을 지속하고 있다. 현재 다음 단계의 국제 레지던시로 확장하기 위한 논의를 진행하고 있다."
+          { ko: "예술텃밭 기후변화 레지던시는 2022년 이후에도 매해 예술가들과 텃밭을 가꾸고 리서치를 하며 비정기적으로 모임을 지속하고 있다. 현재 다음 단계의 국제 레지던시로 확장하기 위한 논의를 진행하고 있다.", en: "Since 2022 the Arts Farm Tutbat climate change residency has continued to meet irregularly each year, tending the garden and carrying out research with artists. Discussions are now under way to expand it into an international residency at the next stage." }
         ]
       }
     ],
@@ -377,7 +377,7 @@ const PROJECTS = {
           { ko: "오늘날 우리는 이 질문을 다시 던져야 한다. 우리가 자원을 소비하고 접근하는 방식에서 당연하게 여겨온 '정상'이라는 가정들은 이제 전 지구적 위기의 원인이 되었다. 한때 인류가 가졌던 확신, 즉 지구의 자원을 마음껏 쓸 수 있다는 '당연한 권리'는 역설적으로 생존을 위협하고 변화에 대한 적응을 늦추는 족쇄가 되었다.", en: "Today we have to ask it again. The assumptions of normality we have taken for granted in how we consume and reach for resources are now the cause of a planetary crisis. The certainty humankind once held — the self-evident right to use the earth's resources at will — has become, by a bitter turn, the thing that threatens our survival and slows our adaptation to change." },
           { ko: "더 넥스트 노멀(TNN)은 질문한다. 예술은 어떻게 '정상'이라 여겨지는 것의 경계를 재설정할 수 있을까? 우리는 익숙한 것들을 재검토하고, 사회적 · 생태적 · 윤리적으로 새로운 형태의 정상성을 상상해야 한다. 이 프로젝트는 기후위기, 평등, 다양성, 창조적 마찰, 디아스포라, 포스트휴머니즘 등 시급한 동시대 의제에 주목하며, 예술가들에게 현재에서 미래로 우리를 이끌어 줄 새로운 규범을 제안하고 상상할 것을 요청한다.", en: "The Next Normal asks: how can art reset the boundary of what counts as normal? We need to re-examine the familiar and imagine new forms of normality — socially, ecologically, ethically. Attending to urgent contemporary agendas — the climate crisis, equality, diversity, creative friction, diaspora, posthumanism — the project asks artists to propose and imagine the new norms that might carry us from the present into the future." },
           { ko: "TNN은 아시아가 당면한 시급한 의제들을 예술의 언어로 해석하여 지역 내 담론을 활성화하는 것을 목표로 한다. 특히 아시아 각지의 레지던시를 발굴하고 연결하여, 예술가들이 그곳에 머물며 인간과 자연, 문화와 예술에 깊이 접속할 수 있도록 돕고자 한다. 이는 예술가의 이동성을 확장하는 것을 넘어 관계의 밀도를 높이는 새로운 차원의 예술 협업 및 지식 공유 모델이 될 것이다.", en: "TNN aims to read the urgent agendas facing Asia through the language of art, and so to enliven discourse within the region. In particular it seeks out and connects residencies across Asia, so that artists can stay in those places and connect deeply with people and nature, culture and art. This goes beyond widening artists' mobility: it becomes a model of artistic collaboration and knowledge-sharing at a new order of relational density." },
-          "2024년부터 시작했으며, 2026년 2월 서울에서 '다이얼로그 인 아시아(DIA)' 포럼을 통해 그 여정의 시작을 알렸다. 한국을 비롯해 뉴질랜드, 대만, 말레이시아, 인도네시아, 일본, 태국, 호주, 홍콩 등 9개 지역 파트너가 함께한 포럼은 아시아의 다양한 담론과 새로운 협력 방식을 펼쳐내는 장이 되었다."
+          { ko: "2024년부터 시작했으며, 2026년 2월 서울에서 '다이얼로그 인 아시아(DIA)' 포럼을 통해 그 여정의 시작을 알렸다. 한국을 비롯해 뉴질랜드, 대만, 말레이시아, 인도네시아, 일본, 태국, 호주, 홍콩 등 9개 지역 파트너가 함께한 포럼은 아시아의 다양한 담론과 새로운 협력 방식을 펼쳐내는 장이 되었다.", en: "Launched in 2024, TNN announced the beginning of its journey with the Dialogue in Asia (DIA) forum in Seoul in February 2026. Bringing together nine regional partners — Korea, Australia, Hong Kong, Indonesia, Japan, Malaysia, New Zealand, Taiwan and Thailand — the forum became a place where the diverse discourses of Asia and new modes of collaboration could unfold." }
         ]
       }
     ],
