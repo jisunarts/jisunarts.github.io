@@ -159,8 +159,13 @@ const PROJECTS = {
     credits: {
       label: { ko: "크레딧", en: "Credits" },
       rows: [
-        [{ ko: "주관, 기획", en: "Organised & Programmed by" }, { ko: "예술텃밭, 프로듀서그룹 도트", en: "Arts Farm Tutbat, Producer Group DOT" }],
-        [{ ko: "후원", en: "Supported by" }, { ko: "강원도, 강원문화재단", en: "Gangwon Province, Gangwon Cultural Foundation" }]
+        /* 배요섭·이주야·최봉민 로마자는 도트 저장소(data/works.json · producers.json)의
+           표기를 따랐습니다. 규칙(성+이름 붙여쓰기)으로 지은 잠정 표기가 아닙니다. */
+        [{ ko: "주관, 기획", en: "Organised & Programmed by" },
+         { ko: "예술텃밭(배요섭, 이주야), 프로듀서그룹 도트(박지선, 최봉민)",
+           en: "Arts Farm Tutbat (Bae Yosup, Lee Juya), Producer Group DOT (Park Jisun, Choi Bongmin)" }],
+        [{ ko: "후원", en: "Supported by" },
+         { ko: "강원도, 강원문화재단", en: "Gangwon Province, Gangwon Cultural Foundation" }]
       ]
     },
 
