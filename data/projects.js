@@ -159,10 +159,8 @@ const PROJECTS = {
     credits: {
       label: { ko: "크레딧", en: "Credits" },
       rows: [
-        ["주최", "예술텃밭"],
-        ["주관", "예술텃밭, 프로듀서그룹 도트"],
-        ["후원", "강원도, 강원문화재단"],
-        ["프로듀서", "박지선, 최봉민(도트) · 배요섭, 이주야(예술텃밭)"]
+        [{ ko: "주관, 기획", en: "Organised & Programmed by" }, { ko: "예술텃밭, 프로듀서그룹 도트", en: "Arts Farm Tutbat, Producer Group DOT" }],
+        [{ ko: "후원", en: "Supported by" }, { ko: "강원도, 강원문화재단", en: "Gangwon Province, Gangwon Cultural Foundation" }]
       ]
     },
 
