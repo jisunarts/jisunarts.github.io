@@ -90,8 +90,9 @@
 
     /* 카드에 링크가 걸려 있지 않은 항목의 바깥 링크 */
     const extra = ((it.detail && it.detail.links) || []).map(function (l) {
-      return '<a class="now-link" href="' + esc(l.url) + '" target="_blank" rel="noopener">' +
-        esc(l.label) + "</a>";
+      /* 라벨이 문자열일 수도 { ko, en } 일 수도 있습니다 (archive.js 와 같은 처리) */
+      return '<a class="now-link" href="' + esc(l.url) + '" target="_blank" rel="noopener" ' +
+        bi(l.label) + ">" + esc(koOf(l.label)) + "</a>";
     }).join("");
 
     const tags = (it.tags || []).map(function (t) {
