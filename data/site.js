@@ -55,7 +55,7 @@ const SITE = {
     /* 홈 사진 — 다른 사진으로 바꾸려면 src 만 고치면 됩니다 */
     image: {
       src: "img/photos/walking-road.jpg",
-      alt: { ko: "파타고니아의 큰 길", en: "A long road in Patagonia" }
+      alt: { ko: "파타고니아의 큰 길을 걷는 사람", en: "A person walking a long road in Patagonia" }
     }
   },
 
