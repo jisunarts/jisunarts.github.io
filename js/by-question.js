@@ -207,13 +207,23 @@
       "</section>";
     }).join("");
 
+    /* 이 태그에 얹을 안내 링크가 data/tags.js 에 있으면 목록 맨 위에 한 줄.
+       항목이 아니라 표제 아래 안내라, 위의 개수에는 잡히지 않습니다.
+       사이트 안 주소는 같은 탭에서 엽니다.                                */
+    const link = (typeof tagLink === "function") ? tagLink(tag) : null;
+    const feature = link
+      ? '<a class="qb-feature" href="' + esc(link.url) + '"' +
+          (/^https?:/i.test(link.url) ? ' target="_blank" rel="noopener"' : "") +
+          " " + bi(link.label) + ">" + esc(koOf(link.label)) + "</a>"
+      : "";
+
     result.innerHTML =
       '<div class="qb-question">' +
         '<p class="meta"><span ' + bi(label) + ">" + esc(koOf(label)) + "</span>" +
           '<span class="qb-total tnum"> · ' + picked.length + "</span></p>" +
         "<h2 " + bi(question || label) + ">" +
           esc((question || label).ko) + "</h2>" +
-      "</div>" + groups;
+      "</div>" + feature + groups;
 
     /* 언어 전환이 방금 그린 글자에도 적용되도록 */
     if (typeof applyLang === "function") applyLang(document.body.dataset.lang || "ko");

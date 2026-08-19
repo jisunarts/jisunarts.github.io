@@ -69,7 +69,21 @@ const TAGS = [
     question_ko: "", question_en: "" }
 ];
 
-/* --- 사전 조회 (모든 화면이 이 두 함수만 씁니다) ----------------------- */
+/* --- 태그를 골랐을 때 항목 목록 위에 얹는 안내 링크 ---------------------
+   '질문으로 보기'에서 그 태그를 고르면 목록 맨 위에 한 줄이 붙습니다.
+   여기 없는 태그는 아무것도 나오지 않습니다. 다른 태그에도 붙이려면
+   같은 모양으로 한 줄 더하면 됩니다. 주소는 사이트 안이면 같은 탭,
+   http 로 시작하면 새 탭에서 열립니다.                                    */
+const TAG_LINKS = {
+  "climate-crisis": {
+    url: "climate.html",
+    label: { ko: "기후 작업 6년, 한 장으로 보기 →",
+             en: "Six Years of Climate Work, at a Glance →" }
+  }
+};
+
+
+/* --- 사전 조회 (모든 화면이 이 세 함수만 씁니다) ----------------------- */
 
 /** 태그 key 로 { ko, en } 라벨을 얻습니다. en 이 비어 있으면 ko 를 씁니다. */
 function tagLabel(key) {
@@ -83,4 +97,11 @@ function tagQuestion(key) {
   const t = TAGS.filter(function (x) { return x.key === key; })[0];
   if (!t || !t.question_ko) return null;
   return { ko: t.question_ko, en: t.question_en || t.question_ko };
+}
+
+/** 태그 key 에 얹을 안내 링크 { url, label }. 없으면 null. */
+function tagLink(key) {
+  const l = (typeof TAG_LINKS !== "undefined") ? TAG_LINKS[key] : null;
+  if (!l || !l.url) return null;
+  return l;
 }

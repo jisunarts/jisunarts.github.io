@@ -25,6 +25,9 @@
                그 사이를 연두 막대로 잇습니다.
      repeat  — true 면 앞선 해와 같은 작업이 이어지는 것.
                제목을 작게, 흰색 70% 로 씁니다.
+     handoff — 다른 레인으로 넘어가는 작업. { lane, year } 를 적으면
+               그 레인 그 해에 연두 점을 하나 더 찍습니다.
+               (리서치가 공연으로 이어지는 경우처럼)
 
    지금은 국문만입니다. 영문을 넣을 때는 문자열을 { ko: "…", en: "…" } 으로
    바꾸면 됩니다 — js/layout.js 의 pair() 가 문자열과 객체를 섞어 써도 되게
@@ -37,7 +40,7 @@ const CLIMATE = {
      순서대로 위에서 아래로 놓입니다. */
   lanes: [
     { key: "residency",   name: "레지던시" },
-    { key: "workshop",    name: "워크숍 · 번역" },
+    { key: "research",    name: "리서치 · 워크숍" },
     { key: "performance", name: "공연" }
   ],
 
@@ -60,7 +63,7 @@ const CLIMATE = {
           url: "projects/climate-residency.html" },
 
         { year: "2021–22", title: "〈시어터 그린 북〉 번역 및 워크숍",
-          lane: "workshop",
+          lane: "research",
           url: "documents.html#theatre-green-book" },
 
         { year: "2022", title: "예술텃밭 예술가 레지던시 — 기후변화",
@@ -99,8 +102,14 @@ const CLIMATE = {
           url: "https://www.untitledroad.com/projects/island-at-the-end-2150" },
 
         { year: "2026", title: "도넛 경제학 기반의 지속가능성 워크숍",
-          lane: "workshop",
+          lane: "research",
           url: "https://drive.google.com/file/d/1VgT2BIZ9JIc5YIGfubUt95NgLntZsk9O/view" },
+
+        { year: "2025–26", title: "앤드씨어터 × 아시아의 입과 눈",
+          lane: "research",
+          url: "now.html#asian-eyes",
+          handoff: { lane: "performance", year: "2027" },
+          note: "2025 데스크 리서치 · 2026 필드 리서치 · 2027 공연 제작" },
 
         /* 앤드씨어터 두 편 — 둘 다 2025 낭독공연에서 시작합니다 */
         { year: "2025–26", title: "앤드씨어터 〈세상의 종말이 (아닌)〉",

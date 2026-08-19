@@ -146,6 +146,18 @@
 
         const key = byLane[w.lane] ? w.lane : (laneDefs[0] && laneDefs[0].key);
         if (key) byLane[key].push(item);
+
+        /* 다른 레인으로 넘어가는 작업 — 그 레인 그 해에 연두 점만 하나 더.
+           제목은 원래 레인의 막대에만 답니다(같은 말이 두 번 나오지 않게). */
+        if (w.handoff && byLane[w.handoff.lane]) {
+          const hy = years(w.handoff.year);
+          if (hy.from < minY) minY = hy.from;
+          if (hy.to   > maxY) maxY = hy.to;
+          byLane[w.handoff.lane].push({
+            title: "", note: "", url: "", reading: false, repeat: false,
+            from: hy.from, to: hy.to, fs: 15, w: 0
+          });
+        }
       });
     });
 
@@ -217,15 +229,17 @@
         ? "right:" + (100 - x(it.from)).toFixed(3) + "%"
         : "left:"  + x(it.from).toFixed(3) + "%";
 
-      const title = it.url
-        ? '<a class="ct-title" href="' + esc(it.url) + '" target="_blank" rel="noopener">' +
-            esc(it.title) + "</a>"
-        : '<span class="ct-title">' + esc(it.title) + "</span>";
+      if (it.title) {
+        const title = it.url
+          ? '<a class="ct-title" href="' + esc(it.url) + '" target="_blank" rel="noopener">' +
+              esc(it.title) + "</a>"
+          : '<span class="ct-title">' + esc(it.title) + "</span>";
 
-      const note = it.note ? '<span class="ct-note">' + esc(it.note) + "</span>" : "";
+        const note = it.note ? '<span class="ct-note">' + esc(it.note) + "</span>" : "";
 
-      bits.push('<span class="' + cls + '" style="' + pos + ';bottom:' + (base + 12) + 'px">' +
-        title + note + "</span>");
+        bits.push('<span class="' + cls + '" style="' + pos + ';bottom:' + (base + 12) + 'px">' +
+          title + note + "</span>");
+      }
 
       return bits.join("");
     }
