@@ -197,6 +197,7 @@
 | `lead` | `data/site.js` | 상세 페이지는 리드를 쓰지 않는 구조. 홈을 다시 손볼 때 쓸 수 있음 |
 | `introShort` | `data/site.js` | 홈 개편으로 쓰임이 사라짐. 다시 쓸 수 있어 보존 |
 | `entries` | `data/site.js` | 홈 섹션 카드 설명 7개. 홈을 다시 손볼 때 쓸 수 있음 |
+| `hero.image` (`src`·`alt`) | `data/site.js` | 홈 개편으로 홈에 사진이 없어졌습니다. 지금 홈에는 `<img>` 가 하나도 없고 이 값을 읽는 코드도 없습니다. 사진을 되살릴 때 쓰도록 두고, alt 는 "파타고니아의 큰 길을 걷는 박지선" 으로 맞춰 두었습니다 |
 | `features`·`ongoing` | `data/climate-residency-entry.js` | 파일 자체가 어디서도 로드되지 않음 (아래 참조) |
 
 `data/climate-residency-entry.js` 는 **작업용 파일**입니다. 머리말에 "now.js 항목 교체용"이라
