@@ -1,6 +1,9 @@
 // data/documents.js
 // 자료집(Documents) — 프로젝트별 자료집. 표지 클릭 시 구글 드라이브(공개)로 이동.
 // 각 항목: { title_ko, title_en, year, url, cover }  cover = img/covers/{slug}.jpg
+// 덧붙일 수 있는 것 (없으면 그리지 않습니다):
+//   note   = { ko, en } — 표지 아래 한 줄 설명
+//   source = { label: { ko, en }, url } — 원문·원서로 나가는 작은 링크
 /* 프로젝트 키 → 화면에 보일 이름 (documents.html?project=키 로 걸러 봅니다) */
 const DOC_PROJECTS = {
   "dance-techlab":         { ko: "무용×기술 창작 랩",   en: "Dance × Technology Creative Lab" },
@@ -13,13 +16,15 @@ const DOC_PROJECTS = {
   "digital-dramaturgy":    { ko: "디지털 드라마터지 워크숍", en: "Digital Dramaturgy Workshop" },
   "new-connection":        { ko: "뉴커넥션",            en: "New Connection" },
   "aesthetic-human":       { ko: "미적 인간을 위한 스무 개의 대화사전", en: "Twenty Dialogues" },
-  "interdisciplinary-arts":{ ko: "다원예술작가 인터뷰",  en: "Interdisciplinary Artists Interviews" }
+  "interdisciplinary-arts":{ ko: "다원예술작가 인터뷰",  en: "Interdisciplinary Artists Interviews" },
+  "theatre-green-book":    { ko: "시어터 그린 북 (한국어판)", en: "Theatre Green Book (Korean edition)" }
 };
 
 const DOCUMENTS = [
   { title_ko: "감각 너머 포럼: 경험으로서의 미술관 — 극장-무대, 객석, 퍼포머, 관객의 재위치와 감각의 확장", title_en: "Beyond the Senses Forum: The Museum as Experience — Repositioning Stage, Auditorium, Performer and Audience", year: "2023", url: "https://drive.google.com/file/d/15so4ntoOYQAD8FA8kWZHyNJiSQUvc0ss/view", cover: "img/covers/sense.png", tags: ["civic", "tech-society"] },
   { title_ko: "ACC_R 〈시어터 바이오필리아〉 한–태 레지던시", title_en: "ACC_R 〈Theatre Biophilia〉 KR–TH Residency", year: "2021", url: "https://drive.google.com/file/d/1S2Te8ozwy-kWdWMIZLJFX0vrteFeLjom/view", cover: "img/covers/bio.png", tags: ["asian-solidarity", "process"] },
   { title_ko: "에든버러 프린지 A to Z", title_en: "Edinburgh Fringe A to Z", year: "2007", url: "https://drive.google.com/file/d/1rMgys4v1KHsJWyIQp_sOXtBC9EZHnWDr/view", cover: "img/covers/edinburgh.png", tags: ["mobility", "international"] },
+  { title_ko: "공공 문화공간 지속가능성 워크숍 — 도넛 경제학으로 우리 기관 들여다보기 (워크숍 시트)", title_en: "Sustainability Workshop for Public Cultural Spaces — Looking at Our Organisation through Doughnut Economics (workshop sheets)", year: "2026", url: "https://drive.google.com/file/d/1VgT2BIZ9JIc5YIGfubUt95NgLntZsk9O/view", note: { ko: "유럽 STAGES 프로젝트의 도넛 워크숍(Théâtre Vidy-Lausanne × 로잔대학교)을 한국 공공기관에 맞춰 한 세션으로 다시 만든 시트입니다.", en: "Sheets remaking the STAGES doughnut workshop (Théâtre Vidy-Lausanne × University of Lausanne) as a single session for Korean public organisations." }, tags: ["climate-crisis", "institutions", "process"] },
   { title_ko: "TNN : Dialogue in Asia — 사전 자료집", title_en: "TNN: Dialogue in Asia — Pre-forum Booklet", year: "2026", url: "https://drive.google.com/file/d/1NMc6hj7TR6JeGWIGCPeVddzKEYjnZojx/view?usp=drive_link", project: "tnn", cover: "img/covers/tnn-2026.jpg", tags: ["international"] },
   { title_ko: "디지털 드라마터지 워크숍 : 개념과 실천을 중심으로", title_en: "Digital Dramaturgy Workshop", year: "2025", url: "https://drive.google.com/file/d/1TVRmrDyJSDfyvbtR0A7q_L1zGsrPTeLO/view?usp=drive_link", project: "digital-dramaturgy", cover: "img/covers/digital-dramaturgy-2025.jpg", tags: ["tech-society", "process"] },
   { title_ko: "⬡⬡의 섬 : 강화도 결과보고집", title_en: "The Island of ⬡⬡ : Ganghwa", year: "2025", url: "https://drive.google.com/file/d/1W1GN-JpnbSK6YQOm3evwzBSLu5SEGPOi/view?usp=drive_link", project: "ganghwa", cover: "img/covers/island-ganghwa-2025.jpg", tags: ["borders-coexistence"] },
@@ -27,6 +32,9 @@ const DOCUMENTS = [
   { title_ko: "무용×기술 창작랩 : 포스트휴먼 & 포스트휴머니즘 (아카이브집)", title_en: "Dance×Technology Lab: Posthuman (Archive)", year: "2024", url: "https://drive.google.com/file/d/13T8JRG8mG9wmEa6LpOE5jPNm8ysaNZVM/view?usp=drive_link", project: "dance-techlab", cover: "img/covers/dtlab-2024.jpg", tags: ["tech-society", "posthuman", "process"] },
   { title_ko: "무용×기술 창작랩 : 포스트휴먼 & 포스트휴머니즘 (아카이브집)", title_en: "Dance×Technology Lab: Posthuman (Archive)", year: "2023", url: "https://drive.google.com/file/d/19mOugGca47pd6aXG8qeisLK5xQwv11tZ/view?usp=drive_link", project: "dance-techlab", cover: "img/covers/dtlab-2023.jpg", tags: ["tech-society", "posthuman", "process"] },
   { title_ko: "예술가 레지던시 — 기후변화 : 기후위기와 에너지", title_en: "Climate Change Residency: Energy", year: "2022", url: "https://drive.google.com/file/d/1w33vC6cEAug6U_JeyGTLAVKb5kThDXr2/view?usp=drive_link", project: "climate-residency", cover: "img/covers/climate-2022.jpg", tags: ["climate-crisis", "process"] },
+  { title_ko: "시어터 그린 북 1: 지속가능한 제작 (한국어판 공동 번역)", title_en: "Theatre Green Book 1: Sustainable Productions", year: "2021–22", url: "https://drive.google.com/file/d/19Y37RmTOJOpbN-VQMtSrwggfbW2f3E7J/view", project: "theatre-green-book", note: { ko: "2024년 1월 판본의 한국어 번역. 이후 원서가 개정되었습니다.", en: "Korean translation of the January 2024 edition. The original has since been updated." }, source: { label: { ko: "원서 사이트", en: "Original site" }, url: "https://theatregreenbook.com/other-languages-korean" }, tags: ["climate-crisis", "process"] },
+  { title_ko: "시어터 그린 북 2: 지속가능한 건물 (한국어판 공동 번역)", title_en: "Theatre Green Book 2: Sustainable Buildings", year: "2021–22", url: "https://drive.google.com/file/d/1uDevTBG8Ipqm5s1Na8vpI5cE-Hze5LU3/view", project: "theatre-green-book", note: { ko: "2024년 1월 판본의 한국어 번역. 이후 원서가 개정되었습니다.", en: "Korean translation of the January 2024 edition. The original has since been updated." }, source: { label: { ko: "원서 사이트", en: "Original site" }, url: "https://theatregreenbook.com/other-languages-korean" }, tags: ["climate-crisis", "process"] },
+  { title_ko: "시어터 그린 북 3: 지속가능한 운영 (한국어판 공동 번역)", title_en: "Theatre Green Book 3: Sustainable Operations", year: "2021–22", url: "https://drive.google.com/file/d/1Nkr4OE8tM0V-O1mLrPN4NyPW_0lNS3Z_/view", project: "theatre-green-book", note: { ko: "2024년 1월 판본의 한국어 번역. 이후 원서가 개정되었습니다.", en: "Korean translation of the January 2024 edition. The original has since been updated." }, source: { label: { ko: "원서 사이트", en: "Original site" }, url: "https://theatregreenbook.com/other-languages-korean" }, tags: ["climate-crisis", "process"] },
   { title_ko: "무용×기술 창작랩 결과자료집", title_en: "Dance×Technology Creative Lab", year: "2021–2022", url: "https://drive.google.com/file/d/1zte-wj-9rrW_Laew4rYxMfphF1H62Ei7/view?usp=drive_link", project: "dance-techlab", cover: "img/covers/dtlab-2022.jpg", tags: ["tech-society", "process"] },
   { title_ko: "커넥티드 시티 — 송도 프로젝트", title_en: "Connected City — Songdo Project", year: "2021", url: "https://drive.google.com/file/d/1YHSmN167VcEKupssmhuoBP4LXwoESQva/view?usp=drive_link", project: "connected-city", cover: "img/covers/connected-city-2021.jpg", tags: ["city-art"] },
   { title_ko: "예술가 레지던시 — 기후변화 : 관점의 전환", title_en: "Climate Change Residency: Shift of Perspective", year: "2021", url: "https://drive.google.com/file/d/1OWR8YlYKW4O-CUJB0u_DQgYAODi4Vf5-/view?usp=drive_link", project: "climate-residency", cover: "img/covers/climate-2021.jpg", tags: ["climate-crisis", "process"] },

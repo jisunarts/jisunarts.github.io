@@ -35,14 +35,16 @@
     { what: "data/documents.js (DOCUMENTS)", ok: typeof DOCUMENTS !== "undefined" },
     { what: "js/layout.js (esc)", ok: typeof esc === "function" },
     { what: "js/layout.js (bi)", ok: typeof bi === "function" },
+    { what: "js/layout.js (koOf)", ok: typeof koOf === "function" },
     { what: "js/layout.js (asset)", ok: typeof asset === "function" }
   ]);
   if (_miss.length) { bail(mount, "자료집", _miss); return; }
 
 
   /* --- 프로젝트별로 묶기 ------------------------------------------------
-     소제목마다 id 를 달아 documents.html#dance-techlab 로 바로 갈 수 있습니다.
-     어느 프로젝트에도 속하지 않는 자료집은 맨 아래 '그 외'로 모입니다.      */
+     계열의 첫 자료집에 id 를 달아 documents.html#dance-techlab 로 바로
+     갈 수 있습니다. ('그 외' 묶음은 없습니다 — 계열이 없는 자료집은
+     아래 설명대로 제 연도 자리에 혼자 놓입니다.)                          */
 
   const DICT = (typeof DOC_PROJECTS !== "undefined") ? DOC_PROJECTS : {};
 
@@ -54,8 +56,19 @@
       ? '<img src="' + esc(asset(doc.cover)) + '" alt="" loading="lazy">'
       : "";
 
+    /* 설명 한 줄과 원서 링크는 있을 때만. 원서 링크는 표지 링크 밖에 둡니다
+       (링크 안에 링크를 넣을 수 없고, 눌렀을 때 가는 곳이 서로 다릅니다). */
+    const note = doc.note
+      ? '<span class="doc-note" ' + bi(doc.note) + ">" + esc(koOf(doc.note)) + "</span>"
+      : "";
+
+    const source = (doc.source && doc.source.url)
+      ? '<a class="doc-source" href="' + esc(doc.source.url) + '" target="_blank" rel="noopener" ' +
+          bi(doc.source.label) + ">" + esc(koOf(doc.source.label)) + "</a>"
+      : "";
+
     return '<li class="doc-item"' + (anchor ? ' id="' + esc(anchor) + '"' : "") + ">" +
-      '<a href="' + esc(doc.url) + '" target="_blank" rel="noopener">' +
+      '<a class="doc-link" href="' + esc(doc.url) + '" target="_blank" rel="noopener">' +
 
         '<span class="doc-cover">' +
           /* 표지가 없을 때 뒤에서 보이는 자리 */
@@ -67,6 +80,8 @@
         '<span class="doc-year tnum">' + esc(doc.year) + "</span>" +
 
       "</a>" +
+      note +
+      source +
     "</li>";
   }
 

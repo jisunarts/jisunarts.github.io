@@ -366,7 +366,7 @@ a.cat-row:hover .cat-title { text-decoration: underline; }
 }
 .doc-item { scroll-margin-top: 90px; }   /* 계열 첫 자료집이 앵커 */
 
-.doc-item a { display: block; }
+.doc-link { display: block; }
 
 /* 표지 — 모두 같은 크기 (A4 비율) */
 .doc-cover {
@@ -385,14 +385,31 @@ a.cat-row:hover .cat-title { text-decoration: underline; }
   padding: 14px; font-size: 12.5px; line-height: 1.5;
 }
 
-.doc-item a:hover .doc-cover { border-color: var(--blue); box-shadow: inset 0 0 0 1px var(--blue); }
-.doc-item a:hover .doc-title { text-decoration: underline; text-underline-offset: 3px; }
+.doc-link:hover .doc-cover { border-color: var(--blue); box-shadow: inset 0 0 0 1px var(--blue); }
+.doc-link:hover .doc-title { text-decoration: underline; text-underline-offset: 3px; }
 
 .doc-title {
   display: block; margin-top: 9px;
   font-size: 12px; line-height: 1.5; letter-spacing: -0.012em;
 }
 .doc-year { display: block; margin-top: 2px; font-size: 10.5px; opacity: 0.55; }
+
+/* 표지 아래 덧붙이는 한 줄 설명과, 원문·원서로 나가는 작은 링크.
+   데이터에 note / source 가 있는 자료집에만 나옵니다. */
+.doc-note {
+  display: block; margin-top: 6px;
+  font-size: 10.5px; line-height: 1.55; opacity: 0.62;
+}
+.doc-source {
+  display: inline-block; margin-top: 5px;
+  font-size: 10.5px; line-height: 1.4; color: var(--blue);
+}
+.doc-source:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* 다른 화면에서 documents.html#계열 로 건너왔을 때 잠깐 짚어 줍니다 */
+.doc-item.is-target .doc-cover {
+  border-color: var(--blue); box-shadow: inset 0 0 0 1px var(--blue);
+}
 
 /* 4-3) 글(Writing) — 인덱스와 읽기 페이지 -------------------------------- */
 
