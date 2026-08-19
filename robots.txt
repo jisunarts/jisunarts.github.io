@@ -6,4 +6,7 @@ Allow: /
 Disallow: /data/documents-mock.html
 Disallow: /img/_archive/
 
+# 강의용 단독 화면 — 메뉴에도 sitemap 에도 없습니다 (페이지에 noindex 도 있습니다)
+Disallow: /climate.html
+
 Sitemap: https://jisunarts.com/sitemap.xml
