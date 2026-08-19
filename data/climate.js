@@ -36,11 +36,19 @@
 
 const CLIMATE = {
 
-  /* 작업이 놓이는 세 갈래. 이름을 고치면 화면 왼쪽 라벨이 바뀝니다.
-     순서대로 위에서 아래로 놓입니다. */
+  /* 작업이 놓이는 갈래. 이름을 고치면 화면 왼쪽 라벨이 바뀝니다.
+     순서대로 위에서 아래로 놓입니다.
+     baseline: false 를 적으면 기준선을 긋지 않습니다 (이름도 비워 두면
+     라벨 없이 자리만 남습니다 — 레인 사이에 놓는 작업용). */
   lanes: [
     { key: "residency",   name: "레지던시" },
     { key: "research",    name: "리서치 · 워크숍" },
+
+    /* 레인과 레인 사이의 자리 — 기준선도 이름도 없습니다.
+       리서치도 공연도 아닌 작업이 여기 놓입니다. 어느 기준선에도 붙지 않고
+       위아래로 여백이 더 넓게 잡힙니다. */
+    { key: "between",     name: "", baseline: false },
+
     { key: "performance", name: "공연" }
   ],
 
@@ -105,8 +113,8 @@ const CLIMATE = {
           lane: "research",
           url: "https://drive.google.com/file/d/1VgT2BIZ9JIc5YIGfubUt95NgLntZsk9O/view" },
 
-        { year: "2025–26", title: "앤드씨어터 × 아시아의 입과 눈",
-          lane: "research",
+        { year: "2025–26", title: "앤드씨어터 〈아시아의 입과 눈〉",
+          lane: "between",
           url: "now.html#asian-eyes",
           handoff: { lane: "performance", year: "2027" },
           note: "2025 데스크 리서치 · 2026 필드 리서치 · 2027 공연 제작" },

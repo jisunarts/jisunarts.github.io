@@ -175,11 +175,15 @@
     const plotPx = Math.max(520, probe.clientWidth - 96);   /* 96px = 왼쪽 레인 이름 칸 */
     mount.removeChild(probe);
 
-    /* 레인마다 자리 잡기 */
+    /* 레인마다 자리 잡기.
+       baseline: false 인 띠는 기준선을 긋지 않습니다 — 레인 사이에 놓이는
+       작업 자리입니다. */
     const lanes = laneDefs.map(function (l) {
       const items = byLane[l.key] || [];
       const n = items.length ? packLane(items, plotPx, x) : 1;
-      return { name: koOf(l.name), items: items, levels: n, height: (n - 1) * LVH + 58 };
+      return { name: koOf(l.name), items: items, levels: n,
+               base: l.baseline !== false,
+               height: (n - 1) * LVH + 58 };
     });
 
     /* --- 조각들 ------------------------------------------------------- */
@@ -245,10 +249,15 @@
     }
 
     const laneEls = lanes.map(function (l, i) {
-      return '<div class="ct-lane" style="height:' + l.height + "px" +
-             (i ? ";margin-top:" + GAP + "px" : "") + '">' +
-        '<span class="ct-lane-name">' + esc(l.name) + "</span>" +
-        '<i class="ct-base"></i>' +
+      /* 기준선 없는 띠는 위아래로 더 띄웁니다 — 어느 기준선에도 붙지 않게 */
+      const loose = !l.base || (lanes[i - 1] && !lanes[i - 1].base);
+      const gap = loose ? Math.round(GAP * 1.6) : GAP;
+
+      return '<div class="ct-lane' + (l.base ? "" : " is-free") +
+             '" style="height:' + l.height + "px" +
+             (i ? ";margin-top:" + gap + "px" : "") + '">' +
+        (l.name ? '<span class="ct-lane-name">' + esc(l.name) + "</span>" : "") +
+        (l.base ? '<i class="ct-base"></i>' : "") +
         l.items.map(itemEl).join("") +
       "</div>";
     }).join("");
