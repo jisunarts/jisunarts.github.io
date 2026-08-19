@@ -10,7 +10,9 @@
      · 상단 메뉴(data/site.js 의 SITE.nav)에 넣지 않습니다.
      · 검색에 뜨지 않게 아래 noindex 를 두고, sitemap.xml 에도 넣지 않습니다.
        (robots.txt 에도 같은 뜻으로 한 줄 적어 두었습니다.)
-     · 그래서 공유 카드(OG) 태그도 두지 않습니다 — 펼쳐 보일 일이 없습니다. -->
+     · 그래서 공유 카드(OG) 태그도 두지 않습니다 — 펼쳐 보일 일이 없습니다.
+     · 이 화면만 색이 반대입니다(파란 바탕·흰 글씨·연두 포인트).
+       그 규칙은 css/style.css 의 body[data-page="climate"] 안에 모여 있습니다. -->
 <meta name="robots" content="noindex, nofollow">
 
 <!-- 탭 아이콘 — 로고와 같은 연두 점. 경로를 / 로 시작해야
@@ -23,27 +25,24 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/wanted-sans@1.0.3/fonts/webfonts/variable/split/WantedSansVariable.css">
-<link rel="stylesheet" href="css/style.css?v=20260818c">
+<link rel="stylesheet" href="css/style.css?v=20260818d">
 </head>
 
 <body data-page="climate">
 
-<!-- 헤더·푸터 없이 내용만. 화면에 띄웠을 때 메뉴가 끼어들지 않게 합니다.
+<!-- 헤더·푸터 없이 그림만. 화면에 띄웠을 때 메뉴가 끼어들지 않게 합니다.
      왼쪽 위 연두 점 하나만 홈으로 돌아가는 길로 남겨 둡니다. -->
-<main class="wrap climate">
+<a class="ct-home" href="index.html" aria-label="박지선 홈">
+  <span class="logo-dot" aria-hidden="true"></span>
+</a>
 
-  <h1 class="sr-only">기후 — 작업의 흐름</h1>
-
-  <a class="cl-home" href="index.html" aria-label="박지선 홈">
-    <span class="logo-dot" aria-hidden="true"></span>
-  </a>
-
+<main class="climate-main">
+  <h1 class="sr-only">기후 — 개념의 등장과 작업의 흐름, 2020–2027</h1>
   <div id="climate-mount"></div>
-
 </main>
 
-<script src="data/climate.js?v=20260818c"></script>
-<script src="js/layout.js?v=20260818c"></script>
-<script src="js/climate.js?v=20260818c"></script>
+<script src="data/climate.js?v=20260818d"></script>
+<script src="js/layout.js?v=20260818d"></script>
+<script src="js/climate.js?v=20260818d"></script>
 </body>
 </html>
