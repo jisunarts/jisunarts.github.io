@@ -19,7 +19,7 @@ const TYPES = {
 
 const ARCHIVE = [
   // ── 소속 · 주요 재직 (AF) ──
-  { year: "2014–", type: "AF", title_ko: "프로듀서 그룹 도트 — 크리에이티브 프로듀서 (공동 창립)", title_en: "Producer Group DOT — Co-director (co-founder)", links: [{ url: "http://producergroupdot.kr" }], order: 1, tags: ["region-community", "independent", "horizontal"] },
+  { year: "2014–", type: "AF", title_ko: "프로듀서 그룹 도트 — 크리에이티브 프로듀서 (공동 창립)", title_en: "Producer Group DOT — Co-director (co-founder)", links: [{ url: "https://producergroupdot.kr" }], order: 1, tags: ["region-community", "independent", "horizontal"] },
   { year: "2013–", type: "AF", title_ko: "아시아프로듀서플랫폼(APP)/더프로듀서 추진단 — 대표·기획위원", title_en: "Asian Producers' Platform (APP) — Director", links: [{ label: { ko: "지금 보기", en: "See in Now" }, url: "now.html#app" }, { label: { ko: "웹사이트", en: "Website" }, url: "https://www.asianproducersplatform.com" }], order: 2, tags: ["asian-solidarity", "independent", "horizontal", "institutions"] },
   { year: "2020", type: "AF", title_ko: "서울국제도서전 — 총감독 (2020.2–2021.2)·기획위원(2018·2019)", title_en: "Seoul Int'l Book Fair — Director", order: 3, tags: ["international", "institutions"] },
   { year: "2005–09", type: "AF", title_ko: "아시아나우 — 공동 창설·프로듀서 (국제프로젝트 기획 총괄)", title_en: "AsiaNow — Co-founder, Producer", order: 5, tags: ["asian-solidarity", "international", "region-community", "independent", "horizontal"] },
@@ -60,7 +60,7 @@ const ARCHIVE = [
   { year: "2017", type: "PF", title_ko: "무제의 길 〈플러그인 시티〉 — 게임 앱 기반 이동형 공연 @플랫폼엘", title_en: "Untitled Road 〈Plug-in City〉 — app-based mobile performance", links: [{ url: "https://www.untitledroad.com/projects/plug-in-city" }], tags: ["mobility"] },
   { year: "2017", type: "PF", title_ko: "창작그룹노니 〈안녕2017 安寧〉 — 안산국제거리극축제 개막작", title_en: "NONI 〈Annyeong 2017〉 — Ansan Street Arts Festival opening", tags: ["international", "festival", "multidisciplinary"] },
   { year: "2016", type: "PF", title_ko: "무제의 길 〈무제의 열차〉 — 안산거리극축제 초연", title_en: "Untitled Road 〈Untitled Train〉 — Ansan premiere", links: [{ url: "https://www.untitledroad.com/projects/untitled-train" }], tags: ["festival", "multidisciplinary"] },
-  { year: "2016", type: "PF", title_ko: "한–불 공동제작 창작그룹노니 〈역:STATION:驛〉 — 한국·프랑스 초청", title_en: "NONI 〈Station〉 KR–FR co-production", links: [{ url: "http://producergroupdot.kr/portfolio/creative-group-noni/station/" }], tags: ["international", "region-community"] },
+  { year: "2016", type: "PF", title_ko: "한–불 공동제작 창작그룹노니 〈역:STATION:驛〉 — 한국·프랑스 초청", title_en: "NONI 〈Station〉 KR–FR co-production", tags: ["international", "region-community"] },
   { year: "2016", type: "PF", title_ko: "한–베 공동제작 〈기억하는 사물들–베트남〉", title_en: "〈Objects that Remember – Vietnam〉 KR–VN", tags: ["international", "region-community"] },
   { year: "2016", type: "PF", title_ko: "한–아르헨티나 공동제작 〈기억하는 사물들–아르헨티나〉", title_en: "〈Objects that Remember – Argentina〉 KR–AR", tags: ["international", "region-community"] },
   { year: "2016", type: "PF", title_ko: "봉앤줄 컨템포러리 서커스 〈봉앤줄〉 @서강대 메리홀", title_en: "〈Bong & Jul〉 contemporary circus", tags: ["multidisciplinary"] },
