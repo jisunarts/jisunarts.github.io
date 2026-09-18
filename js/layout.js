@@ -187,7 +187,9 @@ function catLabel(v) { return CATEGORY[v] || v; }
   }).join("");
 
   const contacts = (SITE.footer.contact || []).map(function (c) {
-    return '<a href="' + esc(c.url) + '" rel="noopener">' + esc(c.label) + "</a>";
+    /* label 이 { ko, en } 이어도 되도록 — 지금은 문자열뿐이지만 위 메뉴와 같은 처리 */
+    return '<a href="' + esc(c.url) + '" rel="noopener" ' + bi(c.label) + ">" +
+      esc(koOf(c.label)) + "</a>";
   }).join("");
 
   mount.outerHTML =
@@ -197,4 +199,32 @@ function catLabel(v) { return CATEGORY[v] || v; }
         '<p class="footer-copy" ' + bi(SITE.footer.copy) + ">" + esc(koOf(SITE.footer.copy)) + "</p>" +
       "</div>" +
     "</footer>";
+})();
+
+
+/* --- 사진 보호 ---------------------------------------------------------
+   사진만 우클릭 저장과 끌어놓기를 막습니다. 완전한 보호는 아닙니다 —
+   개발자 도구나 주소 직접 열기로는 여전히 받을 수 있습니다. 실수로
+   끌어가거나 무심코 저장하는 것을 한 겹 막아 두는 정도입니다.
+
+   일부러 하지 않는 것:
+   · 글자 선택·복사는 그대로 둡니다 (user-select 를 건드리지 않습니다).
+   · 문서 전체의 우클릭을 막지 않습니다. e.target 이 <img> 일 때만 막으므로
+     글자와 링크에서는 길게 누르기·우클릭이 평소대로 뜹니다.
+   · 링크는 손대지 않습니다. 사진이 링크 안에 있어도 눌러서 여는 것은
+     그대로입니다 (다만 그 사진 위에서 길게 눌러 나오는 메뉴는 함께 사라집니다 —
+     사진을 막는 이상 피할 수 없는 맞바꿈입니다).
+
+   슬라이드·포토북과 부딪히지 않습니다: 두 곳 모두 click 과 네이티브
+   스크롤(scroll-snap)로 움직이고, drag·pointer 이벤트를 쓰지 않습니다. */
+(function protectImages() {
+  function isImage(el) { return el && el.tagName === "IMG"; }
+
+  document.addEventListener("contextmenu", function (e) {
+    if (isImage(e.target)) e.preventDefault();
+  });
+
+  document.addEventListener("dragstart", function (e) {
+    if (isImage(e.target)) e.preventDefault();
+  });
 })();

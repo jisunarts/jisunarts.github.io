@@ -127,9 +127,11 @@
     html += '<section class="pj-section">' + head(p.posters.label) +
       '<ul class="pj-posters">' +
         p.posters.files.map(function (f) {
-          return '<li><img src="' + BASE + esc(asset(f.src)) + '" alt="' + esc(f.alt || "") + '" ' +
+          return '<li><img src="' + BASE + esc(asset(f.src)) + '" alt="' + esc(koOf(f.alt)) + '" ' +
             'loading="lazy">' +
-            (f.caption ? '<span class="pj-poster-cap">' + esc(f.caption) + "</span>" : "") +
+            (f.caption
+              ? '<span class="pj-poster-cap" ' + bi(f.caption) + ">" + esc(koOf(f.caption)) + "</span>"
+              : "") +
           "</li>";
         }).join("") +
       "</ul></section>";
@@ -156,12 +158,14 @@
       if (m.type === "video") {
         inner = videoFacade(m.id, m.poster);
       } else {
-        inner = '<img src="' + BASE + esc(asset(m.src)) + '" alt="' + esc(m.alt || "") + '"' +
+        inner = '<img src="' + BASE + esc(asset(m.src)) + '" alt="' + esc(koOf(m.alt)) + '"' +
           size(m) + ' loading="lazy">';
       }
 
       return '<li data-span="' + span + '">' + inner +
-        (m.caption ? '<span class="pj-media-cap">' + esc(m.caption) + "</span>" : "") +
+        (m.caption
+          ? '<span class="pj-media-cap" ' + bi(m.caption) + ">" + esc(koOf(m.caption)) + "</span>"
+          : "") +
       "</li>";
     }).join("") + "</ul>";
   }
@@ -192,7 +196,7 @@
         '<p class="pj-work-title" ' + bi(w.title) + ">" + esc(koOf(w.title)) + "</p>" +
         (w.link
           ? '<p class="pj-work-link"><a href="' + esc(w.link.url) + '" target="_blank" ' +
-              'rel="noopener">' + esc(w.link.label) + " ↗</a></p>"
+              'rel="noopener" ' + bi(w.link.label) + ">" + esc(koOf(w.link.label)) + " ↗</a></p>"
           : "") +
       "</div>";
     }).join("");
@@ -346,7 +350,9 @@
   function videoCell(id, span, caption, poster) {
     return '<li data-span="' + (span || 4) + '">' +
       videoFacade(id, poster) +
-      (caption ? '<span class="pj-media-cap">' + esc(caption) + "</span>" : "") +
+      (caption
+        ? '<span class="pj-media-cap" ' + bi(caption) + ">" + esc(koOf(caption)) + "</span>"
+        : "") +
     "</li>";
   }
 
@@ -387,7 +393,8 @@
 
       return '<section class="pj-edition">' +
         '<h3 class="pj-edition-title">' +
-          '<span class="tnum">' + esc(ed.year) + "</span> · " + esc(ed.title) +
+          '<span class="tnum">' + esc(ed.year) + "</span> · " +
+          "<span " + bi(ed.title) + ">" + esc(koOf(ed.title)) + "</span>" +
         "</h3>" +
         '<ul class="pj-media">' +
           (ed.video ? videoCell(ed.video, 4, ed.year + " 기록 영상", ed.poster) : "") +

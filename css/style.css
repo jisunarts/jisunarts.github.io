@@ -130,6 +130,13 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 img {
   max-width: 100%; height: auto; display: block;
   border: 1px solid rgba(22, 104, 224, 0.08);
+
+  /* 사진 보호 — 끌어놓기와 길게 누르기 저장 메뉴를 막습니다.
+     js/layout.js 의 protectImages() 와 한 벌입니다.
+     사진에만 걸어야 합니다. a·body 에 걸면 링크의 길게 누르기까지 사라지고,
+     user-select 는 건드리지 않으므로 글자 선택·복사는 그대로입니다. */
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
 }
 /* 로고와 '이미 테두리가 있는 상자 안의 사진'은 제외 */
 .brand-logo img, .home-logo img,
