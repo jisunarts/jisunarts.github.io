@@ -34,13 +34,18 @@
         esc(koOf(PHOTOBOOK.back)) + "</a>"
     : "";
 
+  /* 크레딧 한 줄 — 마지막 칸에 '← 사진' 링크와 함께. 문구는 데이터의 credit 에 */
+  const credit = PHOTOBOOK.credit
+    ? '<p class="pb-credit" ' + bi(PHOTOBOOK.credit) + ">" + esc(koOf(PHOTOBOOK.credit)) + "</p>"
+    : "";
+
   strip.innerHTML =
     pages.map(function (page, i) {
       return '<div class="pb-page" data-page="' + i + '" data-n="' + page.length + '">' +
         page.map(function (n) { return imgTag(n, i < 2); }).join("") +
       "</div>";
     }).join("") +
-    (back ? '<div class="pb-page pb-end">' + back + "</div>" : "");
+    (back || credit ? '<div class="pb-page pb-end">' + back + credit + "</div>" : "");
 
   /* 진행 — 데스크톱은 2px 막대, 모바일은 '몇 / 98' */
   const bar   = document.getElementById("photobook-progress");

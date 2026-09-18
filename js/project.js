@@ -350,13 +350,25 @@
     "</li>";
   }
 
+  /* 사진 크레딧 한 줄 — 참가자 목록(위)과 같은 처리입니다.
+     credit 은 문자열일 수도 { ko, en } 일 수도 있습니다. 객체를 esc() 에 그대로
+     넘기면 화면에 [object Object] 가 찍히므로 bi()·koOf() 를 거칩니다.
+     bi() 를 붙여야 KO/EN 토글에서 영문으로도 바뀝니다. */
+  function creditLine(credit) {
+    return '<p class="pj-photo-credit" ' + bi(credit) + ">" + esc(koOf(credit)) + "</p>";
+  }
+
   let galleryHtml = "";
   const spannedPhotos = spanned.filter(function (m) { return m.type !== "video"; }).length;
+
+  /* '사진 전체 보기' 슬라이드는 격자에 다 나오지 않은 사진이 있을 때만 폅니다.
+     크레딧은 그 조건과 별개입니다 — 사진이 한 장뿐이라 그 한 장이 격자에 다
+     들어가고 슬라이드가 없어도, 사진이 있으면 크레딧은 나와야 합니다. */
   if (gallery.length > spannedPhotos) {
     galleryHtml = slideBlock("all", { ko: "사진 전체 보기", en: "See all photos" }, gallery,
-                             photoData.filter(function (m) { return m.type !== "video" && m.src; })) +
-      (photoCredit ? '<p class="pj-photo-credit">' + esc(photoCredit) + "</p>" : "");
+                             photoData.filter(function (m) { return m.type !== "video" && m.src; }));
   }
+  if (gallery.length && photoCredit) galleryHtml += creditLine(photoCredit);
 
   /* ── 연도별 블록 (기후변화 레지던시처럼 해마다 나뉘는 프로젝트) ────── */
   let editionsHtml = "";
@@ -391,7 +403,7 @@
         videoCell(p.closingVideo.id, p.closingVideo.span || 4, p.closingVideo.caption) +
       "</ul></section>";
     }
-    if (photoCredit) editionsHtml += '<p class="pj-photo-credit">' + esc(photoCredit) + "</p>";
+    if (photoCredit) editionsHtml += creditLine(photoCredit);
   }
 
   /* 태그 — 맨 끝 -------------------------------------------------------- */

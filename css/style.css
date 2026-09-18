@@ -85,7 +85,8 @@ h1, h2, h3,
 .pj-media-cap, .pj-poster-cap, .pj-photo-credit, .pj-role-label,
 .hero-photo figcaption, .detail-media figcaption,
 .page-count, .section-num, .lang, .lang button,
-.lb-count, .pj-slide-count, .qb-tag-n, .now-credit {
+.lb-count, .pj-slide-count, .qb-tag-n, .now-credit,
+.ph-credit, .pb-credit {
   font-family: var(--font-meta);
   font-weight: var(--w-meta);
   font-feature-settings: "tnum" 1;
@@ -1010,6 +1011,9 @@ body[data-theme="invert"] .lang button[aria-pressed="true"] {
   font-size: 11px; opacity: 0.55; letter-spacing: 0.02em;
 }
 
+/* 사진 — 개수 바로 아래 크레딧 한 줄 (이 섹션 사진은 모두 본인 촬영) */
+.ph-credit { margin-top: 8px; font-size: 11px; opacity: 0.55; line-height: 1.5; }
+
 /* 기록 — 지금 걸린 시기 필터 */
 .cat-filter {
   display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px;
@@ -1061,8 +1065,13 @@ body.book { overflow: hidden; }
 /* 모바일 진행 표시 (몇 / 98) — 데스크톱에서는 감춤 */
 .pb-count { display: none; }
 
-/* 줄의 맨 끝 — 돌아가기 링크 */
-.pb-end { flex: 0 0 auto; padding-right: 20px; }
+/* 줄의 맨 끝 — 돌아가기 링크와 크레딧 한 줄.
+   .pb-page 의 display:contents 를 여기서 되돌려 둘을 세로로 쌓습니다. */
+.pb-end {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
+  flex: 0 0 auto; padding-right: 20px;
+}
+.pb-credit { font-size: 11px; opacity: 0.55; line-height: 1.5; max-width: 26ch; }
 .pb-back { font-size: 13px; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
 .pb-back:hover { background: var(--blue); color: var(--paper); text-decoration: none; }
 
@@ -1641,7 +1650,12 @@ body[data-chrome="min"] .nav-toggle { display: none; }
     border: 0;
   }
 
-  .pb-end { padding: 0 var(--pad); }
+  /* 마지막 칸 — 한 화면을 쓰므로 링크와 크레딧을 가운데에 세로로 */
+  .pb-end {
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: flex-start; gap: 14px;
+    padding: 0 var(--pad);
+  }
   .pb-progress { display: none; }
 
   /* 몇 / 98 — 방해되지 않는 작은 파란 글씨 */

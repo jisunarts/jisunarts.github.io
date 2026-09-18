@@ -19,6 +19,17 @@
          백종관 Paik Jongkwan   홍소이 Hong Soi     배요섭 Bae Yosup (Yoseop 아님)
          이주야 Lee Juya        최봉민 Choi Bongmin  전윤환 Jeon Yunhwan
 
+   · 사진 크레딧(photos.credit)의 박지선은 국문·영문 모두 'Jisun' 한 단어로 씁니다.
+     사진에 쓰는 이름이 따로 있는 것이라, 성+이름 규칙(Park Jisun)의 예외입니다.
+     나중에 로마자 표기를 일괄 정리하더라도 이 값은 'Park Jisun' 으로 고치지 마세요.
+
+   · 사진 크레딧의 형식은 두 갈래로만 씁니다 — 촬영형과 제공형.
+         본인 촬영  사진 촬영 Jisun / Photographs by Jisun
+         기관 제공  사진 제공 ○○○ / Photographs courtesy of ○○○
+     행사명·연도 같은 앞머리는 붙이지 않습니다 (설명은 캡션이 할 일입니다).
+     값은 반드시 { ko, en } 으로 씁니다 — 문자열로 두면 KO/EN 토글에서
+     영문으로 바뀌지 않습니다.
+
    · 데이터는 렌더 코드(js/project.js)가 이미 아는 키로만 넣습니다.
      새 키를 만들면 렌더 코드를 함께 고쳐야 하고, 그 페이지만 구조가 달라집니다.
      (sections2 · lead · source 로 같은 실수를 세 번 했습니다.)
@@ -84,7 +95,7 @@ const PROJECTS = {
     photos: {
       label: { ko: "사진", en: "Photographs" },
       dir: "img/works/app/",
-      credit: "",
+      credit: { ko: "사진 제공 아시아 프로듀서 플랫폼", en: "Photographs courtesy of the Asian Producers' Platform" },
       items: [
         { src: "01.jpg", w: 1200, h: 890, span: 4 },
         { src: "02.jpg", w: 1200, h: 800, span: 2 },
@@ -448,7 +459,7 @@ const PROJECTS = {
     },
 
     photos: {
-      credit: { ko: "2025 무용기술 오픈위크 · 사진 제공 국립현대무용단", en: "2025 Dance & Technology Open Week · Photographs courtesy of the Korea National Contemporary Dance Company" },
+      credit: { ko: "사진 제공 국립현대무용단", en: "Photographs courtesy of the Korea National Contemporary Dance Company" },
       label: { ko: "사진", en: "Photographs" },
       dir: "img/works/dance-techlab/",
       items: [
@@ -495,7 +506,7 @@ const PROJECTS = {
     photos: {
       label: { ko: "사진", en: "Photographs" },
       dir: "img/works/sync-de-sync/",
-      credit: "Jisun",
+      credit: { ko: "사진 촬영 Jisun", en: "Photographs by Jisun" },
       items: [
         { src: "01.jpg", w: 1600, h: 905, span: 4 },
         { src: "02.jpg", w: 1600, h: 906, span: 2 },
@@ -647,7 +658,7 @@ const PROJECTS = {
        span 이 붙은 5장(1 · 2 · 3 · 4 · 15)이 오른쪽 격자에 그 순서대로 들어가고,
        20장 전부는 아래 '사진' 슬라이드에서 볼 수 있습니다.                   */
     photos: {
-      credit: "Jisun",
+      credit: { ko: "사진 촬영 Jisun", en: "Photographs by Jisun" },
       label: { ko: "사진", en: "Photographs" },
       dir: "img/photos/ganghwa/",
       items: [

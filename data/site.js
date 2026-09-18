@@ -66,6 +66,18 @@ const SITE = {
     en: "Park Jisun is a creative producer, independent producer, and researcher. Beginning in festivals and international exchange, she now returns to art's fundamentals before the climate crisis and an age of technology — favoring process over result, relationship over market, and horizontality over hierarchy."
   },
 
+  /* 사진(Photographs) 섹션 크레딧 ---------------------------------------
+     사진 페이지 맨 아래에 한 줄로 들어갑니다. 이 섹션의 사진은 모두 본인
+     촬영이라 사진마다 크레딧을 달지 않고 섹션 끝에 한 줄로 갈음합니다.
+     (프로젝트 상세의 사진은 저마다 출처가 달라서 data/projects.js 의
+      photos.credit 에 따로 있습니다.)
+     사진 크레딧의 박지선은 국문·영문 모두 'Jisun' 한 단어로 씁니다 —
+     성+이름 규칙(Park Jisun)의 예외이니 표기 정리 때 고치지 마세요.        */
+  photoCredit: {
+    ko: "이 섹션의 사진은 모두 Jisun이 촬영했습니다.",
+    en: "All photographs in this section by Jisun."
+  },
+
   /* 궤적(네 시기)은 data/trajectory.js 에 따로 있습니다. -------------------- */
 
   /* 홈 — 섹션 입구 카드 설명 -------------------------------------------- */

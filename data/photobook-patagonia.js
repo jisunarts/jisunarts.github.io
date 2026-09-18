@@ -7,6 +7,14 @@
 const PHOTOBOOK = {
   dir: "../img/photos/patagonia/",
   back: { href: "../photos.html", ko: "← 사진", en: "← Photographs" },
+  /* 크레딧 한 줄 — 맨 마지막 칸에 '← 사진' 링크와 함께 놓입니다.
+     98장 모두 본인 촬영이라 사진마다 달지 않고 끝에서 한 번에 밝힙니다.
+     사진 크레딧의 박지선은 국문·영문 모두 'Jisun' 한 단어로 씁니다 —
+     성+이름 규칙(Park Jisun)의 예외이니 표기 정리 때 고치지 마세요. */
+  credit: {
+    ko: "이 섹션의 사진은 모두 Jisun이 촬영했습니다.",
+    en: "All photographs in this section by Jisun."
+  },
   /* 모바일 페이지 넘김용 조합 — 한 페이지에 담기는 사진 번호(1부터).
      가로 사진은 2장씩 위아래로, 세로 사진(1 · 9 · 58)은 1장 단독.
      순서는 001~098 그대로이며 한 번 정해 고정해 둡니다. */

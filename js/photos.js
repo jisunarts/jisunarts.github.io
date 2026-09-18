@@ -113,6 +113,15 @@
     count.textContent = "전체 " + PHOTOS.length + "묶음";
   }
 
+  /* 섹션 크레딧 한 줄 — 개수 바로 아래. 문구는 data/site.js 의 photoCredit.
+     이 섹션 사진은 모두 본인 촬영이라 사진마다 달지 않고 여기서 한 번에 밝힙니다.
+     bi() 로 data-ko/data-en 을 함께 넣어야 KO/EN 토글에서 영문으로 바뀝니다. */
+  const credit = document.getElementById("photos-credit");
+  if (credit && typeof SITE !== "undefined" && SITE.photoCredit) {
+    credit.outerHTML = '<p class="ph-credit" id="photos-credit" ' + bi(SITE.photoCredit) + ">" +
+      esc(koOf(SITE.photoCredit)) + "</p>";
+  }
+
   /* --- 갤러리 열기 (창은 js/lightbox.js 공용) ---------------------------- */
 
   mount.addEventListener("click", function (e) {
