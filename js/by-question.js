@@ -93,6 +93,7 @@
 
   if (typeof DOCUMENTS !== "undefined") {
     DOCUMENTS.forEach(function (it) {
+      if (it.hidden) return;   /* 화면에서 뺀 자료집 (data/documents.js 의 hidden) */
       add("documents", {
         tags: it.tags || [],
         title: { ko: it.title_ko, en: it.title_en || it.title_ko },

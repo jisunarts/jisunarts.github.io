@@ -48,6 +48,9 @@
 
   const DICT = (typeof DOC_PROJECTS !== "undefined") ? DOC_PROJECTS : {};
 
+  /* hidden: true 인 자료집은 데이터에 남겨 두고 화면에서만 뺍니다 */
+  const DOCS = DOCUMENTS.filter(function (d) { return !d.hidden; });
+
   function card(doc, anchor) {
 
     const title = { ko: doc.title_ko, en: doc.title_en || doc.title_ko };
@@ -100,7 +103,7 @@
   /* 묶기 — project 가 없거나 사전에 없는 자료는 혼자서 한 묶음이 됩니다 */
   const groups = [];
   const byKey = {};
-  DOCUMENTS.forEach(function (d) {
+  DOCS.forEach(function (d) {
     const key = (d.project && DICT[d.project]) ? d.project : null;
     if (!key) { groups.push({ key: null, docs: [d] }); return; }
     if (!byKey[key]) { byKey[key] = { key: key, docs: [] }; groups.push(byKey[key]); }
@@ -154,8 +157,8 @@
   /* 개수 */
   const count = document.getElementById("documents-count");
   if (count) {
-    count.setAttribute("data-ko", "전체 " + DOCUMENTS.length + "권");
-    count.setAttribute("data-en", DOCUMENTS.length + " publications");
-    count.textContent = "전체 " + DOCUMENTS.length + "권";
+    count.setAttribute("data-ko", "전체 " + DOCS.length + "권");
+    count.setAttribute("data-en", DOCS.length + " publications");
+    count.textContent = "전체 " + DOCS.length + "권";
   }
 })();
