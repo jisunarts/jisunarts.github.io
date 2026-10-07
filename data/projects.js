@@ -454,7 +454,7 @@ const PROJECTS = {
     links: {
       label: { ko: "자료집", en: "Publications" },
       items: [
-        { ko: "자료집 3종 보기", en: "3 publications", url: "documents.html#dance-techlab" }
+        { ko: "자료집 4종 보기", en: "4 publications", url: "documents.html#dance-techlab" }
       ]
     },
 
