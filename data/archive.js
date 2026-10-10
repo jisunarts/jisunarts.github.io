@@ -27,7 +27,7 @@ const ARCHIVE = [
   { year: "2002–09", type: "AF", title_ko: "춘천마임축제 — 기획실장", title_en: "Chuncheon Mime Festival — Planning Director", order: 6, tags: ["festival"] },
 
   // ── 협력 예술가 (CL) ──
-  { year: "2023–", type: "CA", title_ko: "황수현", title_en: "Hwang Soohyun", tags: ["etc"] },
+  { year: "2023–", type: "CA", title_ko: "황수현", title_en: "Hwang Soohyun", links: [{ url: "https://soohyunhwang.com/" }], tags: ["etc"] },
   { year: "2020–", type: "CA", title_ko: "권병준", title_en: "Kwon Byungjun", links: [{ url: "https://byungjun.pe.kr/" }], tags: ["etc"] },
   { year: "2015–", type: "CA", title_ko: "김보람 (무제의 길)", title_en: "Kim Boram (Untitled Road)", links: [{ url: "https://www.untitledroad.com/" }], tags: ["etc"] },
   { year: "2021–", type: "CA", title_ko: "앤드씨어터", title_en: "AND Theatre", links: [{ url: "https://www.instagram.com/and_theatre/" }], tags: ["etc"] },
